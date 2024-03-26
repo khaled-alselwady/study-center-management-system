@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,8 +52,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainMenu\frmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu\frmMainMenu.Designer.cs">
+      <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainMenu\frmMainMenu.resx">
+      <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -56,7 +71,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +92,54 @@
       <Project>{fd62aa33-b9a1-48da-b69b-0a919c828b1f}</Project>
       <Name>StudyCenter_Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImageSlide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard-white-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard-blue-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\students-white-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\students-blue-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teachers-white-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teachers-blue-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\classes-white-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\classes-blue-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groups-white-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groups-blue-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-white-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-blue-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-white-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-blue-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\study-center-white-125.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
