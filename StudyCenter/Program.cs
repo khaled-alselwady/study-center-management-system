@@ -1,4 +1,4 @@
-﻿using StudyCenter.People;
+﻿using StudyCenter.MainMenu;
 using System;
 using System.Windows.Forms;
 
@@ -14,8 +14,7 @@ namespace StudyCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmMainMenu());
-            Application.Run(new frmAddEditPerson());
+            Application.Run(new frmMainMenu());
         }
     }
 }
