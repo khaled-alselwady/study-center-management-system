@@ -6,9 +6,9 @@ namespace StudyCenter_DataAccess
 {
     public class clsPersonData
     {
-        public static bool GetPersonInfoByID(int? personID, ref string firstName, ref string secondName,
-            ref string thirdName, ref string lastName, ref byte gender, ref DateTime dateOfBirth,
-            ref string phoneNumber, ref string email, ref string address, ref bool isActive)
+        public static bool GetPersonInfoByID(int? personID, ref string firstName,
+            ref string secondName, ref string thirdName, ref string lastName, ref byte gender,
+            ref DateTime dateOfBirth, ref string phoneNumber, ref string email, ref string address)
         {
             bool isFound = false;
 
@@ -40,7 +40,6 @@ namespace StudyCenter_DataAccess
                                 phoneNumber = (string)reader["PhoneNumber"];
                                 email = (reader["Email"] != DBNull.Value) ? (string)reader["Email"] : null;
                                 address = (reader["Address"] != DBNull.Value) ? (string)reader["Address"] : null;
-                                isActive = (bool)reader["IsActive"];
                             }
                             else
                             {
@@ -69,7 +68,9 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static int? AddNewPerson(string firstName, string secondName, string thirdName, string lastName, byte gender, DateTime dateOfBirth, string phoneNumber, string email, string address, bool isActive)
+        public static int? AddNewPerson(string firstName, string secondName,
+            string thirdName, string lastName, byte gender, DateTime dateOfBirth,
+            string phoneNumber, string email, string address)
         {
             // This function will return the new person id if succeeded and null if not
             int? personID = null;
@@ -93,7 +94,6 @@ namespace StudyCenter_DataAccess
                         command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                         command.Parameters.AddWithValue("@Email", (object)email ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Address", (object)address ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@IsActive", isActive);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewPersonID", SqlDbType.Int)
                         {
@@ -121,7 +121,9 @@ namespace StudyCenter_DataAccess
             return personID;
         }
 
-        public static bool UpdatePerson(int? personID, string firstName, string secondName, string thirdName, string lastName, byte gender, DateTime dateOfBirth, string phoneNumber, string email, string address, bool isActive)
+        public static bool UpdatePerson(int? personID, string firstName,
+            string secondName, string thirdName, string lastName, byte gender,
+            DateTime dateOfBirth, string phoneNumber, string email, string address)
         {
             int rowAffected = 0;
 
@@ -145,7 +147,6 @@ namespace StudyCenter_DataAccess
                         command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                         command.Parameters.AddWithValue("@Email", (object)email ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Address", (object)address ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@IsActive", isActive);
 
                         rowAffected = command.ExecuteNonQuery();
                     }

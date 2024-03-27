@@ -9,17 +9,22 @@ namespace StudyCenter_Business
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
+        public enum enGender { Male = 0, Female = 1 };
+
         public int? PersonID { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
-        public byte Gender { get; set; }
+        public enGender Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
-        public bool IsActive { get; set; }
+
+        public string FullName => (ThirdName != null) ? string.Concat(FirstName, " ", SecondName, " ", ThirdName, " ", LastName)
+                                                      : string.Concat(FirstName, " ", SecondName, " ", LastName);
+        public string GenderName => Gender.ToString();
 
         public clsPerson()
         {
@@ -28,17 +33,18 @@ namespace StudyCenter_Business
             SecondName = string.Empty;
             ThirdName = null;
             LastName = string.Empty;
-            Gender = 0;
+            Gender = enGender.Male;
             DateOfBirth = DateTime.Now;
             PhoneNumber = string.Empty;
             Email = null;
             Address = null;
-            IsActive = false;
 
             Mode = enMode.AddNew;
         }
 
-        private clsPerson(int? personID, string firstName, string secondName, string thirdName, string lastName, byte gender, DateTime dateOfBirth, string phoneNumber, string email, string address, bool isActive)
+        private clsPerson(int? personID, string firstName, string secondName, string thirdName,
+            string lastName, enGender gender, DateTime dateOfBirth, string phoneNumber,
+            string email, string address)
         {
             PersonID = personID;
             FirstName = firstName;
@@ -50,21 +56,22 @@ namespace StudyCenter_Business
             PhoneNumber = phoneNumber;
             Email = email;
             Address = address;
-            IsActive = isActive;
 
             Mode = enMode.Update;
         }
 
         private bool _AddNewPerson()
         {
-            PersonID = clsPersonData.AddNewPerson(FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, PhoneNumber, Email, Address, IsActive);
+            PersonID = clsPersonData.AddNewPerson(FirstName, SecondName, ThirdName,
+                LastName, (byte)Gender, DateOfBirth, PhoneNumber, Email, Address);
 
             return (PersonID.HasValue);
         }
 
         private bool _UpdatePerson()
         {
-            return clsPersonData.UpdatePerson(PersonID, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, PhoneNumber, Email, Address, IsActive);
+            return clsPersonData.UpdatePerson(PersonID, FirstName, SecondName, ThirdName,
+                LastName, (byte)Gender, DateOfBirth, PhoneNumber, Email, Address);
         }
 
         public bool Save()
@@ -100,11 +107,14 @@ namespace StudyCenter_Business
             string phoneNumber = string.Empty;
             string email = null;
             string address = null;
-            bool isActive = false;
 
-            bool isFound = clsPersonData.GetPersonInfoByID(personID, ref firstName, ref secondName, ref thirdName, ref lastName, ref gender, ref dateOfBirth, ref phoneNumber, ref email, ref address, ref isActive);
+            bool isFound = clsPersonData.GetPersonInfoByID(personID, ref firstName, ref secondName,
+                ref thirdName, ref lastName, ref gender, ref dateOfBirth, ref phoneNumber,
+                ref email, ref address);
 
-            return (isFound) ? (new clsPerson(personID, firstName, secondName, thirdName, lastName, gender, dateOfBirth, phoneNumber, email, address, isActive)) : null;
+            return (isFound) ? (new clsPerson(personID, firstName, secondName, thirdName, lastName,
+                               (enGender)gender, dateOfBirth, phoneNumber, email, address))
+                             : null;
         }
 
         public static bool DeletePerson(int? personID)
@@ -123,5 +133,4 @@ namespace StudyCenter_Business
         }
 
     }
-
 }
