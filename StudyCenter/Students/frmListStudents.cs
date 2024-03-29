@@ -280,5 +280,13 @@ namespace StudyCenter.Students
 
             _RefreshStudentsList();
         }
+
+        private void btnAddStudent_Click(object sender, EventArgs e)
+        {
+            frmAddEditStudent addStudent = new frmAddEditStudent();
+            addStudent.ShowDialog();
+
+            _RefreshStudentsList();
+        }
     }
 }

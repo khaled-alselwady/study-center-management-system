@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvStudentsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -45,6 +45,7 @@
             this.cbGrades = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbPages = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnAddStudent = new Guna.UI2.WinForms.Guna2Button();
             this.tsmShowStudentDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEditStudent = new System.Windows.Forms.ToolStripMenuItem();
             this.temDeleteStudent = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,35 +61,35 @@
             this.dgvStudentsList.AllowUserToDeleteRows = false;
             this.dgvStudentsList.AllowUserToOrderColumns = true;
             this.dgvStudentsList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvStudentsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStudentsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStudentsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvStudentsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvStudentsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudentsList.ColumnHeadersHeight = 35;
             this.dgvStudentsList.ContextMenuStrip = this.cmsEditProfile;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudentsList.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudentsList.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStudentsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvStudentsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
             this.dgvStudentsList.Location = new System.Drawing.Point(15, 272);
             this.dgvStudentsList.Name = "dgvStudentsList";
             this.dgvStudentsList.ReadOnly = true;
             this.dgvStudentsList.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvStudentsList.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStudentsList.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStudentsList.RowTemplate.Height = 33;
             this.dgvStudentsList.ShowCellToolTips = false;
             this.dgvStudentsList.Size = new System.Drawing.Size(1318, 415);
@@ -290,6 +291,28 @@
             this.label3.TabIndex = 210;
             this.label3.Text = "Page:";
             // 
+            // btnAddStudent
+            // 
+            this.btnAddStudent.Checked = true;
+            this.btnAddStudent.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddStudent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddStudent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddStudent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddStudent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddStudent.FillColor = System.Drawing.Color.White;
+            this.btnAddStudent.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddStudent.ForeColor = System.Drawing.Color.White;
+            this.btnAddStudent.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddStudent.Image = global::StudyCenter.Properties.Resources.add_student;
+            this.btnAddStudent.ImageOffset = new System.Drawing.Point(1, 0);
+            this.btnAddStudent.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnAddStudent.Location = new System.Drawing.Point(1281, 221);
+            this.btnAddStudent.Name = "btnAddStudent";
+            this.btnAddStudent.Size = new System.Drawing.Size(50, 45);
+            this.btnAddStudent.TabIndex = 212;
+            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
+            // 
             // tsmShowStudentDetails
             // 
             this.tsmShowStudentDetails.ForeColor = System.Drawing.Color.White;
@@ -339,6 +362,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1343, 797);
+            this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.cbPages);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvStudentsList);
@@ -383,5 +407,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbPages;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem temDeleteStudent;
+        private Guna.UI2.WinForms.Guna2Button btnAddStudent;
     }
 }
