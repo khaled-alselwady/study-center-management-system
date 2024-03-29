@@ -12,7 +12,8 @@ namespace StudyCenter_Business
         public int? StudentGroupID { get; set; }
         public int StudentID { get; set; }
         public int GroupID { get; set; }
-        public DateTime EnrollmentDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public bool IsActive { get; set; }
 
         public clsStudentGroup()
@@ -20,33 +21,35 @@ namespace StudyCenter_Business
             StudentGroupID = null;
             StudentID = -1;
             GroupID = -1;
-            EnrollmentDate = DateTime.Now;
+            StartDate = DateTime.Now;
+            EndDate = null;
             IsActive = false;
 
             Mode = enMode.AddNew;
         }
 
-        private clsStudentGroup(int? studentGroupID, int studentID, int groupID, DateTime enrollmentDate, bool isActive)
+        private clsStudentGroup(int? studentGroupID, int studentID, int groupID, DateTime startDate, DateTime? endDate, bool isActive)
         {
             StudentGroupID = studentGroupID;
             StudentID = studentID;
             GroupID = groupID;
-            EnrollmentDate = enrollmentDate;
+            StartDate = startDate;
+            EndDate = endDate;
             IsActive = isActive;
 
             Mode = enMode.Update;
         }
 
-        private bool _AddNewStudentGroup()
+        private bool _Add()
         {
-            StudentGroupID = clsStudentGroupData.AddNewStudentGroup(StudentID, GroupID, EnrollmentDate, IsActive);
+            StudentGroupID = clsStudentGroupData.Add(StudentID, GroupID, StartDate, EndDate, IsActive);
 
             return (StudentGroupID.HasValue);
         }
 
-        private bool _UpdateStudentGroup()
+        private bool _Update()
         {
-            return clsStudentGroupData.UpdateStudentGroup(StudentGroupID, StudentID, GroupID, EnrollmentDate, IsActive);
+            return clsStudentGroupData.Update(StudentGroupID, StudentID, GroupID, StartDate, EndDate, IsActive);
         }
 
         public bool Save()
@@ -54,7 +57,7 @@ namespace StudyCenter_Business
             switch (Mode)
             {
                 case enMode.AddNew:
-                    if (_AddNewStudentGroup())
+                    if (_Add())
                     {
                         Mode = enMode.Update;
                         return true;
@@ -65,7 +68,7 @@ namespace StudyCenter_Business
                     }
 
                 case enMode.Update:
-                    return _UpdateStudentGroup();
+                    return _Update();
             }
 
             return false;
@@ -75,29 +78,28 @@ namespace StudyCenter_Business
         {
             int studentID = -1;
             int groupID = -1;
-            DateTime enrollmentDate = DateTime.Now;
+            DateTime startDate = DateTime.Now;
+            DateTime? endDate = null;
             bool isActive = false;
 
-            bool isFound = clsStudentGroupData.GetStudentGroupInfoByID(studentGroupID, ref studentID, ref groupID, ref enrollmentDate, ref isActive);
+            bool isFound = clsStudentGroupData.GetInfoByID(studentGroupID, ref studentID, ref groupID, ref startDate, ref endDate, ref isActive);
 
-            return (isFound) ? (new clsStudentGroup(studentGroupID, studentID, groupID, enrollmentDate, isActive)) : null;
+            return (isFound) ? (new clsStudentGroup(studentGroupID, studentID, groupID, startDate, endDate, isActive)) : null;
         }
 
-        public static bool DeleteStudentGroup(int? studentGroupID)
+        public static bool Delete(int? studentGroupID)
         {
-            return clsStudentGroupData.DeleteStudentGroup(studentGroupID);
+            return clsStudentGroupData.Delete(studentGroupID);
         }
 
-        public static bool DoesStudentGroupExist(int? studentGroupID)
+        public static bool Exists(int? studentGroupID)
         {
-            return clsStudentGroupData.DoesStudentGroupExist(studentGroupID);
+            return clsStudentGroupData.Exists(studentGroupID);
         }
 
-        public static DataTable GetAllStudentsGroups()
+        public static DataTable All()
         {
-            return clsStudentGroupData.GetAllStudentsGroups();
+            return clsStudentGroupData.All();
         }
-
     }
-
 }

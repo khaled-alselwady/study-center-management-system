@@ -34,16 +34,16 @@ private clsMeetingTime(int? meetingTimeID, TimeSpan startTime, TimeSpan endTime,
     Mode = enMode.Update;
 }
 
-private bool _AddNewMeetingTime()
+private bool _Add()
 {
-    MeetingTimeID = clsMeetingTimeData.AddNewMeetingTime(StartTime, EndTime, MeetingDays);
+    MeetingTimeID = clsMeetingTimeData.Add(StartTime, EndTime, MeetingDays);
 
     return (MeetingTimeID.HasValue);
 }
 
-private bool _UpdateMeetingTime()
+private bool _Update()
 {
-return clsMeetingTimeData.UpdateMeetingTime(MeetingTimeID, StartTime, EndTime, MeetingDays);
+return clsMeetingTimeData.Update(MeetingTimeID, StartTime, EndTime, MeetingDays);
 }
 
 public bool Save()
@@ -51,7 +51,7 @@ public bool Save()
 switch (Mode)
 {
 case enMode.AddNew:
-if (_AddNewMeetingTime())
+if (_Add())
 {
 Mode = enMode.Update;
 return true;
@@ -62,7 +62,7 @@ return false;
 }
 
 case enMode.Update:
-return _UpdateMeetingTime();
+return _Update();
 }
 
 return false;
@@ -74,24 +74,24 @@ TimeSpan startTime = DateTime.Now.TimeOfDay;
 TimeSpan endTime = DateTime.Now.TimeOfDay;
 byte meetingDays = 0;
 
-bool isFound = clsMeetingTimeData.GetMeetingTimeInfoByID(meetingTimeID, ref startTime, ref endTime, ref meetingDays);
+bool isFound = clsMeetingTimeData.GetInfoByID(meetingTimeID, ref startTime, ref endTime, ref meetingDays);
 
 return (isFound) ? (new clsMeetingTime(meetingTimeID, startTime, endTime, meetingDays)) : null;
 }
 
-public static bool DeleteMeetingTime(int? meetingTimeID)
+public static bool Delete(int? meetingTimeID)
 {
-return clsMeetingTimeData.DeleteMeetingTime(meetingTimeID);
+return clsMeetingTimeData.Delete(meetingTimeID);
 }
 
-public static bool DoesMeetingTimeExist(int? meetingTimeID)
+public static bool Exists(int? meetingTimeID)
 {
-return clsMeetingTimeData.DoesMeetingTimeExist(meetingTimeID);
+return clsMeetingTimeData.Exists(meetingTimeID);
 }
 
-public static DataTable GetAllMeetingTimes()
+public static DataTable All()
 {
-return clsMeetingTimeData.GetAllMeetingTimes();
+return clsMeetingTimeData.All();
 }
 
 }

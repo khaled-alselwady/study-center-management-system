@@ -6,7 +6,7 @@ namespace StudyCenter_DataAccess
 {
 public class clsClassData
 {
-public static bool GetClassInfoByID(int? classID, ref string className, ref byte capacity, ref string description)
+public static bool GetInfoByID(int? classID, ref string className, ref byte capacity, ref string description)
 {
     bool isFound = false;
 
@@ -60,7 +60,7 @@ catch (SqlException ex)
     return isFound;
 }
 
-public static int? AddNewClass(string className, byte capacity, string description)
+public static int? Add(string className, byte capacity, string description)
 {
 // This function will return the new person id if succeeded and null if not
     int? classID = null;
@@ -105,7 +105,7 @@ catch (SqlException ex)
     return classID;
 }
 
-public static bool UpdateClass(int? classID, string className, byte capacity, string description)
+public static bool Update(int? classID, string className, byte capacity, string description)
 {
     int rowAffected = 0;
 
@@ -142,7 +142,7 @@ catch (SqlException ex)
     return (rowAffected > 0);
 }
 
-public static bool DeleteClass(int? classID)
+public static bool Delete(int? classID)
 {
     int rowAffected = 0;
 
@@ -176,7 +176,7 @@ catch (SqlException ex)
     return (rowAffected > 0);
 }
 
-public static bool DoesClassExist(int? classID)
+public static bool Exists(int? classID)
 {
     bool isFound = false;
 
@@ -223,9 +223,9 @@ catch (SqlException ex)
     return isFound;
 }
 
-public static DataTable GetAllClasses()
+public static DataTable All()
 {
-return clsDataAccessHelper.GetAll("SP_GetAllClasses");
+return clsDataAccessHelper.All("SP_GetAllClasses");
 }
 }
 }

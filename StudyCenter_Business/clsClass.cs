@@ -34,16 +34,16 @@ private clsClass(int? classID, string className, byte capacity, string descripti
     Mode = enMode.Update;
 }
 
-private bool _AddNewClass()
+private bool _Add()
 {
-    ClassID = clsClassData.AddNewClass(ClassName, Capacity, Description);
+    ClassID = clsClassData.Add(ClassName, Capacity, Description);
 
     return (ClassID.HasValue);
 }
 
-private bool _UpdateClass()
+private bool _Update()
 {
-return clsClassData.UpdateClass(ClassID, ClassName, Capacity, Description);
+return clsClassData.Update(ClassID, ClassName, Capacity, Description);
 }
 
 public bool Save()
@@ -51,7 +51,7 @@ public bool Save()
 switch (Mode)
 {
 case enMode.AddNew:
-if (_AddNewClass())
+if (_Add())
 {
 Mode = enMode.Update;
 return true;
@@ -62,7 +62,7 @@ return false;
 }
 
 case enMode.Update:
-return _UpdateClass();
+return _Update();
 }
 
 return false;
@@ -74,24 +74,24 @@ string className = string.Empty;
 byte capacity = 0;
 string description = null;
 
-bool isFound = clsClassData.GetClassInfoByID(classID, ref className, ref capacity, ref description);
+bool isFound = clsClassData.GetInfoByID(classID, ref className, ref capacity, ref description);
 
 return (isFound) ? (new clsClass(classID, className, capacity, description)) : null;
 }
 
-public static bool DeleteClass(int? classID)
+public static bool Delete(int? classID)
 {
-return clsClassData.DeleteClass(classID);
+return clsClassData.Delete(classID);
 }
 
-public static bool DoesClassExist(int? classID)
+public static bool Exists(int? classID)
 {
-return clsClassData.DoesClassExist(classID);
+return clsClassData.Exists(classID);
 }
 
-public static DataTable GetAllClasses()
+public static DataTable All()
 {
-return clsClassData.GetAllClasses();
+return clsClassData.All();
 }
 
 }

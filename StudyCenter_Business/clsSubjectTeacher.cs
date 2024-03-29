@@ -37,16 +37,16 @@ private clsSubjectTeacher(int? subjectTeacherID, int subjectGradeLevelID, int te
     Mode = enMode.Update;
 }
 
-private bool _AddNewSubjectTeacher()
+private bool _Add()
 {
-    SubjectTeacherID = clsSubjectTeacherData.AddNewSubjectTeacher(SubjectGradeLevelID, TeacherID, AssignmentDate, IsActive);
+    SubjectTeacherID = clsSubjectTeacherData.Add(SubjectGradeLevelID, TeacherID, AssignmentDate, IsActive);
 
     return (SubjectTeacherID.HasValue);
 }
 
-private bool _UpdateSubjectTeacher()
+private bool _Update()
 {
-return clsSubjectTeacherData.UpdateSubjectTeacher(SubjectTeacherID, SubjectGradeLevelID, TeacherID, AssignmentDate, IsActive);
+return clsSubjectTeacherData.Update(SubjectTeacherID, SubjectGradeLevelID, TeacherID, AssignmentDate, IsActive);
 }
 
 public bool Save()
@@ -54,7 +54,7 @@ public bool Save()
 switch (Mode)
 {
 case enMode.AddNew:
-if (_AddNewSubjectTeacher())
+if (_Add())
 {
 Mode = enMode.Update;
 return true;
@@ -65,7 +65,7 @@ return false;
 }
 
 case enMode.Update:
-return _UpdateSubjectTeacher();
+return _Update();
 }
 
 return false;
@@ -78,24 +78,24 @@ int teacherID = -1;
 DateTime assignmentDate = DateTime.Now;
 bool isActive = false;
 
-bool isFound = clsSubjectTeacherData.GetSubjectTeacherInfoByID(subjectTeacherID, ref subjectGradeLevelID, ref teacherID, ref assignmentDate, ref isActive);
+bool isFound = clsSubjectTeacherData.GetInfoByID(subjectTeacherID, ref subjectGradeLevelID, ref teacherID, ref assignmentDate, ref isActive);
 
 return (isFound) ? (new clsSubjectTeacher(subjectTeacherID, subjectGradeLevelID, teacherID, assignmentDate, isActive)) : null;
 }
 
-public static bool DeleteSubjectTeacher(int? subjectTeacherID)
+public static bool Delete(int? subjectTeacherID)
 {
-return clsSubjectTeacherData.DeleteSubjectTeacher(subjectTeacherID);
+return clsSubjectTeacherData.Delete(subjectTeacherID);
 }
 
-public static bool DoesSubjectTeacherExist(int? subjectTeacherID)
+public static bool Exists(int? subjectTeacherID)
 {
-return clsSubjectTeacherData.DoesSubjectTeacherExist(subjectTeacherID);
+return clsSubjectTeacherData.Exists(subjectTeacherID);
 }
 
-public static DataTable GetAllSubjectsTeachers()
+public static DataTable All()
 {
-return clsSubjectTeacherData.GetAllSubjectsTeachers();
+return clsSubjectTeacherData.All();
 }
 
 }

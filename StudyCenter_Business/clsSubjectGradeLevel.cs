@@ -37,16 +37,16 @@ private clsSubjectGradeLevel(int? subjectGradeLevelID, int subjectID, int gradeL
     Mode = enMode.Update;
 }
 
-private bool _AddNewSubjectGradeLevel()
+private bool _Add()
 {
-    SubjectGradeLevelID = clsSubjectGradeLevelData.AddNewSubjectGradeLevel(SubjectID, GradeLevelID, Fees, Description);
+    SubjectGradeLevelID = clsSubjectGradeLevelData.Add(SubjectID, GradeLevelID, Fees, Description);
 
     return (SubjectGradeLevelID.HasValue);
 }
 
-private bool _UpdateSubjectGradeLevel()
+private bool _Update()
 {
-return clsSubjectGradeLevelData.UpdateSubjectGradeLevel(SubjectGradeLevelID, SubjectID, GradeLevelID, Fees, Description);
+return clsSubjectGradeLevelData.Update(SubjectGradeLevelID, SubjectID, GradeLevelID, Fees, Description);
 }
 
 public bool Save()
@@ -54,7 +54,7 @@ public bool Save()
 switch (Mode)
 {
 case enMode.AddNew:
-if (_AddNewSubjectGradeLevel())
+if (_Add())
 {
 Mode = enMode.Update;
 return true;
@@ -65,7 +65,7 @@ return false;
 }
 
 case enMode.Update:
-return _UpdateSubjectGradeLevel();
+return _Update();
 }
 
 return false;
@@ -78,24 +78,24 @@ int gradeLevelID = -1;
 decimal fees = -1M;
 string description = null;
 
-bool isFound = clsSubjectGradeLevelData.GetSubjectGradeLevelInfoByID(subjectGradeLevelID, ref subjectID, ref gradeLevelID, ref fees, ref description);
+bool isFound = clsSubjectGradeLevelData.GetInfoByID(subjectGradeLevelID, ref subjectID, ref gradeLevelID, ref fees, ref description);
 
 return (isFound) ? (new clsSubjectGradeLevel(subjectGradeLevelID, subjectID, gradeLevelID, fees, description)) : null;
 }
 
-public static bool DeleteSubjectGradeLevel(int? subjectGradeLevelID)
+public static bool Delete(int? subjectGradeLevelID)
 {
-return clsSubjectGradeLevelData.DeleteSubjectGradeLevel(subjectGradeLevelID);
+return clsSubjectGradeLevelData.Delete(subjectGradeLevelID);
 }
 
-public static bool DoesSubjectGradeLevelExist(int? subjectGradeLevelID)
+public static bool Exists(int? subjectGradeLevelID)
 {
-return clsSubjectGradeLevelData.DoesSubjectGradeLevelExist(subjectGradeLevelID);
+return clsSubjectGradeLevelData.Exists(subjectGradeLevelID);
 }
 
-public static DataTable GetAllSubjectsGradeLevels()
+public static DataTable All()
 {
-return clsSubjectGradeLevelData.GetAllSubjectsGradeLevels();
+return clsSubjectGradeLevelData.All();
 }
 
 }

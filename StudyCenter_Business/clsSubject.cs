@@ -28,16 +28,16 @@ private clsSubject(int? subjectID, string subjectName)
     Mode = enMode.Update;
 }
 
-private bool _AddNewSubject()
+private bool _Add()
 {
-    SubjectID = clsSubjectData.AddNewSubject(SubjectName);
+    SubjectID = clsSubjectData.Add(SubjectName);
 
     return (SubjectID.HasValue);
 }
 
-private bool _UpdateSubject()
+private bool _Update()
 {
-return clsSubjectData.UpdateSubject(SubjectID, SubjectName);
+return clsSubjectData.Update(SubjectID, SubjectName);
 }
 
 public bool Save()
@@ -45,7 +45,7 @@ public bool Save()
 switch (Mode)
 {
 case enMode.AddNew:
-if (_AddNewSubject())
+if (_Add())
 {
 Mode = enMode.Update;
 return true;
@@ -56,7 +56,7 @@ return false;
 }
 
 case enMode.Update:
-return _UpdateSubject();
+return _Update();
 }
 
 return false;
@@ -66,24 +66,24 @@ public static clsSubject Find(int? subjectID)
 {
 string subjectName = string.Empty;
 
-bool isFound = clsSubjectData.GetSubjectInfoByID(subjectID, ref subjectName);
+bool isFound = clsSubjectData.GetInfoByID(subjectID, ref subjectName);
 
 return (isFound) ? (new clsSubject(subjectID, subjectName)) : null;
 }
 
-public static bool DeleteSubject(int? subjectID)
+public static bool Delete(int? subjectID)
 {
-return clsSubjectData.DeleteSubject(subjectID);
+return clsSubjectData.Delete(subjectID);
 }
 
-public static bool DoesSubjectExist(int? subjectID)
+public static bool Exists(int? subjectID)
 {
-return clsSubjectData.DoesSubjectExist(subjectID);
+return clsSubjectData.Exists(subjectID);
 }
 
-public static DataTable GetAllSubjects()
+public static DataTable All()
 {
-return clsSubjectData.GetAllSubjects();
+return clsSubjectData.All();
 }
 
 }

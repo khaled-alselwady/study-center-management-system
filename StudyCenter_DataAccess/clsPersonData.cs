@@ -6,9 +6,7 @@ namespace StudyCenter_DataAccess
 {
     public class clsPersonData
     {
-        public static bool GetPersonInfoByID(int? personID, ref string firstName,
-            ref string secondName, ref string thirdName, ref string lastName, ref byte gender,
-            ref DateTime dateOfBirth, ref string phoneNumber, ref string email, ref string address)
+        public static bool GetInfoByID(int? personID, ref string firstName, ref string secondName, ref string thirdName, ref string lastName, ref byte gender, ref DateTime dateOfBirth, ref string phoneNumber, ref string email, ref string address)
         {
             bool isFound = false;
 
@@ -68,9 +66,7 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static int? AddNewPerson(string firstName, string secondName,
-            string thirdName, string lastName, byte gender, DateTime dateOfBirth,
-            string phoneNumber, string email, string address)
+        public static int? Add(string firstName, string secondName, string thirdName, string lastName, byte gender, DateTime dateOfBirth, string phoneNumber, string email, string address)
         {
             // This function will return the new person id if succeeded and null if not
             int? personID = null;
@@ -121,9 +117,7 @@ namespace StudyCenter_DataAccess
             return personID;
         }
 
-        public static bool UpdatePerson(int? personID, string firstName,
-            string secondName, string thirdName, string lastName, byte gender,
-            DateTime dateOfBirth, string phoneNumber, string email, string address)
+        public static bool Update(int? personID, string firstName, string secondName, string thirdName, string lastName, byte gender, DateTime dateOfBirth, string phoneNumber, string email, string address)
         {
             int rowAffected = 0;
 
@@ -166,7 +160,7 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool DeletePerson(int? personID)
+        public static bool Delete(int? personID)
         {
             int rowAffected = 0;
 
@@ -200,7 +194,7 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool DoesPersonExist(int? personID)
+        public static bool Exists(int? personID)
         {
             bool isFound = false;
 
@@ -247,9 +241,9 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static DataTable GetAllPeople()
+        public static DataTable All()
         {
-            return clsDataAccessHelper.GetAll("SP_GetAllPeople");
+            return clsDataAccessHelper.All("SP_GetAllPeople");
         }
     }
 }

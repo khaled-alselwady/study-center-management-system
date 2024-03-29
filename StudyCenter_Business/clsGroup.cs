@@ -52,16 +52,16 @@ private clsGroup(int? groupID, string groupName, int classID, int teacherID, int
     Mode = enMode.Update;
 }
 
-private bool _AddNewGroup()
+private bool _Add()
 {
-    GroupID = clsGroupData.AddNewGroup(GroupName, ClassID, TeacherID, SubjectGradeLevelID, MeetingTimeID, StudentCount, CreationDate, LastModifiedDate, IsActive);
+    GroupID = clsGroupData.Add(GroupName, ClassID, TeacherID, SubjectGradeLevelID, MeetingTimeID, StudentCount, CreationDate, LastModifiedDate, IsActive);
 
     return (GroupID.HasValue);
 }
 
-private bool _UpdateGroup()
+private bool _Update()
 {
-return clsGroupData.UpdateGroup(GroupID, GroupName, ClassID, TeacherID, SubjectGradeLevelID, MeetingTimeID, StudentCount, CreationDate, LastModifiedDate, IsActive);
+return clsGroupData.Update(GroupID, GroupName, ClassID, TeacherID, SubjectGradeLevelID, MeetingTimeID, StudentCount, CreationDate, LastModifiedDate, IsActive);
 }
 
 public bool Save()
@@ -69,7 +69,7 @@ public bool Save()
 switch (Mode)
 {
 case enMode.AddNew:
-if (_AddNewGroup())
+if (_Add())
 {
 Mode = enMode.Update;
 return true;
@@ -80,7 +80,7 @@ return false;
 }
 
 case enMode.Update:
-return _UpdateGroup();
+return _Update();
 }
 
 return false;
@@ -98,24 +98,24 @@ DateTime creationDate = DateTime.Now;
 DateTime? lastModifiedDate = null;
 bool isActive = false;
 
-bool isFound = clsGroupData.GetGroupInfoByID(groupID, ref groupName, ref classID, ref teacherID, ref subjectGradeLevelID, ref meetingTimeID, ref studentCount, ref creationDate, ref lastModifiedDate, ref isActive);
+bool isFound = clsGroupData.GetInfoByID(groupID, ref groupName, ref classID, ref teacherID, ref subjectGradeLevelID, ref meetingTimeID, ref studentCount, ref creationDate, ref lastModifiedDate, ref isActive);
 
 return (isFound) ? (new clsGroup(groupID, groupName, classID, teacherID, subjectGradeLevelID, meetingTimeID, studentCount, creationDate, lastModifiedDate, isActive)) : null;
 }
 
-public static bool DeleteGroup(int? groupID)
+public static bool Delete(int? groupID)
 {
-return clsGroupData.DeleteGroup(groupID);
+return clsGroupData.Delete(groupID);
 }
 
-public static bool DoesGroupExist(int? groupID)
+public static bool Exists(int? groupID)
 {
-return clsGroupData.DoesGroupExist(groupID);
+return clsGroupData.Exists(groupID);
 }
 
-public static DataTable GetAllGroups()
+public static DataTable All()
 {
-return clsGroupData.GetAllGroups();
+return clsGroupData.All();
 }
 
 }

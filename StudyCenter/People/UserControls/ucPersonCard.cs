@@ -85,7 +85,11 @@ namespace StudyCenter.People.UserControls
 
         private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            frmAddEditPerson editPerson = new frmAddEditPerson(_personID);
+            editPerson.ShowDialog();
+
+            // Refresh
+            LoadPersonInfo(_personID);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace StudyCenter_DataAccess
             return Count;
         }
 
-        public static DataTable GetAll(string storedProcedureName)
+        public static DataTable All(string storedProcedureName)
         {
             DataTable dt = new DataTable();
 

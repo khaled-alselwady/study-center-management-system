@@ -60,17 +60,17 @@ namespace StudyCenter_Business
             Mode = enMode.Update;
         }
 
-        private bool _AddNewPerson()
+        private bool _Add()
         {
-            PersonID = clsPersonData.AddNewPerson(FirstName, SecondName, ThirdName,
+            PersonID = clsPersonData.Add(FirstName, SecondName, ThirdName,
                 LastName, (byte)Gender, DateOfBirth, PhoneNumber, Email, Address);
 
             return (PersonID.HasValue);
         }
 
-        private bool _UpdatePerson()
+        private bool _Update()
         {
-            return clsPersonData.UpdatePerson(PersonID, FirstName, SecondName, ThirdName,
+            return clsPersonData.Update(PersonID, FirstName, SecondName, ThirdName,
                 LastName, (byte)Gender, DateOfBirth, PhoneNumber, Email, Address);
         }
 
@@ -79,7 +79,7 @@ namespace StudyCenter_Business
             switch (Mode)
             {
                 case enMode.AddNew:
-                    if (_AddNewPerson())
+                    if (_Add())
                     {
                         Mode = enMode.Update;
                         return true;
@@ -90,7 +90,7 @@ namespace StudyCenter_Business
                     }
 
                 case enMode.Update:
-                    return _UpdatePerson();
+                    return _Update();
             }
 
             return false;
@@ -108,7 +108,7 @@ namespace StudyCenter_Business
             string email = null;
             string address = null;
 
-            bool isFound = clsPersonData.GetPersonInfoByID(personID, ref firstName, ref secondName,
+            bool isFound = clsPersonData.GetInfoByID(personID, ref firstName, ref secondName,
                 ref thirdName, ref lastName, ref gender, ref dateOfBirth, ref phoneNumber,
                 ref email, ref address);
 
@@ -117,20 +117,21 @@ namespace StudyCenter_Business
                              : null;
         }
 
-        public static bool DeletePerson(int? personID)
+        public static bool Delete(int? personID)
         {
-            return clsPersonData.DeletePerson(personID);
+            return clsPersonData.Delete(personID);
         }
 
-        public static bool DoesPersonExist(int? personID)
+        public static bool Exists(int? personID)
         {
-            return clsPersonData.DoesPersonExist(personID);
+            return clsPersonData.Exists(personID);
         }
 
-        public static DataTable GetAllPeople()
+        public static DataTable All()
         {
-            return clsPersonData.GetAllPeople();
+            return clsPersonData.All();
         }
-
     }
+
+
 }

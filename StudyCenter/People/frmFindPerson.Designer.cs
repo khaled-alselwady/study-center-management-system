@@ -48,11 +48,9 @@
             // ucPersonCardWithFilter1
             // 
             this.ucPersonCardWithFilter1.BackColor = System.Drawing.Color.White;
-            this.ucPersonCardWithFilter1.FilterEnabled = true;
             this.ucPersonCardWithFilter1.Location = new System.Drawing.Point(5, 96);
             this.ucPersonCardWithFilter1.Name = "ucPersonCardWithFilter1";
-            this.ucPersonCardWithFilter1.ShowAddPersonButton = true;
-            this.ucPersonCardWithFilter1.Size = new System.Drawing.Size(862, 396);
+            this.ucPersonCardWithFilter1.Size = new System.Drawing.Size(862, 406);
             this.ucPersonCardWithFilter1.TabIndex = 3;
             // 
             // btnClose
@@ -72,7 +70,7 @@
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageOffset = new System.Drawing.Point(0, -1);
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnClose.Location = new System.Drawing.Point(713, 508);
+            this.btnClose.Location = new System.Drawing.Point(713, 515);
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnClose.Size = new System.Drawing.Size(155, 45);
@@ -85,13 +83,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(872, 557);
+            this.ClientSize = new System.Drawing.Size(872, 564);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ucPersonCardWithFilter1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmFindPerson";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find Person";
             this.Activated += new System.EventHandler(this.frmFindPerson_Activated);
             this.ResumeLayout(false);

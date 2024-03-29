@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneralUserControls\ucFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GeneralUserControls\ucFilter.Designer.cs">
+      <DependentUpon>ucFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalClasses\clsErrorLogger.cs" />
     <Compile Include="GlobalClasses\clsFormat.cs" />
     <Compile Include="GlobalClasses\clsGlobal.cs" />
@@ -99,6 +105,45 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Students\frmAddEditStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Students\frmAddEditStudent.Designer.cs">
+      <DependentUpon>frmAddEditStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Students\frmFindStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Students\frmFindStudent.Designer.cs">
+      <DependentUpon>frmFindStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Students\frmListStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Students\frmListStudents.Designer.cs">
+      <DependentUpon>frmListStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Students\frmShowStudentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Students\frmShowStudentInfo.Designer.cs">
+      <DependentUpon>frmShowStudentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Students\UserControls\ucStudentCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Students\UserControls\ucStudentCard.Designer.cs">
+      <DependentUpon>ucStudentCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Students\UserControls\ucStudentCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Students\UserControls\ucStudentCardWithFilter.Designer.cs">
+      <DependentUpon>ucStudentCardWithFilter.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GeneralUserControls\ucFilter.resx">
+      <DependentUpon>ucFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +172,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Students\frmAddEditStudent.resx">
+      <DependentUpon>frmAddEditStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students\frmFindStudent.resx">
+      <DependentUpon>frmFindStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students\frmListStudents.resx">
+      <DependentUpon>frmListStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students\frmShowStudentInfo.resx">
+      <DependentUpon>frmShowStudentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students\UserControls\ucStudentCard.resx">
+      <DependentUpon>ucStudentCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students\UserControls\ucStudentCardWithFilter.resx">
+      <DependentUpon>ucStudentCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -234,6 +297,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grade-level.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\active-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inactive-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show-reservation-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-reservation32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-reservation-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\students-list.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

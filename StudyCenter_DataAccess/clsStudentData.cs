@@ -6,7 +6,8 @@ namespace StudyCenter_DataAccess
 {
     public class clsStudentData
     {
-        public static bool GetStudentInfoByID(int? studentID, ref int personID, ref int gradeLevelID, ref bool isActive)
+        public static bool GetInfoByStudentID(int? studentID, ref int? personID, ref int? gradeLevelID,
+            ref int? createdByUserID, ref DateTime creationDate)
         {
             bool isFound = false;
 
@@ -16,7 +17,7 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_GetStudentInfoByID", connection))
+                    using (SqlCommand command = new SqlCommand("SP_GetStudentInfoByStudentID", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
@@ -29,9 +30,10 @@ namespace StudyCenter_DataAccess
                                 // The record was found
                                 isFound = true;
 
-                                personID = (int)reader["PersonID"];
-                                gradeLevelID = (int)reader["GradeLevelID"];
-                                isActive = (bool)reader["IsActive"];
+                                personID = (reader["PersonID"] != DBNull.Value) ? (int?)reader["PersonID"] : null;
+                                gradeLevelID = (reader["GradeLevelID"] != DBNull.Value) ? (int?)reader["GradeLevelID"] : null;
+                                createdByUserID = (reader["CreatedByUserID"] != DBNull.Value) ? (int?)reader["CreatedByUserID"] : null;
+                                creationDate = (DateTime)reader["CreationDate"];
                             }
                             else
                             {
@@ -60,7 +62,64 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static int? AddNewStudent(int personID, int gradeLevelID, bool isActive)
+        public static bool GetInfoByPersonID(int? personID, ref int? studentID, ref int? gradeLevelID,
+            ref int? createdByUserID, ref DateTime creationDate)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetStudentInfoByPersonID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@personID", (object)personID ?? DBNull.Value);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // The record was found
+                                isFound = true;
+
+                                studentID = (reader["studentID"] != DBNull.Value) ? (int?)reader["studentID"] : null;
+                                gradeLevelID = (reader["GradeLevelID"] != DBNull.Value) ? (int?)reader["GradeLevelID"] : null;
+                                createdByUserID = (reader["CreatedByUserID"] != DBNull.Value) ? (int?)reader["CreatedByUserID"] : null;
+                                creationDate = (DateTime)reader["CreationDate"];
+                            }
+                            else
+                            {
+                                // The record was not found
+                                isFound = false;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                isFound = false;
+
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("Database Exception", ex);
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("General Exception", ex);
+            }
+
+            return isFound;
+        }
+
+        public static int? Add(int? personID, int? gradeLevelID,
+            int? createdByUserID)
         {
             // This function will return the new person id if succeeded and null if not
             int? studentID = null;
@@ -75,9 +134,9 @@ namespace StudyCenter_DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@PersonID", personID);
-                        command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
-                        command.Parameters.AddWithValue("@IsActive", isActive);
+                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewStudentID", SqlDbType.Int)
                         {
@@ -105,7 +164,8 @@ namespace StudyCenter_DataAccess
             return studentID;
         }
 
-        public static bool UpdateStudent(int? studentID, int personID, int gradeLevelID, bool isActive)
+        public static bool Update(int? studentID, int? personID, int? gradeLevelID,
+            int? createdByUserID)
         {
             int rowAffected = 0;
 
@@ -120,9 +180,9 @@ namespace StudyCenter_DataAccess
                         command.CommandType = CommandType.StoredProcedure;
 
                         command.Parameters.AddWithValue("@StudentID", (object)studentID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@PersonID", personID);
-                        command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
-                        command.Parameters.AddWithValue("@IsActive", isActive);
+                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
 
                         rowAffected = command.ExecuteNonQuery();
                     }
@@ -142,7 +202,7 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool DeleteStudent(int? studentID)
+        public static bool Delete(int? studentID, int? deletedByUserID)
         {
             int rowAffected = 0;
 
@@ -157,6 +217,7 @@ namespace StudyCenter_DataAccess
                         command.CommandType = CommandType.StoredProcedure;
 
                         command.Parameters.AddWithValue("@StudentID", (object)studentID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@DeletedByUserID", (object)deletedByUserID ?? DBNull.Value);
 
                         rowAffected = command.ExecuteNonQuery();
                     }
@@ -176,7 +237,8 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool DoesStudentExist(int? studentID)
+
+        public static bool Exists(int? studentID)
         {
             bool isFound = false;
 
@@ -223,9 +285,102 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static DataTable GetAllStudents()
+        public static DataTable All()
         {
-            return clsDataAccessHelper.GetAll("SP_GetAllStudents");
+            return clsDataAccessHelper.All("SP_GetAllStudents");
+        }
+
+        public static int Count()
+        {
+            return clsDataAccessHelper.Count("SP_GetAllStudentsCount");
+        }
+
+        public static bool IsStudent(int? personID)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_IsStudent", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
+
+                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(returnParameter);
+
+                        command.ExecuteNonQuery();
+
+                        isFound = (int)returnParameter.Value == 1;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                isFound = false;
+
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("Database Exception", ex);
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("General Exception", ex);
+            }
+
+            return isFound;
+        }
+
+        public static DataTable AllInPages(short PageNumber, int RowsPerPage)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetAllStudentsInPages", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@PageNumber", PageNumber);
+                        command.Parameters.AddWithValue("@RowsPerPage", RowsPerPage);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dt.Load(reader);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("Database Exception", ex);
+            }
+            catch (Exception ex)
+            {
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("General Exception", ex);
+            }
+
+            return dt;
         }
     }
 }

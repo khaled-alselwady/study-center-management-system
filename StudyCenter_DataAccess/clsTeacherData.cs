@@ -6,7 +6,7 @@ namespace StudyCenter_DataAccess
 {
     public class clsTeacherData
     {
-        public static bool GetTeacherInfoByID(int? teacherID, ref int personID, ref string educationLevel, ref byte? teachingExperience, ref string certifications, ref bool isActive)
+        public static bool GetInfoByID(int? teacherID, ref int personID, ref string educationLevel, ref byte? teachingExperience, ref string certifications, ref int createdByUserID, ref DateTime creationDate)
         {
             bool isFound = false;
 
@@ -33,7 +33,8 @@ namespace StudyCenter_DataAccess
                                 educationLevel = (string)reader["EducationLevel"];
                                 teachingExperience = (reader["TeachingExperience"] != DBNull.Value) ? (byte?)reader["TeachingExperience"] : null;
                                 certifications = (reader["Certifications"] != DBNull.Value) ? (string)reader["Certifications"] : null;
-                                isActive = (bool)reader["IsActive"];
+                                createdByUserID = (int)reader["CreatedByUserID"];
+                                creationDate = (DateTime)reader["CreationDate"];
                             }
                             else
                             {
@@ -62,7 +63,7 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static int? AddNewTeacher(int personID, string educationLevel, byte? teachingExperience, string certifications, bool isActive)
+        public static int? Add(int personID, string educationLevel, byte? teachingExperience, string certifications, int createdByUserID, DateTime creationDate)
         {
             // This function will return the new person id if succeeded and null if not
             int? teacherID = null;
@@ -81,7 +82,8 @@ namespace StudyCenter_DataAccess
                         command.Parameters.AddWithValue("@EducationLevel", educationLevel);
                         command.Parameters.AddWithValue("@TeachingExperience", (object)teachingExperience ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Certifications", (object)certifications ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@IsActive", isActive);
+                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
+                        command.Parameters.AddWithValue("@CreationDate", creationDate);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewTeacherID", SqlDbType.Int)
                         {
@@ -109,7 +111,7 @@ namespace StudyCenter_DataAccess
             return teacherID;
         }
 
-        public static bool UpdateTeacher(int? teacherID, int personID, string educationLevel, byte? teachingExperience, string certifications, bool isActive)
+        public static bool Update(int? teacherID, int personID, string educationLevel, byte? teachingExperience, string certifications, int createdByUserID, DateTime creationDate)
         {
             int rowAffected = 0;
 
@@ -128,7 +130,8 @@ namespace StudyCenter_DataAccess
                         command.Parameters.AddWithValue("@EducationLevel", educationLevel);
                         command.Parameters.AddWithValue("@TeachingExperience", (object)teachingExperience ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Certifications", (object)certifications ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@IsActive", isActive);
+                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
+                        command.Parameters.AddWithValue("@CreationDate", creationDate);
 
                         rowAffected = command.ExecuteNonQuery();
                     }
@@ -148,7 +151,7 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool DeleteTeacher(int? teacherID)
+        public static bool Delete(int? teacherID)
         {
             int rowAffected = 0;
 
@@ -182,7 +185,7 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool DoesTeacherExist(int? teacherID)
+        public static bool Exists(int? teacherID)
         {
             bool isFound = false;
 
@@ -229,9 +232,9 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static DataTable GetAllTeachers()
+        public static DataTable All()
         {
-            return clsDataAccessHelper.GetAll("SP_GetAllTeachers");
+            return clsDataAccessHelper.All("SP_GetAllTeachers");
         }
     }
 }

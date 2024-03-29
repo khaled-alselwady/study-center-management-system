@@ -1,4 +1,5 @@
 using StudyCenter_DataAccess;
+using System;
 using System.Data;
 
 namespace StudyCenter_Business
@@ -9,40 +10,52 @@ namespace StudyCenter_Business
         public enMode Mode = enMode.AddNew;
 
         public int? StudentID { get; set; }
-        public int PersonID { get; set; }
-        public int GradeLevelID { get; set; }
-        public bool IsActive { get; set; }
+        public int? PersonID { get; set; }
+        public int? GradeLevelID { get; set; }
+        public int? CreatedByUserID { get; set; }
+        public DateTime CreationDate { get; set; }
+
+        public clsPerson PersonInfo { get; private set; }
+        public clsGradeLevel GradeLevelInfo { get; private set; }
+        public clsUser CreatedByUserInfo { get; private set; }
 
         public clsStudent()
         {
             StudentID = null;
-            PersonID = -1;
-            GradeLevelID = -1;
-            IsActive = false;
+            PersonID = null;
+            GradeLevelID = null;
+            CreatedByUserID = null;
+            CreationDate = DateTime.Now;
 
             Mode = enMode.AddNew;
         }
 
-        private clsStudent(int? studentID, int personID, int gradeLevelID, bool isActive)
+        private clsStudent(int? studentID, int? personID, int? gradeLevelID,
+            int? createdByUserID, DateTime creationDate)
         {
             StudentID = studentID;
             PersonID = personID;
             GradeLevelID = gradeLevelID;
-            IsActive = isActive;
+            CreatedByUserID = createdByUserID;
+            CreationDate = creationDate;
+
+            PersonInfo = clsPerson.Find(personID);
+            GradeLevelInfo = clsGradeLevel.Find(gradeLevelID);
+            CreatedByUserInfo = clsUser.Find(createdByUserID);
 
             Mode = enMode.Update;
         }
 
-        private bool _AddNewStudent()
+        private bool _Add()
         {
-            StudentID = clsStudentData.AddNewStudent(PersonID, GradeLevelID, IsActive);
+            StudentID = clsStudentData.Add(PersonID, GradeLevelID, CreatedByUserID);
 
             return (StudentID.HasValue);
         }
 
-        private bool _UpdateStudent()
+        private bool _Update()
         {
-            return clsStudentData.UpdateStudent(StudentID, PersonID, GradeLevelID, IsActive);
+            return clsStudentData.Update(StudentID, PersonID, GradeLevelID, CreatedByUserID);
         }
 
         public bool Save()
@@ -50,7 +63,7 @@ namespace StudyCenter_Business
             switch (Mode)
             {
                 case enMode.AddNew:
-                    if (_AddNewStudent())
+                    if (_Add())
                     {
                         Mode = enMode.Update;
                         return true;
@@ -61,38 +74,70 @@ namespace StudyCenter_Business
                     }
 
                 case enMode.Update:
-                    return _UpdateStudent();
+                    return _Update();
             }
 
             return false;
         }
 
-        public static clsStudent Find(int? studentID)
+        public static clsStudent FindByStudentID(int? studentID)
         {
-            int personID = -1;
-            int gradeLevelID = -1;
-            bool isActive = false;
+            int? personID = null;
+            int? gradeLevelID = null;
+            int? createdByUserID = null;
+            DateTime creationDate = DateTime.Now;
 
-            bool isFound = clsStudentData.GetStudentInfoByID(studentID, ref personID, ref gradeLevelID, ref isActive);
+            bool isFound = clsStudentData.GetInfoByStudentID(studentID, ref personID,
+                ref gradeLevelID, ref createdByUserID, ref creationDate);
 
-            return (isFound) ? (new clsStudent(studentID, personID, gradeLevelID, isActive)) : null;
+            return (isFound) ? (new clsStudent(studentID, personID, gradeLevelID,
+                                createdByUserID, creationDate))
+                             : null;
         }
 
-        public static bool DeleteStudent(int? studentID)
+        public static clsStudent FindByPersonID(int? personID)
         {
-            return clsStudentData.DeleteStudent(studentID);
+            int? studentID = null;
+            int? gradeLevelID = null;
+            int? createdByUserID = null;
+            DateTime creationDate = DateTime.Now;
+
+            bool isFound = clsStudentData.GetInfoByPersonID(personID, ref studentID,
+                ref gradeLevelID, ref createdByUserID, ref creationDate);
+
+            return (isFound) ? (new clsStudent(studentID, personID, gradeLevelID,
+                                createdByUserID, creationDate))
+                             : null;
         }
 
-        public static bool DoesStudentExist(int? studentID)
+        public static bool Delete(int? studentID, int? deletedByUserID)
         {
-            return clsStudentData.DoesStudentExist(studentID);
+            return clsStudentData.Delete(studentID, deletedByUserID);
         }
 
-        public static DataTable GetAllStudents()
+        public static bool Exists(int? studentID)
         {
-            return clsStudentData.GetAllStudents();
+            return clsStudentData.Exists(studentID);
         }
 
+        public static DataTable All()
+        {
+            return clsStudentData.All();
+        }
+
+        public static int Count()
+        {
+            return clsStudentData.Count();
+        }
+
+        public static bool IsStudent(int? personID)
+        {
+            return clsStudentData.IsStudent(personID);
+        }
+
+        public static DataTable AllInPages(short PageNumber, int RowsPerPage)
+        {
+            return clsStudentData.AllInPages(PageNumber, RowsPerPage);
+        }
     }
-
 }

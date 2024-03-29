@@ -39,16 +39,16 @@ namespace StudyCenter_Business
             Mode = enMode.Update;
         }
 
-        private bool _AddNewUser()
+        private bool _Add()
         {
-            UserID = clsUserData.AddNewUser(PersonID, Username, Password, Permissions, IsActive);
+            UserID = clsUserData.Add(PersonID, Username, Password, Permissions, IsActive);
 
             return (UserID.HasValue);
         }
 
-        private bool _UpdateUser()
+        private bool _Update()
         {
-            return clsUserData.UpdateUser(UserID, PersonID, Username, Password, Permissions, IsActive);
+            return clsUserData.Update(UserID, PersonID, Username, Password, Permissions, IsActive);
         }
 
         public bool Save()
@@ -56,7 +56,7 @@ namespace StudyCenter_Business
             switch (Mode)
             {
                 case enMode.AddNew:
-                    if (_AddNewUser())
+                    if (_Add())
                     {
                         Mode = enMode.Update;
                         return true;
@@ -67,7 +67,7 @@ namespace StudyCenter_Business
                     }
 
                 case enMode.Update:
-                    return _UpdateUser();
+                    return _Update();
             }
 
             return false;
@@ -81,7 +81,7 @@ namespace StudyCenter_Business
             int permissions = -1;
             bool isActive = false;
 
-            bool isFound = clsUserData.GetUserInfoByID(userID, ref personID, ref username, ref password, ref permissions, ref isActive);
+            bool isFound = clsUserData.GetInfoByID(userID, ref personID, ref username, ref password, ref permissions, ref isActive);
 
             return (isFound) ? (new clsUser(userID, personID, username, password, permissions, isActive)) : null;
         }
@@ -94,7 +94,7 @@ namespace StudyCenter_Business
             int permissions = -1;
             bool isActive = false;
 
-            bool isFound = clsUserData.GetUserInfoByUsername(ref userID, ref personID, username, ref password, ref permissions, ref isActive);
+            bool isFound = clsUserData.GetInfoByUsername(ref userID, ref personID, username, ref password, ref permissions, ref isActive);
 
             return (isFound) ? (new clsUser(userID, personID, username, password, permissions, isActive)) : null;
         }
@@ -105,36 +105,34 @@ namespace StudyCenter_Business
             int personID = -1;
             int permissions = -1;
             bool isActive = false;
-            bool isFound = clsUserData.GetUserInfoByUsernameAndPassword(ref userID, ref personID, username, password, ref permissions, ref isActive);
+            bool isFound = clsUserData.GetInfoByUsernameAndPassword(ref userID, ref personID, username, password, ref permissions, ref isActive);
 
             return (isFound) ? (new clsUser(userID, personID, username, password, permissions, isActive)) : null;
         }
 
-        public static bool DeleteUser(int? userID)
+        public static bool Delete(int? userID)
         {
-            return clsUserData.DeleteUser(userID);
+            return clsUserData.Delete(userID);
         }
 
-        public static bool DoesUserExist(int? userID)
+        public static bool Exists(int? userID)
         {
-            return clsUserData.DoesUserExist(userID);
+            return clsUserData.Exists(userID);
         }
 
-        public static bool DoesUserExist(string username)
+        public static bool Exists(string username)
         {
-            return clsUserData.DoesUserExist(username);
+            return clsUserData.Exists(username);
         }
 
-        public static bool DoesUserExist(string username, string password)
+        public static bool Exists(string username, string password)
         {
-            return clsUserData.DoesUserExist(username, password);
+            return clsUserData.Exists(username, password);
         }
 
-        public static DataTable GetAllUsers()
+        public static DataTable All()
         {
-            return clsUserData.GetAllUsers();
+            return clsUserData.All();
         }
-
     }
-
 }

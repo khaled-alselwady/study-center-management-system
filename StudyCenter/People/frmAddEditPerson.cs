@@ -13,8 +13,8 @@ namespace StudyCenter.People
     {
         public Action<int?> PersonIDBack;
 
-        private enum _enMode { AddNew, Update };
-        private _enMode _mode = _enMode.AddNew;
+        private enum _enMode { Add, Update };
+        private _enMode _mode = _enMode.Add;
 
         private int? _personID = null;
         private clsPerson _person = null;
@@ -23,7 +23,7 @@ namespace StudyCenter.People
         {
             InitializeComponent();
 
-            _mode = _enMode.AddNew;
+            _mode = _enMode.Add;
         }
 
         public frmAddEditPerson(int? personID)
@@ -48,7 +48,7 @@ namespace StudyCenter.People
 
         private void _ResetDefaultValues()
         {
-            if (_mode == _enMode.AddNew)
+            if (_mode == _enMode.Add)
             {
                 lblTitle.Text = "Add New Person";
                 _person = new clsPerson();

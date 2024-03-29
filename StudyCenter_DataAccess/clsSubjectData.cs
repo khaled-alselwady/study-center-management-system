@@ -6,7 +6,7 @@ namespace StudyCenter_DataAccess
 {
 public class clsSubjectData
 {
-public static bool GetSubjectInfoByID(int? subjectID, ref string subjectName)
+public static bool GetInfoByID(int? subjectID, ref string subjectName)
 {
     bool isFound = false;
 
@@ -58,7 +58,7 @@ catch (SqlException ex)
     return isFound;
 }
 
-public static int? AddNewSubject(string subjectName)
+public static int? Add(string subjectName)
 {
 // This function will return the new person id if succeeded and null if not
     int? subjectID = null;
@@ -101,7 +101,7 @@ catch (SqlException ex)
     return subjectID;
 }
 
-public static bool UpdateSubject(int? subjectID, string subjectName)
+public static bool Update(int? subjectID, string subjectName)
 {
     int rowAffected = 0;
 
@@ -136,7 +136,7 @@ catch (SqlException ex)
     return (rowAffected > 0);
 }
 
-public static bool DeleteSubject(int? subjectID)
+public static bool Delete(int? subjectID)
 {
     int rowAffected = 0;
 
@@ -170,7 +170,7 @@ catch (SqlException ex)
     return (rowAffected > 0);
 }
 
-public static bool DoesSubjectExist(int? subjectID)
+public static bool Exists(int? subjectID)
 {
     bool isFound = false;
 
@@ -217,9 +217,9 @@ catch (SqlException ex)
     return isFound;
 }
 
-public static DataTable GetAllSubjects()
+public static DataTable All()
 {
-return clsDataAccessHelper.GetAll("SP_GetAllSubjects");
+return clsDataAccessHelper.All("SP_GetAllSubjects");
 }
 }
 }

@@ -6,7 +6,7 @@ namespace StudyCenter_DataAccess
 {
 public class clsSubjectTeacherData
 {
-public static bool GetSubjectTeacherInfoByID(int? subjectTeacherID, ref int subjectGradeLevelID, ref int teacherID, ref DateTime assignmentDate, ref bool isActive)
+public static bool GetInfoByID(int? subjectTeacherID, ref int subjectGradeLevelID, ref int teacherID, ref DateTime assignmentDate, ref bool isActive)
 {
     bool isFound = false;
 
@@ -61,7 +61,7 @@ catch (SqlException ex)
     return isFound;
 }
 
-public static int? AddNewSubjectTeacher(int subjectGradeLevelID, int teacherID, DateTime assignmentDate, bool isActive)
+public static int? Add(int subjectGradeLevelID, int teacherID, DateTime assignmentDate, bool isActive)
 {
 // This function will return the new person id if succeeded and null if not
     int? subjectTeacherID = null;
@@ -107,7 +107,7 @@ catch (SqlException ex)
     return subjectTeacherID;
 }
 
-public static bool UpdateSubjectTeacher(int? subjectTeacherID, int subjectGradeLevelID, int teacherID, DateTime assignmentDate, bool isActive)
+public static bool Update(int? subjectTeacherID, int subjectGradeLevelID, int teacherID, DateTime assignmentDate, bool isActive)
 {
     int rowAffected = 0;
 
@@ -145,7 +145,7 @@ catch (SqlException ex)
     return (rowAffected > 0);
 }
 
-public static bool DeleteSubjectTeacher(int? subjectTeacherID)
+public static bool Delete(int? subjectTeacherID)
 {
     int rowAffected = 0;
 
@@ -179,7 +179,7 @@ catch (SqlException ex)
     return (rowAffected > 0);
 }
 
-public static bool DoesSubjectTeacherExist(int? subjectTeacherID)
+public static bool Exists(int? subjectTeacherID)
 {
     bool isFound = false;
 
@@ -226,9 +226,9 @@ catch (SqlException ex)
     return isFound;
 }
 
-public static DataTable GetAllSubjectsTeachers()
+public static DataTable All()
 {
-return clsDataAccessHelper.GetAll("SP_GetAllSubjectsTeachers");
+return clsDataAccessHelper.All("SP_GetAllSubjectsTeachers");
 }
 }
 }

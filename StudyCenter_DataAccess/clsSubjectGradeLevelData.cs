@@ -6,7 +6,7 @@ namespace StudyCenter_DataAccess
 {
 public class clsSubjectGradeLevelData
 {
-public static bool GetSubjectGradeLevelInfoByID(int? subjectGradeLevelID, ref int subjectID, ref int gradeLevelID, ref decimal fees, ref string description)
+public static bool GetInfoByID(int? subjectGradeLevelID, ref int subjectID, ref int gradeLevelID, ref decimal fees, ref string description)
 {
     bool isFound = false;
 
@@ -61,7 +61,7 @@ catch (SqlException ex)
     return isFound;
 }
 
-public static int? AddNewSubjectGradeLevel(int subjectID, int gradeLevelID, decimal fees, string description)
+public static int? Add(int subjectID, int gradeLevelID, decimal fees, string description)
 {
 // This function will return the new person id if succeeded and null if not
     int? subjectGradeLevelID = null;
@@ -107,7 +107,7 @@ catch (SqlException ex)
     return subjectGradeLevelID;
 }
 
-public static bool UpdateSubjectGradeLevel(int? subjectGradeLevelID, int subjectID, int gradeLevelID, decimal fees, string description)
+public static bool Update(int? subjectGradeLevelID, int subjectID, int gradeLevelID, decimal fees, string description)
 {
     int rowAffected = 0;
 
@@ -145,7 +145,7 @@ catch (SqlException ex)
     return (rowAffected > 0);
 }
 
-public static bool DeleteSubjectGradeLevel(int? subjectGradeLevelID)
+public static bool Delete(int? subjectGradeLevelID)
 {
     int rowAffected = 0;
 
@@ -179,7 +179,7 @@ catch (SqlException ex)
     return (rowAffected > 0);
 }
 
-public static bool DoesSubjectGradeLevelExist(int? subjectGradeLevelID)
+public static bool Exists(int? subjectGradeLevelID)
 {
     bool isFound = false;
 
@@ -226,9 +226,9 @@ catch (SqlException ex)
     return isFound;
 }
 
-public static DataTable GetAllSubjectsGradeLevels()
+public static DataTable All()
 {
-return clsDataAccessHelper.GetAll("SP_GetAllSubjectsGradeLevels");
+return clsDataAccessHelper.All("SP_GetAllSubjectsGradeLevels");
 }
 }
 }
