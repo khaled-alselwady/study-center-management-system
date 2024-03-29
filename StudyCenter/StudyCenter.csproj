@@ -141,6 +141,18 @@
     <Compile Include="Students\UserControls\ucStudentCardWithFilter.Designer.cs">
       <DependentUpon>ucStudentCardWithFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teachers\UserControls\ucTeacherCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teachers\UserControls\ucTeacherCard.Designer.cs">
+      <DependentUpon>ucTeacherCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teachers\UserControls\ucTeacherCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teachers\UserControls\ucTeacherCardWithFilter.Designer.cs">
+      <DependentUpon>ucTeacherCardWithFilter.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GeneralUserControls\ucFilter.resx">
       <DependentUpon>ucFilter.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +201,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Students\UserControls\ucStudentCardWithFilter.resx">
       <DependentUpon>ucStudentCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\UserControls\ucTeacherCard.resx">
+      <DependentUpon>ucTeacherCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\UserControls\ucTeacherCardWithFilter.resx">
+      <DependentUpon>ucTeacherCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />

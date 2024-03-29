@@ -72,7 +72,9 @@ namespace StudyCenter.Students.UserControls
 
         private void ucFilter1_OnAddClick(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            frmAddEditStudent addStudent = new frmAddEditStudent();
+            addStudent.StudentIDBack += LoadStudentInfoByStudentID;
+            addStudent.ShowDialog();
         }
 
         private void ucFilter1_OnFindNumericClick(object sender, FindNumericClickEventArgs e)
@@ -87,7 +89,6 @@ namespace StudyCenter.Students.UserControls
                     LoadStudentInfoByPersonID(e?.Value);
                     break;
             }
-
         }
     }
 }

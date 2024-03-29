@@ -6,7 +6,9 @@ namespace StudyCenter_DataAccess
 {
     public class clsTeacherData
     {
-        public static bool GetInfoByID(int? teacherID, ref int personID, ref string educationLevel, ref byte? teachingExperience, ref string certifications, ref int createdByUserID, ref DateTime creationDate)
+        public static bool GetInfoByTeacherID(int? teacherID, ref int? personID, ref string educationLevel,
+            ref byte? teachingExperience, ref string certifications,
+            ref int? createdByUserID, ref DateTime creationDate)
         {
             bool isFound = false;
 
@@ -16,7 +18,7 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_GetTeacherInfoByID", connection))
+                    using (SqlCommand command = new SqlCommand("SP_GetTeacherInfoByTeacherID", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
@@ -29,11 +31,11 @@ namespace StudyCenter_DataAccess
                                 // The record was found
                                 isFound = true;
 
-                                personID = (int)reader["PersonID"];
+                                personID = (reader["PersonID"] != DBNull.Value) ? (int?)reader["PersonID"] : null;
                                 educationLevel = (string)reader["EducationLevel"];
                                 teachingExperience = (reader["TeachingExperience"] != DBNull.Value) ? (byte?)reader["TeachingExperience"] : null;
                                 certifications = (reader["Certifications"] != DBNull.Value) ? (string)reader["Certifications"] : null;
-                                createdByUserID = (int)reader["CreatedByUserID"];
+                                createdByUserID = (reader["CreatedByUserID"] != DBNull.Value) ? (int?)reader["CreatedByUserID"] : null;
                                 creationDate = (DateTime)reader["CreationDate"];
                             }
                             else
@@ -63,7 +65,67 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static int? Add(int personID, string educationLevel, byte? teachingExperience, string certifications, int createdByUserID, DateTime creationDate)
+        public static bool GetInfoByPersonID(int? personID, ref int? teacherID, ref string educationLevel,
+            ref byte? teachingExperience, ref string certifications,
+            ref int? createdByUserID, ref DateTime creationDate)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetTeacherInfoByPersonID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // The record was found
+                                isFound = true;
+
+                                teacherID = (reader["teacherID"] != DBNull.Value) ? (int?)reader["teacherID"] : null;
+                                educationLevel = (string)reader["EducationLevel"];
+                                teachingExperience = (reader["TeachingExperience"] != DBNull.Value) ? (byte?)reader["TeachingExperience"] : null;
+                                certifications = (reader["Certifications"] != DBNull.Value) ? (string)reader["Certifications"] : null;
+                                createdByUserID = (reader["CreatedByUserID"] != DBNull.Value) ? (int?)reader["CreatedByUserID"] : null;
+                                creationDate = (DateTime)reader["CreationDate"];
+                            }
+                            else
+                            {
+                                // The record was not found
+                                isFound = false;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                isFound = false;
+
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("Database Exception", ex);
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("General Exception", ex);
+            }
+
+            return isFound;
+        }
+
+        public static int? Add(int? personID, string educationLevel, byte? teachingExperience,
+            string certifications, int? createdByUserID)
         {
             // This function will return the new person id if succeeded and null if not
             int? teacherID = null;
@@ -78,12 +140,11 @@ namespace StudyCenter_DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@PersonID", personID);
+                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
                         command.Parameters.AddWithValue("@EducationLevel", educationLevel);
                         command.Parameters.AddWithValue("@TeachingExperience", (object)teachingExperience ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Certifications", (object)certifications ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
-                        command.Parameters.AddWithValue("@CreationDate", creationDate);
+                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewTeacherID", SqlDbType.Int)
                         {
@@ -111,7 +172,9 @@ namespace StudyCenter_DataAccess
             return teacherID;
         }
 
-        public static bool Update(int? teacherID, int personID, string educationLevel, byte? teachingExperience, string certifications, int createdByUserID, DateTime creationDate)
+        public static bool Update(int? teacherID, int? personID, string educationLevel,
+            byte? teachingExperience, string certifications,
+            int? createdByUserID)
         {
             int rowAffected = 0;
 
@@ -126,12 +189,11 @@ namespace StudyCenter_DataAccess
                         command.CommandType = CommandType.StoredProcedure;
 
                         command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@PersonID", personID);
+                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
                         command.Parameters.AddWithValue("@EducationLevel", educationLevel);
                         command.Parameters.AddWithValue("@TeachingExperience", (object)teachingExperience ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Certifications", (object)certifications ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
-                        command.Parameters.AddWithValue("@CreationDate", creationDate);
+                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
 
                         rowAffected = command.ExecuteNonQuery();
                     }
@@ -232,9 +294,8 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static DataTable All()
-        {
-            return clsDataAccessHelper.All("SP_GetAllTeachers");
-        }
+        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllTeachers");
+
+        public static int Count() => clsDataAccessHelper.Count("SP_GetAllTeachersCount");
     }
 }
