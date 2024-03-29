@@ -141,6 +141,18 @@
     <Compile Include="Students\UserControls\ucStudentCardWithFilter.Designer.cs">
       <DependentUpon>ucStudentCardWithFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teachers\frmFindTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teachers\frmFindTeacher.Designer.cs">
+      <DependentUpon>frmFindTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teachers\frmShowTeacherInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teachers\frmShowTeacherInfo.Designer.cs">
+      <DependentUpon>frmShowTeacherInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teachers\UserControls\ucTeacherCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,6 +213,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Students\UserControls\ucStudentCardWithFilter.resx">
       <DependentUpon>ucStudentCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\frmFindTeacher.resx">
+      <DependentUpon>frmFindTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\frmShowTeacherInfo.resx">
+      <DependentUpon>frmShowTeacherInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teachers\UserControls\ucTeacherCard.resx">
       <DependentUpon>ucTeacherCard.cs</DependentUpon>

@@ -111,5 +111,10 @@ namespace StudyCenter.Teachers.UserControls
 
             _FillTeacherData();
         }
+
+        private void llEditTeacherInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented yet!");
+        }
     }
 }

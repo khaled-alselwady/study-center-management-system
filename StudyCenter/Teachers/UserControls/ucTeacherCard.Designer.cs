@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.lblCertifications = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblEducationLevel = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.lblCreationDate = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,19 +49,13 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ucPersonCard1 = new StudyCenter.People.UserControls.ucPersonCard();
-            this.lblEducationLevel = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblCertifications = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIsActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GroupBox1
@@ -88,6 +88,77 @@
             this.guna2GroupBox1.Size = new System.Drawing.Size(862, 212);
             this.guna2GroupBox1.TabIndex = 4;
             this.guna2GroupBox1.Text = "Teacher Information";
+            // 
+            // lblCertifications
+            // 
+            this.lblCertifications.BackColor = System.Drawing.Color.Transparent;
+            this.lblCertifications.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCertifications.ForeColor = System.Drawing.Color.Black;
+            this.lblCertifications.Location = new System.Drawing.Point(174, 151);
+            this.lblCertifications.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCertifications.Name = "lblCertifications";
+            this.lblCertifications.Size = new System.Drawing.Size(223, 49);
+            this.lblCertifications.TabIndex = 180;
+            this.lblCertifications.Text = "[????]";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::StudyCenter.Properties.Resources.grade_level;
+            this.pictureBox4.Location = new System.Drawing.Point(136, 147);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 179;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(23, 150);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(111, 21);
+            this.label7.TabIndex = 178;
+            this.label7.Text = "Certifications:";
+            // 
+            // lblEducationLevel
+            // 
+            this.lblEducationLevel.AutoSize = true;
+            this.lblEducationLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblEducationLevel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEducationLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblEducationLevel.Location = new System.Drawing.Point(174, 112);
+            this.lblEducationLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEducationLevel.Name = "lblEducationLevel";
+            this.lblEducationLevel.Size = new System.Drawing.Size(50, 21);
+            this.lblEducationLevel.TabIndex = 177;
+            this.lblEducationLevel.Text = "[????]";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.grade_level;
+            this.pictureBox2.Location = new System.Drawing.Point(136, 108);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 176;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 111);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 21);
+            this.label5.TabIndex = 175;
+            this.label5.Text = "Education Level:";
             // 
             // lblCreationDate
             // 
@@ -182,6 +253,7 @@
             this.llEditTeacherInfo.TabIndex = 167;
             this.llEditTeacherInfo.TabStop = true;
             this.llEditTeacherInfo.Text = "Edit Teacher Info";
+            this.llEditTeacherInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llEditTeacherInfo_LinkClicked);
             // 
             // lblTeachingExperience
             // 
@@ -252,77 +324,6 @@
             this.ucPersonCard1.Size = new System.Drawing.Size(862, 270);
             this.ucPersonCard1.TabIndex = 3;
             // 
-            // lblEducationLevel
-            // 
-            this.lblEducationLevel.AutoSize = true;
-            this.lblEducationLevel.BackColor = System.Drawing.Color.Transparent;
-            this.lblEducationLevel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEducationLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEducationLevel.Location = new System.Drawing.Point(174, 112);
-            this.lblEducationLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEducationLevel.Name = "lblEducationLevel";
-            this.lblEducationLevel.Size = new System.Drawing.Size(50, 21);
-            this.lblEducationLevel.TabIndex = 177;
-            this.lblEducationLevel.Text = "[????]";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.grade_level;
-            this.pictureBox2.Location = new System.Drawing.Point(136, 108);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 26);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 176;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 111);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 21);
-            this.label5.TabIndex = 175;
-            this.label5.Text = "Education Level:";
-            // 
-            // lblCertifications
-            // 
-            this.lblCertifications.BackColor = System.Drawing.Color.Transparent;
-            this.lblCertifications.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCertifications.ForeColor = System.Drawing.Color.Black;
-            this.lblCertifications.Location = new System.Drawing.Point(174, 151);
-            this.lblCertifications.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCertifications.Name = "lblCertifications";
-            this.lblCertifications.Size = new System.Drawing.Size(223, 49);
-            this.lblCertifications.TabIndex = 180;
-            this.lblCertifications.Text = "[????]";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::StudyCenter.Properties.Resources.grade_level;
-            this.pictureBox4.Location = new System.Drawing.Point(136, 147);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(31, 26);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 179;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(23, 150);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 21);
-            this.label7.TabIndex = 178;
-            this.label7.Text = "Certifications:";
-            // 
             // ucTeacherCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,12 +336,12 @@
             this.Size = new System.Drawing.Size(862, 504);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIsActive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
