@@ -1,103 +1,105 @@
 using StudyCenter_DataAccess;
-using System;
 using System.Data;
 
 namespace StudyCenter_Business
 {
-public class clsSubjectGradeLevel
-{
-public enum enMode { AddNew = 0, Update = 1 };
-public enMode Mode = enMode.AddNew;
+    public class clsSubjectGradeLevel
+    {
+        public enum enMode { AddNew = 0, Update = 1 };
+        public enMode Mode = enMode.AddNew;
 
-public int? SubjectGradeLevelID { get; set; }
-public int SubjectID { get; set; }
-public int GradeLevelID { get; set; }
-public decimal Fees { get; set; }
-public string Description { get; set; }
+        public int? SubjectGradeLevelID { get; set; }
+        public int? SubjectID { get; set; }
+        public byte? GradeLevelID { get; set; }
+        public decimal Fees { get; set; }
+        public string Description { get; set; }
 
-public clsSubjectGradeLevel()
-{
-    SubjectGradeLevelID = null;
-    SubjectID = -1;
-    GradeLevelID = -1;
-    Fees = -1M;
-    Description = null;
+        public clsSubject SubjectInfo { get; private set; }
+        public clsGradeLevel GradeLevelInfo { get; private set; }
 
-    Mode = enMode.AddNew;
-}
+        public clsSubjectGradeLevel()
+        {
+            SubjectGradeLevelID = null;
+            SubjectID = null;
+            GradeLevelID = null;
+            Fees = -1M;
+            Description = null;
 
-private clsSubjectGradeLevel(int? subjectGradeLevelID, int subjectID, int gradeLevelID, decimal fees, string description)
-{
-    SubjectGradeLevelID = subjectGradeLevelID;
-    SubjectID = subjectID;
-    GradeLevelID = gradeLevelID;
-    Fees = fees;
-    Description = description;
+            Mode = enMode.AddNew;
+        }
 
-    Mode = enMode.Update;
-}
+        private clsSubjectGradeLevel(int? subjectGradeLevelID, int? subjectID,
+            byte? gradeLevelID, decimal fees, string description)
+        {
+            SubjectGradeLevelID = subjectGradeLevelID;
+            SubjectID = subjectID;
+            GradeLevelID = gradeLevelID;
+            Fees = fees;
+            Description = description;
 
-private bool _Add()
-{
-    SubjectGradeLevelID = clsSubjectGradeLevelData.Add(SubjectID, GradeLevelID, Fees, Description);
+            SubjectInfo = clsSubject.Find(subjectID);
+            GradeLevelInfo = clsGradeLevel.Find(gradeLevelID);
 
-    return (SubjectGradeLevelID.HasValue);
-}
+            Mode = enMode.Update;
+        }
 
-private bool _Update()
-{
-return clsSubjectGradeLevelData.Update(SubjectGradeLevelID, SubjectID, GradeLevelID, Fees, Description);
-}
+        private bool _Add()
+        {
+            SubjectGradeLevelID = clsSubjectGradeLevelData.Add(SubjectID, GradeLevelID,
+                Fees, Description);
 
-public bool Save()
-{
-switch (Mode)
-{
-case enMode.AddNew:
-if (_Add())
-{
-Mode = enMode.Update;
-return true;
-}
-else
-{
-return false;
-}
+            return (SubjectGradeLevelID.HasValue);
+        }
 
-case enMode.Update:
-return _Update();
-}
+        private bool _Update()
+        {
+            return clsSubjectGradeLevelData.Update(SubjectGradeLevelID, SubjectID,
+                GradeLevelID, Fees, Description);
+        }
 
-return false;
-}
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_Add())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
 
-public static clsSubjectGradeLevel Find(int? subjectGradeLevelID)
-{
-int subjectID = -1;
-int gradeLevelID = -1;
-decimal fees = -1M;
-string description = null;
+                case enMode.Update:
+                    return _Update();
+            }
 
-bool isFound = clsSubjectGradeLevelData.GetInfoByID(subjectGradeLevelID, ref subjectID, ref gradeLevelID, ref fees, ref description);
+            return false;
+        }
 
-return (isFound) ? (new clsSubjectGradeLevel(subjectGradeLevelID, subjectID, gradeLevelID, fees, description)) : null;
-}
+        public static clsSubjectGradeLevel Find(int? subjectGradeLevelID)
+        {
+            int? subjectID = null;
+            byte? gradeLevelID = null;
+            decimal fees = -1M;
+            string description = null;
 
-public static bool Delete(int? subjectGradeLevelID)
-{
-return clsSubjectGradeLevelData.Delete(subjectGradeLevelID);
-}
+            bool isFound = clsSubjectGradeLevelData.GetInfoByID(subjectGradeLevelID,
+                ref subjectID, ref gradeLevelID, ref fees, ref description);
 
-public static bool Exists(int? subjectGradeLevelID)
-{
-return clsSubjectGradeLevelData.Exists(subjectGradeLevelID);
-}
+            return (isFound) ? (new clsSubjectGradeLevel(subjectGradeLevelID,
+                subjectID, gradeLevelID, fees, description)) : null;
+        }
 
-public static DataTable All()
-{
-return clsSubjectGradeLevelData.All();
-}
+        public static bool Delete(int? subjectGradeLevelID)
+            => clsSubjectGradeLevelData.Delete(subjectGradeLevelID);
 
-}
+        public static bool Exists(int? subjectGradeLevelID)
+            => clsSubjectGradeLevelData.Exists(subjectGradeLevelID);
+
+        public static DataTable All() => clsSubjectGradeLevelData.All();
+    }
 
 }

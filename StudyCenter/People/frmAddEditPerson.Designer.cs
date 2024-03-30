@@ -128,7 +128,7 @@
             // txtFirstName
             // 
             this.txtFirstName.AutoRoundedCorners = true;
-            this.txtFirstName.BorderColor = System.Drawing.Color.Gray;
+            this.txtFirstName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.txtFirstName.BorderRadius = 17;
             this.txtFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtFirstName.DefaultText = "";
@@ -153,7 +153,7 @@
             // txtAddress
             // 
             this.txtAddress.AutoRoundedCorners = true;
-            this.txtAddress.BorderColor = System.Drawing.Color.Gray;
+            this.txtAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.txtAddress.BorderRadius = 49;
             this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAddress.DefaultText = "";
@@ -179,7 +179,7 @@
             // txtPhone
             // 
             this.txtPhone.AutoRoundedCorners = true;
-            this.txtPhone.BorderColor = System.Drawing.Color.Gray;
+            this.txtPhone.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.txtPhone.BorderRadius = 17;
             this.txtPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPhone.DefaultText = "";
@@ -221,7 +221,7 @@
             // txtEmail
             // 
             this.txtEmail.AutoRoundedCorners = true;
-            this.txtEmail.BorderColor = System.Drawing.Color.Gray;
+            this.txtEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.txtEmail.BorderRadius = 17;
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.DefaultText = "";
@@ -348,7 +348,7 @@
             // txtLastName
             // 
             this.txtLastName.AutoRoundedCorners = true;
-            this.txtLastName.BorderColor = System.Drawing.Color.Gray;
+            this.txtLastName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.txtLastName.BorderRadius = 17;
             this.txtLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtLastName.DefaultText = "";
@@ -373,7 +373,7 @@
             // txtThirdName
             // 
             this.txtThirdName.AutoRoundedCorners = true;
-            this.txtThirdName.BorderColor = System.Drawing.Color.Gray;
+            this.txtThirdName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.txtThirdName.BorderRadius = 17;
             this.txtThirdName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtThirdName.DefaultText = "";
@@ -397,7 +397,7 @@
             // txtSecondName
             // 
             this.txtSecondName.AutoRoundedCorners = true;
-            this.txtSecondName.BorderColor = System.Drawing.Color.Gray;
+            this.txtSecondName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.txtSecondName.BorderRadius = 17;
             this.txtSecondName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSecondName.DefaultText = "";

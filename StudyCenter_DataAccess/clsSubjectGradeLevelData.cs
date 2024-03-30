@@ -4,46 +4,47 @@ using System.Data.SqlClient;
 
 namespace StudyCenter_DataAccess
 {
-public class clsSubjectGradeLevelData
-{
-public static bool GetInfoByID(int? subjectGradeLevelID, ref int subjectID, ref int gradeLevelID, ref decimal fees, ref string description)
-{
-    bool isFound = false;
-
-    try
+    public class clsSubjectGradeLevelData
     {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        public static bool GetInfoByID(int? subjectGradeLevelID, ref int? subjectID,
+            ref byte? gradeLevelID, ref decimal fees, ref string description)
         {
-            connection.Open();
+            bool isFound = false;
 
-            using (SqlCommand command = new SqlCommand("SP_GetSubjectGradeLevelInfoByID", connection))
+            try
             {
-command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
-
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
-                    if (reader.Read())
-                    {
-                        // The record was found
-                        isFound = true;
+                    connection.Open();
 
-subjectID = (int)reader["SubjectID"];
-gradeLevelID = (int)reader["GradeLevelID"];
-fees = (decimal)reader["Fees"];
-description = (reader["Description"] != DBNull.Value) ? (string)reader["Description"] : null;
-                    }
-                    else
+                    using (SqlCommand command = new SqlCommand("SP_GetSubjectGradeLevelInfoByID", connection))
                     {
-                        // The record was not found
-                        isFound = false;
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // The record was found
+                                isFound = true;
+
+                                subjectID = (reader["SubjectID"] != DBNull.Value) ? (int?)reader["SubjectID"] : null;
+                                gradeLevelID = (reader["GradeLevelID"] != DBNull.Value) ? (byte?)Convert.ToByte(reader["GradeLevelID"]) : null;
+                                fees = (decimal)reader["Fees"];
+                                description = (reader["Description"] != DBNull.Value) ? (string)reader["Description"] : null;
+                            }
+                            else
+                            {
+                                // The record was not found
+                                isFound = false;
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
-catch (SqlException ex)
+            catch (SqlException ex)
             {
                 isFound = false;
 
@@ -58,42 +59,42 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return isFound;
-}
-
-public static int? Add(int subjectID, int gradeLevelID, decimal fees, string description)
-{
-// This function will return the new person id if succeeded and null if not
-    int? subjectGradeLevelID = null;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-        {
-            connection.Open();
-
-            using (SqlCommand command = new SqlCommand("SP_AddNewSubjectGradeLevel", connection))
-            {
-command.CommandType = CommandType.StoredProcedure;
-
-command.Parameters.AddWithValue("@SubjectID", subjectID);
-command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
-command.Parameters.AddWithValue("@Fees", fees);
-command.Parameters.AddWithValue("@Description", (object)description ?? DBNull.Value);
-
-SqlParameter outputIdParam = new SqlParameter("@NewSubjectGradeLevelID", SqlDbType.Int)
-{
-Direction = ParameterDirection.Output
-};
-command.Parameters.Add(outputIdParam);
-
-command.ExecuteNonQuery();
-
-subjectGradeLevelID = (int?)outputIdParam.Value;
-            }
+            return isFound;
         }
-    }
-catch (SqlException ex)
+
+        public static int? Add(int? subjectID, byte? gradeLevelID, decimal fees, string description)
+        {
+            // This function will return the new person id if succeeded and null if not
+            int? subjectGradeLevelID = null;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_AddNewSubjectGradeLevel", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@SubjectID", (object)subjectID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@Fees", fees);
+                        command.Parameters.AddWithValue("@Description", (object)description ?? DBNull.Value);
+
+                        SqlParameter outputIdParam = new SqlParameter("@NewSubjectGradeLevelID", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(outputIdParam);
+
+                        command.ExecuteNonQuery();
+
+                        subjectGradeLevelID = (int?)outputIdParam.Value;
+                    }
+                }
+            }
+            catch (SqlException ex)
             {
                 clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
                 loggerToEventViewer.LogError("Database Exception", ex);
@@ -104,34 +105,35 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return subjectGradeLevelID;
-}
-
-public static bool Update(int? subjectGradeLevelID, int subjectID, int gradeLevelID, decimal fees, string description)
-{
-    int rowAffected = 0;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-        {
-            connection.Open();
-
-            using (SqlCommand command = new SqlCommand("SP_UpdateSubjectGradeLevel", connection))
-            {
-command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
-command.Parameters.AddWithValue("@SubjectID", subjectID);
-command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
-command.Parameters.AddWithValue("@Fees", fees);
-command.Parameters.AddWithValue("@Description", (object)description ?? DBNull.Value);
-
-                rowAffected = command.ExecuteNonQuery();
-            }
+            return subjectGradeLevelID;
         }
-    }
-catch (SqlException ex)
+
+        public static bool Update(int? subjectGradeLevelID, int? subjectID, byte? gradeLevelID,
+            decimal fees, string description)
+        {
+            int rowAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_UpdateSubjectGradeLevel", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@SubjectID", (object)subjectID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@Fees", fees);
+                        command.Parameters.AddWithValue("@Description", (object)description ?? DBNull.Value);
+
+                        rowAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
             {
                 clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
                 loggerToEventViewer.LogError("Database Exception", ex);
@@ -142,30 +144,30 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return (rowAffected > 0);
-}
-
-public static bool Delete(int? subjectGradeLevelID)
-{
-    int rowAffected = 0;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-        {
-            connection.Open();
-
-            using (SqlCommand command = new SqlCommand("SP_DeleteSubjectGradeLevel", connection))
-            {
-command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
-
-                rowAffected = command.ExecuteNonQuery();
-            }
+            return (rowAffected > 0);
         }
-    }
-catch (SqlException ex)
+
+        public static bool Delete(int? subjectGradeLevelID)
+        {
+            int rowAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_DeleteSubjectGradeLevel", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
+
+                        rowAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
             {
                 clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
                 loggerToEventViewer.LogError("Database Exception", ex);
@@ -176,39 +178,39 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return (rowAffected > 0);
-}
-
-public static bool Exists(int? subjectGradeLevelID)
-{
-    bool isFound = false;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-        {
-            connection.Open();
-
-            using (SqlCommand command = new SqlCommand("SP_DoesSubjectGradeLevelExist", connection))
-            {
-command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
-
-// @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-{
-Direction = ParameterDirection.ReturnValue
-};
-command.Parameters.Add(returnParameter);
-
-command.ExecuteNonQuery();
-
-isFound = (int)returnParameter.Value == 1;
-            }
+            return (rowAffected > 0);
         }
-    }
-catch (SqlException ex)
+
+        public static bool Exists(int? subjectGradeLevelID)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_DoesSubjectGradeLevelExist", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
+
+                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(returnParameter);
+
+                        command.ExecuteNonQuery();
+
+                        isFound = (int)returnParameter.Value == 1;
+                    }
+                }
+            }
+            catch (SqlException ex)
             {
                 isFound = false;
 
@@ -223,12 +225,9 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return isFound;
-}
+            return isFound;
+        }
 
-public static DataTable All()
-{
-return clsDataAccessHelper.All("SP_GetAllSubjectsGradeLevels");
-}
-}
+        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllSubjectsGradeLevels");
+    }
 }

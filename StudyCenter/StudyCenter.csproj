@@ -142,6 +142,18 @@
     <Compile Include="Students\UserControls\ucStudentCardWithFilter.Designer.cs">
       <DependentUpon>ucStudentCardWithFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubjectsAndGradeLevels\frmAddEditSubjectsGradeLevels.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\frmAddEditSubjectsGradeLevels.Designer.cs">
+      <DependentUpon>frmAddEditSubjectsGradeLevels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subjects\frmAddEditSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subjects\frmAddEditSubject.Designer.cs">
+      <DependentUpon>frmAddEditSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teachers\frmAddEditTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +238,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Students\UserControls\ucStudentCardWithFilter.resx">
       <DependentUpon>ucStudentCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectsAndGradeLevels\frmAddEditSubjectsGradeLevels.resx">
+      <DependentUpon>frmAddEditSubjectsGradeLevels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subjects\frmAddEditSubject.resx">
+      <DependentUpon>frmAddEditSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teachers\frmAddEditTeacher.resx">
       <DependentUpon>frmAddEditTeacher.cs</DependentUpon>
@@ -391,6 +409,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\teachers-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notes 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
