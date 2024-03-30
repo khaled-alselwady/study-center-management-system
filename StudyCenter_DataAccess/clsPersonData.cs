@@ -241,9 +241,6 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static DataTable All()
-        {
-            return clsDataAccessHelper.All("SP_GetAllPeople");
-        }
+        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllPeople");
     }
 }

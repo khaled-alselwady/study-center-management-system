@@ -4,47 +4,47 @@ using System.Data.SqlClient;
 
 namespace StudyCenter_DataAccess
 {
-public class clsUserData
-{
-public static bool GetInfoByID(int? userID, ref int personID, ref string username, ref string password, ref int permissions, ref bool isActive)
-{
-    bool isFound = false;
-
-    try
+    public class clsUserData
     {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        public static bool GetInfoByID(int? userID, ref int personID, ref string username, ref string password, ref int permissions, ref bool isActive)
         {
-            connection.Open();
+            bool isFound = false;
 
-            using (SqlCommand command = new SqlCommand("SP_GetUserInfoByID", connection))
+            try
             {
-command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@UserID", (object)userID ?? DBNull.Value);
-
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
-                    if (reader.Read())
-                    {
-                        // The record was found
-                        isFound = true;
+                    connection.Open();
 
-personID = (int)reader["PersonID"];
-username = (string)reader["Username"];
-password = (string)reader["Password"];
-permissions = (int)reader["Permissions"];
-isActive = (bool)reader["IsActive"];
-                    }
-                    else
+                    using (SqlCommand command = new SqlCommand("SP_GetUserInfoByID", connection))
                     {
-                        // The record was not found
-                        isFound = false;
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@UserID", (object)userID ?? DBNull.Value);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // The record was found
+                                isFound = true;
+
+                                personID = (int)reader["PersonID"];
+                                username = (string)reader["Username"];
+                                password = (string)reader["Password"];
+                                permissions = (int)reader["Permissions"];
+                                isActive = (bool)reader["IsActive"];
+                            }
+                            else
+                            {
+                                // The record was not found
+                                isFound = false;
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
-catch (SqlException ex)
+            catch (SqlException ex)
             {
                 isFound = false;
 
@@ -59,47 +59,47 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return isFound;
-}
+            return isFound;
+        }
 
-public static bool GetInfoByUsername(ref int? userID, ref int personID, string username, ref string password, ref int permissions, ref bool isActive)
-{
-    bool isFound = false;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        public static bool GetInfoByUsername(ref int? userID, ref int personID, string username, ref string password, ref int permissions, ref bool isActive)
         {
-            connection.Open();
+            bool isFound = false;
 
-            using (SqlCommand command = new SqlCommand("SP_GetUserInfoByUsername", connection))
+            try
             {
-command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@Username", username);
-
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
-                    if (reader.Read())
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetUserInfoByUsername", connection))
                     {
-                        // The record was found
-                        isFound = true;
-userID = (reader["UserID"] != DBNull.Value) ? (int?)reader["UserID"] : null;
-personID = (int)reader["PersonID"];
-password = (string)reader["Password"];
-permissions = (int)reader["Permissions"];
-isActive = (bool)reader["IsActive"];
-                    }
-                    else
-                    {
-                        // The record was not found
-                        isFound = false;
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@Username", username);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // The record was found
+                                isFound = true;
+                                userID = (reader["UserID"] != DBNull.Value) ? (int?)reader["UserID"] : null;
+                                personID = (int)reader["PersonID"];
+                                password = (string)reader["Password"];
+                                permissions = (int)reader["Permissions"];
+                                isActive = (bool)reader["IsActive"];
+                            }
+                            else
+                            {
+                                // The record was not found
+                                isFound = false;
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
-catch (SqlException ex)
+            catch (SqlException ex)
             {
                 isFound = false;
 
@@ -114,47 +114,47 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return isFound;
-}
+            return isFound;
+        }
 
-public static bool GetInfoByUsernameAndPassword(ref int? userID, ref int personID, string username, string password, ref int permissions, ref bool isActive)
-{
-    bool isFound = false;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        public static bool GetInfoByUsernameAndPassword(ref int? userID, ref int personID, string username, string password, ref int permissions, ref bool isActive)
         {
-            connection.Open();
+            bool isFound = false;
 
-            using (SqlCommand command = new SqlCommand("SP_GetUserInfoByUsernameAndPassword", connection))
+            try
             {
-command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@Username", username);
-                command.Parameters.AddWithValue("@Password", password);
-
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
-                    if (reader.Read())
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetUserInfoByUsernameAndPassword", connection))
                     {
-                        // The record was found
-                        isFound = true;
-userID = (reader["UserID"] != DBNull.Value) ? (int?)reader["UserID"] : null;
-personID = (int)reader["PersonID"];
-permissions = (int)reader["Permissions"];
-isActive = (bool)reader["IsActive"];
-                    }
-                    else
-                    {
-                        // The record was not found
-                        isFound = false;
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@Password", password);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // The record was found
+                                isFound = true;
+                                userID = (reader["UserID"] != DBNull.Value) ? (int?)reader["UserID"] : null;
+                                personID = (int)reader["PersonID"];
+                                permissions = (int)reader["Permissions"];
+                                isActive = (bool)reader["IsActive"];
+                            }
+                            else
+                            {
+                                // The record was not found
+                                isFound = false;
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
-catch (SqlException ex)
+            catch (SqlException ex)
             {
                 isFound = false;
 
@@ -169,43 +169,43 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return isFound;
-}
+            return isFound;
+        }
 
-public static int? Add(int personID, string username, string password, int permissions, bool isActive)
-{
-// This function will return the new person id if succeeded and null if not
-    int? userID = null;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        public static int? Add(int personID, string username, string password, int permissions, bool isActive)
         {
-            connection.Open();
+            // This function will return the new person id if succeeded and null if not
+            int? userID = null;
 
-            using (SqlCommand command = new SqlCommand("SP_AddNewUser", connection))
+            try
             {
-command.CommandType = CommandType.StoredProcedure;
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
 
-command.Parameters.AddWithValue("@PersonID", personID);
-command.Parameters.AddWithValue("@Username", username);
-command.Parameters.AddWithValue("@Password", password);
-command.Parameters.AddWithValue("@Permissions", permissions);
-command.Parameters.AddWithValue("@IsActive", isActive);
+                    using (SqlCommand command = new SqlCommand("SP_AddNewUser", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
 
-SqlParameter outputIdParam = new SqlParameter("@NewUserID", SqlDbType.Int)
-{
-Direction = ParameterDirection.Output
-};
-command.Parameters.Add(outputIdParam);
+                        command.Parameters.AddWithValue("@PersonID", personID);
+                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@Password", password);
+                        command.Parameters.AddWithValue("@Permissions", permissions);
+                        command.Parameters.AddWithValue("@IsActive", isActive);
 
-command.ExecuteNonQuery();
+                        SqlParameter outputIdParam = new SqlParameter("@NewUserID", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(outputIdParam);
 
-userID = (int?)outputIdParam.Value;
+                        command.ExecuteNonQuery();
+
+                        userID = (int?)outputIdParam.Value;
+                    }
+                }
             }
-        }
-    }
-catch (SqlException ex)
+            catch (SqlException ex)
             {
                 clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
                 loggerToEventViewer.LogError("Database Exception", ex);
@@ -216,35 +216,35 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return userID;
-}
+            return userID;
+        }
 
-public static bool Update(int? userID, int personID, string username, string password, int permissions, bool isActive)
-{
-    int rowAffected = 0;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        public static bool Update(int? userID, int personID, string username, string password, int permissions, bool isActive)
         {
-            connection.Open();
+            int rowAffected = 0;
 
-            using (SqlCommand command = new SqlCommand("SP_UpdateUser", connection))
+            try
             {
-command.CommandType = CommandType.StoredProcedure;
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
 
-                command.Parameters.AddWithValue("@UserID", (object)userID ?? DBNull.Value);
-command.Parameters.AddWithValue("@PersonID", personID);
-command.Parameters.AddWithValue("@Username", username);
-command.Parameters.AddWithValue("@Password", password);
-command.Parameters.AddWithValue("@Permissions", permissions);
-command.Parameters.AddWithValue("@IsActive", isActive);
+                    using (SqlCommand command = new SqlCommand("SP_UpdateUser", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
 
-                rowAffected = command.ExecuteNonQuery();
+                        command.Parameters.AddWithValue("@UserID", (object)userID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@PersonID", personID);
+                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@Password", password);
+                        command.Parameters.AddWithValue("@Permissions", permissions);
+                        command.Parameters.AddWithValue("@IsActive", isActive);
+
+                        rowAffected = command.ExecuteNonQuery();
+                    }
+                }
             }
-        }
-    }
-catch (SqlException ex)
+            catch (SqlException ex)
             {
                 clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
                 loggerToEventViewer.LogError("Database Exception", ex);
@@ -255,30 +255,30 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return (rowAffected > 0);
-}
+            return (rowAffected > 0);
+        }
 
-public static bool Delete(int? userID)
-{
-    int rowAffected = 0;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        public static bool Delete(int? userID)
         {
-            connection.Open();
+            int rowAffected = 0;
 
-            using (SqlCommand command = new SqlCommand("SP_DeleteUser", connection))
+            try
             {
-command.CommandType = CommandType.StoredProcedure;
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
 
-                command.Parameters.AddWithValue("@UserID", (object)userID ?? DBNull.Value);
+                    using (SqlCommand command = new SqlCommand("SP_DeleteUser", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
 
-                rowAffected = command.ExecuteNonQuery();
+                        command.Parameters.AddWithValue("@UserID", (object)userID ?? DBNull.Value);
+
+                        rowAffected = command.ExecuteNonQuery();
+                    }
+                }
             }
-        }
-    }
-catch (SqlException ex)
+            catch (SqlException ex)
             {
                 clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
                 loggerToEventViewer.LogError("Database Exception", ex);
@@ -289,39 +289,39 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return (rowAffected > 0);
-}
+            return (rowAffected > 0);
+        }
 
-public static bool Exists(int? userID)
-{
-    bool isFound = false;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        public static bool Exists(int? userID)
         {
-            connection.Open();
+            bool isFound = false;
 
-            using (SqlCommand command = new SqlCommand("SP_DoesUserExist", connection))
+            try
             {
-command.CommandType = CommandType.StoredProcedure;
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
 
-                command.Parameters.AddWithValue("@UserID", (object)userID ?? DBNull.Value);
+                    using (SqlCommand command = new SqlCommand("SP_DoesUserExist", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
 
-// @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-{
-Direction = ParameterDirection.ReturnValue
-};
-command.Parameters.Add(returnParameter);
+                        command.Parameters.AddWithValue("@UserID", (object)userID ?? DBNull.Value);
 
-command.ExecuteNonQuery();
+                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(returnParameter);
 
-isFound = (int)returnParameter.Value == 1;
+                        command.ExecuteNonQuery();
+
+                        isFound = (int)returnParameter.Value == 1;
+                    }
+                }
             }
-        }
-    }
-catch (SqlException ex)
+            catch (SqlException ex)
             {
                 isFound = false;
 
@@ -336,39 +336,39 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return isFound;
-}
+            return isFound;
+        }
 
-public static bool Exists(string username)
-{
-    bool isFound = false;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        public static bool Exists(string username)
         {
-            connection.Open();
+            bool isFound = false;
 
-            using (SqlCommand command = new SqlCommand("SP_DoesUserExistByUsername", connection))
+            try
             {
-command.CommandType = CommandType.StoredProcedure;
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
 
-                command.Parameters.AddWithValue("@Username", username);
+                    using (SqlCommand command = new SqlCommand("SP_DoesUserExistByUsername", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
 
-// @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-{
-Direction = ParameterDirection.ReturnValue
-};
-command.Parameters.Add(returnParameter);
+                        command.Parameters.AddWithValue("@Username", username);
 
-command.ExecuteNonQuery();
+                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(returnParameter);
 
-isFound = (int)returnParameter.Value == 1;
+                        command.ExecuteNonQuery();
+
+                        isFound = (int)returnParameter.Value == 1;
+                    }
+                }
             }
-        }
-    }
-catch (SqlException ex)
+            catch (SqlException ex)
             {
                 isFound = false;
 
@@ -383,40 +383,40 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return isFound;
-}
+            return isFound;
+        }
 
-public static bool Exists(string username, string password)
-{
-    bool isFound = false;
-
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+        public static bool Exists(string username, string password)
         {
-            connection.Open();
+            bool isFound = false;
 
-            using (SqlCommand command = new SqlCommand("SP_DoesUserExistByUsernameAndPassword", connection))
+            try
             {
-command.CommandType = CommandType.StoredProcedure;
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
 
-                command.Parameters.AddWithValue("@Username", username);
-                command.Parameters.AddWithValue("@Password", password);
+                    using (SqlCommand command = new SqlCommand("SP_DoesUserExistByUsernameAndPassword", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
 
-// @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-{
-Direction = ParameterDirection.ReturnValue
-};
-command.Parameters.Add(returnParameter);
+                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@Password", password);
 
-command.ExecuteNonQuery();
+                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(returnParameter);
 
-isFound = (int)returnParameter.Value == 1;
+                        command.ExecuteNonQuery();
+
+                        isFound = (int)returnParameter.Value == 1;
+                    }
+                }
             }
-        }
-    }
-catch (SqlException ex)
+            catch (SqlException ex)
             {
                 isFound = false;
 
@@ -431,12 +431,9 @@ catch (SqlException ex)
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-    return isFound;
-}
+            return isFound;
+        }
 
-public static DataTable All()
-{
-return clsDataAccessHelper.All("SP_GetAllUsers");
-}
-}
+        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllUsers");
+    }
 }

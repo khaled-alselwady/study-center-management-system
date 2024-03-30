@@ -48,11 +48,13 @@
     <Compile Include="clsMeetingTime.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsStudent.cs" />
+    <Compile Include="clsStudentDeletedLog.cs" />
     <Compile Include="clsStudentGroup.cs" />
     <Compile Include="clsSubject.cs" />
     <Compile Include="clsSubjectGradeLevel.cs" />
     <Compile Include="clsSubjectTeacher.cs" />
     <Compile Include="clsTeacher.cs" />
+    <Compile Include="clsTeacherDeleted.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

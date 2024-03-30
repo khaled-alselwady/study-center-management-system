@@ -1,12 +1,15 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace StudyCenter_DataAccess
 {
-    public class clsGradeLevelData
+    public class clsStudentDeletedLogData
     {
-        public static bool GetInfoByID(byte? gradeLevelID, ref string gradeName)
+        public static bool GetInfoByID(int? logID, ref int studentID,
+            ref string studentName, ref int gradeLevelID,
+            ref int createdByUserID, ref int deletedByUserID,
+            ref DateTime creationDate, ref DateTime deletionDate)
         {
             bool isFound = false;
 
@@ -16,11 +19,11 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_GetGradeLevelInfoByID", connection))
+                    using (SqlCommand command = new SqlCommand("SP_GetStudentDeletedLogInfoByID", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@LogID", (object)logID ?? DBNull.Value);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -29,7 +32,13 @@ namespace StudyCenter_DataAccess
                                 // The record was found
                                 isFound = true;
 
-                                gradeName = (string)reader["GradeName"];
+                                studentID = (int)reader["StudentID"];
+                                studentName = (string)reader["StudentName"];
+                                gradeLevelID = (int)reader["GradeLevelID"];
+                                createdByUserID = (int)reader["CreatedByUserID"];
+                                deletedByUserID = (int)reader["DeletedByUserID"];
+                                creationDate = (DateTime)reader["CreationDate"];
+                                deletionDate = (DateTime)reader["DeletionDate"];
                             }
                             else
                             {
@@ -58,10 +67,11 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static byte? Add(string gradeName)
+        public static int? Add(int studentID, string studentName, int gradeLevelID,
+            int createdByUserID, int deletedByUserID, DateTime creationDate)
         {
             // This function will return the new person id if succeeded and null if not
-            byte? gradeLevelID = null;
+            int? logID = null;
 
             try
             {
@@ -69,13 +79,18 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_AddNewGradeLevel", connection))
+                    using (SqlCommand command = new SqlCommand("SP_AddNewStudentDeletedLog", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeName", gradeName);
+                        command.Parameters.AddWithValue("@StudentID", studentID);
+                        command.Parameters.AddWithValue("@StudentName", studentName);
+                        command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
+                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
+                        command.Parameters.AddWithValue("@DeletedByUserID", deletedByUserID);
+                        command.Parameters.AddWithValue("@CreationDate", creationDate);
 
-                        SqlParameter outputIdParam = new SqlParameter("@NewGradeLevelID", SqlDbType.Int)
+                        SqlParameter outputIdParam = new SqlParameter("@NewLogID", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
                         };
@@ -83,7 +98,7 @@ namespace StudyCenter_DataAccess
 
                         command.ExecuteNonQuery();
 
-                        gradeLevelID = (byte?)(int)outputIdParam.Value;
+                        logID = (int?)outputIdParam.Value;
                     }
                 }
             }
@@ -98,10 +113,12 @@ namespace StudyCenter_DataAccess
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-            return gradeLevelID;
+            return logID;
         }
 
-        public static bool Update(byte? gradeLevelID, string gradeName)
+        public static bool Update(int? logID, int studentID, string studentName,
+            int gradeLevelID, int createdByUserID, int deletedByUserID,
+            DateTime creationDate)
         {
             int rowAffected = 0;
 
@@ -111,12 +128,17 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_UpdateGradeLevel", connection))
+                    using (SqlCommand command = new SqlCommand("SP_UpdateStudentDeletedLog", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@GradeName", gradeName);
+                        command.Parameters.AddWithValue("@LogID", (object)logID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@StudentID", studentID);
+                        command.Parameters.AddWithValue("@StudentName", studentName);
+                        command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
+                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
+                        command.Parameters.AddWithValue("@DeletedByUserID", deletedByUserID);
+                        command.Parameters.AddWithValue("@CreationDate", creationDate);
 
                         rowAffected = command.ExecuteNonQuery();
                     }
@@ -136,7 +158,7 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool Delete(byte? gradeLevelID)
+        public static bool Delete(int? logID)
         {
             int rowAffected = 0;
 
@@ -146,11 +168,11 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_DeleteGradeLevel", connection))
+                    using (SqlCommand command = new SqlCommand("SP_DeleteStudentDeletedLog", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@LogID", (object)logID ?? DBNull.Value);
 
                         rowAffected = command.ExecuteNonQuery();
                     }
@@ -170,7 +192,7 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool Exists(byte? gradeLevelID)
+        public static bool Exists(int? logID)
         {
             bool isFound = false;
 
@@ -180,11 +202,11 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_DoesGradeLevelExist", connection))
+                    using (SqlCommand command = new SqlCommand("SP_DoesStudentDeletedLogExist", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@LogID", (object)logID ?? DBNull.Value);
 
                         // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
                         SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
@@ -217,94 +239,6 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllGradeLevels");
-
-        public static DataTable AllOnlyNames() => clsDataAccessHelper.All("SP_GetAllGradeLevelsName");
-
-        public static string GetGradeLevelName(byte? gradeLevelID)
-        {
-            // This function will return the new person id if succeeded and null if not
-            string gradeName = null;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_GetGradeLevelName", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
-
-                        SqlParameter outputIdParam = new SqlParameter("@GradeName", SqlDbType.NVarChar, 50)
-                        {
-                            Direction = ParameterDirection.Output
-                        };
-                        command.Parameters.Add(outputIdParam);
-
-                        command.ExecuteNonQuery();
-
-                        gradeName = outputIdParam.Value.ToString();
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
-            catch (Exception ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
-            }
-
-            return gradeName;
-        }
-
-        public static byte? GetGradeLevelID(string gradeName)
-        {
-            // This function will return the new person id if succeeded and null if not
-            byte? gradeLevelID = null;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_GetGradeLevelID", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@GradeName", gradeName);
-
-                        SqlParameter outputIdParam = new SqlParameter("@GradeLevelID", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.Output
-                        };
-                        command.Parameters.Add(outputIdParam);
-
-                        command.ExecuteNonQuery();
-
-                        gradeLevelID = (byte?)(int)outputIdParam.Value;
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
-            catch (Exception ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
-            }
-
-            return gradeLevelID;
-        }
+        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllStudentDeletedLog");
     }
 }

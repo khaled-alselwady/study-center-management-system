@@ -217,15 +217,9 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static DataTable All()
-        {
-            return clsDataAccessHelper.All("SP_GetAllEducationLevels");
-        }
+        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllEducationLevels");
 
-        public static DataTable AllOnlyNames()
-        {
-            return clsDataAccessHelper.All("SP_GetAllEducationLevelsName");
-        }
+        public static DataTable AllOnlyNames() => clsDataAccessHelper.All("SP_GetAllEducationLevelsName");
 
         public static string GetEducationLevelName(byte? educationLevelID)
         {

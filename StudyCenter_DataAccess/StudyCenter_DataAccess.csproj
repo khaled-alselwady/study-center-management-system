@@ -53,11 +53,13 @@
     <Compile Include="clsMeetingTimeData.cs" />
     <Compile Include="clsPersonData.cs" />
     <Compile Include="clsStudentData.cs" />
+    <Compile Include="clsStudentDeletedLogData.cs" />
     <Compile Include="clsStudentGroupData.cs" />
     <Compile Include="clsSubjectData.cs" />
     <Compile Include="clsSubjectGradeLevelData.cs" />
     <Compile Include="clsSubjectTeacherData.cs" />
     <Compile Include="clsTeacherData.cs" />
+    <Compile Include="clsTeacherDeletedData.cs" />
     <Compile Include="clsUserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
