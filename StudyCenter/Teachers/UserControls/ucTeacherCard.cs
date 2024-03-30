@@ -26,7 +26,7 @@ namespace StudyCenter.Teachers.UserControls
 
             lblTeacherID.Text = _teacher.TeacherID.ToString();
             lblCertifications.Text = _teacher.Certifications;
-            lblEducationLevel.Text = _teacher.EducationLevel;
+            lblEducationLevel.Text = _teacher.EducationLevelInfo?.LevelName;
             lblTeachingExperience.Text = _teacher.TeachingExperience.ToString() + PrintYearOrYears();
             lblCreatedByUser.Text = _teacher.CreatedByUserInfo.Username;
             lblCreationDate.Text = clsFormat.DateToShort(_teacher.CreationDate);
@@ -114,7 +114,11 @@ namespace StudyCenter.Teachers.UserControls
 
         private void llEditTeacherInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            frmAddEditTeacher editTeacher = new frmAddEditTeacher(_teacherID);
+            editTeacher.ShowDialog();
+
+            // Refresh
+            LoadTeacherInfoByTeacherID(_teacherID);
         }
     }
 }

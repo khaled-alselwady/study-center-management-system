@@ -45,6 +45,7 @@
     <Compile Include="clsClassData.cs" />
     <Compile Include="clsDataAccessHelper.cs" />
     <Compile Include="clsDataAccessSettings.cs" />
+    <Compile Include="clsEducationLevelData.cs" />
     <Compile Include="clsErrorLogger.cs" />
     <Compile Include="clsGradeLevelData.cs" />
     <Compile Include="clsGroupData.cs" />

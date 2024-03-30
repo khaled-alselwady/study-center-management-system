@@ -119,8 +119,7 @@ namespace StudyCenter.Students
                 // change form mode to update
                 _mode = _enMode.Update;
 
-                MessageBox.Show("Data Saved Successfully", "Saved",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsStandardMessages.ShowSuccess("Student");
 
                 ucPersonCardWithFilter1.FilterEnabled = false;
 
@@ -129,8 +128,7 @@ namespace StudyCenter.Students
             }
             else
             {
-                MessageBox.Show("Data Saved Failed", "Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowError("student");
             }
         }
 
@@ -169,15 +167,14 @@ namespace StudyCenter.Students
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!this.ValidateChildren())
+            if (!ValidateChildren())
             {
-                MessageBox.Show("Some fields contain invalid data. Please correct the errors indicated by the red icons.",
-                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowValidationErrorMessage();
                 return;
             }
 

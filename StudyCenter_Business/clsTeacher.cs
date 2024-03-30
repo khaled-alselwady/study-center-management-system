@@ -11,7 +11,7 @@ namespace StudyCenter_Business
 
         public int? TeacherID { get; set; }
         public int? PersonID { get; set; }
-        public string EducationLevel { get; set; }
+        public byte? EducationLevelID { get; set; }
         public byte? TeachingExperience { get; set; }
         public string Certifications { get; set; }
         public int? CreatedByUserID { get; set; }
@@ -19,12 +19,13 @@ namespace StudyCenter_Business
 
         public clsPerson PersonInfo { get; private set; }
         public clsUser CreatedByUserInfo { get; private set; }
+        public clsEducationLevel EducationLevelInfo { get; private set; }
 
         public clsTeacher()
         {
             TeacherID = null;
             PersonID = null;
-            EducationLevel = string.Empty;
+            EducationLevelID = 0;
             TeachingExperience = null;
             Certifications = null;
             CreatedByUserID = null;
@@ -33,13 +34,13 @@ namespace StudyCenter_Business
             Mode = enMode.AddNew;
         }
 
-        private clsTeacher(int? teacherID, int? personID, string educationLevel,
+        private clsTeacher(int? teacherID, int? personID, byte? educationLevelID,
             byte? teachingExperience, string certifications, int? createdByUserID,
             DateTime creationDate)
         {
             TeacherID = teacherID;
             PersonID = personID;
-            EducationLevel = educationLevel;
+            EducationLevelID = educationLevelID;
             TeachingExperience = teachingExperience;
             Certifications = certifications;
             CreatedByUserID = createdByUserID;
@@ -47,13 +48,14 @@ namespace StudyCenter_Business
 
             PersonInfo = clsPerson.Find(personID);
             CreatedByUserInfo = clsUser.Find(createdByUserID);
+            EducationLevelInfo = clsEducationLevel.Find(educationLevelID);
 
             Mode = enMode.Update;
         }
 
         private bool _Add()
         {
-            TeacherID = clsTeacherData.Add(PersonID, EducationLevel, TeachingExperience,
+            TeacherID = clsTeacherData.Add(PersonID, EducationLevelID, TeachingExperience,
                 Certifications, CreatedByUserID);
 
             return (TeacherID.HasValue);
@@ -61,7 +63,7 @@ namespace StudyCenter_Business
 
         private bool _Update()
         {
-            return clsTeacherData.Update(TeacherID, PersonID, EducationLevel, TeachingExperience,
+            return clsTeacherData.Update(TeacherID, PersonID, EducationLevelID, TeachingExperience,
                 Certifications, CreatedByUserID);
         }
 
@@ -90,16 +92,16 @@ namespace StudyCenter_Business
         public static clsTeacher FindByTeacherID(int? teacherID)
         {
             int? personID = null;
-            string educationLevel = string.Empty;
+            byte? educationLevelID = null;
             byte? teachingExperience = null;
             string certifications = null;
             int? createdByUserID = null;
             DateTime creationDate = DateTime.Now;
 
-            bool isFound = clsTeacherData.GetInfoByTeacherID(teacherID, ref personID, ref educationLevel,
+            bool isFound = clsTeacherData.GetInfoByTeacherID(teacherID, ref personID, ref educationLevelID,
                 ref teachingExperience, ref certifications, ref createdByUserID, ref creationDate);
 
-            return (isFound) ? (new clsTeacher(teacherID, personID, educationLevel,
+            return (isFound) ? (new clsTeacher(teacherID, personID, educationLevelID,
                                 teachingExperience, certifications, createdByUserID, creationDate))
                              : null;
         }
@@ -107,16 +109,16 @@ namespace StudyCenter_Business
         public static clsTeacher FindByPersonID(int? personID)
         {
             int? teacherID = null;
-            string educationLevel = string.Empty;
+            byte? educationLevelID = null;
             byte? teachingExperience = null;
             string certifications = null;
             int? createdByUserID = null;
             DateTime creationDate = DateTime.Now;
 
-            bool isFound = clsTeacherData.GetInfoByPersonID(personID, ref teacherID, ref educationLevel,
+            bool isFound = clsTeacherData.GetInfoByPersonID(personID, ref teacherID, ref educationLevelID,
                 ref teachingExperience, ref certifications, ref createdByUserID, ref creationDate);
 
-            return (isFound) ? (new clsTeacher(teacherID, personID, educationLevel,
+            return (isFound) ? (new clsTeacher(teacherID, personID, educationLevelID,
                                 teachingExperience, certifications, createdByUserID, creationDate))
                              : null;
         }
@@ -128,5 +130,7 @@ namespace StudyCenter_Business
         public static DataTable All() => clsTeacherData.All();
 
         public static int Count() => clsTeacherData.Count();
+
+        public static bool IsTeacher(int? personID) => clsTeacherData.IsTeacher(personID);
     }
 }

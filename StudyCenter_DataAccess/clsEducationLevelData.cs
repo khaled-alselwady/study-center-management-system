@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace StudyCenter_DataAccess
 {
-    public class clsGradeLevelData
+    public class clsEducationLevelData
     {
-        public static bool GetInfoByID(byte? gradeLevelID, ref string gradeName)
+        public static bool GetInfoByID(byte? educationLevelID, ref string levelName)
         {
             bool isFound = false;
 
@@ -16,11 +16,11 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_GetGradeLevelInfoByID", connection))
+                    using (SqlCommand command = new SqlCommand("SP_GetEducationLevelInfoByID", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@EducationLevelID", (object)educationLevelID ?? DBNull.Value);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -29,7 +29,7 @@ namespace StudyCenter_DataAccess
                                 // The record was found
                                 isFound = true;
 
-                                gradeName = (string)reader["GradeName"];
+                                levelName = (string)reader["LevelName"];
                             }
                             else
                             {
@@ -58,10 +58,10 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static byte? Add(string gradeName)
+        public static byte? Add(string levelName)
         {
             // This function will return the new person id if succeeded and null if not
-            byte? gradeLevelID = null;
+            byte? educationLevelID = null;
 
             try
             {
@@ -69,13 +69,13 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_AddNewGradeLevel", connection))
+                    using (SqlCommand command = new SqlCommand("SP_AddNewEducationLevel", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeName", gradeName);
+                        command.Parameters.AddWithValue("@LevelName", levelName);
 
-                        SqlParameter outputIdParam = new SqlParameter("@NewGradeLevelID", SqlDbType.Int)
+                        SqlParameter outputIdParam = new SqlParameter("@NewEducationLevelID", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
                         };
@@ -83,7 +83,7 @@ namespace StudyCenter_DataAccess
 
                         command.ExecuteNonQuery();
 
-                        gradeLevelID = (byte?)(int)outputIdParam.Value;
+                        educationLevelID = (byte?)(int)outputIdParam.Value;
                     }
                 }
             }
@@ -98,10 +98,10 @@ namespace StudyCenter_DataAccess
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-            return gradeLevelID;
+            return educationLevelID;
         }
 
-        public static bool Update(byte? gradeLevelID, string gradeName)
+        public static bool Update(byte? educationLevelID, string levelName)
         {
             int rowAffected = 0;
 
@@ -111,12 +111,12 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_UpdateGradeLevel", connection))
+                    using (SqlCommand command = new SqlCommand("SP_UpdateEducationLevel", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@GradeName", gradeName);
+                        command.Parameters.AddWithValue("@EducationLevelID", (object)educationLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@LevelName", levelName);
 
                         rowAffected = command.ExecuteNonQuery();
                     }
@@ -136,7 +136,7 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool Delete(byte? gradeLevelID)
+        public static bool Delete(byte? educationLevelID)
         {
             int rowAffected = 0;
 
@@ -146,11 +146,11 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_DeleteGradeLevel", connection))
+                    using (SqlCommand command = new SqlCommand("SP_DeleteEducationLevel", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@EducationLevelID", (object)educationLevelID ?? DBNull.Value);
 
                         rowAffected = command.ExecuteNonQuery();
                     }
@@ -170,7 +170,7 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool Exists(byte? gradeLevelID)
+        public static bool Exists(byte? educationLevelID)
         {
             bool isFound = false;
 
@@ -180,11 +180,11 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_DoesGradeLevelExist", connection))
+                    using (SqlCommand command = new SqlCommand("SP_DoesEducationLevelExist", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@EducationLevelID", (object)educationLevelID ?? DBNull.Value);
 
                         // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
                         SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
@@ -219,18 +219,17 @@ namespace StudyCenter_DataAccess
 
         public static DataTable All()
         {
-            return clsDataAccessHelper.All("SP_GetAllGradeLevels");
+            return clsDataAccessHelper.All("SP_GetAllEducationLevels");
         }
 
         public static DataTable AllOnlyNames()
         {
-            return clsDataAccessHelper.All("SP_GetAllGradeLevelsName");
+            return clsDataAccessHelper.All("SP_GetAllEducationLevelsName");
         }
 
-        public static string GetGradeLevelName(byte? gradeLevelID)
+        public static string GetEducationLevelName(byte? educationLevelID)
         {
-            // This function will return the new person id if succeeded and null if not
-            string gradeName = null;
+            string levelName = null;
 
             try
             {
@@ -238,13 +237,13 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_GetGradeLevelName", connection))
+                    using (SqlCommand command = new SqlCommand("SP_GetEducationLevelName", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
+                        command.Parameters.AddWithValue("@EducationLevelID", educationLevelID);
 
-                        SqlParameter outputIdParam = new SqlParameter("@GradeName", SqlDbType.NVarChar, 50)
+                        SqlParameter outputIdParam = new SqlParameter("@LevelName", SqlDbType.NVarChar, 50)
                         {
                             Direction = ParameterDirection.Output
                         };
@@ -252,7 +251,7 @@ namespace StudyCenter_DataAccess
 
                         command.ExecuteNonQuery();
 
-                        gradeName = outputIdParam.Value.ToString();
+                        levelName = outputIdParam.Value.ToString();
                     }
                 }
             }
@@ -267,13 +266,13 @@ namespace StudyCenter_DataAccess
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-            return gradeName;
+            return levelName;
         }
 
-        public static byte? GetGradeLevelID(string gradeName)
+        public static byte? GetEducationLevelID(string educationLevelName)
         {
             // This function will return the new person id if succeeded and null if not
-            byte? gradeLevelID = null;
+            byte? educationLevelID = null;
 
             try
             {
@@ -281,13 +280,13 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_GetGradeLevelID", connection))
+                    using (SqlCommand command = new SqlCommand("SP_GetEducationLevelID", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GradeName", gradeName);
+                        command.Parameters.AddWithValue("@LevelName", educationLevelName);
 
-                        SqlParameter outputIdParam = new SqlParameter("@GradeLevelID", SqlDbType.Int)
+                        SqlParameter outputIdParam = new SqlParameter("@EducationLevelID", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
                         };
@@ -295,7 +294,7 @@ namespace StudyCenter_DataAccess
 
                         command.ExecuteNonQuery();
 
-                        gradeLevelID = (byte?)(int)outputIdParam.Value;
+                        educationLevelID = (byte?)(int)outputIdParam.Value;
                     }
                 }
             }
@@ -310,7 +309,7 @@ namespace StudyCenter_DataAccess
                 loggerToEventViewer.LogError("General Exception", ex);
             }
 
-            return gradeLevelID;
+            return educationLevelID;
         }
     }
 }

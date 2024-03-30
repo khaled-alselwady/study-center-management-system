@@ -167,13 +167,14 @@
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.txtAddress.Location = new System.Drawing.Point(147, 253);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
+            this.txtAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtAddress.SelectedText = "";
             this.txtAddress.Size = new System.Drawing.Size(703, 100);
             this.txtAddress.TabIndex = 204;
-            this.txtAddress.TextOffset = new System.Drawing.Point(0, -30);
             // 
             // txtPhone
             // 

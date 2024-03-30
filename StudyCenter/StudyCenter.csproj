@@ -66,6 +66,7 @@
     <Compile Include="GlobalClasses\clsFormat.cs" />
     <Compile Include="GlobalClasses\clsGlobal.cs" />
     <Compile Include="GlobalClasses\clsLogHandler.cs" />
+    <Compile Include="GlobalClasses\clsStandardMessages.cs" />
     <Compile Include="GlobalClasses\clsValidation.cs" />
     <Compile Include="MainMenu\frmMainMenu.cs">
       <SubType>Form</SubType>
@@ -141,6 +142,12 @@
     <Compile Include="Students\UserControls\ucStudentCardWithFilter.Designer.cs">
       <DependentUpon>ucStudentCardWithFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teachers\frmAddEditTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teachers\frmAddEditTeacher.Designer.cs">
+      <DependentUpon>frmAddEditTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teachers\frmFindTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Students\UserControls\ucStudentCardWithFilter.resx">
       <DependentUpon>ucStudentCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\frmAddEditTeacher.resx">
+      <DependentUpon>frmAddEditTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teachers\frmFindTeacher.resx">
       <DependentUpon>frmFindTeacher.cs</DependentUpon>
@@ -363,6 +373,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\certificate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\experience.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

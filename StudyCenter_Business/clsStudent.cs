@@ -11,7 +11,7 @@ namespace StudyCenter_Business
 
         public int? StudentID { get; set; }
         public int? PersonID { get; set; }
-        public int? GradeLevelID { get; set; }
+        public byte? GradeLevelID { get; set; }
         public int? CreatedByUserID { get; set; }
         public DateTime CreationDate { get; set; }
 
@@ -30,7 +30,7 @@ namespace StudyCenter_Business
             Mode = enMode.AddNew;
         }
 
-        private clsStudent(int? studentID, int? personID, int? gradeLevelID,
+        private clsStudent(int? studentID, int? personID, byte? gradeLevelID,
             int? createdByUserID, DateTime creationDate)
         {
             StudentID = studentID;
@@ -83,7 +83,7 @@ namespace StudyCenter_Business
         public static clsStudent FindByStudentID(int? studentID)
         {
             int? personID = null;
-            int? gradeLevelID = null;
+            byte? gradeLevelID = null;
             int? createdByUserID = null;
             DateTime creationDate = DateTime.Now;
 
@@ -98,7 +98,7 @@ namespace StudyCenter_Business
         public static clsStudent FindByPersonID(int? personID)
         {
             int? studentID = null;
-            int? gradeLevelID = null;
+            byte? gradeLevelID = null;
             int? createdByUserID = null;
             DateTime creationDate = DateTime.Now;
 
@@ -111,33 +111,22 @@ namespace StudyCenter_Business
         }
 
         public static bool Delete(int? studentID, int? deletedByUserID)
-        {
-            return clsStudentData.Delete(studentID, deletedByUserID);
-        }
+            => clsStudentData.Delete(studentID, deletedByUserID);
 
         public static bool Exists(int? studentID)
-        {
-            return clsStudentData.Exists(studentID);
-        }
+        => clsStudentData.Exists(studentID);
 
-        public static DataTable All()
-        {
-            return clsStudentData.All();
-        }
+        public static DataTable All() => clsStudentData.All();
 
-        public static int Count()
-        {
-            return clsStudentData.Count();
-        }
+        public static int Count() => clsStudentData.Count();
 
         public static bool IsStudent(int? personID)
-        {
-            return clsStudentData.IsStudent(personID);
-        }
+            => clsStudentData.IsStudent(personID);
+
+        public static bool IsStudentActive(int? personID)
+            => clsStudentData.IsStudentActive(personID);
 
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
-        {
-            return clsStudentData.AllInPages(PageNumber, RowsPerPage);
-        }
+            => clsStudentData.AllInPages(PageNumber, RowsPerPage);
     }
 }

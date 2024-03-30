@@ -146,22 +146,20 @@ namespace StudyCenter.People
                 // change form mode to update
                 _mode = _enMode.Update;
 
-                MessageBox.Show("Data Saved Successfully", "Saved",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsStandardMessages.ShowSuccess("Person");
 
                 // Trigger the event to send data back to the caller form
                 PersonIDBack?.Invoke(_person?.PersonID);
             }
             else
             {
-                MessageBox.Show("Data Saved Failed", "Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowError("person");
             }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void frmAddEditPerson_Load(object sender, EventArgs e)
@@ -224,10 +222,9 @@ namespace StudyCenter.People
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!this.ValidateChildren())
+            if (!ValidateChildren())
             {
-                MessageBox.Show("Some fields are not valid!, put the mouse over the red icon(s) to see the error",
-                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowValidationErrorMessage();
                 return;
             }
 

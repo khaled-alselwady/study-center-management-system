@@ -70,7 +70,9 @@ namespace StudyCenter.Teachers.UserControls
 
         private void ucFilter1_OnAddClick(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            frmAddEditTeacher addTeacher = new frmAddEditTeacher();
+            addTeacher.TeacherIDBack += LoadTeacherInfoByTeacherID;
+            addTeacher.ShowDialog();
         }
 
         private void ucFilter1_OnFindNumericClick(object sender, GeneralUserControls.ucFilter.FindNumericClickEventArgs e)

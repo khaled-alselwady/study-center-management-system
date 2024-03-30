@@ -30,25 +30,25 @@
         {
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lblCertifications = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblEducationLevel = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblCreationDate = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCreatedByUser = new System.Windows.Forms.Label();
-            this.pbIsActive = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.llEditTeacherInfo = new System.Windows.Forms.LinkLabel();
             this.lblTeachingExperience = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.lblTeacherID = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ucPersonCard1 = new StudyCenter.People.UserControls.ucPersonCard();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pbIsActive = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -101,17 +101,6 @@
             this.lblCertifications.TabIndex = 180;
             this.lblCertifications.Text = "[????]";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::StudyCenter.Properties.Resources.grade_level;
-            this.pictureBox4.Location = new System.Drawing.Point(136, 147);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(31, 26);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 179;
-            this.pictureBox4.TabStop = false;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -137,17 +126,6 @@
             this.lblEducationLevel.TabIndex = 177;
             this.lblEducationLevel.Text = "[????]";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.grade_level;
-            this.pictureBox2.Location = new System.Drawing.Point(136, 108);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 26);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 176;
-            this.pictureBox2.TabStop = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -171,17 +149,6 @@
             this.lblCreationDate.Size = new System.Drawing.Size(50, 21);
             this.lblCreationDate.TabIndex = 174;
             this.lblCreationDate.Text = "[????]";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::StudyCenter.Properties.Resources.add_reservation_50;
-            this.pictureBox3.Location = new System.Drawing.Point(562, 147);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(31, 26);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 173;
-            this.pictureBox3.TabStop = false;
             // 
             // label2
             // 
@@ -207,17 +174,6 @@
             this.lblCreatedByUser.TabIndex = 171;
             this.lblCreatedByUser.Text = "[????]";
             // 
-            // pbIsActive
-            // 
-            this.pbIsActive.BackColor = System.Drawing.Color.Transparent;
-            this.pbIsActive.Image = global::StudyCenter.Properties.Resources.name;
-            this.pbIsActive.Location = new System.Drawing.Point(562, 108);
-            this.pbIsActive.Name = "pbIsActive";
-            this.pbIsActive.Size = new System.Drawing.Size(31, 26);
-            this.pbIsActive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbIsActive.TabIndex = 170;
-            this.pbIsActive.TabStop = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -229,17 +185,6 @@
             this.label4.Size = new System.Drawing.Size(132, 21);
             this.label4.TabIndex = 169;
             this.label4.Text = "Created By User:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::StudyCenter.Properties.Resources.id;
-            this.pictureBox1.Location = new System.Drawing.Point(136, 64);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 26);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 168;
-            this.pictureBox1.TabStop = false;
             // 
             // llEditTeacherInfo
             // 
@@ -292,17 +237,6 @@
             this.lblTeacherID.TabIndex = 155;
             this.lblTeacherID.Text = "[????]";
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = global::StudyCenter.Properties.Resources.grade_level;
-            this.pictureBox8.Location = new System.Drawing.Point(562, 64);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(31, 26);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 156;
-            this.pictureBox8.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -323,6 +257,72 @@
             this.ucPersonCard1.Name = "ucPersonCard1";
             this.ucPersonCard1.Size = new System.Drawing.Size(862, 270);
             this.ucPersonCard1.TabIndex = 3;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::StudyCenter.Properties.Resources.certificate;
+            this.pictureBox4.Location = new System.Drawing.Point(136, 147);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 179;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.grade_level;
+            this.pictureBox2.Location = new System.Drawing.Point(136, 108);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 176;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::StudyCenter.Properties.Resources.add_reservation_50;
+            this.pictureBox3.Location = new System.Drawing.Point(562, 147);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 173;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pbIsActive
+            // 
+            this.pbIsActive.BackColor = System.Drawing.Color.Transparent;
+            this.pbIsActive.Image = global::StudyCenter.Properties.Resources.name;
+            this.pbIsActive.Location = new System.Drawing.Point(562, 108);
+            this.pbIsActive.Name = "pbIsActive";
+            this.pbIsActive.Size = new System.Drawing.Size(31, 26);
+            this.pbIsActive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbIsActive.TabIndex = 170;
+            this.pbIsActive.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox1.Location = new System.Drawing.Point(136, 64);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 168;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Image = global::StudyCenter.Properties.Resources.experience;
+            this.pictureBox8.Location = new System.Drawing.Point(562, 64);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 156;
+            this.pictureBox8.TabStop = false;
             // 
             // ucTeacherCard
             // 

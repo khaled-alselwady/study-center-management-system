@@ -8,7 +8,7 @@ namespace StudyCenter_Business
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
-        public int? GradeLevelID { get; set; }
+        public byte? GradeLevelID { get; set; }
         public string GradeName { get; set; }
 
         public clsGradeLevel()
@@ -19,7 +19,7 @@ namespace StudyCenter_Business
             Mode = enMode.AddNew;
         }
 
-        private clsGradeLevel(int? gradeLevelID, string gradeName)
+        private clsGradeLevel(byte? gradeLevelID, string gradeName)
         {
             GradeLevelID = gradeLevelID;
             GradeName = gradeName;
@@ -61,7 +61,7 @@ namespace StudyCenter_Business
             return false;
         }
 
-        public static clsGradeLevel Find(int? gradeLevelID)
+        public static clsGradeLevel Find(byte? gradeLevelID)
         {
             string gradeName = string.Empty;
 
@@ -70,35 +70,19 @@ namespace StudyCenter_Business
             return (isFound) ? (new clsGradeLevel(gradeLevelID, gradeName)) : null;
         }
 
-        public static bool Delete(int? gradeLevelID)
-        {
-            return clsGradeLevelData.Delete(gradeLevelID);
-        }
+        public static bool Delete(byte? gradeLevelID) => clsGradeLevelData.Delete(gradeLevelID);
 
-        public static bool Exists(int? gradeLevelID)
-        {
-            return clsGradeLevelData.Exists(gradeLevelID);
-        }
+        public static bool Exists(byte? gradeLevelID) => clsGradeLevelData.Exists(gradeLevelID);
 
-        public static DataTable All()
-        {
-            return clsGradeLevelData.All();
-        }
+        public static DataTable All() => clsGradeLevelData.All();
 
-        public static DataTable AllOnlyNames()
-        {
-            return clsGradeLevelData.AllOnlyNames();
-        }
+        public static DataTable AllOnlyNames() => clsGradeLevelData.AllOnlyNames();
 
-        public static string GetGradeLevelName(int? gradeLevelID)
-        {
-            return clsGradeLevelData.GetGradeLevelName(gradeLevelID);
-        }
+        public static string GetGradeLevelName(byte? gradeLevelID)
+            => clsGradeLevelData.GetGradeLevelName(gradeLevelID);
 
-        public static int? GetGradeLevelID(string gradeName)
-        {
-            return clsGradeLevelData.GetGradeLevelID(gradeName);
-        }
+        public static byte? GetGradeLevelID(string gradeName)
+            => clsGradeLevelData.GetGradeLevelID(gradeName);
     }
 
 }
