@@ -123,7 +123,8 @@ namespace StudyCenter_Business
                              : null;
         }
 
-        public static bool Delete(int? teacherID) => clsTeacherData.Delete(teacherID);
+        public static bool Delete(int? teacherID, int? deletedByUserID)
+            => clsTeacherData.Delete(teacherID, deletedByUserID);
 
         public static bool Exists(int? teacherID) => clsTeacherData.Exists(teacherID);
 
@@ -132,5 +133,8 @@ namespace StudyCenter_Business
         public static int Count() => clsTeacherData.Count();
 
         public static bool IsTeacher(int? personID) => clsTeacherData.IsTeacher(personID);
+
+        public static DataTable AllInPages(short PageNumber, int RowsPerPage)
+            => clsTeacherData.AllInPages(PageNumber, RowsPerPage);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using StudyCenter.Students;
+using StudyCenter.Teachers;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -98,7 +99,7 @@ namespace StudyCenter.MainMenu
 
         private void btnTeachers_Click(object sender, System.EventArgs e)
         {
-            _OpenChildFormAsync(new Form(), sender);
+            _OpenChildFormAsync(new frmListTeachers(), sender);
         }
 
         private void btnClasses_Click(object sender, System.EventArgs e)

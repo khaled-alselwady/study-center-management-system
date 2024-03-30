@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.cbEducationLevels = new Guna.UI2.WinForms.Guna2ComboBox();
             this.numaricTeachingExperience = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,8 +50,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnSave = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cbEducationLevels = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
@@ -61,7 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIsActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2TabControl1
@@ -130,6 +127,23 @@
             this.guna2GroupBox1.Size = new System.Drawing.Size(862, 194);
             this.guna2GroupBox1.TabIndex = 179;
             this.guna2GroupBox1.Text = "Teacher Information";
+            // 
+            // cbEducationLevels
+            // 
+            this.cbEducationLevels.BackColor = System.Drawing.Color.Transparent;
+            this.cbEducationLevels.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
+            this.cbEducationLevels.BorderRadius = 17;
+            this.cbEducationLevels.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbEducationLevels.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEducationLevels.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.cbEducationLevels.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.cbEducationLevels.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.cbEducationLevels.ForeColor = System.Drawing.Color.Black;
+            this.cbEducationLevels.ItemHeight = 30;
+            this.cbEducationLevels.Location = new System.Drawing.Point(576, 60);
+            this.cbEducationLevels.Name = "cbEducationLevels";
+            this.cbEducationLevels.Size = new System.Drawing.Size(268, 36);
+            this.cbEducationLevels.TabIndex = 220;
             // 
             // numaricTeachingExperience
             // 
@@ -385,27 +399,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // cbEducationLevels
-            // 
-            this.cbEducationLevels.BackColor = System.Drawing.Color.Transparent;
-            this.cbEducationLevels.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.cbEducationLevels.BorderRadius = 17;
-            this.cbEducationLevels.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbEducationLevels.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEducationLevels.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
-            this.cbEducationLevels.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
-            this.cbEducationLevels.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.cbEducationLevels.ForeColor = System.Drawing.Color.Black;
-            this.cbEducationLevels.ItemHeight = 30;
-            this.cbEducationLevels.Location = new System.Drawing.Point(576, 60);
-            this.cbEducationLevels.Name = "cbEducationLevels";
-            this.cbEducationLevels.Size = new System.Drawing.Size(268, 36);
-            this.cbEducationLevels.TabIndex = 220;
-            // 
             // frmAddEditTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,7 +425,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIsActive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -460,7 +452,6 @@
         private Guna.UI2.WinForms.Guna2NumericUpDown numaricTeachingExperience;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private Guna.UI2.WinForms.Guna2ComboBox cbEducationLevels;
     }
 }

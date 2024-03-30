@@ -383,44 +383,7 @@ namespace StudyCenter_DataAccess
         }
 
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
-        {
-            DataTable dt = new DataTable();
+        => clsDataAccessHelper.AllInPages(PageNumber, RowsPerPage, "SP_GetAllStudentsInPages");
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_GetAllStudentsInPages", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@PageNumber", PageNumber);
-                        command.Parameters.AddWithValue("@RowsPerPage", RowsPerPage);
-
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.HasRows)
-                            {
-                                dt.Load(reader);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
-            catch (Exception ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
-            }
-
-            return dt;
-        }
     }
 }

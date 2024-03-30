@@ -6,7 +6,6 @@ namespace StudyCenter_DataAccess
 {
     public static class clsDataAccessHelper
     {
-
         public static int Count(string storedProcedureName)
         {
             int Count = 0;
@@ -57,6 +56,47 @@ namespace StudyCenter_DataAccess
                     using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dt.Load(reader);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("Database Exception", ex);
+            }
+            catch (Exception ex)
+            {
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("General Exception", ex);
+            }
+
+            return dt;
+        }
+
+        public static DataTable AllInPages(short PageNumber, int RowsPerPage, string storedProcedureName)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@PageNumber", PageNumber);
+                        command.Parameters.AddWithValue("@RowsPerPage", RowsPerPage);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {

@@ -27,5 +27,30 @@ namespace StudyCenter.GlobalClasses
             MessageBox.Show(errorMessage, "Validation Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public static DialogResult ShowDeleteConfirmation(string entityType)
+        {
+            return MessageBox.Show($"Are you sure you want to delete this {entityType.ToLower()}?",
+                "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2);
+        }
+
+        public static void ShowDeletionSuccess(string entityType)
+        {
+            MessageBox.Show($"The {entityType.ToLower()} was successfully deleted.",
+                "Deletion Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static void ShowDeletionFailure(string entityType)
+        {
+            MessageBox.Show($"Failed to delete the {entityType.ToLower()}.",
+                "Deletion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void ShowDeletionFailure(string entityType, string instructionMessage)
+        {
+            MessageBox.Show($"Failed to delete the {entityType.ToLower()}. {instructionMessage}",
+                "Deletion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

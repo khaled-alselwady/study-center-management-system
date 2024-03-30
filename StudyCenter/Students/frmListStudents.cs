@@ -148,9 +148,7 @@ namespace StudyCenter.Students
         private void txtSearch_TextChanged(object sender, System.EventArgs e)
         {
             if (_dtAllStudents == null || _dtAllStudents.Rows.Count == 0)
-            {
                 return;
-            }
 
             string columnName = _GetRealColumnNameInDB();
 
@@ -188,9 +186,7 @@ namespace StudyCenter.Students
         private void cbGrades_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             if (_dtAllStudents == null || _dtAllStudents.Rows.Count == 0)
-            {
                 return;
-            }
 
             if (cbGrades.Text == "All")
             {
@@ -209,9 +205,7 @@ namespace StudyCenter.Students
         private void cbGender_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             if (_dtAllStudents == null || _dtAllStudents.Rows.Count == 0)
-            {
                 return;
-            }
 
             if (cbGender.Text == "All")
             {
@@ -230,6 +224,7 @@ namespace StudyCenter.Students
         private void cbPages_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             _RefreshStudentsList();
+            cbFilter.SelectedIndex = 0;
         }
 
         private void cmsEditProfile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -255,22 +250,17 @@ namespace StudyCenter.Students
 
         private void temDeleteStudent_Click(object sender, System.EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete this student?",
-               "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning,
-               MessageBoxDefaultButton.Button2) == DialogResult.No)
+            if (clsStandardMessages.ShowDeleteConfirmation("student") == DialogResult.No)
                 return;
-
 
             if (clsStudent.Delete(_GetStudentIDFromDGV(), clsGlobal.CurrentUser?.UserID))
             {
-                MessageBox.Show("The student was successfully deleted.", "Deletion Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsStandardMessages.ShowDeletionSuccess("student");
 
                 _RefreshStudentsList();
             }
             else
-                MessageBox.Show("Failed to delete the student. Please check your permissions and try again.",
-                    "Deletion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowDeletionFailure("student", "Please check your permissions and try again.");
         }
 
         private void dgvStudentsList_DoubleClick(object sender, EventArgs e)

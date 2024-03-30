@@ -213,7 +213,7 @@ namespace StudyCenter_DataAccess
             return (rowAffected > 0);
         }
 
-        public static bool Delete(int? teacherID)
+        public static bool Delete(int? teacherID, int? deletedByUserID)
         {
             int rowAffected = 0;
 
@@ -228,6 +228,7 @@ namespace StudyCenter_DataAccess
                         command.CommandType = CommandType.StoredProcedure;
 
                         command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@DeletedByUserID", (object)deletedByUserID ?? DBNull.Value);
 
                         rowAffected = command.ExecuteNonQuery();
                     }
@@ -344,5 +345,8 @@ namespace StudyCenter_DataAccess
 
             return isFound;
         }
+
+        public static DataTable AllInPages(short PageNumber, int RowsPerPage)
+            => clsDataAccessHelper.AllInPages(PageNumber, RowsPerPage, "SP_GetAllTeachersInPages");
     }
 }

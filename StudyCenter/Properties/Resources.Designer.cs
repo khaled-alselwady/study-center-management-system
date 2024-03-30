@@ -463,6 +463,16 @@ namespace StudyCenter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap teachers_list {
+            get {
+                object obj = ResourceManager.GetObject("teachers-list", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap teachers_white_64 {
             get {
                 object obj = ResourceManager.GetObject("teachers-white-64", resourceCulture);

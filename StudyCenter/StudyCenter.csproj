@@ -154,6 +154,12 @@
     <Compile Include="Teachers\frmFindTeacher.Designer.cs">
       <DependentUpon>frmFindTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teachers\frmListTeachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teachers\frmListTeachers.Designer.cs">
+      <DependentUpon>frmListTeachers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teachers\frmShowTeacherInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Teachers\frmFindTeacher.resx">
       <DependentUpon>frmFindTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\frmListTeachers.resx">
+      <DependentUpon>frmListTeachers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teachers\frmShowTeacherInfo.resx">
       <DependentUpon>frmShowTeacherInfo.cs</DependentUpon>
@@ -379,6 +388,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\experience.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teachers-list.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
