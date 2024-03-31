@@ -102,8 +102,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
 
             if (_subjectGradeLevel == null)
             {
-                MessageBox.Show($"There is no a Subject-GradeLevel with ID = {_subjectGradeLevelID} !",
-                  "Missing Subject-GradeLevel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("Subject-GradeLevel", _subjectGradeLevelID);
 
                 this.Close();
                 return;

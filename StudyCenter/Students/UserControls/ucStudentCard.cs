@@ -53,8 +53,7 @@ namespace StudyCenter.Students.UserControls
 
             if (!_studentID.HasValue)
             {
-                MessageBox.Show("There is no a student!", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("student", _studentID);
 
                 Reset();
 
@@ -65,8 +64,7 @@ namespace StudyCenter.Students.UserControls
 
             if (_student == null)
             {
-                MessageBox.Show($"There is no a student with ID = {_studentID} !",
-                    "Missing student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("student", _studentID);
 
                 Reset();
 

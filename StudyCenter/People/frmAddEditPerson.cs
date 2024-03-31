@@ -97,8 +97,7 @@ namespace StudyCenter.People
 
             if (_person == null)
             {
-                MessageBox.Show($"There is no a person with ID = {_personID} !",
-                  "Missing Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("person", _personID);
 
                 this.Close();
                 return;

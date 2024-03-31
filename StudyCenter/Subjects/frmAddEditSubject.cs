@@ -59,8 +59,7 @@ namespace StudyCenter.Subjects
 
             if (_subject == null)
             {
-                MessageBox.Show($"There is no a subject with ID = {_subjectID} !",
-                  "Missing Subject", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("subject", _subjectID);
 
                 this.Close();
                 return;

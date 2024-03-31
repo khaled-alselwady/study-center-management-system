@@ -6,7 +6,9 @@ namespace StudyCenter_DataAccess
 {
     public class clsSubjectTeacherData
     {
-        public static bool GetInfoByID(int? subjectTeacherID, ref int subjectGradeLevelID, ref int teacherID, ref DateTime assignmentDate, ref bool isActive)
+        public static bool GetInfoByID(int? subjectTeacherID, ref int? subjectGradeLevelID,
+            ref int? teacherID, ref DateTime assignmentDate,
+            ref DateTime? lastModifiedDate, ref bool isActive)
         {
             bool isFound = false;
 
@@ -29,9 +31,10 @@ namespace StudyCenter_DataAccess
                                 // The record was found
                                 isFound = true;
 
-                                subjectGradeLevelID = (int)reader["SubjectGradeLevelID"];
-                                teacherID = (int)reader["TeacherID"];
+                                subjectGradeLevelID = (reader["SubjectGradeLevelID"] != DBNull.Value) ? (int?)reader["SubjectGradeLevelID"] : null;
+                                teacherID = (reader["TeacherID"] != DBNull.Value) ? (int?)reader["TeacherID"] : null;
                                 assignmentDate = (DateTime)reader["AssignmentDate"];
+                                lastModifiedDate = (reader["LastModifiedDate"] != DBNull.Value) ? (DateTime?)reader["LastModifiedDate"] : null;
                                 isActive = (bool)reader["IsActive"];
                             }
                             else
@@ -61,7 +64,7 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static int? Add(int subjectGradeLevelID, int teacherID, DateTime assignmentDate, bool isActive)
+        public static int? Add(int? subjectGradeLevelID, int? teacherID)
         {
             // This function will return the new person id if succeeded and null if not
             int? subjectTeacherID = null;
@@ -76,10 +79,8 @@ namespace StudyCenter_DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@SubjectGradeLevelID", subjectGradeLevelID);
-                        command.Parameters.AddWithValue("@TeacherID", teacherID);
-                        command.Parameters.AddWithValue("@AssignmentDate", assignmentDate);
-                        command.Parameters.AddWithValue("@IsActive", isActive);
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewSubjectTeacherID", SqlDbType.Int)
                         {
@@ -107,7 +108,8 @@ namespace StudyCenter_DataAccess
             return subjectTeacherID;
         }
 
-        public static bool Update(int? subjectTeacherID, int subjectGradeLevelID, int teacherID, DateTime assignmentDate, bool isActive)
+        public static bool Update(int? subjectTeacherID, int? subjectGradeLevelID,
+            int? teacherID, bool isActive)
         {
             int rowAffected = 0;
 
@@ -122,9 +124,8 @@ namespace StudyCenter_DataAccess
                         command.CommandType = CommandType.StoredProcedure;
 
                         command.Parameters.AddWithValue("@SubjectTeacherID", (object)subjectTeacherID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@SubjectGradeLevelID", subjectGradeLevelID);
-                        command.Parameters.AddWithValue("@TeacherID", teacherID);
-                        command.Parameters.AddWithValue("@AssignmentDate", assignmentDate);
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
                         command.Parameters.AddWithValue("@IsActive", isActive);
 
                         rowAffected = command.ExecuteNonQuery();
@@ -226,9 +227,54 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static DataTable All()
+        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllSubjectsTeachers");
+
+        public static bool IsTeachingSubject(int? teacherID, int? subjectGradeLevelID)
         {
-            return clsDataAccessHelper.All("SP_GetAllSubjectsTeachers");
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_IsTeachingSubject", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
+
+                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(returnParameter);
+
+                        command.ExecuteNonQuery();
+
+                        isFound = (int)returnParameter.Value == 1;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                isFound = false;
+
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("Database Exception", ex);
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("General Exception", ex);
+            }
+
+            return isFound;
         }
     }
 }

@@ -93,8 +93,7 @@ namespace StudyCenter.Teachers
 
             if (_teacher == null)
             {
-                MessageBox.Show($"There is no a teacher with ID = {_teacherID} !",
-                  "Missing Teacher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("teacher", _teacherID);
 
                 this.Close();
                 return;

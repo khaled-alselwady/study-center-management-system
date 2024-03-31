@@ -52,5 +52,11 @@ namespace StudyCenter.GlobalClasses
             MessageBox.Show($"Failed to delete the {entityType.ToLower()}. {instructionMessage}",
                 "Deletion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public static void ShowMissingDataMessage(string entityType, int? entityID)
+        {
+            MessageBox.Show($"No {entityType} found with ID: {entityID}", "Missing Data",
+                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }

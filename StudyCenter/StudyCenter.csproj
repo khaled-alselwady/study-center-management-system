@@ -148,6 +148,12 @@
     <Compile Include="SubjectsAndGradeLevels\frmAddEditSubjectsGradeLevels.Designer.cs">
       <DependentUpon>frmAddEditSubjectsGradeLevels.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubjectsAndGradeLevels\frmAddEditAssignTeacherToSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\frmAddEditAssignTeacherToSubject.Designer.cs">
+      <DependentUpon>frmAddEditAssignTeacherToSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Subjects\frmAddEditSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubjectsAndGradeLevels\frmAddEditSubjectsGradeLevels.resx">
       <DependentUpon>frmAddEditSubjectsGradeLevels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectsAndGradeLevels\frmAddEditAssignTeacherToSubject.resx">
+      <DependentUpon>frmAddEditAssignTeacherToSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subjects\frmAddEditSubject.resx">
       <DependentUpon>frmAddEditSubject.cs</DependentUpon>
@@ -418,6 +427,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Notes 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

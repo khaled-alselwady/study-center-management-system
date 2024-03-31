@@ -33,6 +33,12 @@ namespace StudyCenter.Teachers.UserControls
         public int? Teacher => ucTeacherCard1.TeacherID;
         public clsTeacher TeacherInfo => ucTeacherCard1.TeacherInfo;
 
+        public bool FilterEnabled
+        {
+            get => ucFilter1.FilterEnabled;
+            set => ucFilter1.FilterEnabled = value;
+        }
+
         public ucTeacherCardWithFilter()
         {
             InitializeComponent();

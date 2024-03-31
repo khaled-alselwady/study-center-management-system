@@ -89,8 +89,7 @@ namespace StudyCenter.Students
 
             if (_student == null)
             {
-                MessageBox.Show($"There is no a student with ID = {_studentID} !",
-                  "Missing Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("student", _studentID);
 
                 this.Close();
                 return;

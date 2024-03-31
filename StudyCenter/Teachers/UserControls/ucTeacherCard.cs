@@ -62,8 +62,7 @@ namespace StudyCenter.Teachers.UserControls
 
             if (!_teacherID.HasValue)
             {
-                MessageBox.Show("There is no a teacher!", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("teacher", _teacherID);
 
                 Reset();
 
@@ -74,8 +73,7 @@ namespace StudyCenter.Teachers.UserControls
 
             if (_teacher == null)
             {
-                MessageBox.Show($"There is no a teacher with ID = {_teacherID} !",
-                    "Missing teacher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("teacher", _teacherID);
 
                 Reset();
 
@@ -102,7 +100,7 @@ namespace StudyCenter.Teachers.UserControls
             if (_teacher == null)
             {
                 MessageBox.Show($"There is no a teacher with Person ID = {personID} !",
-                    "Missing teacher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Missing Teacher", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Reset();
 

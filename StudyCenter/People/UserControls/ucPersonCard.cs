@@ -60,8 +60,7 @@ namespace StudyCenter.People.UserControls
 
             if (!_personID.HasValue)
             {
-                MessageBox.Show("There is no a person!", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("person", _personID);
 
                 Reset();
 
@@ -72,8 +71,7 @@ namespace StudyCenter.People.UserControls
 
             if (_person == null)
             {
-                MessageBox.Show($"There is no a person with ID = {_personID} !",
-                    "Missing Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsStandardMessages.ShowMissingDataMessage("person", _personID);
 
                 Reset();
 
