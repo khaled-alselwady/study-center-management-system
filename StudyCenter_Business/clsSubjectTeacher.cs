@@ -100,13 +100,19 @@ namespace StudyCenter_Business
                              : null;
         }
 
-        public static bool Delete(int? subjectTeacherID) => clsSubjectTeacherData.Delete(subjectTeacherID);
+        public static bool Delete(int? subjectTeacherID)
+            => clsSubjectTeacherData.Delete(subjectTeacherID);
 
-        public static bool Exists(int? subjectTeacherID) => clsSubjectTeacherData.Exists(subjectTeacherID);
+        public static bool Exists(int? subjectTeacherID)
+            => clsSubjectTeacherData.Exists(subjectTeacherID);
 
-        public static DataTable All() => clsSubjectTeacherData.All();
+        public static DataTable All()
+            => clsSubjectTeacherData.All();
 
         public static bool IsTeachingSubject(int? teacherID, int? subjectGradeLevelID)
             => clsSubjectTeacherData.IsTeachingSubject(teacherID, subjectGradeLevelID);
+
+        public static DataTable AllSubjectsTaughtByTeacher(int? teacherID)
+            => clsSubjectTeacherData.AllSubjectsTaughtByTeacher(teacherID);
     }
 }

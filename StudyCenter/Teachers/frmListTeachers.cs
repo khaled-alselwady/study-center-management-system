@@ -285,6 +285,16 @@ namespace StudyCenter.Teachers
         {
             frmAddEditAssignTeacherToSubject assignTeacherToSubject = new frmAddEditAssignTeacherToSubject(_GetTeacherIDFromDGV(), enEntityType.TeacherID);
             assignTeacherToSubject.ShowDialog();
+
+            _RefreshTeachersList();
+        }
+
+        private void SubjectsHeTeachesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGetAllSubjectsTaughtByTeacher allSubjectsTaughtByTeacher = new frmGetAllSubjectsTaughtByTeacher(_GetTeacherIDFromDGV());
+            allSubjectsTaughtByTeacher.ShowDialog();
+
+            _RefreshTeachersList();
         }
     }
 }

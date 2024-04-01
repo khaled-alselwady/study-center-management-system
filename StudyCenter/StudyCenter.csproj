@@ -154,6 +154,18 @@
     <Compile Include="SubjectsAndGradeLevels\frmAddEditAssignTeacherToSubject.Designer.cs">
       <DependentUpon>frmAddEditAssignTeacherToSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubjectsAndGradeLevels\frmGetAllSubjectsTaughtByTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\frmGetAllSubjectsTaughtByTeacher.Designer.cs">
+      <DependentUpon>frmGetAllSubjectsTaughtByTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\userControls\ucGetAllSubjectsTaughtByTeacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\userControls\ucGetAllSubjectsTaughtByTeacher.Designer.cs">
+      <DependentUpon>ucGetAllSubjectsTaughtByTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Subjects\frmAddEditSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +262,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubjectsAndGradeLevels\frmAddEditAssignTeacherToSubject.resx">
       <DependentUpon>frmAddEditAssignTeacherToSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectsAndGradeLevels\frmGetAllSubjectsTaughtByTeacher.resx">
+      <DependentUpon>frmGetAllSubjectsTaughtByTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectsAndGradeLevels\userControls\ucGetAllSubjectsTaughtByTeacher.resx">
+      <DependentUpon>ucGetAllSubjectsTaughtByTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subjects\frmAddEditSubject.resx">
       <DependentUpon>frmAddEditSubject.cs</DependentUpon>
@@ -433,6 +451,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\assign-to-subject-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subjects-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

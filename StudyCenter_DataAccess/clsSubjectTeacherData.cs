@@ -135,6 +135,10 @@ namespace StudyCenter_DataAccess
             => clsDataAccessHelper.All("SP_GetAllSubjectsTeachers");
 
         public static bool IsTeachingSubject(int? teacherID, int? subjectGradeLevelID)
-            => clsDataAccessHelper.Exists("SP_IsTeachingSubject", "TeacherID", teacherID, "SubjectGradeLevelID", subjectGradeLevelID);
+            => clsDataAccessHelper.Exists("SP_IsTeachingSubject", "TeacherID", teacherID,
+                                          "SubjectGradeLevelID", subjectGradeLevelID);
+
+        public static DataTable AllSubjectsTaughtByTeacher(int? teacherID)
+            => clsDataAccessHelper.All("SP_GetAllSubjectsTaughtByTeacher", "TeacherID", teacherID);
     }
 }
