@@ -40,19 +40,10 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                isFound = false;
-
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
                 isFound = false;
-
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return isFound;
@@ -87,15 +78,9 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return educationLevelID;
@@ -122,15 +107,9 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return (rowAffected > 0);
@@ -156,15 +135,9 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return (rowAffected > 0);
@@ -199,19 +172,10 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                isFound = false;
-
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
                 isFound = false;
-
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return isFound;
@@ -249,15 +213,9 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return levelName;
@@ -292,15 +250,9 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return educationLevelID;

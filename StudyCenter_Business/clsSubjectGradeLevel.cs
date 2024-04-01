@@ -99,7 +99,7 @@ namespace StudyCenter_Business
         public static bool Exists(int? subjectGradeLevelID)
             => clsSubjectGradeLevelData.Exists(subjectGradeLevelID);
 
-        public static DataTable AllUntaughtSubjectsByTeacher(int? teacherID) => clsSubjectGradeLevelData.AllUntaughtSubjectsByTeacher2(teacherID);
+        public static DataTable AllUntaughtSubjectsByTeacher(int? teacherID) => clsSubjectGradeLevelData.AllUntaughtSubjectsByTeacher(teacherID);
     }
 
 }

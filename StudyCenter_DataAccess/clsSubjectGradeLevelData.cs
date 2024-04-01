@@ -44,19 +44,10 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                isFound = false;
-
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
                 isFound = false;
-
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return isFound;
@@ -94,15 +85,9 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return subjectGradeLevelID;
@@ -133,15 +118,9 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return (rowAffected > 0);
@@ -167,15 +146,9 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return (rowAffected > 0);
@@ -210,65 +183,16 @@ namespace StudyCenter_DataAccess
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                isFound = false;
-
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
             catch (Exception ex)
             {
                 isFound = false;
-
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
+                clsDataAccessHelper.HandleException(ex);
             }
 
             return isFound;
         }
 
         public static DataTable AllUntaughtSubjectsByTeacher(int? teacherID)
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_GetUntaughtSubjectsByTeacher", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@TeacherID", teacherID);
-
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.HasRows)
-                            {
-                                dt.Load(reader);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("Database Exception", ex);
-            }
-            catch (Exception ex)
-            {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
-                loggerToEventViewer.LogError("General Exception", ex);
-            }
-
-            return dt;
-        }
-
-        public static DataTable AllUntaughtSubjectsByTeacher2(int? teacherID)
             => clsDataAccessHelper.All("SP_GetUntaughtSubjectsByTeacher", "TeacherID", teacherID);
     }
 }
