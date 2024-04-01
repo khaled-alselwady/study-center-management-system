@@ -228,6 +228,47 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllSubjectsGradeLevels");
+        public static DataTable AllUntaughtSubjectsByTeacher(int? teacherID)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetUntaughtSubjectsByTeacher", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@TeacherID", teacherID);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dt.Load(reader);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("Database Exception", ex);
+            }
+            catch (Exception ex)
+            {
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("General Exception", ex);
+            }
+
+            return dt;
+        }
+
+        public static DataTable AllUntaughtSubjectsByTeacher2(int? teacherID)
+            => clsDataAccessHelper.All("SP_GetUntaughtSubjectsByTeacher", "TeacherID", teacherID);
     }
 }

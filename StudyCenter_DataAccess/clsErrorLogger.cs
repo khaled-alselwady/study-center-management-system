@@ -2,18 +2,18 @@ using System;
 
 namespace StudyCenter_DataAccess
 {
-public class clsErrorLogger
-{
-private Action<string, Exception> _logAction;
+    public class clsErrorLogger
+    {
+        private Action<string, Exception> _logAction;
 
-public clsErrorLogger(Action<string, Exception> logAction)
-{
-_logAction = logAction;
-}
+        public clsErrorLogger(Action<string, Exception> logAction)
+        {
+            _logAction = logAction;
+        }
 
-public void LogError(string errorType, Exception ex)
-{
-_logAction?.Invoke(errorType, ex);
-}
-}
+        public void LogError(string errorType, Exception ex)
+        {
+            _logAction?.Invoke(errorType, ex);
+        }
+    }
 }

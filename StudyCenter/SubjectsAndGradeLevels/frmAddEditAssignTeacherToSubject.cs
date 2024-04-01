@@ -14,6 +14,8 @@ namespace StudyCenter.SubjectsAndGradeLevels
         private enum _enMode { AddNew, Update };
         private _enMode _mode = _enMode.AddNew;
 
+        public enum enEntityType { TeacherID, SubjectTeacherID }
+
         private int? _subjectTeacherID = null;
         private clsSubjectTeacher _subjectTeacher = null;
 
@@ -26,11 +28,15 @@ namespace StudyCenter.SubjectsAndGradeLevels
             _mode = _enMode.AddNew;
         }
 
-        public frmAddEditAssignTeacherToSubject(int? subjectTeacherID)
+        public frmAddEditAssignTeacherToSubject(int? value, enEntityType entityType)
         {
             InitializeComponent();
 
-            _subjectTeacherID = subjectTeacherID;
+            if (entityType == enEntityType.SubjectTeacherID)
+                _subjectTeacherID = value;
+            else
+                _selectedTeacherID = value;
+
             _mode = _enMode.Update;
         }
 
@@ -67,7 +73,11 @@ namespace StudyCenter.SubjectsAndGradeLevels
 
         private void _RefreshSubjectGradeLevelsList()
         {
-            _dtAllStudents = clsSubjectGradeLevel.All();
+            if (_selectedTeacherID == null)
+                _dtAllStudents.Clear();
+            else
+                _dtAllStudents = clsSubjectGradeLevel.AllUntaughtSubjectsByTeacher(_selectedTeacherID);
+
             dgvList.DataSource = _dtAllStudents;
 
             if (dgvList.Rows.Count > 0)
@@ -148,6 +158,14 @@ namespace StudyCenter.SubjectsAndGradeLevels
 
         private void _LoadData()
         {
+            if (_selectedTeacherID.HasValue)
+            {
+                ucTeacherCardWithFilter1.LoadTeacherInfoByTeacherID(_selectedTeacherID);
+                ucTeacherCardWithFilter1.FilterEnabled = false;
+                _subjectTeacher = new clsSubjectTeacher();
+                return;
+            }
+
             _subjectTeacher = clsSubjectTeacher.Find(_subjectTeacherID);
             ucTeacherCardWithFilter1.FilterEnabled = false;
 
@@ -248,12 +266,14 @@ namespace StudyCenter.SubjectsAndGradeLevels
             {
                 btnSave.Enabled = false;
                 _DisableTabPageSubject();
+                _dtAllStudents.Clear();
                 return;
             }
 
             _selectedTeacherID = e.TeacherID;
             btnSave.Enabled = true;
             _EnableTabPageSubject();
+            _RefreshSubjectGradeLevelsList();
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)

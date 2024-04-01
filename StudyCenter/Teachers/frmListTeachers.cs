@@ -1,9 +1,11 @@
 ﻿using StudyCenter.GlobalClasses;
+using StudyCenter.SubjectsAndGradeLevels;
 using StudyCenter_Business;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
+using static StudyCenter.SubjectsAndGradeLevels.frmAddEditAssignTeacherToSubject;
 
 namespace StudyCenter.Teachers
 {
@@ -277,6 +279,12 @@ namespace StudyCenter.Teachers
             addTeacher.ShowDialog();
 
             _RefreshTeachersList();
+        }
+
+        private void tsmAssignToSubject_Click(object sender, EventArgs e)
+        {
+            frmAddEditAssignTeacherToSubject assignTeacherToSubject = new frmAddEditAssignTeacherToSubject(_GetTeacherIDFromDGV(), enEntityType.TeacherID);
+            assignTeacherToSubject.ShowDialog();
         }
     }
 }

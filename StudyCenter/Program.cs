@@ -1,4 +1,4 @@
-﻿using StudyCenter.SubjectsAndGradeLevels;
+﻿using StudyCenter.MainMenu;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +14,7 @@ namespace StudyCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAddEditAssignTeacherToSubject());
+            Application.Run(new frmMainMenu());
         }
     }
 }
