@@ -116,74 +116,16 @@ namespace StudyCenter_DataAccess
         }
 
         public static bool Delete(byte? gradeLevelID)
-        {
-            int rowAffected = 0;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_DeleteGradeLevel", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
-
-                        rowAffected = command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return (rowAffected > 0);
-        }
+            => clsDataAccessHelper.Delete("SP_DeleteGradeLevel", "GradeLevelID", gradeLevelID);
 
         public static bool Exists(byte? gradeLevelID)
-        {
-            bool isFound = false;
+            => clsDataAccessHelper.Exists("SP_DoesGradeLevelExist", "GradeLevelID", gradeLevelID);
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
+        public static DataTable All()
+            => clsDataAccessHelper.All("SP_GetAllGradeLevels");
 
-                    using (SqlCommand command = new SqlCommand("SP_DoesGradeLevelExist", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
-
-                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.ReturnValue
-                        };
-                        command.Parameters.Add(returnParameter);
-
-                        command.ExecuteNonQuery();
-
-                        isFound = (int)returnParameter.Value == 1;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return isFound;
-        }
-
-        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllGradeLevels");
-
-        public static DataTable AllOnlyNames() => clsDataAccessHelper.All("SP_GetAllGradeLevelsName");
+        public static DataTable AllOnlyNames()
+            => clsDataAccessHelper.All("SP_GetAllGradeLevelsName");
 
         public static string GetGradeLevelName(byte? gradeLevelID)
         {

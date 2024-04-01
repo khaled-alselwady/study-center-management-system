@@ -21,6 +21,111 @@ namespace StudyCenter_DataAccess
             }
         }
 
+        public static bool Delete<T>(string storedProcedureName, string parameterName, T value)
+        {
+            int rowAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue($"@{parameterName}", (object)value ?? DBNull.Value);
+
+                        rowAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+
+            return (rowAffected > 0);
+        }
+
+        public static bool Exists<T>(string storedProcedureName, string parameterName, T value)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue($"@{parameterName}", (object)value ?? DBNull.Value);
+
+                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(returnParameter);
+
+                        command.ExecuteNonQuery();
+
+                        isFound = (int)returnParameter.Value == 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                HandleException(ex);
+            }
+
+            return isFound;
+        }
+
+        public static bool Exists<T1, T2>(string storedProcedureName, string parameterName1, T1 value1, string parameterName2, T2 value2)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue($"@{parameterName1}", (object)value1 ?? DBNull.Value);
+                        command.Parameters.AddWithValue($"@{parameterName2}", (object)value2 ?? DBNull.Value);
+
+                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(returnParameter);
+
+                        command.ExecuteNonQuery();
+
+                        isFound = (int)returnParameter.Value == 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                HandleException(ex);
+            }
+
+            return isFound;
+        }
+
         public static int Count(string storedProcedureName)
         {
             int Count = 0;
@@ -98,7 +203,7 @@ namespace StudyCenter_DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue($"@{parameterName}", value);
+                        command.Parameters.AddWithValue($"@{parameterName}", (object)value ?? DBNull.Value);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -132,8 +237,8 @@ namespace StudyCenter_DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue($"@{parameterName1}", value1);
-                        command.Parameters.AddWithValue($"@{parameterName2}", value2);
+                        command.Parameters.AddWithValue($"@{parameterName1}", (object)value1 ?? DBNull.Value);
+                        command.Parameters.AddWithValue($"@{parameterName2}", (object)value2 ?? DBNull.Value);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -172,7 +277,7 @@ namespace StudyCenter_DataAccess
                         {
                             foreach (var parameter in parameters)
                             {
-                                command.Parameters.AddWithValue($"@{parameter.Key}", parameter.Value);
+                                command.Parameters.AddWithValue($"@{parameter.Key}", (object)parameter.Value ?? DBNull.Value);
                             }
                         }
 

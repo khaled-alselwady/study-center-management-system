@@ -122,74 +122,12 @@ namespace StudyCenter_DataAccess
         }
 
         public static bool Delete(int? classID)
-        {
-            int rowAffected = 0;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_DeleteClass", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@ClassID", (object)classID ?? DBNull.Value);
-
-                        rowAffected = command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return (rowAffected > 0);
-        }
+            => clsDataAccessHelper.Delete("SP_DeleteClass", "ClassID", classID);
 
         public static bool Exists(int? classID)
-        {
-            bool isFound = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_DoesClassExist", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@ClassID", (object)classID ?? DBNull.Value);
-
-                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.ReturnValue
-                        };
-                        command.Parameters.Add(returnParameter);
-
-                        command.ExecuteNonQuery();
-
-                        isFound = (int)returnParameter.Value == 1;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return isFound;
-        }
+            => clsDataAccessHelper.Exists("SP_DoesClassExist", "ClassID", classID);
 
         public static DataTable All()
-        {
-            return clsDataAccessHelper.All("SP_GetAllClasses");
-        }
+            => clsDataAccessHelper.All("SP_GetAllClasses");
     }
 }

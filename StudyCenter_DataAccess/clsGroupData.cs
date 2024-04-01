@@ -140,71 +140,12 @@ namespace StudyCenter_DataAccess
         }
 
         public static bool Delete(int? groupID)
-        {
-            int rowAffected = 0;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_DeleteGroup", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@GroupID", (object)groupID ?? DBNull.Value);
-
-                        rowAffected = command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return (rowAffected > 0);
-        }
+            => clsDataAccessHelper.Delete("SP_DeleteGroup", "GroupID", groupID);
 
         public static bool Exists(int? groupID)
-        {
-            bool isFound = false;
+            => clsDataAccessHelper.Exists("SP_DoesGroupExist", "GroupID", groupID);
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_DoesGroupExist", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@GroupID", (object)groupID ?? DBNull.Value);
-
-                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.ReturnValue
-                        };
-                        command.Parameters.Add(returnParameter);
-
-                        command.ExecuteNonQuery();
-
-                        isFound = (int)returnParameter.Value == 1;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return isFound;
-        }
-
-        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllGroups");
+        public static DataTable All()
+            => clsDataAccessHelper.All("SP_GetAllGroups");
     }
 }

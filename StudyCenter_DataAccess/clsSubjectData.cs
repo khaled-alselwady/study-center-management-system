@@ -116,112 +116,19 @@ namespace StudyCenter_DataAccess
         }
 
         public static bool Delete(int? subjectID)
-        {
-            int rowAffected = 0;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_DeleteSubject", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@SubjectID", (object)subjectID ?? DBNull.Value);
-
-                        rowAffected = command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return (rowAffected > 0);
-        }
+            => clsDataAccessHelper.Delete("SP_DeleteSubject", "SubjectID", subjectID);
 
         public static bool Exists(int? subjectID)
-        {
-            bool isFound = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_DoesSubjectExistBySubjectID", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@SubjectID", (object)subjectID ?? DBNull.Value);
-
-                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.ReturnValue
-                        };
-                        command.Parameters.Add(returnParameter);
-
-                        command.ExecuteNonQuery();
-
-                        isFound = (int)returnParameter.Value == 1;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return isFound;
-        }
+            => clsDataAccessHelper.Exists("SP_DoesSubjectExistBySubjectID", "SubjectID", subjectID);
 
         public static bool Exists(string subjectName)
-        {
-            bool isFound = false;
+            => clsDataAccessHelper.Exists("SP_DoesSubjectExistBySubjectName", "SubjectName", subjectName);
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
+        public static DataTable All()
+            => clsDataAccessHelper.All("SP_GetAllSubjects");
 
-                    using (SqlCommand command = new SqlCommand("SP_DoesSubjectExistBySubjectName", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@SubjectName", subjectName);
-
-                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.ReturnValue
-                        };
-                        command.Parameters.Add(returnParameter);
-
-                        command.ExecuteNonQuery();
-
-                        isFound = (int)returnParameter.Value == 1;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return isFound;
-        }
-
-        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllSubjects");
-
-        public static DataTable AllOnlyNames() => clsDataAccessHelper.All("SP_GetAllSubjectsName");
+        public static DataTable AllOnlyNames()
+            => clsDataAccessHelper.All("SP_GetAllSubjectsName");
 
         public static string GetSubjectName(int? subjectID)
         {

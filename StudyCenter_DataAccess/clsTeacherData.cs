@@ -213,84 +213,16 @@ namespace StudyCenter_DataAccess
         }
 
         public static bool Exists(int? teacherID)
-        {
-            bool isFound = false;
+            => clsDataAccessHelper.Exists("SP_DoesTeacherExist", "TeacherID", teacherID);
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
+        public static DataTable All()
+            => clsDataAccessHelper.All("SP_GetAllTeachers");
 
-                    using (SqlCommand command = new SqlCommand("SP_DoesTeacherExist", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
-
-                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.ReturnValue
-                        };
-                        command.Parameters.Add(returnParameter);
-
-                        command.ExecuteNonQuery();
-
-                        isFound = (int)returnParameter.Value == 1;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return isFound;
-        }
-
-        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllTeachers");
-
-        public static int Count() => clsDataAccessHelper.Count("SP_GetAllTeachersCount");
+        public static int Count()
+            => clsDataAccessHelper.Count("SP_GetAllTeachersCount");
 
         public static bool IsTeacher(int? personID)
-        {
-            bool isFound = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_IsTeacher", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
-
-                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.ReturnValue
-                        };
-                        command.Parameters.Add(returnParameter);
-
-                        command.ExecuteNonQuery();
-
-                        isFound = (int)returnParameter.Value == 1;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return isFound;
-        }
+            => clsDataAccessHelper.Exists("SP_IsTeacher", "PersonID", personID);
 
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
             => clsDataAccessHelper.AllInPages(PageNumber, RowsPerPage, "SP_GetAllTeachersInPages");

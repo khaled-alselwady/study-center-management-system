@@ -138,71 +138,12 @@ namespace StudyCenter_DataAccess
         }
 
         public static bool Delete(int? logID)
-        {
-            int rowAffected = 0;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_DeleteStudentDeletedLog", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@LogID", (object)logID ?? DBNull.Value);
-
-                        rowAffected = command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return (rowAffected > 0);
-        }
+            => clsDataAccessHelper.Delete("SP_DeleteStudentDeletedLog", "LogID", logID);
 
         public static bool Exists(int? logID)
-        {
-            bool isFound = false;
+            => clsDataAccessHelper.Exists("SP_DoesStudentDeletedLogExist", "LogID", logID);
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_DoesStudentDeletedLogExist", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@LogID", (object)logID ?? DBNull.Value);
-
-                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.ReturnValue
-                        };
-                        command.Parameters.Add(returnParameter);
-
-                        command.ExecuteNonQuery();
-
-                        isFound = (int)returnParameter.Value == 1;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return isFound;
-        }
-
-        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllStudentDeletedLog");
+        public static DataTable All()
+            => clsDataAccessHelper.All("SP_GetAllStudentDeletedLog");
     }
 }

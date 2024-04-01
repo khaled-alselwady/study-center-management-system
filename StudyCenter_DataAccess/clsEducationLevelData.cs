@@ -116,74 +116,16 @@ namespace StudyCenter_DataAccess
         }
 
         public static bool Delete(byte? educationLevelID)
-        {
-            int rowAffected = 0;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SP_DeleteEducationLevel", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@EducationLevelID", (object)educationLevelID ?? DBNull.Value);
-
-                        rowAffected = command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return (rowAffected > 0);
-        }
+            => clsDataAccessHelper.Delete("SP_DeleteEducationLevel", "EducationLevelID", educationLevelID);
 
         public static bool Exists(byte? educationLevelID)
-        {
-            bool isFound = false;
+            => clsDataAccessHelper.Exists("SP_DoesEducationLevelExist", "EducationLevelID", educationLevelID);
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    connection.Open();
+        public static DataTable All()
+            => clsDataAccessHelper.All("SP_GetAllEducationLevels");
 
-                    using (SqlCommand command = new SqlCommand("SP_DoesEducationLevelExist", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@EducationLevelID", (object)educationLevelID ?? DBNull.Value);
-
-                        // @ReturnVal could be any name, and we don't need to add it to the SP, just use it here in the code.
-                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.ReturnValue
-                        };
-                        command.Parameters.Add(returnParameter);
-
-                        command.ExecuteNonQuery();
-
-                        isFound = (int)returnParameter.Value == 1;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-                clsDataAccessHelper.HandleException(ex);
-            }
-
-            return isFound;
-        }
-
-        public static DataTable All() => clsDataAccessHelper.All("SP_GetAllEducationLevels");
-
-        public static DataTable AllOnlyNames() => clsDataAccessHelper.All("SP_GetAllEducationLevelsName");
+        public static DataTable AllOnlyNames()
+            => clsDataAccessHelper.All("SP_GetAllEducationLevelsName");
 
         public static string GetEducationLevelName(byte? educationLevelID)
         {
