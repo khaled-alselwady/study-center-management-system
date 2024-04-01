@@ -160,11 +160,23 @@
     <Compile Include="SubjectsAndGradeLevels\frmGetAllSubjectsTaughtByTeacher.Designer.cs">
       <DependentUpon>frmGetAllSubjectsTaughtByTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubjectsAndGradeLevels\frmShowSubjectTeacherInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\frmShowSubjectTeacherInfo.Designer.cs">
+      <DependentUpon>frmShowSubjectTeacherInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubjectsAndGradeLevels\userControls\ucGetAllSubjectsTaughtByTeacher.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SubjectsAndGradeLevels\userControls\ucGetAllSubjectsTaughtByTeacher.Designer.cs">
       <DependentUpon>ucGetAllSubjectsTaughtByTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\userControls\ucSubjectTeacherCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\userControls\ucSubjectTeacherCard.Designer.cs">
+      <DependentUpon>ucSubjectTeacherCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Subjects\frmAddEditSubject.cs">
       <SubType>Form</SubType>
@@ -266,8 +278,14 @@
     <EmbeddedResource Include="SubjectsAndGradeLevels\frmGetAllSubjectsTaughtByTeacher.resx">
       <DependentUpon>frmGetAllSubjectsTaughtByTeacher.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SubjectsAndGradeLevels\frmShowSubjectTeacherInfo.resx">
+      <DependentUpon>frmShowSubjectTeacherInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubjectsAndGradeLevels\userControls\ucGetAllSubjectsTaughtByTeacher.resx">
       <DependentUpon>ucGetAllSubjectsTaughtByTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectsAndGradeLevels\userControls\ucSubjectTeacherCard.resx">
+      <DependentUpon>ucSubjectTeacherCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subjects\frmAddEditSubject.resx">
       <DependentUpon>frmAddEditSubject.cs</DependentUpon>

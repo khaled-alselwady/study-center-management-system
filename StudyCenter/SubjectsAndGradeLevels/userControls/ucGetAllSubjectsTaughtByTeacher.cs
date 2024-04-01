@@ -57,7 +57,23 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
 
         private void ShowDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("This features is not implemented yet!");
+            frmShowSubjectTeacherInfo showSubjectTeacherInfo = new frmShowSubjectTeacherInfo(_GetSubjectTeacherIDFromDGV());
+            showSubjectTeacherInfo.ShowDialog();
+
+            _RefreshSubjectsTaughtByTeacherList();
+        }
+
+        private void cmsEditProfile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            cmsEditProfile.Enabled = (dgvSubjectsTaughtByTeacherList.Rows.Count > 0);
+        }
+
+        private void dgvSubjectsTaughtByTeacherList_DoubleClick(object sender, System.EventArgs e)
+        {
+            frmShowSubjectTeacherInfo showSubjectTeacherInfo = new frmShowSubjectTeacherInfo(_GetSubjectTeacherIDFromDGV());
+            showSubjectTeacherInfo.ShowDialog();
+
+            _RefreshSubjectsTaughtByTeacherList();
         }
     }
 }
