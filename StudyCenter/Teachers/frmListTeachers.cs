@@ -30,7 +30,7 @@ namespace StudyCenter.Teachers
             cbPages.Items.Clear();
 
             _allTeachersCount = clsTeacher.Count();
-            short numberOfPages = (short)Math.Ceiling((decimal)_allTeachersCount / _rowsPerPage);
+            short numberOfPages = (short)Math.Ceiling(_allTeachersCount / (_rowsPerPage == 0 ? 10M : _rowsPerPage));
 
             for (short i = 1; i <= numberOfPages; i++)
             {

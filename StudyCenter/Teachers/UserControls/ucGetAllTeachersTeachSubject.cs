@@ -1,4 +1,5 @@
 ﻿using StudyCenter_Business;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace StudyCenter.Teachers.UserControls
@@ -54,6 +55,19 @@ namespace StudyCenter.Teachers.UserControls
         }
 
         private void ShowDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            frmShowTeacherInfo showTeacherInfo = new frmShowTeacherInfo(_GetTeacherIDFromDGV());
+            showTeacherInfo.ShowDialog();
+
+            LoadAllTeachersTeachSubject(_subjectGradeLevelID);
+        }
+
+        private void cmsEditProfile_Opening(object sender, CancelEventArgs e)
+        {
+            cmsEditProfile.Enabled = (dgvTeachersList.Rows.Count > 0);
+        }
+
+        private void dgvTeachersList_DoubleClick(object sender, System.EventArgs e)
         {
             frmShowTeacherInfo showTeacherInfo = new frmShowTeacherInfo(_GetTeacherIDFromDGV());
             showTeacherInfo.ShowDialog();

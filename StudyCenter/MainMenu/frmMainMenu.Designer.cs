@@ -31,29 +31,30 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelChildForms = new Guna.UI2.WinForms.Guna2Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.panelChildForms = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.bntSubjects = new Guna.UI2.WinForms.Guna2Button();
             this.btnStudents = new Guna.UI2.WinForms.Guna2Button();
             this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.btnClasses = new Guna.UI2.WinForms.Guna2Button();
             this.btnGroups = new Guna.UI2.WinForms.Guna2Button();
             this.btnTeachers = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pbImgaeSlide = new System.Windows.Forms.PictureBox();
             this.btnLogOut = new Guna.UI2.WinForms.Guna2Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelChildForms.SuspendLayout();
+            this.panelTitle.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            this.panelTitle.SuspendLayout();
-            this.panelChildForms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImgaeSlide)).BeginInit();
             this.SuspendLayout();
@@ -71,77 +72,16 @@
             this.guna2Elipse1.BorderRadius = 30;
             this.guna2Elipse1.TargetControl = this.panelChildForms;
             // 
-            // panelMenu
+            // panelChildForms
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.panelMenu.Controls.Add(this.btnStudents);
-            this.panelMenu.Controls.Add(this.btnSettings);
-            this.panelMenu.Controls.Add(this.btnClasses);
-            this.panelMenu.Controls.Add(this.btnGroups);
-            this.panelMenu.Controls.Add(this.btnTeachers);
-            this.panelMenu.Controls.Add(this.btnDashboard);
-            this.panelMenu.Controls.Add(this.panelLogo);
-            this.panelMenu.Controls.Add(this.pbImgaeSlide);
-            this.panelMenu.Controls.Add(this.btnLogOut);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 15);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(218, 824);
-            this.panelMenu.TabIndex = 20;
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.Controls.Add(this.label1);
-            this.panelLogo.Controls.Add(this.pictureBox2);
-            this.panelLogo.Controls.Add(this.label2);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(218, 124);
-            this.panelLogo.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(63, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 47);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Study";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(123, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 30);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Center";
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1573, 15);
-            this.panel2.TabIndex = 21;
-            // 
-            // guna2Elipse2
-            // 
-            this.guna2Elipse2.BorderRadius = 30;
-            this.guna2Elipse2.TargetControl = this;
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(218, 824);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1344, 15);
-            this.panel3.TabIndex = 19;
+            this.panelChildForms.BackColor = System.Drawing.Color.White;
+            this.panelChildForms.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(212)))));
+            this.panelChildForms.BorderRadius = 10;
+            this.panelChildForms.Controls.Add(this.panelTitle);
+            this.panelChildForms.Location = new System.Drawing.Point(218, 21);
+            this.panelChildForms.Name = "panelChildForms";
+            this.panelChildForms.Size = new System.Drawing.Size(1343, 797);
+            this.panelChildForms.TabIndex = 23;
             // 
             // panelTitle
             // 
@@ -164,16 +104,53 @@
             this.lblTitle.Text = "HOME";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelChildForms
+            // panelMenu
             // 
-            this.panelChildForms.BackColor = System.Drawing.Color.White;
-            this.panelChildForms.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(212)))));
-            this.panelChildForms.BorderRadius = 10;
-            this.panelChildForms.Controls.Add(this.panelTitle);
-            this.panelChildForms.Location = new System.Drawing.Point(218, 21);
-            this.panelChildForms.Name = "panelChildForms";
-            this.panelChildForms.Size = new System.Drawing.Size(1343, 797);
-            this.panelChildForms.TabIndex = 23;
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
+            this.panelMenu.Controls.Add(this.bntSubjects);
+            this.panelMenu.Controls.Add(this.btnStudents);
+            this.panelMenu.Controls.Add(this.btnSettings);
+            this.panelMenu.Controls.Add(this.btnClasses);
+            this.panelMenu.Controls.Add(this.btnGroups);
+            this.panelMenu.Controls.Add(this.btnTeachers);
+            this.panelMenu.Controls.Add(this.btnDashboard);
+            this.panelMenu.Controls.Add(this.panelLogo);
+            this.panelMenu.Controls.Add(this.pbImgaeSlide);
+            this.panelMenu.Controls.Add(this.btnLogOut);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 15);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(218, 824);
+            this.panelMenu.TabIndex = 20;
+            // 
+            // bntSubjects
+            // 
+            this.bntSubjects.BackColor = System.Drawing.Color.Transparent;
+            this.bntSubjects.BorderRadius = 22;
+            this.bntSubjects.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.bntSubjects.CheckedState.FillColor = System.Drawing.Color.White;
+            this.bntSubjects.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
+            this.bntSubjects.CheckedState.Image = global::StudyCenter.Properties.Resources.classes_blue_64;
+            this.bntSubjects.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.bntSubjects.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.bntSubjects.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.bntSubjects.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.bntSubjects.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
+            this.bntSubjects.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntSubjects.ForeColor = System.Drawing.Color.White;
+            this.bntSubjects.Image = global::StudyCenter.Properties.Resources.classes_white_64;
+            this.bntSubjects.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bntSubjects.ImageOffset = new System.Drawing.Point(-5, 0);
+            this.bntSubjects.ImageSize = new System.Drawing.Size(50, 50);
+            this.bntSubjects.Location = new System.Drawing.Point(0, 360);
+            this.bntSubjects.Name = "bntSubjects";
+            this.bntSubjects.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.bntSubjects.Size = new System.Drawing.Size(218, 43);
+            this.bntSubjects.TabIndex = 29;
+            this.bntSubjects.Text = "Subjects";
+            this.bntSubjects.UseTransparentBackground = true;
+            this.bntSubjects.CheckedChanged += new System.EventHandler(this.btn_CheckedChanged);
+            this.bntSubjects.Click += new System.EventHandler(this.bntSubjects_Click);
             // 
             // btnStudents
             // 
@@ -222,7 +199,7 @@
             this.btnSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSettings.ImageOffset = new System.Drawing.Point(-1, 0);
             this.btnSettings.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnSettings.Location = new System.Drawing.Point(0, 500);
+            this.btnSettings.Location = new System.Drawing.Point(0, 570);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.btnSettings.Size = new System.Drawing.Size(218, 43);
@@ -251,7 +228,7 @@
             this.btnClasses.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClasses.ImageOffset = new System.Drawing.Point(-5, 0);
             this.btnClasses.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnClasses.Location = new System.Drawing.Point(0, 360);
+            this.btnClasses.Location = new System.Drawing.Point(0, 430);
             this.btnClasses.Name = "btnClasses";
             this.btnClasses.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnClasses.Size = new System.Drawing.Size(218, 43);
@@ -280,7 +257,7 @@
             this.btnGroups.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGroups.ImageOffset = new System.Drawing.Point(-1, 0);
             this.btnGroups.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnGroups.Location = new System.Drawing.Point(0, 430);
+            this.btnGroups.Location = new System.Drawing.Point(0, 500);
             this.btnGroups.Name = "btnGroups";
             this.btnGroups.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnGroups.Size = new System.Drawing.Size(218, 43);
@@ -347,6 +324,28 @@
             this.btnDashboard.CheckedChanged += new System.EventHandler(this.btn_CheckedChanged);
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
+            // panelLogo
+            // 
+            this.panelLogo.Controls.Add(this.label1);
+            this.panelLogo.Controls.Add(this.pictureBox2);
+            this.panelLogo.Controls.Add(this.label2);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(218, 124);
+            this.panelLogo.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(63, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 47);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Study";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -358,6 +357,17 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label2.Location = new System.Drawing.Point(123, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 30);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Center";
             // 
             // pbImgaeSlide
             // 
@@ -399,6 +409,27 @@
             this.btnLogOut.CheckedChanged += new System.EventHandler(this.btn_CheckedChanged);
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1573, 15);
+            this.panel2.TabIndex = 21;
+            // 
+            // guna2Elipse2
+            // 
+            this.guna2Elipse2.BorderRadius = 30;
+            this.guna2Elipse2.TargetControl = this;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(218, 824);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1344, 15);
+            this.panel3.TabIndex = 19;
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,11 +446,11 @@
             this.Name = "frmMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMainMenu";
+            this.panelChildForms.ResumeLayout(false);
+            this.panelTitle.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
-            this.panelTitle.ResumeLayout(false);
-            this.panelChildForms.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImgaeSlide)).EndInit();
             this.ResumeLayout(false);
@@ -449,5 +480,6 @@
         private Guna.UI2.WinForms.Guna2Panel panelChildForms;
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Label lblTitle;
+        private Guna.UI2.WinForms.Guna2Button bntSubjects;
     }
 }

@@ -28,7 +28,7 @@ namespace StudyCenter.Students
             cbPages.Items.Clear();
 
             _allStudentsCount = clsStudent.Count();
-            short numberOfPages = (short)Math.Ceiling((decimal)_allStudentsCount / _rowsPerPage);
+            short numberOfPages = (short)Math.Ceiling(_allStudentsCount / (_rowsPerPage == 0 ? 10M : _rowsPerPage));
 
             for (short i = 1; i <= numberOfPages; i++)
             {
@@ -119,7 +119,6 @@ namespace StudyCenter.Students
             _FillComboBoxWithGradeLevels();
 
             cbFilter.SelectedIndex = 0;
-
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, System.EventArgs e)

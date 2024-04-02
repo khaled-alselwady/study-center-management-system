@@ -103,6 +103,16 @@ namespace StudyCenter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_subject {
+            get {
+                object obj = ResourceManager.GetObject("add-subject", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap address {
             get {
                 object obj = ResourceManager.GetObject("address", resourceCulture);

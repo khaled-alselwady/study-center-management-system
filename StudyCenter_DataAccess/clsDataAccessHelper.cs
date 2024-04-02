@@ -299,7 +299,7 @@ namespace StudyCenter_DataAccess
             return dt;
         }
 
-        public static DataTable AllInPages(short PageNumber, int RowsPerPage, string storedProcedureName)
+        public static DataTable AllInPages(short pageNumber, int rowsPerPage, string storedProcedureName)
         {
             DataTable dt = new DataTable();
 
@@ -313,8 +313,8 @@ namespace StudyCenter_DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@PageNumber", PageNumber);
-                        command.Parameters.AddWithValue("@RowsPerPage", RowsPerPage);
+                        command.Parameters.AddWithValue("@PageNumber", pageNumber);
+                        command.Parameters.AddWithValue("@RowsPerPage", rowsPerPage);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {

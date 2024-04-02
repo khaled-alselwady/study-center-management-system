@@ -132,6 +132,9 @@ namespace StudyCenter_DataAccess
         public static bool Exists(int? subjectGradeLevelID)
             => clsDataAccessHelper.Exists("SP_DoesSubjectGradeLevelExist", "SubjectGradeLevelID", subjectGradeLevelID);
 
+        public static DataTable AllInPages(short pageNumber, int rowsPerPage)
+            => clsDataAccessHelper.AllInPages(pageNumber, rowsPerPage, "SP_GetAllSubjectsGradeLevelsInPages");
+
         public static DataTable AllUntaughtSubjectsByTeacher(int? teacherID)
             => clsDataAccessHelper.All("SP_GetUntaughtSubjectsByTeacher", "TeacherID", teacherID);
 

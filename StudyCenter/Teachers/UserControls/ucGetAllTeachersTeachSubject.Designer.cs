@@ -140,6 +140,7 @@
             this.dgvTeachersList.ThemeStyle.RowsStyle.Height = 33;
             this.dgvTeachersList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
             this.dgvTeachersList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvTeachersList.DoubleClick += new System.EventHandler(this.dgvTeachersList_DoubleClick);
             // 
             // cmsEditProfile
             // 
@@ -149,7 +150,8 @@
             this.ShowDetailsToolStripMenuItem});
             this.cmsEditProfile.Name = "contextMenuStrip1";
             this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsEditProfile.Size = new System.Drawing.Size(197, 64);
+            this.cmsEditProfile.Size = new System.Drawing.Size(185, 42);
+            this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
             // 
             // ShowDetailsToolStripMenuItem
             // 
@@ -157,7 +159,7 @@
             this.ShowDetailsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
             this.ShowDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ShowDetailsToolStripMenuItem.Name = "ShowDetailsToolStripMenuItem";
-            this.ShowDetailsToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.ShowDetailsToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.ShowDetailsToolStripMenuItem.Text = "Show Details";
             this.ShowDetailsToolStripMenuItem.Click += new System.EventHandler(this.ShowDetailsToolStripMenuItem_Click);
             // 
