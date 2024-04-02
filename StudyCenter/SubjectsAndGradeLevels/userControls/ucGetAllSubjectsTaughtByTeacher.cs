@@ -16,6 +16,7 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
         {
             dgvSubjectsTaughtByTeacherList.DataSource =
                 clsSubjectTeacher.AllSubjectsTaughtByTeacher(_teacherID);
+
             lblNumberOfRecords.Text = dgvSubjectsTaughtByTeacherList.Rows.Count.ToString();
 
             if (dgvSubjectsTaughtByTeacherList.Rows.Count > 0)

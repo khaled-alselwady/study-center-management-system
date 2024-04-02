@@ -101,6 +101,9 @@ namespace StudyCenter_Business
 
         public static DataTable AllUntaughtSubjectsByTeacher(int? teacherID)
             => clsSubjectGradeLevelData.AllUntaughtSubjectsByTeacher(teacherID);
+
+        public static DataTable AllTeachersTeachSubject(int? subjectGradeLevelID)
+            => clsSubjectGradeLevelData.AllTeachersTeachSubject(subjectGradeLevelID);
     }
 
 }

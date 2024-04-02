@@ -134,5 +134,8 @@ namespace StudyCenter_DataAccess
 
         public static DataTable AllUntaughtSubjectsByTeacher(int? teacherID)
             => clsDataAccessHelper.All("SP_GetUntaughtSubjectsByTeacher", "TeacherID", teacherID);
+
+        public static DataTable AllTeachersTeachSubject(int? subjectGradeLevelID)
+            => clsDataAccessHelper.All("SP_GetAllTeachersTeachSubject", "SubjectGradeLevelID", subjectGradeLevelID);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using StudyCenter.GlobalClasses;
+using StudyCenter.Teachers;
 using StudyCenter_Business;
 using System.Windows.Forms;
 
@@ -77,7 +78,10 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
 
         private void llWhoTeachesIt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            frmGetAllTeachersTeachSubject getAllTeachersTeachSubject = new frmGetAllTeachersTeachSubject(_subjectGradeLevelID);
+            getAllTeachersTeachSubject.ShowDialog();
+
+            LoadSubjectGradeLevelInfo(_subjectGradeLevelID);
         }
     }
 }
