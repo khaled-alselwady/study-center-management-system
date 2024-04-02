@@ -59,7 +59,7 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
 
             if (!_subjectTeacherID.HasValue)
             {
-                clsStandardMessages.ShowMissingDataMessage("subject-teacherID", _subjectTeacherID);
+                clsStandardMessages.ShowMissingDataMessage("subject-teacher", _subjectTeacherID);
 
                 Reset();
 
@@ -70,7 +70,7 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
 
             if (_subjectTeacher == null)
             {
-                clsStandardMessages.ShowMissingDataMessage("subject-teacherID", _subjectTeacherID);
+                clsStandardMessages.ShowMissingDataMessage("subject-teacher", _subjectTeacherID);
 
                 Reset();
 
@@ -88,7 +88,10 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
 
         private void llShowSubjectInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            frmShowSubjectGradeLevelInfo showSubjectGradeLevelInfo = new frmShowSubjectGradeLevelInfo(_subjectTeacher?.SubjectGradeLevelID);
+            showSubjectGradeLevelInfo.ShowDialog();
+
+            LoadSubjectsTeacherInfo(_subjectTeacherID);
         }
     }
 }

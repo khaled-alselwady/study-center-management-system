@@ -160,11 +160,23 @@
     <Compile Include="SubjectsAndGradeLevels\frmGetAllSubjectsTaughtByTeacher.Designer.cs">
       <DependentUpon>frmGetAllSubjectsTaughtByTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubjectsAndGradeLevels\frmShowSubjectGradeLevelInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\frmShowSubjectGradeLevelInfo.Designer.cs">
+      <DependentUpon>frmShowSubjectGradeLevelInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubjectsAndGradeLevels\frmShowSubjectTeacherInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SubjectsAndGradeLevels\frmShowSubjectTeacherInfo.Designer.cs">
       <DependentUpon>frmShowSubjectTeacherInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\userControls\ucSubjectGradeLevelCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubjectsAndGradeLevels\userControls\ucSubjectGradeLevelCard.Designer.cs">
+      <DependentUpon>ucSubjectGradeLevelCard.cs</DependentUpon>
     </Compile>
     <Compile Include="SubjectsAndGradeLevels\userControls\ucGetAllSubjectsTaughtByTeacher.cs">
       <SubType>UserControl</SubType>
@@ -278,8 +290,14 @@
     <EmbeddedResource Include="SubjectsAndGradeLevels\frmGetAllSubjectsTaughtByTeacher.resx">
       <DependentUpon>frmGetAllSubjectsTaughtByTeacher.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SubjectsAndGradeLevels\frmShowSubjectGradeLevelInfo.resx">
+      <DependentUpon>frmShowSubjectGradeLevelInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubjectsAndGradeLevels\frmShowSubjectTeacherInfo.resx">
       <DependentUpon>frmShowSubjectTeacherInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectsAndGradeLevels\userControls\ucSubjectGradeLevelCard.resx">
+      <DependentUpon>ucSubjectGradeLevelCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubjectsAndGradeLevels\userControls\ucGetAllSubjectsTaughtByTeacher.resx">
       <DependentUpon>ucGetAllSubjectsTaughtByTeacher.cs</DependentUpon>

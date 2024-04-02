@@ -1,6 +1,6 @@
 ﻿namespace StudyCenter.SubjectsAndGradeLevels
 {
-    partial class frmShowSubjectTeacherInfo
+    partial class frmShowSubjectGradeLevelInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.ucSubjectTeacherCard1 = new StudyCenter.SubjectsAndGradeLevels.userControls.ucSubjectTeacherCard();
+            this.ucSubjectGradeLevelCard1 = new StudyCenter.SubjectsAndGradeLevels.userControls.ucSubjectGradeLevelCard();
             this.SuspendLayout();
             // 
             // btnClose
@@ -50,11 +50,11 @@
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageOffset = new System.Drawing.Point(0, -1);
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnClose.Location = new System.Drawing.Point(728, 358);
+            this.btnClose.Location = new System.Drawing.Point(729, 387);
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnClose.Size = new System.Drawing.Size(155, 45);
-            this.btnClose.TabIndex = 203;
+            this.btnClose.TabIndex = 206;
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -62,45 +62,44 @@
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.label1.Location = new System.Drawing.Point(1, 3);
+            this.label1.Location = new System.Drawing.Point(2, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(871, 61);
-            this.label1.TabIndex = 201;
-            this.label1.Text = "Subject Teacher Info";
+            this.label1.TabIndex = 205;
+            this.label1.Text = "Subject Grade-Level Info";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ucSubjectTeacherCard1
+            // ucSubjectGradeLevelCard1
             // 
-            this.ucSubjectTeacherCard1.BackColor = System.Drawing.Color.White;
-            this.ucSubjectTeacherCard1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucSubjectTeacherCard1.Location = new System.Drawing.Point(10, 102);
-            this.ucSubjectTeacherCard1.Name = "ucSubjectTeacherCard1";
-            this.ucSubjectTeacherCard1.Size = new System.Drawing.Size(862, 232);
-            this.ucSubjectTeacherCard1.TabIndex = 204;
+            this.ucSubjectGradeLevelCard1.BackColor = System.Drawing.Color.White;
+            this.ucSubjectGradeLevelCard1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucSubjectGradeLevelCard1.Location = new System.Drawing.Point(12, 92);
+            this.ucSubjectGradeLevelCard1.Name = "ucSubjectGradeLevelCard1";
+            this.ucSubjectGradeLevelCard1.Size = new System.Drawing.Size(862, 281);
+            this.ucSubjectGradeLevelCard1.TabIndex = 207;
             // 
-            // frmShowSubjectTeacherInfo
+            // frmShowSubjectGradeLevelInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(887, 406);
-            this.Controls.Add(this.ucSubjectTeacherCard1);
+            this.ClientSize = new System.Drawing.Size(887, 435);
+            this.Controls.Add(this.ucSubjectGradeLevelCard1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmShowSubjectTeacherInfo";
+            this.Name = "frmShowSubjectGradeLevelInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Show Subject Teacher Info";
+            this.Text = "Show Subject Grade Level Info";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
         private Guna.UI2.WinForms.Guna2GradientButton btnClose;
         private System.Windows.Forms.Label label1;
-        private userControls.ucSubjectTeacherCard ucSubjectTeacherCard1;
+        private userControls.ucSubjectGradeLevelCard ucSubjectGradeLevelCard1;
     }
 }
