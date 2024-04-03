@@ -2,6 +2,7 @@
 using StudyCenter.Subjects;
 using StudyCenter_Business;
 using System;
+using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 
@@ -216,6 +217,34 @@ namespace StudyCenter.SubjectsAndGradeLevels
             frmAddEditSubject addSubject = new frmAddEditSubject();
             addSubject.SubjectIDBack += _ShowNewSubjectInTheComboBoxAfterAdding;
             addSubject.ShowDialog();
+        }
+
+        private void cbGradeLevelsAndSubjectNames_Validating(object sender, CancelEventArgs e)
+        {
+            _ValidateSubjectAndGradeLevelExists(e);
+        }
+
+        private void _ValidateSubjectAndGradeLevelExists(CancelEventArgs e)
+        {
+            int? subjectID = clsSubject.GetSubjectID(cbSubjectNames.Text.Trim());
+            int? gradeLevelID = clsGradeLevel.GetGradeLevelID(cbGradeLevels.Text.Trim());
+
+            // Check if the combination of subject and grade level already exists
+            if ((_mode == _enMode.Add ||      // If adding a new entry
+                (_mode == _enMode.Update &&   // Or if updating an existing entry and either subject or grade level has changed
+                (_subjectGradeLevel?.SubjectID != subjectID ||
+                _subjectGradeLevel?.GradeLevelID != gradeLevelID))) &&
+                clsSubjectGradeLevel.Exists(subjectID, gradeLevelID))  // And if the combination exists in the database
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(cbGradeLevels, $"There is already {cbSubjectNames.Text} for {cbGradeLevels.Text}!");
+                errorProvider1.SetError(cbSubjectNames, $"There is already {cbSubjectNames.Text} for {cbGradeLevels.Text}!");
+            }
+            else
+            {
+                errorProvider1.SetError(cbGradeLevels, null);
+                errorProvider1.SetError(cbSubjectNames, null);
+            }
         }
     }
 }

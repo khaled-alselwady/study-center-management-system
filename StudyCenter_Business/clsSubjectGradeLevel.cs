@@ -99,6 +99,9 @@ namespace StudyCenter_Business
         public static bool Exists(int? subjectGradeLevelID)
             => clsSubjectGradeLevelData.Exists(subjectGradeLevelID);
 
+        public static bool Exists(int? subjectID, int? gradeLevelID)
+            => clsSubjectGradeLevelData.Exists(subjectID, gradeLevelID);
+
         public static DataTable AllInPages(short pageNumber, int rowsPerPage)
             => clsSubjectGradeLevelData.AllInPages(pageNumber, rowsPerPage);
 
@@ -107,6 +110,9 @@ namespace StudyCenter_Business
 
         public static DataTable AllTeachersTeachSubject(int? subjectGradeLevelID)
             => clsSubjectGradeLevelData.AllTeachersTeachSubject(subjectGradeLevelID);
+
+        public static int Count()
+            => clsSubjectGradeLevelData.Count();
     }
 
 }

@@ -27,7 +27,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
         {
             cbPages.Items.Clear();
 
-            _allSubjectGradeLevelsCount = clsStudent.Count();
+            _allSubjectGradeLevelsCount = clsSubjectGradeLevel.Count();
             short numberOfPages = (short)Math.Ceiling(_allSubjectGradeLevelsCount / (_rowsPerPage == 0 ? 10M : _rowsPerPage));
 
             for (short i = 1; i <= numberOfPages; i++)

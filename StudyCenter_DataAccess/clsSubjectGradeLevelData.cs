@@ -130,7 +130,12 @@ namespace StudyCenter_DataAccess
             => clsDataAccessHelper.Delete("SP_DeleteSubjectGradeLevel", "SubjectGradeLevelID", subjectGradeLevelID);
 
         public static bool Exists(int? subjectGradeLevelID)
-            => clsDataAccessHelper.Exists("SP_DoesSubjectGradeLevelExist", "SubjectGradeLevelID", subjectGradeLevelID);
+            => clsDataAccessHelper.Exists("SP_DoesSubjectGradeLevelExistBySubjectGradeLevelID",
+                                          "SubjectGradeLevelID", subjectGradeLevelID);
+
+        public static bool Exists(int? subjectID, int? gradeLevelID)
+            => clsDataAccessHelper.Exists("SP_DoesSubjectGradeLevelExistBySubjectIDAndGradeLevelID",
+                                          "SubjectID", subjectID, "GradeLevelID", gradeLevelID);
 
         public static DataTable AllInPages(short pageNumber, int rowsPerPage)
             => clsDataAccessHelper.AllInPages(pageNumber, rowsPerPage, "SP_GetAllSubjectsGradeLevelsInPages");
@@ -140,5 +145,8 @@ namespace StudyCenter_DataAccess
 
         public static DataTable AllTeachersTeachSubject(int? subjectGradeLevelID)
             => clsDataAccessHelper.All("SP_GetAllTeachersTeachSubject", "SubjectGradeLevelID", subjectGradeLevelID);
+
+        public static int Count()
+            => clsDataAccessHelper.Count("[SP_GetAllSubjectsGradeLevelsCount]");
     }
 }
