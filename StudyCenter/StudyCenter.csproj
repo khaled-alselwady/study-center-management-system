@@ -521,5 +521,11 @@
   <ItemGroup>
     <None Include="Resources\add-subject.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subjects-white-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subjects-blue-64.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
