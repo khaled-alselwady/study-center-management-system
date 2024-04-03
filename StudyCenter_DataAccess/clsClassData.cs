@@ -125,7 +125,10 @@ namespace StudyCenter_DataAccess
             => clsDataAccessHelper.Delete("SP_DeleteClass", "ClassID", classID);
 
         public static bool Exists(int? classID)
-            => clsDataAccessHelper.Exists("SP_DoesClassExist", "ClassID", classID);
+            => clsDataAccessHelper.Exists("SP_DoesClassExistByClassID", "ClassID", classID);
+
+        public static bool Exists(string className)
+            => clsDataAccessHelper.Exists("SP_DoesClassExistByClassName", "ClassName", className);
 
         public static DataTable All()
             => clsDataAccessHelper.All("SP_GetAllClasses");

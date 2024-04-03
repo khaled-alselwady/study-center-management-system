@@ -84,6 +84,9 @@ namespace StudyCenter_Business
         public static bool Exists(int? classID)
             => clsClassData.Exists(classID);
 
+        public static bool Exists(string className)
+           => clsClassData.Exists(className);
+
         public static DataTable All()
             => clsClassData.All();
     }

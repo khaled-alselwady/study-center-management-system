@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\frmAddEditClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\frmAddEditClass.Designer.cs">
+      <DependentUpon>frmAddEditClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\frmShowClassInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     <Compile Include="Teachers\UserControls\ucTeacherCardWithFilter.Designer.cs">
       <DependentUpon>ucTeacherCardWithFilter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Classes\frmAddEditClass.resx">
+      <DependentUpon>frmAddEditClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Classes\frmShowClassInfo.resx">
       <DependentUpon>frmShowClassInfo.cs</DependentUpon>
     </EmbeddedResource>

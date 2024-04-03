@@ -1,4 +1,4 @@
-﻿using StudyCenter.MainMenu;
+﻿using StudyCenter.Classes;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +14,7 @@ namespace StudyCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainMenu());
+            Application.Run(new frmAddEditClass());
         }
     }
 }
