@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using StudyCenter.Classes;
 using StudyCenter.Students;
 using StudyCenter.SubjectsAndGradeLevels;
 using StudyCenter.Teachers;
@@ -110,7 +111,7 @@ namespace StudyCenter.MainMenu
 
         private void btnClasses_Click(object sender, System.EventArgs e)
         {
-            _OpenChildFormAsync(new Form(), sender);
+            _OpenChildFormAsync(new frmListClasses(), sender);
         }
 
         private void btnGroups_Click(object sender, System.EventArgs e)

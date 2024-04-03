@@ -19,6 +19,8 @@ namespace StudyCenter.Classes.UserControls
 
         private void _FillStudentData()
         {
+            llEditClassInfo.Enabled = true;
+
             lblClassID.Text = _class.ClassID.ToString();
             lblClassName.Text = _class.ClassName;
             lblCapacity.Text = _class.Capacity.ToString();
@@ -37,6 +39,8 @@ namespace StudyCenter.Classes.UserControls
             lblClassName.Text = "[????]";
             lblCapacity.Text = "[????]";
             lblDescription.Text = "[????]";
+
+            llEditClassInfo.Enabled = false;
         }
 
         public void LoadClassInfo(int? classID)
@@ -64,6 +68,15 @@ namespace StudyCenter.Classes.UserControls
             }
 
             _FillStudentData();
+        }
+
+        private void llEditClassInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmAddEditClass editClass = new frmAddEditClass(_classID);
+            editClass.ShowDialog();
+
+            // Refresh
+            LoadClassInfo(_classID);
         }
     }
 }

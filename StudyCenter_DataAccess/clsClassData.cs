@@ -132,5 +132,11 @@ namespace StudyCenter_DataAccess
 
         public static DataTable All()
             => clsDataAccessHelper.All("SP_GetAllClasses");
+
+        public static int Count()
+            => clsDataAccessHelper.Count("SP_GetAllClassesCount");
+
+        public static DataTable AllInPages(short PageNumber, int RowsPerPage)
+            => clsDataAccessHelper.AllInPages(PageNumber, RowsPerPage, "SP_GetAllClassesInPages");
     }
 }

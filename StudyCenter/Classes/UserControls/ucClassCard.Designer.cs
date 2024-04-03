@@ -37,6 +37,7 @@
             this.lblClassID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.llEditClassInfo = new System.Windows.Forms.LinkLabel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -147,6 +148,7 @@
             // guna2GroupBox1
             // 
             this.guna2GroupBox1.BackColor = System.Drawing.Color.White;
+            this.guna2GroupBox1.Controls.Add(this.llEditClassInfo);
             this.guna2GroupBox1.Controls.Add(this.lblCapacity);
             this.guna2GroupBox1.Controls.Add(this.pictureBox5);
             this.guna2GroupBox1.Controls.Add(this.label9);
@@ -164,9 +166,23 @@
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2GroupBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(862, 186);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(862, 196);
             this.guna2GroupBox1.TabIndex = 4;
             this.guna2GroupBox1.Text = "Class Information";
+            // 
+            // llEditClassInfo
+            // 
+            this.llEditClassInfo.AutoSize = true;
+            this.llEditClassInfo.BackColor = System.Drawing.Color.Transparent;
+            this.llEditClassInfo.Enabled = false;
+            this.llEditClassInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llEditClassInfo.Location = new System.Drawing.Point(718, 157);
+            this.llEditClassInfo.Name = "llEditClassInfo";
+            this.llEditClassInfo.Size = new System.Drawing.Size(133, 25);
+            this.llEditClassInfo.TabIndex = 184;
+            this.llEditClassInfo.TabStop = true;
+            this.llEditClassInfo.Text = "Edit Class Info";
+            this.llEditClassInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llEditClassInfo_LinkClicked);
             // 
             // pictureBox5
             // 
@@ -220,7 +236,7 @@
             this.Controls.Add(this.guna2GroupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ucClassCard";
-            this.Size = new System.Drawing.Size(862, 186);
+            this.Size = new System.Drawing.Size(862, 196);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -246,5 +262,6 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private System.Windows.Forms.LinkLabel llEditClassInfo;
     }
 }

@@ -43,9 +43,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.txtClassName = new Guna.UI2.WinForms.Guna2TextBox();
             this.numaricCapacity = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.txtClassName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -257,17 +257,32 @@
             this.guna2GroupBox1.TabIndex = 219;
             this.guna2GroupBox1.Text = "Class Information";
             // 
-            // lblTitle
+            // numaricCapacity
             // 
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.lblTitle.Location = new System.Drawing.Point(-1, 4);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(549, 59);
-            this.lblTitle.TabIndex = 218;
-            this.lblTitle.Text = "Find Student";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.numaricCapacity.BackColor = System.Drawing.Color.Transparent;
+            this.numaricCapacity.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
+            this.numaricCapacity.BorderRadius = 17;
+            this.numaricCapacity.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numaricCapacity.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.numaricCapacity.Location = new System.Drawing.Point(165, 106);
+            this.numaricCapacity.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numaricCapacity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numaricCapacity.Name = "numaricCapacity";
+            this.numaricCapacity.Size = new System.Drawing.Size(96, 36);
+            this.numaricCapacity.TabIndex = 211;
+            this.numaricCapacity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // txtClassName
             // 
@@ -294,27 +309,17 @@
             this.txtClassName.TabIndex = 209;
             this.txtClassName.Validating += new System.ComponentModel.CancelEventHandler(this.txtClassName_Validating);
             // 
-            // numaricCapacity
+            // lblTitle
             // 
-            this.numaricCapacity.BackColor = System.Drawing.Color.Transparent;
-            this.numaricCapacity.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.numaricCapacity.BorderRadius = 17;
-            this.numaricCapacity.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.numaricCapacity.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.numaricCapacity.Location = new System.Drawing.Point(165, 106);
-            this.numaricCapacity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numaricCapacity.Name = "numaricCapacity";
-            this.numaricCapacity.Size = new System.Drawing.Size(96, 36);
-            this.numaricCapacity.TabIndex = 211;
-            this.numaricCapacity.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
+            this.lblTitle.Location = new System.Drawing.Point(-1, 4);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(549, 59);
+            this.lblTitle.TabIndex = 218;
+            this.lblTitle.Text = "Find Student";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmAddEditClass
             // 

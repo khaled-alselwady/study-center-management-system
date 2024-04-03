@@ -89,6 +89,12 @@ namespace StudyCenter_Business
 
         public static DataTable All()
             => clsClassData.All();
+
+        public static int Count()
+            => clsClassData.Count();
+
+        public static DataTable AllInPages(short PageNumber, int RowsPerPage)
+            => clsClassData.AllInPages(PageNumber, RowsPerPage);
     }
 
 }

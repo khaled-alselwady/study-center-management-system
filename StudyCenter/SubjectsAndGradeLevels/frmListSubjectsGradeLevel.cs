@@ -89,29 +89,29 @@ namespace StudyCenter.SubjectsAndGradeLevels
         {
             _dtAllSubjectGradeLevels = clsSubjectGradeLevel.AllInPages(short.Parse(cbPages.Text), _rowsPerPage);
 
-            dgvStudentsList.DataSource = _dtAllSubjectGradeLevels;
+            dgvSubjectsGradeLevelsList.DataSource = _dtAllSubjectGradeLevels;
 
-            lblNumberOfRecords.Text = dgvStudentsList.Rows.Count.ToString();
+            lblNumberOfRecords.Text = dgvSubjectsGradeLevelsList.Rows.Count.ToString();
 
-            if (dgvStudentsList.Rows.Count > 0)
+            if (dgvSubjectsGradeLevelsList.Rows.Count > 0)
             {
-                dgvStudentsList.Columns[0].HeaderText = "Subject Grade Level ID";
-                dgvStudentsList.Columns[0].Width = 110;
+                dgvSubjectsGradeLevelsList.Columns[0].HeaderText = "Subject Grade Level ID";
+                dgvSubjectsGradeLevelsList.Columns[0].Width = 110;
 
-                dgvStudentsList.Columns[1].HeaderText = "Subject Name";
-                dgvStudentsList.Columns[1].Width = 200;
+                dgvSubjectsGradeLevelsList.Columns[1].HeaderText = "Subject Name";
+                dgvSubjectsGradeLevelsList.Columns[1].Width = 200;
 
-                dgvStudentsList.Columns[2].HeaderText = "Grade Level Name";
-                dgvStudentsList.Columns[2].Width = 220;
+                dgvSubjectsGradeLevelsList.Columns[2].HeaderText = "Grade Level Name";
+                dgvSubjectsGradeLevelsList.Columns[2].Width = 220;
 
-                dgvStudentsList.Columns[3].HeaderText = "Description";
-                dgvStudentsList.Columns[3].Width = 300;
+                dgvSubjectsGradeLevelsList.Columns[3].HeaderText = "Description";
+                dgvSubjectsGradeLevelsList.Columns[3].Width = 300;
             }
         }
 
-        private int _GetSubjectGradeLevelIDFromDGV()
+        private int? _GetSubjectGradeLevelIDFromDGV()
         {
-            return (int)dgvStudentsList.CurrentRow.Cells["SubjectGradeLevelID"].Value;
+            return (int?)dgvSubjectsGradeLevelsList.CurrentRow.Cells["SubjectGradeLevelID"].Value;
         }
 
         private void frmListSubjectsGradeLevel_Load(object sender, EventArgs e)
@@ -160,7 +160,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
             if (string.IsNullOrWhiteSpace(txtSearch.Text.Trim()) || cbFilter.Text == "None")
             {
                 _dtAllSubjectGradeLevels.DefaultView.RowFilter = "";
-                lblNumberOfRecords.Text = dgvStudentsList.Rows.Count.ToString();
+                lblNumberOfRecords.Text = dgvSubjectsGradeLevelsList.Rows.Count.ToString();
 
                 return;
             }
@@ -176,7 +176,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
                 _dtAllSubjectGradeLevels.DefaultView.RowFilter = string.Format("[{0}] like '{1}%'", columnName, txtSearch.Text.Trim());
             }
 
-            lblNumberOfRecords.Text = dgvStudentsList.Rows.Count.ToString();
+            lblNumberOfRecords.Text = dgvSubjectsGradeLevelsList.Rows.Count.ToString();
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -196,7 +196,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
             if (cbSubjects.Text == "All")
             {
                 _dtAllSubjectGradeLevels.DefaultView.RowFilter = "";
-                lblNumberOfRecords.Text = dgvStudentsList.Rows.Count.ToString();
+                lblNumberOfRecords.Text = dgvSubjectsGradeLevelsList.Rows.Count.ToString();
 
                 return;
             }
@@ -204,7 +204,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
             _dtAllSubjectGradeLevels.DefaultView.RowFilter =
                 string.Format("[{0}] like '{1}%'", "SubjectName", cbSubjects.Text);
 
-            lblNumberOfRecords.Text = dgvStudentsList.Rows.Count.ToString();
+            lblNumberOfRecords.Text = dgvSubjectsGradeLevelsList.Rows.Count.ToString();
         }
 
         private void cbGrades_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,7 +215,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
             if (cbGrades.Text == "All")
             {
                 _dtAllSubjectGradeLevels.DefaultView.RowFilter = "";
-                lblNumberOfRecords.Text = dgvStudentsList.Rows.Count.ToString();
+                lblNumberOfRecords.Text = dgvSubjectsGradeLevelsList.Rows.Count.ToString();
 
                 return;
             }
@@ -223,7 +223,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
             _dtAllSubjectGradeLevels.DefaultView.RowFilter =
                 string.Format("[{0}] like '{1}%'", "GradeName", cbGrades.Text);
 
-            lblNumberOfRecords.Text = dgvStudentsList.Rows.Count.ToString();
+            lblNumberOfRecords.Text = dgvSubjectsGradeLevelsList.Rows.Count.ToString();
         }
 
         private void cbPages_SelectedIndexChanged(object sender, EventArgs e)
@@ -274,7 +274,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
 
         private void cmsEditProfile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            cmsEditProfile.Enabled = (dgvStudentsList.Rows.Count > 0);
+            cmsEditProfile.Enabled = (dgvSubjectsGradeLevelsList.Rows.Count > 0);
         }
     }
 }
