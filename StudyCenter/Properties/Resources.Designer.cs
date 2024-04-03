@@ -413,6 +413,16 @@ namespace StudyCenter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap room_type {
+            get {
+                object obj = ResourceManager.GetObject("room-type", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap save {
             get {
                 object obj = ResourceManager.GetObject("save", resourceCulture);
@@ -566,6 +576,16 @@ namespace StudyCenter.Properties {
         internal static System.Drawing.Bitmap teachers_white_64 {
             get {
                 object obj = ResourceManager.GetObject("teachers-white-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap users_list {
+            get {
+                object obj = ResourceManager.GetObject("users-list", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
