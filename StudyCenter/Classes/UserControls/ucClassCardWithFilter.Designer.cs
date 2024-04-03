@@ -1,6 +1,6 @@
-﻿namespace StudyCenter.Students.UserControls
+﻿namespace StudyCenter.Classes.UserControls
 {
-    partial class ucStudentCardWithFilter
+    partial class ucClassCardWithFilter
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,21 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucStudentCard1 = new StudyCenter.Students.UserControls.ucStudentCard();
             this.ucFilter1 = new StudyCenter.GeneralUserControls.ucFilter();
+            this.ucClassCard1 = new StudyCenter.Classes.UserControls.ucClassCard();
             this.SuspendLayout();
-            // 
-            // ucStudentCard1
-            // 
-            this.ucStudentCard1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ucStudentCard1.BackColor = System.Drawing.Color.White;
-            this.ucStudentCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucStudentCard1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucStudentCard1.Location = new System.Drawing.Point(0, 137);
-            this.ucStudentCard1.Name = "ucStudentCard1";
-            this.ucStudentCard1.Size = new System.Drawing.Size(862, 428);
-            this.ucStudentCard1.TabIndex = 0;
-            this.ucStudentCard1.Load += new System.EventHandler(this.ucStudentCard1_Load);
             // 
             // ucFilter1
             // 
@@ -55,28 +43,40 @@
             this.ucFilter1.Name = "ucFilter1";
             this.ucFilter1.ShowAddPersonButton = true;
             this.ucFilter1.Size = new System.Drawing.Size(862, 121);
-            this.ucFilter1.TabIndex = 1;
+            this.ucFilter1.TabIndex = 2;
             this.ucFilter1.TextSearch = "";
             this.ucFilter1.OnFindNumericClick += new System.EventHandler<StudyCenter.GeneralUserControls.ucFilter.FindNumericClickEventArgs>(this.ucFilter1_OnFindNumericClick);
             this.ucFilter1.OnAddClick += new System.EventHandler(this.ucFilter1_OnAddClick);
             // 
-            // ucStudentCardWithFilter
+            // ucClassCard1
+            // 
+            this.ucClassCard1.BackColor = System.Drawing.Color.White;
+            this.ucClassCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucClassCard1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucClassCard1.Location = new System.Drawing.Point(0, 140);
+            this.ucClassCard1.Name = "ucClassCard1";
+            this.ucClassCard1.Size = new System.Drawing.Size(862, 196);
+            this.ucClassCard1.TabIndex = 3;
+            this.ucClassCard1.Load += new System.EventHandler(this.ucClassCard1_Load);
+            // 
+            // ucClassCardWithFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.ucClassCard1);
             this.Controls.Add(this.ucFilter1);
-            this.Controls.Add(this.ucStudentCard1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "ucStudentCardWithFilter";
-            this.Size = new System.Drawing.Size(862, 565);
+            this.Name = "ucClassCardWithFilter";
+            this.Size = new System.Drawing.Size(862, 336);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private ucStudentCard ucStudentCard1;
         private GeneralUserControls.ucFilter ucFilter1;
+        private ucClassCard ucClassCard1;
     }
 }

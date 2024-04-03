@@ -10,7 +10,7 @@ namespace StudyCenter.Classes.UserControls
         private clsClass _class = null;
 
         public int? ClassID => _classID;
-        public clsClass Class => _class;
+        public clsClass ClassInfo => _class;
 
         public ucClassCard()
         {
