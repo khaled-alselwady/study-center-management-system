@@ -83,6 +83,16 @@ namespace StudyCenter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_group {
+            get {
+                object obj = ResourceManager.GetObject("add-group", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_new_person_50 {
             get {
                 object obj = ResourceManager.GetObject("add-new-person-50", resourceCulture);
@@ -386,6 +396,16 @@ namespace StudyCenter.Properties {
         internal static System.Drawing.Bitmap logout_white_64 {
             get {
                 object obj = ResourceManager.GetObject("logout-white-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap manage_groups {
+            get {
+                object obj = ResourceManager.GetObject("manage-groups", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -107,9 +107,9 @@ namespace StudyCenter.Students
             }
         }
 
-        private int _GetStudentIDFromDGV()
+        private int? _GetStudentIDFromDGV()
         {
-            return (int)dgvStudentsList.CurrentRow.Cells["StudentID"].Value;
+            return (int?)dgvStudentsList.CurrentRow.Cells["StudentID"].Value;
         }
 
         private void frmListStudents_Load(object sender, System.EventArgs e)

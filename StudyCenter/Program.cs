@@ -1,4 +1,4 @@
-﻿using StudyCenter.Groups;
+﻿using StudyCenter.MainMenu;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +14,7 @@ namespace StudyCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmShowGroupInfo(4));
+            Application.Run(new frmMainMenu());
         }
     }
 }

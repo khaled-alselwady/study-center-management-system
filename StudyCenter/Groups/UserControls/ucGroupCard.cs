@@ -33,16 +33,11 @@ namespace StudyCenter.Groups.UserControls
             lblSubjectGradeLevelID.Text = _group.SubjectTeacherInfo?.SubjectGradeLevelID.ToString();
             lblGroupName.Text = _group.GroupName;
             lblMeetingTime.Text = _group.MeetingTimeInfo.MeetingTimeText();
-            lblStudentsCount.Text = _ShowStudentCount();
+            lblStudentsCount.Text = _group.GetStudentCount();
             lblCreatedByUsername.Text = _group.CreatedByUserInfo.Username;
             lblCreationDate.Text = clsFormat.DateToShort(_group.CreationDate);
             lblIsActive.Text = (_group.IsActive) ? "Yes" : "No";
             pbIsActive.Image = (_group.IsActive) ? Resources.confirm_32 : Resources.close_48;
-        }
-
-        private string _ShowStudentCount()
-        {
-            return _group.StudentCount.ToString() + "/" + _group.ClassInfo.Capacity + ((_group.StudentCount <= 1) ? "  Student" : "  Students");
         }
 
         public void Reset()

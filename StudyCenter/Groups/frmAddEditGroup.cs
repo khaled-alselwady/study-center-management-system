@@ -65,7 +65,7 @@ namespace StudyCenter.Groups
                 ucClassCardWithFilter1.FilterFocus();
 
                 lblStudentsCount.Text = "0";
-                lblCreatedByUsername.Text = clsGlobal.CurrentUser?.Username ?? "Admin";
+                lblCreatedByUsername.Text = clsGlobal.CurrentUser?.Username;
 
                 _ResetFields();
             }
@@ -80,15 +80,28 @@ namespace StudyCenter.Groups
         private void _LoadClassInfo()
         {
             ucClassCardWithFilter1.LoadClassInfo(_selectedClassID);
-            ucClassCardWithFilter1.FilterEnabled = false;
             _group = new clsGroup();
         }
 
         private void _LoadTeacherInfo()
         {
             ucTeacherCardWithFilter1.LoadTeacherInfoByTeacherID(_selectedTeacherID);
-            ucTeacherCardWithFilter1.FilterEnabled = false;
             _group = new clsGroup();
+        }
+
+        private void _FillFieldsWithGroupInfo()
+        {
+            if (_group == null)
+                return;
+
+            lblGroupID.Text = _group.GroupID.ToString();
+            lblTeacherID.Text = _group.TeacherID.ToString();
+            lblClassID.Text = _group.ClassID.ToString();
+            lblSubjectGradeLevelID.Text = _group.SubjectTeacherInfo?.SubjectGradeLevelID.ToString();
+            lblGroupName.Text = _group.GroupName;
+            lblMeetingTimeID.Text = _group.MeetingTimeID.ToString();
+            lblStudentsCount.Text = _group.GetStudentCount();
+            lblCreatedByUsername.Text = _group.CreatedByUserInfo.Username;
         }
 
         private void _LoadData()
@@ -106,8 +119,6 @@ namespace StudyCenter.Groups
             }
 
             _group = clsGroup.Find(_groupID);
-            ucTeacherCardWithFilter1.FilterEnabled = false;
-            ucClassCardWithFilter1.FilterEnabled = false;
 
             if (_group == null)
             {
@@ -120,6 +131,8 @@ namespace StudyCenter.Groups
 
             ucTeacherCardWithFilter1.LoadTeacherInfoByTeacherID(_group.TeacherID);
             ucClassCardWithFilter1.LoadClassInfo(_group.ClassID);
+
+            _FillFieldsWithGroupInfo();
         }
 
         private void _FillGroupObjectWithFieldsData()
@@ -127,8 +140,11 @@ namespace StudyCenter.Groups
             _group.TeacherID = _selectedTeacherID;
             _group.ClassID = _selectedClassID;
             _group.SubjectTeacherID = ucGetAllSubjectsTaughtByTeacher1.SubjectTeacherID;
-            _group.MeetingTimeID = _GetMeetingTimeIDFromDGV();
-            _group.CreatedByUserID = clsGlobal.CurrentUser?.UserID ?? 1;
+
+            if (dgvMeetingTimesList.SelectedRows.Count > 0)
+                _group.MeetingTimeID = _GetMeetingTimeIDFromDGV();
+
+            _group.CreatedByUserID = clsGlobal.CurrentUser?.UserID;
         }
 
         private void _SaveGroup()
@@ -255,7 +271,7 @@ namespace StudyCenter.Groups
                 return;
             }
 
-            if (dgvMeetingTimesList.Rows.Count == 0)
+            if (_group?.TeacherID != _selectedTeacherID && dgvMeetingTimesList.Rows.Count == 0)
             {
                 MessageBox.Show("This teacher does not have any available meeting times.",
                     "No Meeting Times", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -263,7 +279,7 @@ namespace StudyCenter.Groups
                 return;
             }
 
-            if (dgvMeetingTimesList.SelectedRows.Count <= 0)
+            if (_group?.TeacherID != _selectedTeacherID && dgvMeetingTimesList.SelectedRows.Count <= 0)
             {
                 MessageBox.Show("Please select a meeting time.", "Select Meeting Time",
                                  MessageBoxButtons.OK, MessageBoxIcon.Error);

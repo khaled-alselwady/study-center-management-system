@@ -142,6 +142,9 @@ namespace StudyCenter_DataAccess
         public static DataTable All()
             => clsDataAccessHelper.All("SP_GetAllGroups");
 
+        public static DataTable AllInPages(short PageNumber, int RowsPerPage)
+           => clsDataAccessHelper.AllInPages(PageNumber, RowsPerPage, "SP_GetAllGroupsInPages");
+
         public static string GetGroupName(int? groupID)
         {
             string groupName = null;
