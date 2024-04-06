@@ -4,120 +4,138 @@ using System.Data;
 
 namespace StudyCenter_Business
 {
-public class clsGroup
-{
-public enum enMode { AddNew = 0, Update = 1 };
-public enMode Mode = enMode.AddNew;
+    public class clsGroup
+    {
+        public enum enMode { AddNew = 0, Update = 1 };
+        public enMode Mode = enMode.AddNew;
 
-public int? GroupID { get; set; }
-public string GroupName { get; set; }
-public int ClassID { get; set; }
-public int TeacherID { get; set; }
-public int SubjectGradeLevelID { get; set; }
-public int MeetingTimeID { get; set; }
-public byte StudentCount { get; set; }
-public DateTime CreationDate { get; set; }
-public DateTime? LastModifiedDate { get; set; }
-public bool IsActive { get; set; }
+        public int? GroupID { get; set; }
+        public string GroupName { get; set; }
+        public int? ClassID { get; set; }
+        public int? TeacherID { get; set; }
+        public int? SubjectTeacherID { get; set; }
+        public int? MeetingTimeID { get; set; }
+        public byte StudentCount { get; set; }
+        public int? CreatedByUserID { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
+        public bool IsActive { get; set; }
 
-public clsGroup()
-{
-    GroupID = null;
-    GroupName = string.Empty;
-    ClassID = -1;
-    TeacherID = -1;
-    SubjectGradeLevelID = -1;
-    MeetingTimeID = -1;
-    StudentCount = 0;
-    CreationDate = DateTime.Now;
-    LastModifiedDate = null;
-    IsActive = false;
+        public clsGroup()
+        {
+            GroupID = null;
+            GroupName = string.Empty;
+            ClassID = null;
+            TeacherID = null;
+            SubjectTeacherID = null;
+            MeetingTimeID = null;
+            StudentCount = 0;
+            CreatedByUserID = null;
+            CreationDate = DateTime.Now;
+            LastModifiedDate = null;
+            IsActive = true;
 
-    Mode = enMode.AddNew;
-}
+            Mode = enMode.AddNew;
+        }
 
-private clsGroup(int? groupID, string groupName, int classID, int teacherID, int subjectGradeLevelID, int meetingTimeID, byte studentCount, DateTime creationDate, DateTime? lastModifiedDate, bool isActive)
-{
-    GroupID = groupID;
-    GroupName = groupName;
-    ClassID = classID;
-    TeacherID = teacherID;
-    SubjectGradeLevelID = subjectGradeLevelID;
-    MeetingTimeID = meetingTimeID;
-    StudentCount = studentCount;
-    CreationDate = creationDate;
-    LastModifiedDate = lastModifiedDate;
-    IsActive = isActive;
+        private clsGroup(int? groupID, string groupName, int? classID,
+            int? teacherID, int? subjectTeacherID, int? meetingTimeID,
+            byte studentCount, int? createdByUserID, DateTime creationDate,
+             DateTime? lastModifiedDate, bool isActive)
+        {
+            GroupID = groupID;
+            GroupName = groupName;
+            ClassID = classID;
+            TeacherID = teacherID;
+            SubjectTeacherID = subjectTeacherID;
+            MeetingTimeID = meetingTimeID;
+            StudentCount = studentCount;
+            CreatedByUserID = createdByUserID;
+            CreationDate = creationDate;
+            LastModifiedDate = lastModifiedDate;
+            IsActive = isActive;
 
-    Mode = enMode.Update;
-}
+            Mode = enMode.Update;
+        }
 
-private bool _Add()
-{
-    GroupID = clsGroupData.Add(GroupName, ClassID, TeacherID, SubjectGradeLevelID, MeetingTimeID, StudentCount, CreationDate, LastModifiedDate, IsActive);
+        private bool _Add()
+        {
+            GroupID = clsGroupData.Add(ClassID, TeacherID, SubjectTeacherID,
+                MeetingTimeID, CreatedByUserID);
 
-    return (GroupID.HasValue);
-}
+            if (GroupID.HasValue)
+            {
+                GroupName = GetGroupName(GroupID);
+                return true;
+            }
 
-private bool _Update()
-{
-return clsGroupData.Update(GroupID, GroupName, ClassID, TeacherID, SubjectGradeLevelID, MeetingTimeID, StudentCount, CreationDate, LastModifiedDate, IsActive);
-}
+            return false;
+        }
 
-public bool Save()
-{
-switch (Mode)
-{
-case enMode.AddNew:
-if (_Add())
-{
-Mode = enMode.Update;
-return true;
-}
-else
-{
-return false;
-}
+        private bool _Update()
+        {
+            return clsGroupData.Update(GroupID, ClassID, TeacherID,
+                SubjectTeacherID, MeetingTimeID, StudentCount, IsActive);
+        }
 
-case enMode.Update:
-return _Update();
-}
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_Add())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
 
-return false;
-}
+                case enMode.Update:
+                    return _Update();
+            }
 
-public static clsGroup Find(int? groupID)
-{
-string groupName = string.Empty;
-int classID = -1;
-int teacherID = -1;
-int subjectGradeLevelID = -1;
-int meetingTimeID = -1;
-byte studentCount = 0;
-DateTime creationDate = DateTime.Now;
-DateTime? lastModifiedDate = null;
-bool isActive = false;
+            return false;
+        }
 
-bool isFound = clsGroupData.GetInfoByID(groupID, ref groupName, ref classID, ref teacherID, ref subjectGradeLevelID, ref meetingTimeID, ref studentCount, ref creationDate, ref lastModifiedDate, ref isActive);
+        public static clsGroup Find(int? groupID)
+        {
+            string groupName = string.Empty;
+            int? classID = null;
+            int? teacherID = null;
+            int? subjectTeacherID = null;
+            int? meetingTimeID = null;
+            byte studentCount = 0;
+            int? createdByUserID = null;
+            DateTime creationDate = DateTime.Now;
+            DateTime? lastModifiedDate = null;
+            bool isActive = true;
 
-return (isFound) ? (new clsGroup(groupID, groupName, classID, teacherID, subjectGradeLevelID, meetingTimeID, studentCount, creationDate, lastModifiedDate, isActive)) : null;
-}
+            bool isFound = clsGroupData.GetInfoByID(groupID, ref groupName,
+                ref classID, ref teacherID, ref subjectTeacherID,
+                ref meetingTimeID, ref studentCount,
+                ref createdByUserID, ref creationDate,
+                ref lastModifiedDate, ref isActive);
 
-public static bool Delete(int? groupID)
-{
-return clsGroupData.Delete(groupID);
-}
+            return (isFound) ? (new clsGroup(groupID, groupName, classID,
+                                teacherID, subjectTeacherID, meetingTimeID,
+                                studentCount, createdByUserID, creationDate,
+                                lastModifiedDate, isActive))
+                             : null;
+        }
 
-public static bool Exists(int? groupID)
-{
-return clsGroupData.Exists(groupID);
-}
+        public static bool Delete(int? groupID)
+            => clsGroupData.Delete(groupID);
 
-public static DataTable All()
-{
-return clsGroupData.All();
-}
+        public static bool Exists(int? groupID)
+            => clsGroupData.Exists(groupID);
 
-}
+        public static DataTable All()
+            => clsGroupData.All();
 
+        public static string GetGroupName(int? groupID)
+            => clsGroupData.GetGroupName(groupID);
+    }
 }

@@ -10,7 +10,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
             InitializeComponent();
 
             ucTeacherCard1.LoadTeacherInfoByTeacherID(teacherID);
-            ucGetAllSubjectsTaughtByTeacher1.LoadSubjectsInfoTaughtByTeacher(teacherID);
+            ucGetAllSubjectsTaughtByTeacher1.LoadAllSubjectsInfoTaughtByTeacher(teacherID);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-﻿using StudyCenter.Classes;
+﻿using StudyCenter.Groups;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +14,7 @@ namespace StudyCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmFindClass());
+            Application.Run(new frmAddEditGroup());
         }
     }
 }

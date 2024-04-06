@@ -253,6 +253,16 @@ namespace StudyCenter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap end_time {
+            get {
+                object obj = ResourceManager.GetObject("end-time", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap experience {
             get {
                 object obj = ResourceManager.GetObject("experience", resourceCulture);
@@ -486,6 +496,16 @@ namespace StudyCenter.Properties {
         internal static System.Drawing.Bitmap show_reservation_32 {
             get {
                 object obj = ResourceManager.GetObject("show-reservation-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap start_time {
+            get {
+                object obj = ResourceManager.GetObject("start-time", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

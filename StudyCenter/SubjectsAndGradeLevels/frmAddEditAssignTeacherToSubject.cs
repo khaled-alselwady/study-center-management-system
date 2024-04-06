@@ -10,7 +10,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
     public partial class frmAddEditAssignTeacherToSubject : Form
     {
         public Action<int?> SubjectTeacherIDBack;
-        private DataTable _dtAllStudents = new DataTable();
+        private DataTable _dtAllSubjects = new DataTable();
         private enum _enMode { AddNew, Update };
         private _enMode _mode = _enMode.AddNew;
 
@@ -74,11 +74,11 @@ namespace StudyCenter.SubjectsAndGradeLevels
         private void _RefreshSubjectGradeLevelsList()
         {
             if (_selectedTeacherID == null)
-                _dtAllStudents.Clear();
+                _dtAllSubjects.Clear();
             else
-                _dtAllStudents = clsSubjectGradeLevel.AllUntaughtSubjectsByTeacher(_selectedTeacherID);
+                _dtAllSubjects = clsSubjectGradeLevel.AllUntaughtSubjectsByTeacher(_selectedTeacherID);
 
-            dgvList.DataSource = _dtAllStudents;
+            dgvList.DataSource = _dtAllSubjects;
 
             if (dgvList.Rows.Count > 0)
             {
@@ -266,7 +266,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
             {
                 btnSave.Enabled = false;
                 _DisableTabPageSubject();
-                _dtAllStudents.Clear();
+                _dtAllSubjects.Clear();
                 return;
             }
 
@@ -294,33 +294,33 @@ namespace StudyCenter.SubjectsAndGradeLevels
 
         private void cbSubjects_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_dtAllStudents == null || _dtAllStudents.Rows.Count == 0)
+            if (_dtAllSubjects == null || _dtAllSubjects.Rows.Count == 0)
                 return;
 
             if (cbSubjects.Text == "All")
             {
-                _dtAllStudents.DefaultView.RowFilter = "";
+                _dtAllSubjects.DefaultView.RowFilter = "";
 
                 return;
             }
 
-            _dtAllStudents.DefaultView.RowFilter =
+            _dtAllSubjects.DefaultView.RowFilter =
                 string.Format("[{0}] like '{1}%'", "SubjectName", cbSubjects.Text);
         }
 
         private void cbGrades_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_dtAllStudents == null || _dtAllStudents.Rows.Count == 0)
+            if (_dtAllSubjects == null || _dtAllSubjects.Rows.Count == 0)
                 return;
 
             if (cbGrades.Text == "All")
             {
-                _dtAllStudents.DefaultView.RowFilter = "";
+                _dtAllSubjects.DefaultView.RowFilter = "";
 
                 return;
             }
 
-            _dtAllStudents.DefaultView.RowFilter =
+            _dtAllSubjects.DefaultView.RowFilter =
                 string.Format("[{0}] like '{1}%'", "GradeName", cbGrades.Text);
         }
     }

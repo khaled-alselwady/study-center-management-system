@@ -136,5 +136,8 @@ namespace StudyCenter_Business
 
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
             => clsTeacherData.AllInPages(PageNumber, RowsPerPage);
+
+        public static string GetFullName(int? teacherID)
+            => clsTeacherData.GetFullName(teacherID);
     }
 }

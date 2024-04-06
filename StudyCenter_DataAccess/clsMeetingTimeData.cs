@@ -129,5 +129,9 @@ namespace StudyCenter_DataAccess
 
         public static DataTable All()
             => clsDataAccessHelper.All("SP_GetAllMeetingTimes");
+
+        public static DataTable AllWithoutTeacherOrClass(int? teacherID, int? classID)
+            => clsDataAccessHelper.All("SP_GetMeetingTimesWithoutTeacherOrClass",
+                                       "TeacherID", teacherID, "ClassID", classID);
     }
 }

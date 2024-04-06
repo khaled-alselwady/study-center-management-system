@@ -226,5 +226,42 @@ namespace StudyCenter_DataAccess
 
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
             => clsDataAccessHelper.AllInPages(PageNumber, RowsPerPage, "SP_GetAllTeachersInPages");
+
+        public static string GetFullName(int? teacherID)
+        {
+            // This function will return the new person id if succeeded and null if not
+            string fullName = null;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetFullTeacherName", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@TeacherID", teacherID);
+
+                        SqlParameter outputIdParam = new SqlParameter("@FullName", SqlDbType.NVarChar, 255)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(outputIdParam);
+
+                        command.ExecuteNonQuery();
+
+                        fullName = outputIdParam.Value.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessHelper.HandleException(ex);
+            }
+
+            return fullName;
+        }
     }
 }

@@ -33,30 +33,30 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.gbSubjectsTaughtByATeacher = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvSubjectsTaughtByTeacherList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ShowDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guna2GroupBox1.SuspendLayout();
+            this.gbSubjectsTaughtByATeacher.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubjectsTaughtByTeacherList)).BeginInit();
             this.cmsEditProfile.SuspendLayout();
             this.SuspendLayout();
             // 
-            // guna2GroupBox1
+            // gbSubjectsTaughtByATeacher
             // 
-            this.guna2GroupBox1.Controls.Add(this.lblNumberOfRecords);
-            this.guna2GroupBox1.Controls.Add(this.label2);
-            this.guna2GroupBox1.Controls.Add(this.dgvSubjectsTaughtByTeacherList);
-            this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(865, 283);
-            this.guna2GroupBox1.TabIndex = 3;
-            this.guna2GroupBox1.Text = "Subjects Taught By Teacher List";
+            this.gbSubjectsTaughtByATeacher.Controls.Add(this.lblNumberOfRecords);
+            this.gbSubjectsTaughtByATeacher.Controls.Add(this.label2);
+            this.gbSubjectsTaughtByATeacher.Controls.Add(this.dgvSubjectsTaughtByTeacherList);
+            this.gbSubjectsTaughtByATeacher.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbSubjectsTaughtByATeacher.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSubjectsTaughtByATeacher.ForeColor = System.Drawing.Color.Black;
+            this.gbSubjectsTaughtByATeacher.Location = new System.Drawing.Point(0, 0);
+            this.gbSubjectsTaughtByATeacher.Name = "gbSubjectsTaughtByATeacher";
+            this.gbSubjectsTaughtByATeacher.Size = new System.Drawing.Size(865, 283);
+            this.gbSubjectsTaughtByATeacher.TabIndex = 3;
+            this.gbSubjectsTaughtByATeacher.Text = "Subjects Taught By Teacher List";
             // 
             // lblNumberOfRecords
             // 
@@ -168,12 +168,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.guna2GroupBox1);
+            this.Controls.Add(this.gbSubjectsTaughtByATeacher);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ucGetAllSubjectsTaughtByTeacher";
             this.Size = new System.Drawing.Size(865, 283);
-            this.guna2GroupBox1.ResumeLayout(false);
-            this.guna2GroupBox1.PerformLayout();
+            this.gbSubjectsTaughtByATeacher.ResumeLayout(false);
+            this.gbSubjectsTaughtByATeacher.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubjectsTaughtByTeacherList)).EndInit();
             this.cmsEditProfile.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -182,7 +182,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2GroupBox gbSubjectsTaughtByATeacher;
         private System.Windows.Forms.Label lblNumberOfRecords;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvSubjectsTaughtByTeacherList;

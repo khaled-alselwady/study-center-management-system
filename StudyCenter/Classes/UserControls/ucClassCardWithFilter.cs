@@ -34,6 +34,12 @@ namespace StudyCenter.Classes.UserControls
         public int? ClassID => ucClassCard1.ClassID;
         public clsClass ClassInfo => ucClassCard1.ClassInfo;
 
+        public bool FilterEnabled
+        {
+            get => ucFilter1.FilterEnabled;
+            set => ucFilter1.FilterEnabled = value;
+        }
+
         public ucClassCardWithFilter()
         {
             InitializeComponent();

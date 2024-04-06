@@ -124,14 +124,17 @@
   <data name="ImageSlide" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ImageSlide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="experience" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\experience.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="phone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\phone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="classes-list" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\classes-list.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="classes-white-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\classes-white-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add-class" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-class.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="subjects-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\subjects-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,8 +241,8 @@
   <data name="add-reservation-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add-reservation-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="experience" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\experience.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="classes-white-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\classes-white-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Notes 32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Notes 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -249,6 +252,9 @@
   </data>
   <data name="users-list" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users-list.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="start-time" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\start-time.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gender-female" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gender-female.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -280,7 +286,7 @@
   <data name="room-type" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\room-type.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add-class" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-class.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="end-time" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\end-time.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

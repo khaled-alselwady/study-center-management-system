@@ -104,6 +104,12 @@
     <Compile Include="GlobalClasses\clsLogHandler.cs" />
     <Compile Include="GlobalClasses\clsStandardMessages.cs" />
     <Compile Include="GlobalClasses\clsValidation.cs" />
+    <Compile Include="Groups\frmAddEditGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Groups\frmAddEditGroup.Designer.cs">
+      <DependentUpon>frmAddEditGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu\frmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralUserControls\ucFilter.resx">
       <DependentUpon>ucFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Groups\frmAddEditGroup.resx">
+      <DependentUpon>frmAddEditGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
@@ -592,6 +601,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-class.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start-time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end-time.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

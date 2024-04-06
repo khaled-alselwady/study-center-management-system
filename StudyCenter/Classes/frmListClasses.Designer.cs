@@ -37,16 +37,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dgvClassesList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShowClassDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmEditClass = new System.Windows.Forms.ToolStripMenuItem();
+            this.WhoTeachesInItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddClass = new Guna.UI2.WinForms.Guna2Button();
-            this.tsmShowClassDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEditClass = new System.Windows.Forms.ToolStripMenuItem();
-            this.WhoTeachesInItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClassesList)).BeginInit();
             this.cmsEditProfile.SuspendLayout();
@@ -158,10 +158,40 @@
             this.cmsEditProfile.Size = new System.Drawing.Size(224, 124);
             this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
             // 
+            // tsmShowClassDetails
+            // 
+            this.tsmShowClassDetails.ForeColor = System.Drawing.Color.White;
+            this.tsmShowClassDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.tsmShowClassDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShowClassDetails.Name = "tsmShowClassDetails";
+            this.tsmShowClassDetails.Size = new System.Drawing.Size(223, 38);
+            this.tsmShowClassDetails.Text = "Show Class Details";
+            this.tsmShowClassDetails.Click += new System.EventHandler(this.tsmShowClassDetails_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(220, 6);
+            // 
+            // tsmEditClass
+            // 
+            this.tsmEditClass.ForeColor = System.Drawing.Color.White;
+            this.tsmEditClass.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
+            this.tsmEditClass.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmEditClass.Name = "tsmEditClass";
+            this.tsmEditClass.Size = new System.Drawing.Size(223, 38);
+            this.tsmEditClass.Text = "Edit";
+            this.tsmEditClass.Click += new System.EventHandler(this.tsmEditClass_Click);
+            // 
+            // WhoTeachesInItToolStripMenuItem
+            // 
+            this.WhoTeachesInItToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.WhoTeachesInItToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.Notes_32;
+            this.WhoTeachesInItToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.WhoTeachesInItToolStripMenuItem.Name = "WhoTeachesInItToolStripMenuItem";
+            this.WhoTeachesInItToolStripMenuItem.Size = new System.Drawing.Size(223, 38);
+            this.WhoTeachesInItToolStripMenuItem.Text = "Who Teaches in it?";
+            this.WhoTeachesInItToolStripMenuItem.Click += new System.EventHandler(this.WhoTeachesInItToolStripMenuItem_Click);
             // 
             // txtSearch
             // 
@@ -265,36 +295,6 @@
             this.btnAddClass.TabIndex = 236;
             this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
             // 
-            // tsmShowClassDetails
-            // 
-            this.tsmShowClassDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowClassDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
-            this.tsmShowClassDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmShowClassDetails.Name = "tsmShowClassDetails";
-            this.tsmShowClassDetails.Size = new System.Drawing.Size(223, 38);
-            this.tsmShowClassDetails.Text = "Show Class Details";
-            this.tsmShowClassDetails.Click += new System.EventHandler(this.tsmShowClassDetails_Click);
-            // 
-            // tsmEditClass
-            // 
-            this.tsmEditClass.ForeColor = System.Drawing.Color.White;
-            this.tsmEditClass.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
-            this.tsmEditClass.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmEditClass.Name = "tsmEditClass";
-            this.tsmEditClass.Size = new System.Drawing.Size(223, 38);
-            this.tsmEditClass.Text = "Edit";
-            this.tsmEditClass.Click += new System.EventHandler(this.tsmEditClass_Click);
-            // 
-            // WhoTeachesInItToolStripMenuItem
-            // 
-            this.WhoTeachesInItToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.WhoTeachesInItToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.Notes_32;
-            this.WhoTeachesInItToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.WhoTeachesInItToolStripMenuItem.Name = "WhoTeachesInItToolStripMenuItem";
-            this.WhoTeachesInItToolStripMenuItem.Size = new System.Drawing.Size(223, 38);
-            this.WhoTeachesInItToolStripMenuItem.Text = "Who Teaches in it?";
-            this.WhoTeachesInItToolStripMenuItem.Click += new System.EventHandler(this.WhoTeachesInItToolStripMenuItem_Click);
-            // 
             // pbImage
             // 
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -328,6 +328,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListClasses";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "Manage Classes";
             this.Text = "frmListClasses";
             this.Load += new System.EventHandler(this.frmListClasses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClassesList)).EndInit();

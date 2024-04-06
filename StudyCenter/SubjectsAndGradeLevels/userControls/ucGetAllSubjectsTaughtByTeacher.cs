@@ -7,18 +7,39 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
     {
         private int? _teacherID = null;
 
+        public int? SubjectTeacherID => _GetSubjectTeacherIDFromDGV();
+
+        public int? SubjectGradeLevelID => _GetSubjectGradeLevelIDFromDGV();
+
+        public byte NumberOfSubjectsTaughtByTeacher => (byte)dgvSubjectsTaughtByTeacherList.Rows.Count;
+
         public ucGetAllSubjectsTaughtByTeacher()
         {
             InitializeComponent();
         }
 
-        private void _RefreshSubjectsTaughtByTeacherList()
+        private void _RefreshAllSubjectsTaughtByTeacherList()
         {
             dgvSubjectsTaughtByTeacherList.DataSource =
                 clsSubjectTeacher.AllSubjectsTaughtByTeacher(_teacherID);
 
             lblNumberOfRecords.Text = dgvSubjectsTaughtByTeacherList.Rows.Count.ToString();
 
+            _UpdateNamingOfColumnsInDGV();
+        }
+
+        private void _RefreshActiveSubjectsTaughtByTeacherList()
+        {
+            dgvSubjectsTaughtByTeacherList.DataSource =
+                clsSubjectTeacher.AllActiveSubjectsTaughtByTeacher(_teacherID);
+
+            lblNumberOfRecords.Text = dgvSubjectsTaughtByTeacherList.Rows.Count.ToString();
+
+            _UpdateNamingOfColumnsInDGV();
+        }
+
+        private void _UpdateNamingOfColumnsInDGV()
+        {
             if (dgvSubjectsTaughtByTeacherList.Rows.Count > 0)
             {
                 dgvSubjectsTaughtByTeacherList.Columns[0].HeaderText = "Subject Teacher ID";
@@ -49,11 +70,33 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
             return (int?)dgvSubjectsTaughtByTeacherList.CurrentRow.Cells["SubjectTeacherID"].Value;
         }
 
-        public void LoadSubjectsInfoTaughtByTeacher(int? teacherID)
+        private int? _GetSubjectGradeLevelIDFromDGV()
+        {
+            return (int?)dgvSubjectsTaughtByTeacherList.CurrentRow.Cells["SubjectGradeLevelID"].Value;
+        }
+
+        public void Clear()
+        {
+            dgvSubjectsTaughtByTeacherList.DataSource = null;
+            gbSubjectsTaughtByATeacher.Text = $"Subjects that taught by a teacher";
+        }
+
+        public void LoadAllSubjectsInfoTaughtByTeacher(int? teacherID)
         {
             _teacherID = teacherID;
 
-            _RefreshSubjectsTaughtByTeacherList();
+            _RefreshAllSubjectsTaughtByTeacherList();
+
+            gbSubjectsTaughtByATeacher.Text = $"Subjects taught by MR. {clsTeacher.GetFullName(_teacherID)}";
+        }
+
+        public void LoadActiveSubjectsInfoTaughtByTeacher(int? teacherID)
+        {
+            _teacherID = teacherID;
+
+            _RefreshActiveSubjectsTaughtByTeacherList();
+
+            gbSubjectsTaughtByATeacher.Text = $"Subjects taught by MR. {clsTeacher.GetFullName(_teacherID)}";
         }
 
         private void ShowDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -61,7 +104,7 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
             frmShowSubjectTeacherInfo showSubjectTeacherInfo = new frmShowSubjectTeacherInfo(_GetSubjectTeacherIDFromDGV());
             showSubjectTeacherInfo.ShowDialog();
 
-            _RefreshSubjectsTaughtByTeacherList();
+            _RefreshAllSubjectsTaughtByTeacherList();
         }
 
         private void cmsEditProfile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -74,7 +117,7 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
             frmShowSubjectTeacherInfo showSubjectTeacherInfo = new frmShowSubjectTeacherInfo(_GetSubjectTeacherIDFromDGV());
             showSubjectTeacherInfo.ShowDialog();
 
-            _RefreshSubjectsTaughtByTeacherList();
+            _RefreshAllSubjectsTaughtByTeacherList();
         }
     }
 }

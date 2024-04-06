@@ -6,7 +6,10 @@ namespace StudyCenter_DataAccess
 {
     public class clsGroupData
     {
-        public static bool GetInfoByID(int? groupID, ref string groupName, ref int classID, ref int teacherID, ref int subjectGradeLevelID, ref int meetingTimeID, ref byte studentCount, ref DateTime creationDate, ref DateTime? lastModifiedDate, ref bool isActive)
+        public static bool GetInfoByID(int? groupID, ref string groupName,
+            ref int? classID, ref int? teacherID, ref int? subjectTeacherID,
+            ref int? meetingTimeID, ref byte studentCount, ref int? createdByUserID,
+            ref DateTime creationDate, ref DateTime? lastModifiedDate, ref bool isActive)
         {
             bool isFound = false;
 
@@ -30,11 +33,12 @@ namespace StudyCenter_DataAccess
                                 isFound = true;
 
                                 groupName = (string)reader["GroupName"];
-                                classID = (int)reader["ClassID"];
-                                teacherID = (int)reader["TeacherID"];
-                                subjectGradeLevelID = (int)reader["SubjectGradeLevelID"];
-                                meetingTimeID = (int)reader["MeetingTimeID"];
-                                studentCount = (byte)reader["StudentCount"];
+                                classID = (reader["ClassID"] != DBNull.Value) ? (int?)reader["ClassID"] : null;
+                                teacherID = (reader["TeacherID"] != DBNull.Value) ? (int?)reader["TeacherID"] : null;
+                                subjectTeacherID = (reader["SubjectTeacherID"] != DBNull.Value) ? (int?)reader["SubjectTeacherID"] : null;
+                                meetingTimeID = (reader["MeetingTimeID"] != DBNull.Value) ? (int?)reader["MeetingTimeID"] : null;
+                                studentCount = Convert.ToByte(reader["StudentCount"]);
+                                createdByUserID = (reader["CreatedByUserID"] != DBNull.Value) ? (int?)reader["CreatedByUserID"] : null;
                                 creationDate = (DateTime)reader["CreationDate"];
                                 lastModifiedDate = (reader["LastModifiedDate"] != DBNull.Value) ? (DateTime?)reader["LastModifiedDate"] : null;
                                 isActive = (bool)reader["IsActive"];
@@ -57,7 +61,8 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static int? Add(string groupName, int classID, int teacherID, int subjectGradeLevelID, int meetingTimeID, byte studentCount, DateTime creationDate, DateTime? lastModifiedDate, bool isActive)
+        public static int? Add(int? classID, int? teacherID, int? subjectTeacherID,
+             int? meetingTimeID, int? createdByUserID)
         {
             // This function will return the new person id if succeeded and null if not
             int? groupID = null;
@@ -72,25 +77,15 @@ namespace StudyCenter_DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GroupName", groupName);
-                        command.Parameters.AddWithValue("@ClassID", classID);
-                        command.Parameters.AddWithValue("@TeacherID", teacherID);
-                        command.Parameters.AddWithValue("@SubjectGradeLevelID", subjectGradeLevelID);
-                        command.Parameters.AddWithValue("@MeetingTimeID", meetingTimeID);
-                        command.Parameters.AddWithValue("@StudentCount", studentCount);
-                        command.Parameters.AddWithValue("@CreationDate", creationDate);
-                        command.Parameters.AddWithValue("@LastModifiedDate", (object)lastModifiedDate ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@IsActive", isActive);
+                        command.Parameters.AddWithValue("@ClassID", (object)classID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@SubjectTeacherID", (object)subjectTeacherID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@MeetingTimeID", (object)meetingTimeID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
 
-                        SqlParameter outputIdParam = new SqlParameter("@NewGroupID", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.Output
-                        };
-                        command.Parameters.Add(outputIdParam);
+                        object result = command.ExecuteScalar();
 
-                        command.ExecuteNonQuery();
-
-                        groupID = (int?)outputIdParam.Value;
+                        groupID = (result != null) ? (int?)result : null;
                     }
                 }
             }
@@ -102,7 +97,9 @@ namespace StudyCenter_DataAccess
             return groupID;
         }
 
-        public static bool Update(int? groupID, string groupName, int classID, int teacherID, int subjectGradeLevelID, int meetingTimeID, byte studentCount, DateTime creationDate, DateTime? lastModifiedDate, bool isActive)
+        public static bool Update(int? groupID, int? classID,
+            int? teacherID, int? subjectTeacherID, int? meetingTimeID,
+            byte studentCount, bool isActive)
         {
             int rowAffected = 0;
 
@@ -117,14 +114,11 @@ namespace StudyCenter_DataAccess
                         command.CommandType = CommandType.StoredProcedure;
 
                         command.Parameters.AddWithValue("@GroupID", (object)groupID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@GroupName", groupName);
-                        command.Parameters.AddWithValue("@ClassID", classID);
-                        command.Parameters.AddWithValue("@TeacherID", teacherID);
-                        command.Parameters.AddWithValue("@SubjectGradeLevelID", subjectGradeLevelID);
-                        command.Parameters.AddWithValue("@MeetingTimeID", meetingTimeID);
+                        command.Parameters.AddWithValue("@ClassID", (object)classID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@SubjectTeacherID", (object)subjectTeacherID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@MeetingTimeID", (object)meetingTimeID ?? DBNull.Value);
                         command.Parameters.AddWithValue("@StudentCount", studentCount);
-                        command.Parameters.AddWithValue("@CreationDate", creationDate);
-                        command.Parameters.AddWithValue("@LastModifiedDate", (object)lastModifiedDate ?? DBNull.Value);
                         command.Parameters.AddWithValue("@IsActive", isActive);
 
                         rowAffected = command.ExecuteNonQuery();
@@ -147,5 +141,41 @@ namespace StudyCenter_DataAccess
 
         public static DataTable All()
             => clsDataAccessHelper.All("SP_GetAllGroups");
+
+        public static string GetGroupName(int? groupID)
+        {
+            string groupName = null;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetGroupName", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@GroupID", groupID);
+
+                        SqlParameter outputIdParam = new SqlParameter("@GroupName", SqlDbType.NVarChar, 50)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(outputIdParam);
+
+                        command.ExecuteNonQuery();
+
+                        groupName = outputIdParam.Value.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessHelper.HandleException(ex);
+            }
+
+            return groupName;
+        }
     }
 }
