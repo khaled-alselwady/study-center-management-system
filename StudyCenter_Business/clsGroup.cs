@@ -21,6 +21,12 @@ namespace StudyCenter_Business
         public DateTime? LastModifiedDate { get; set; }
         public bool IsActive { get; set; }
 
+        public clsClass ClassInfo { get; private set; }
+        public clsTeacher TeacherInfo { get; private set; }
+        public clsSubjectTeacher SubjectTeacherInfo { get; private set; }
+        public clsMeetingTime MeetingTimeInfo { get; private set; }
+        public clsUser CreatedByUserInfo { get; private set; }
+
         public clsGroup()
         {
             GroupID = null;
@@ -54,6 +60,12 @@ namespace StudyCenter_Business
             CreationDate = creationDate;
             LastModifiedDate = lastModifiedDate;
             IsActive = isActive;
+
+            ClassInfo = clsClass.Find(classID);
+            TeacherInfo = clsTeacher.FindByTeacherID(teacherID);
+            SubjectTeacherInfo = clsSubjectTeacher.Find(subjectTeacherID);
+            MeetingTimeInfo = clsMeetingTime.Find(meetingTimeID);
+            CreatedByUserInfo = clsUser.Find(createdByUserID);
 
             Mode = enMode.Update;
         }

@@ -14,7 +14,7 @@ namespace StudyCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAddEditGroup());
+            Application.Run(new frmShowGroupInfo(4));
         }
     }
 }

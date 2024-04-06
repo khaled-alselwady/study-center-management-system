@@ -90,6 +90,25 @@ namespace StudyCenter_Business
 
         public static DataTable AllWithoutTeacherOrClass(int? teacherID, int? classID)
             => clsMeetingTimeData.AllWithoutTeacherOrClass(teacherID, classID);
+
+        private string _MeetingDayName()
+        {
+            switch (MeetingDays)
+            {
+                case 0:
+                    return "Daily";
+                case 1:
+                    return "STT";
+                case 2:
+                    return "MW";
+                default:
+                    return "Unknown";
+            }
+        }
+
+        public string MeetingTimeText()
+            => StartTime.Hours.ToString("00") + ":" + StartTime.Minutes.ToString("00") + " - "
+            + EndTime.Hours.ToString("00") + ":" + EndTime.Minutes.ToString("00") + "   " + _MeetingDayName();
     }
 
 }
