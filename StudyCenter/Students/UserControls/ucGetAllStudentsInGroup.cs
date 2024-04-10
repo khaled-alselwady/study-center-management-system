@@ -1,4 +1,5 @@
-﻿using StudyCenter_Business;
+﻿using StudyCenter.GlobalClasses;
+using StudyCenter_Business;
 using System.Windows.Forms;
 
 namespace StudyCenter.Students.UserControls
@@ -81,6 +82,21 @@ namespace StudyCenter.Students.UserControls
             showStudentInfo.ShowDialog();
 
             _RefreshAllStudentsInGroupList();
+        }
+
+        private void RemoveToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            if (clsStandardMessages.ShowDeleteConfirmation("student from the group") == DialogResult.No)
+                return;
+
+            if (clsStudentGroup.Delete(_GetStudentIDFromDGV(), _groupID))
+            {
+                clsStandardMessages.ShowDeletionSuccess("student");
+
+                _RefreshAllStudentsInGroupList();
+            }
+            else
+                clsStandardMessages.ShowDeletionFailure("student", "Please check your permissions and try again.");
         }
     }
 }

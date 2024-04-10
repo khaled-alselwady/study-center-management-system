@@ -93,6 +93,9 @@ namespace StudyCenter_Business
         public static bool Delete(int? studentGroupID)
             => clsStudentGroupData.Delete(studentGroupID);
 
+        public static bool Delete(int? studentID, int? groupID)
+            => clsStudentGroupData.Delete(studentID, groupID);
+
         public static bool Exists(int? studentGroupID)
             => clsStudentGroupData.Exists(studentGroupID);
 

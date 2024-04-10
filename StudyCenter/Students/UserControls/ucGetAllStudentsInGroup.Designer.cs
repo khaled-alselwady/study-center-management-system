@@ -39,6 +39,8 @@
             this.dgvStudentsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ShowDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.gbStudentsInGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsList)).BeginInit();
             this.cmsEditProfile.SuspendLayout();
@@ -147,10 +149,12 @@
             this.cmsEditProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmsEditProfile.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsEditProfile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ShowDetailsToolStripMenuItem});
+            this.ShowDetailsToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.RemoveToolStripMenuItem});
             this.cmsEditProfile.Name = "contextMenuStrip1";
             this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsEditProfile.Size = new System.Drawing.Size(185, 42);
+            this.cmsEditProfile.Size = new System.Drawing.Size(197, 108);
             this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
             // 
             // ShowDetailsToolStripMenuItem
@@ -159,9 +163,24 @@
             this.ShowDetailsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
             this.ShowDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ShowDetailsToolStripMenuItem.Name = "ShowDetailsToolStripMenuItem";
-            this.ShowDetailsToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
+            this.ShowDetailsToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
             this.ShowDetailsToolStripMenuItem.Text = "Show Details";
             this.ShowDetailsToolStripMenuItem.Click += new System.EventHandler(this.ShowDetailsToolStripMenuItem_Click);
+            // 
+            // RemoveToolStripMenuItem
+            // 
+            this.RemoveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.RemoveToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.delete_reservation_40;
+            this.RemoveToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.RemoveToolStripMenuItem.Name = "RemoveToolStripMenuItem";
+            this.RemoveToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.RemoveToolStripMenuItem.Text = "Remove";
+            this.RemoveToolStripMenuItem.Click += new System.EventHandler(this.RemoveToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(193, 6);
             // 
             // ucGetAllStudentsInGroup
             // 
@@ -188,5 +207,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvStudentsList;
         private System.Windows.Forms.ContextMenuStrip cmsEditProfile;
         private System.Windows.Forms.ToolStripMenuItem ShowDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem RemoveToolStripMenuItem;
     }
 }

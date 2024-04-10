@@ -368,5 +368,10 @@ namespace StudyCenter.Groups
 
             _RefreshGroupsList();
         }
+
+        private void AddStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented yet!");
+        }
     }
 }

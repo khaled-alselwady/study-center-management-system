@@ -127,7 +127,36 @@ namespace StudyCenter_DataAccess
         }
 
         public static bool Delete(int? studentGroupID)
-            => clsDataAccessHelper.Delete("SP_DeleteStudentGroup", "StudentGroupID", studentGroupID);
+            => clsDataAccessHelper.Delete("SP_DeleteStudentGroupByStudentGroupID", "StudentGroupID", studentGroupID);
+
+        public static bool Delete(int? studentID, int? groupID)
+        {
+            int rowAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_DeleteStudentGroupByStudentIDAndGroupID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue($"@StudentID", (object)studentID ?? DBNull.Value);
+                        command.Parameters.AddWithValue($"@GroupID", (object)groupID ?? DBNull.Value);
+
+                        rowAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessHelper.HandleException(ex);
+            }
+
+            return (rowAffected > 0);
+        }
 
         public static bool Exists(int? studentGroupID)
             => clsDataAccessHelper.Exists("SP_DoesStudentGroupExist", "StudentGroupID", studentGroupID);

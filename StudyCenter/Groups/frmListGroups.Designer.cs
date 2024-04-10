@@ -41,6 +41,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmEditGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.temDeleteGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowAllStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbIsActive = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -53,7 +54,7 @@
             this.cbGroupNames = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnAddGroup = new Guna.UI2.WinForms.Guna2Button();
             this.pbImage = new System.Windows.Forms.PictureBox();
-            this.ShowAllStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupsList)).BeginInit();
             this.cmsEditProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -160,10 +161,11 @@
             this.toolStripSeparator6,
             this.tsmEditGroup,
             this.temDeleteGroup,
-            this.ShowAllStudentsToolStripMenuItem});
+            this.ShowAllStudentsToolStripMenuItem,
+            this.AddStudentToolStripMenuItem});
             this.cmsEditProfile.Name = "contextMenuStrip1";
             this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsEditProfile.Size = new System.Drawing.Size(233, 184);
+            this.cmsEditProfile.Size = new System.Drawing.Size(233, 222);
             this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
             // 
             // tsmShowGroupDetails
@@ -200,6 +202,16 @@
             this.temDeleteGroup.Size = new System.Drawing.Size(232, 38);
             this.temDeleteGroup.Text = "Delete";
             this.temDeleteGroup.Click += new System.EventHandler(this.temDeleteGroup_Click);
+            // 
+            // ShowAllStudentsToolStripMenuItem
+            // 
+            this.ShowAllStudentsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ShowAllStudentsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.subjects_32;
+            this.ShowAllStudentsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ShowAllStudentsToolStripMenuItem.Name = "ShowAllStudentsToolStripMenuItem";
+            this.ShowAllStudentsToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
+            this.ShowAllStudentsToolStripMenuItem.Text = "Show Students";
+            this.ShowAllStudentsToolStripMenuItem.Click += new System.EventHandler(this.ShowAllStudentsToolStripMenuItem_Click);
             // 
             // txtSearch
             // 
@@ -428,15 +440,15 @@
             this.pbImage.TabIndex = 216;
             this.pbImage.TabStop = false;
             // 
-            // ShowAllStudentsToolStripMenuItem
+            // AddStudentToolStripMenuItem
             // 
-            this.ShowAllStudentsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ShowAllStudentsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
-            this.ShowAllStudentsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ShowAllStudentsToolStripMenuItem.Name = "ShowAllStudentsToolStripMenuItem";
-            this.ShowAllStudentsToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
-            this.ShowAllStudentsToolStripMenuItem.Text = "Show Students";
-            this.ShowAllStudentsToolStripMenuItem.Click += new System.EventHandler(this.ShowAllStudentsToolStripMenuItem_Click);
+            this.AddStudentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.AddStudentToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.AddStudentToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.AddStudentToolStripMenuItem.Name = "AddStudentToolStripMenuItem";
+            this.AddStudentToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
+            this.AddStudentToolStripMenuItem.Text = "Add Student";
+            this.AddStudentToolStripMenuItem.Click += new System.EventHandler(this.AddStudentToolStripMenuItem_Click);
             // 
             // frmListGroups
             // 
@@ -497,5 +509,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbMeetingDays;
         private Guna.UI2.WinForms.Guna2ComboBox cbGroupNames;
         private System.Windows.Forms.ToolStripMenuItem ShowAllStudentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddStudentToolStripMenuItem;
     }
 }
