@@ -10,8 +10,8 @@ namespace StudyCenter_Business
         public enMode Mode = enMode.AddNew;
 
         public int? StudentGroupID { get; set; }
-        public int StudentID { get; set; }
-        public int GroupID { get; set; }
+        public int? StudentID { get; set; }
+        public int? GroupID { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public bool IsActive { get; set; }
@@ -19,16 +19,17 @@ namespace StudyCenter_Business
         public clsStudentGroup()
         {
             StudentGroupID = null;
-            StudentID = -1;
-            GroupID = -1;
+            StudentID = null;
+            GroupID = null;
             StartDate = DateTime.Now;
             EndDate = null;
-            IsActive = false;
+            IsActive = true;
 
             Mode = enMode.AddNew;
         }
 
-        private clsStudentGroup(int? studentGroupID, int studentID, int groupID, DateTime startDate, DateTime? endDate, bool isActive)
+        private clsStudentGroup(int? studentGroupID, int? studentID,
+            int? groupID, DateTime startDate, DateTime? endDate, bool isActive)
         {
             StudentGroupID = studentGroupID;
             StudentID = studentID;
@@ -42,14 +43,14 @@ namespace StudyCenter_Business
 
         private bool _Add()
         {
-            StudentGroupID = clsStudentGroupData.Add(StudentID, GroupID, StartDate, EndDate, IsActive);
+            StudentGroupID = clsStudentGroupData.Add(StudentID, GroupID);
 
             return (StudentGroupID.HasValue);
         }
 
         private bool _Update()
         {
-            return clsStudentGroupData.Update(StudentGroupID, StudentID, GroupID, StartDate, EndDate, IsActive);
+            return clsStudentGroupData.Update(StudentGroupID, StudentID, GroupID, EndDate, IsActive);
         }
 
         public bool Save()
@@ -76,30 +77,29 @@ namespace StudyCenter_Business
 
         public static clsStudentGroup Find(int? studentGroupID)
         {
-            int studentID = -1;
-            int groupID = -1;
+            int? studentID = null;
+            int? groupID = null;
             DateTime startDate = DateTime.Now;
             DateTime? endDate = null;
             bool isActive = false;
 
-            bool isFound = clsStudentGroupData.GetInfoByID(studentGroupID, ref studentID, ref groupID, ref startDate, ref endDate, ref isActive);
+            bool isFound = clsStudentGroupData.GetInfoByID(studentGroupID, ref studentID,
+                ref groupID, ref startDate, ref endDate, ref isActive);
 
-            return (isFound) ? (new clsStudentGroup(studentGroupID, studentID, groupID, startDate, endDate, isActive)) : null;
+            return (isFound) ? (new clsStudentGroup(studentGroupID, studentID, groupID,
+                startDate, endDate, isActive)) : null;
         }
 
         public static bool Delete(int? studentGroupID)
-        {
-            return clsStudentGroupData.Delete(studentGroupID);
-        }
+            => clsStudentGroupData.Delete(studentGroupID);
 
         public static bool Exists(int? studentGroupID)
-        {
-            return clsStudentGroupData.Exists(studentGroupID);
-        }
+            => clsStudentGroupData.Exists(studentGroupID);
 
         public static DataTable All()
-        {
-            return clsStudentGroupData.All();
-        }
+            => clsStudentGroupData.All();
+
+        public static DataTable AllAvailableGroupsForStudent(int? studentID)
+            => clsStudentGroupData.AllAvailableGroupsForStudent(studentID);
     }
 }

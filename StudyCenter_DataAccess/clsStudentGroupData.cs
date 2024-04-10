@@ -6,7 +6,9 @@ namespace StudyCenter_DataAccess
 {
     public class clsStudentGroupData
     {
-        public static bool GetInfoByID(int? studentGroupID, ref int studentID, ref int groupID, ref DateTime startDate, ref DateTime? endDate, ref bool isActive)
+        public static bool GetInfoByID(int? studentGroupID, ref int? studentID,
+            ref int? groupID, ref DateTime startDate,
+            ref DateTime? endDate, ref bool isActive)
         {
             bool isFound = false;
 
@@ -29,8 +31,8 @@ namespace StudyCenter_DataAccess
                                 // The record was found
                                 isFound = true;
 
-                                studentID = (int)reader["StudentID"];
-                                groupID = (int)reader["GroupID"];
+                                studentID = (reader["StudentID"] != DBNull.Value) ? (int?)reader["StudentID"] : null;
+                                groupID = (reader["GroupID"] != DBNull.Value) ? (int?)reader["GroupID"] : null;
                                 startDate = (DateTime)reader["StartDate"];
                                 endDate = (reader["EndDate"] != DBNull.Value) ? (DateTime?)reader["EndDate"] : null;
                                 isActive = (bool)reader["IsActive"];
@@ -53,7 +55,7 @@ namespace StudyCenter_DataAccess
             return isFound;
         }
 
-        public static int? Add(int studentID, int groupID, DateTime startDate, DateTime? endDate, bool isActive)
+        public static int? Add(int? studentID, int? groupID)
         {
             // This function will return the new person id if succeeded and null if not
             int? studentGroupID = null;
@@ -68,11 +70,8 @@ namespace StudyCenter_DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@StudentID", studentID);
-                        command.Parameters.AddWithValue("@GroupID", groupID);
-                        command.Parameters.AddWithValue("@StartDate", startDate);
-                        command.Parameters.AddWithValue("@EndDate", (object)endDate ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@IsActive", isActive);
+                        command.Parameters.AddWithValue("@StudentID", (object)studentID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@GroupID", (object)groupID ?? DBNull.Value);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewStudentGroupID", SqlDbType.Int)
                         {
@@ -94,7 +93,8 @@ namespace StudyCenter_DataAccess
             return studentGroupID;
         }
 
-        public static bool Update(int? studentGroupID, int studentID, int groupID, DateTime startDate, DateTime? endDate, bool isActive)
+        public static bool Update(int? studentGroupID, int? studentID, int? groupID,
+            DateTime? endDate, bool isActive)
         {
             int rowAffected = 0;
 
@@ -109,9 +109,8 @@ namespace StudyCenter_DataAccess
                         command.CommandType = CommandType.StoredProcedure;
 
                         command.Parameters.AddWithValue("@StudentGroupID", (object)studentGroupID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@StudentID", studentID);
-                        command.Parameters.AddWithValue("@GroupID", groupID);
-                        command.Parameters.AddWithValue("@StartDate", startDate);
+                        command.Parameters.AddWithValue("@StudentID", (object)studentID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@GroupID", (object)groupID ?? DBNull.Value);
                         command.Parameters.AddWithValue("@EndDate", (object)endDate ?? DBNull.Value);
                         command.Parameters.AddWithValue("@IsActive", isActive);
 
@@ -135,5 +134,8 @@ namespace StudyCenter_DataAccess
 
         public static DataTable All()
             => clsDataAccessHelper.All("SP_GetAllStudentsGroups");
+
+        public static DataTable AllAvailableGroupsForStudent(int? studentID)
+            => clsDataAccessHelper.All("SP_GetAvailableGroupsForStudent", "StudentID", studentID);
     }
 }

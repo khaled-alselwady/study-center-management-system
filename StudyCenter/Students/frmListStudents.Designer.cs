@@ -35,7 +35,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvStudentsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShowStudentDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmEditStudent = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDeleteStudent = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmAssignToGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbGender = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -46,9 +51,6 @@
             this.cbPages = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAddStudent = new Guna.UI2.WinForms.Guna2Button();
-            this.tsmShowStudentDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEditStudent = new System.Windows.Forms.ToolStripMenuItem();
-            this.temDeleteStudent = new System.Windows.Forms.ToolStripMenuItem();
             this.pbImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsList)).BeginInit();
             this.cmsEditProfile.SuspendLayout();
@@ -126,16 +128,63 @@
             this.tsmShowStudentDetails,
             this.toolStripSeparator6,
             this.tsmEditStudent,
-            this.temDeleteStudent});
+            this.tsmDeleteStudent,
+            this.toolStripMenuItem1,
+            this.tsmAssignToGroupToolStripMenuItem});
             this.cmsEditProfile.Name = "contextMenuStrip1";
             this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsEditProfile.Size = new System.Drawing.Size(244, 124);
+            this.cmsEditProfile.Size = new System.Drawing.Size(244, 190);
             this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
+            // 
+            // tsmShowStudentDetails
+            // 
+            this.tsmShowStudentDetails.ForeColor = System.Drawing.Color.White;
+            this.tsmShowStudentDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.tsmShowStudentDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShowStudentDetails.Name = "tsmShowStudentDetails";
+            this.tsmShowStudentDetails.Size = new System.Drawing.Size(243, 38);
+            this.tsmShowStudentDetails.Text = "Show Student Details";
+            this.tsmShowStudentDetails.Click += new System.EventHandler(this.tsmShowStudentDetails_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(240, 6);
+            // 
+            // tsmEditStudent
+            // 
+            this.tsmEditStudent.ForeColor = System.Drawing.Color.White;
+            this.tsmEditStudent.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
+            this.tsmEditStudent.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmEditStudent.Name = "tsmEditStudent";
+            this.tsmEditStudent.Size = new System.Drawing.Size(243, 38);
+            this.tsmEditStudent.Text = "Edit";
+            this.tsmEditStudent.Click += new System.EventHandler(this.tsmEditStudent_Click);
+            // 
+            // tsmDeleteStudent
+            // 
+            this.tsmDeleteStudent.ForeColor = System.Drawing.Color.White;
+            this.tsmDeleteStudent.Image = global::StudyCenter.Properties.Resources.delete_reservation_40;
+            this.tsmDeleteStudent.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmDeleteStudent.Name = "tsmDeleteStudent";
+            this.tsmDeleteStudent.Size = new System.Drawing.Size(243, 38);
+            this.tsmDeleteStudent.Text = "Delete";
+            this.tsmDeleteStudent.Click += new System.EventHandler(this.temDeleteStudent_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(240, 6);
+            // 
+            // tsmAssignToGroupToolStripMenuItem
+            // 
+            this.tsmAssignToGroupToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.tsmAssignToGroupToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.tsmAssignToGroupToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmAssignToGroupToolStripMenuItem.Name = "tsmAssignToGroupToolStripMenuItem";
+            this.tsmAssignToGroupToolStripMenuItem.Size = new System.Drawing.Size(243, 38);
+            this.tsmAssignToGroupToolStripMenuItem.Text = "Assign To Group";
+            this.tsmAssignToGroupToolStripMenuItem.Click += new System.EventHandler(this.tsmAssignToGroupToolStripMenuItem_Click);
             // 
             // txtSearch
             // 
@@ -313,36 +362,6 @@
             this.btnAddStudent.TabIndex = 212;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
-            // tsmShowStudentDetails
-            // 
-            this.tsmShowStudentDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowStudentDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
-            this.tsmShowStudentDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmShowStudentDetails.Name = "tsmShowStudentDetails";
-            this.tsmShowStudentDetails.Size = new System.Drawing.Size(243, 38);
-            this.tsmShowStudentDetails.Text = "Show Student Details";
-            this.tsmShowStudentDetails.Click += new System.EventHandler(this.tsmShowStudentDetails_Click);
-            // 
-            // tsmEditStudent
-            // 
-            this.tsmEditStudent.ForeColor = System.Drawing.Color.White;
-            this.tsmEditStudent.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
-            this.tsmEditStudent.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmEditStudent.Name = "tsmEditStudent";
-            this.tsmEditStudent.Size = new System.Drawing.Size(243, 38);
-            this.tsmEditStudent.Text = "Edit";
-            this.tsmEditStudent.Click += new System.EventHandler(this.tsmEditStudent_Click);
-            // 
-            // temDeleteStudent
-            // 
-            this.temDeleteStudent.ForeColor = System.Drawing.Color.White;
-            this.temDeleteStudent.Image = global::StudyCenter.Properties.Resources.delete_reservation_40;
-            this.temDeleteStudent.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.temDeleteStudent.Name = "temDeleteStudent";
-            this.temDeleteStudent.Size = new System.Drawing.Size(243, 38);
-            this.temDeleteStudent.Text = "Delete";
-            this.temDeleteStudent.Click += new System.EventHandler(this.temDeleteStudent_Click);
-            // 
             // pbImage
             // 
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -406,7 +425,9 @@
         private System.Windows.Forms.PictureBox pbImage;
         private Guna.UI2.WinForms.Guna2ComboBox cbPages;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ToolStripMenuItem temDeleteStudent;
+        private System.Windows.Forms.ToolStripMenuItem tsmDeleteStudent;
         private Guna.UI2.WinForms.Guna2Button btnAddStudent;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmAssignToGroupToolStripMenuItem;
     }
 }

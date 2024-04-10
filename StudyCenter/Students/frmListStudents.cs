@@ -1,9 +1,11 @@
 ﻿using StudyCenter.GlobalClasses;
+using StudyCenter.Groups;
 using StudyCenter_Business;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
+using static StudyCenter.Groups.frmAddEditAssignStudentToGroup;
 
 namespace StudyCenter.Students
 {
@@ -274,6 +276,15 @@ namespace StudyCenter.Students
         {
             frmAddEditStudent addStudent = new frmAddEditStudent();
             addStudent.ShowDialog();
+
+            _RefreshStudentsList();
+        }
+
+        private void tsmAssignToGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditAssignStudentToGroup addAssignStudentToGroup
+                = new frmAddEditAssignStudentToGroup(_GetStudentIDFromDGV(), enEntityType.StudentID);
+            addAssignStudentToGroup.ShowDialog();
 
             _RefreshStudentsList();
         }
