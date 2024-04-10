@@ -184,6 +184,12 @@
     <Compile Include="Students\frmFindStudent.Designer.cs">
       <DependentUpon>frmFindStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Students\frmGetAllStudentsInGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Students\frmGetAllStudentsInGroup.Designer.cs">
+      <DependentUpon>frmGetAllStudentsInGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Students\frmListStudents.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,12 @@
     </Compile>
     <Compile Include="Students\frmShowStudentInfo.Designer.cs">
       <DependentUpon>frmShowStudentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Students\UserControls\ucGetAllStudentsInGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Students\UserControls\ucGetAllStudentsInGroup.Designer.cs">
+      <DependentUpon>ucGetAllStudentsInGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="Students\UserControls\ucStudentCard.cs">
       <SubType>UserControl</SubType>
@@ -386,11 +398,17 @@
     <EmbeddedResource Include="Students\frmFindStudent.resx">
       <DependentUpon>frmFindStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Students\frmGetAllStudentsInGroup.resx">
+      <DependentUpon>frmGetAllStudentsInGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Students\frmListStudents.resx">
       <DependentUpon>frmListStudents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Students\frmShowStudentInfo.resx">
       <DependentUpon>frmShowStudentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students\UserControls\ucGetAllStudentsInGroup.resx">
+      <DependentUpon>ucGetAllStudentsInGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Students\UserControls\ucStudentCard.resx">
       <DependentUpon>ucStudentCard.cs</DependentUpon>

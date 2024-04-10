@@ -59,7 +59,7 @@ namespace StudyCenter.Teachers.UserControls
             frmShowTeacherInfo showTeacherInfo = new frmShowTeacherInfo(_GetTeacherIDFromDGV());
             showTeacherInfo.ShowDialog();
 
-            LoadAllTeachersTeachSubject(_subjectGradeLevelID);
+            _RefreshAllTeachersTeachSubjectList();
         }
 
         private void cmsEditProfile_Opening(object sender, CancelEventArgs e)
@@ -72,7 +72,7 @@ namespace StudyCenter.Teachers.UserControls
             frmShowTeacherInfo showTeacherInfo = new frmShowTeacherInfo(_GetTeacherIDFromDGV());
             showTeacherInfo.ShowDialog();
 
-            LoadAllTeachersTeachSubject(_subjectGradeLevelID);
+            _RefreshAllTeachersTeachSubjectList();
         }
     }
 }

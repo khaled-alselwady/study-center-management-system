@@ -29,15 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbPages = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvGroupsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShowGroupDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmEditGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.temDeleteGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbIsActive = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -49,10 +52,8 @@
             this.cbMeetingDays = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbGroupNames = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnAddGroup = new Guna.UI2.WinForms.Guna2Button();
-            this.tsmShowGroupDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEditGroup = new System.Windows.Forms.ToolStripMenuItem();
-            this.temDeleteGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.pbImage = new System.Windows.Forms.PictureBox();
+            this.ShowAllStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupsList)).BeginInit();
             this.cmsEditProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -92,36 +93,36 @@
             this.dgvGroupsList.AllowUserToDeleteRows = false;
             this.dgvGroupsList.AllowUserToOrderColumns = true;
             this.dgvGroupsList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvGroupsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvGroupsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGroupsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             this.dgvGroupsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvGroupsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvGroupsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGroupsList.ColumnHeadersHeight = 35;
             this.dgvGroupsList.ContextMenuStrip = this.cmsEditProfile;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGroupsList.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGroupsList.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGroupsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvGroupsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
             this.dgvGroupsList.Location = new System.Drawing.Point(15, 298);
             this.dgvGroupsList.Name = "dgvGroupsList";
             this.dgvGroupsList.ReadOnly = true;
             this.dgvGroupsList.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvGroupsList.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvGroupsList.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGroupsList.RowTemplate.Height = 33;
             this.dgvGroupsList.ShowCellToolTips = false;
             this.dgvGroupsList.Size = new System.Drawing.Size(1318, 415);
@@ -158,16 +159,47 @@
             this.tsmShowGroupDetails,
             this.toolStripSeparator6,
             this.tsmEditGroup,
-            this.temDeleteGroup});
+            this.temDeleteGroup,
+            this.ShowAllStudentsToolStripMenuItem});
             this.cmsEditProfile.Name = "contextMenuStrip1";
             this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsEditProfile.Size = new System.Drawing.Size(233, 124);
+            this.cmsEditProfile.Size = new System.Drawing.Size(233, 184);
             this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
+            // 
+            // tsmShowGroupDetails
+            // 
+            this.tsmShowGroupDetails.ForeColor = System.Drawing.Color.White;
+            this.tsmShowGroupDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.tsmShowGroupDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShowGroupDetails.Name = "tsmShowGroupDetails";
+            this.tsmShowGroupDetails.Size = new System.Drawing.Size(232, 38);
+            this.tsmShowGroupDetails.Text = "Show Group Details";
+            this.tsmShowGroupDetails.Click += new System.EventHandler(this.tsmShowGroupDetails_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(229, 6);
+            // 
+            // tsmEditGroup
+            // 
+            this.tsmEditGroup.ForeColor = System.Drawing.Color.White;
+            this.tsmEditGroup.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
+            this.tsmEditGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmEditGroup.Name = "tsmEditGroup";
+            this.tsmEditGroup.Size = new System.Drawing.Size(232, 38);
+            this.tsmEditGroup.Text = "Edit";
+            this.tsmEditGroup.Click += new System.EventHandler(this.tsmEditGroup_Click);
+            // 
+            // temDeleteGroup
+            // 
+            this.temDeleteGroup.ForeColor = System.Drawing.Color.White;
+            this.temDeleteGroup.Image = global::StudyCenter.Properties.Resources.delete_reservation_40;
+            this.temDeleteGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.temDeleteGroup.Name = "temDeleteGroup";
+            this.temDeleteGroup.Size = new System.Drawing.Size(232, 38);
+            this.temDeleteGroup.Text = "Delete";
+            this.temDeleteGroup.Click += new System.EventHandler(this.temDeleteGroup_Click);
             // 
             // txtSearch
             // 
@@ -383,36 +415,6 @@
             this.btnAddGroup.TabIndex = 224;
             this.btnAddGroup.Click += new System.EventHandler(this.btnAddGroup_Click);
             // 
-            // tsmShowGroupDetails
-            // 
-            this.tsmShowGroupDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowGroupDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
-            this.tsmShowGroupDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmShowGroupDetails.Name = "tsmShowGroupDetails";
-            this.tsmShowGroupDetails.Size = new System.Drawing.Size(232, 38);
-            this.tsmShowGroupDetails.Text = "Show Group Details";
-            this.tsmShowGroupDetails.Click += new System.EventHandler(this.tsmShowGroupDetails_Click);
-            // 
-            // tsmEditGroup
-            // 
-            this.tsmEditGroup.ForeColor = System.Drawing.Color.White;
-            this.tsmEditGroup.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
-            this.tsmEditGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmEditGroup.Name = "tsmEditGroup";
-            this.tsmEditGroup.Size = new System.Drawing.Size(232, 38);
-            this.tsmEditGroup.Text = "Edit";
-            this.tsmEditGroup.Click += new System.EventHandler(this.tsmEditGroup_Click);
-            // 
-            // temDeleteGroup
-            // 
-            this.temDeleteGroup.ForeColor = System.Drawing.Color.White;
-            this.temDeleteGroup.Image = global::StudyCenter.Properties.Resources.delete_reservation_40;
-            this.temDeleteGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.temDeleteGroup.Name = "temDeleteGroup";
-            this.temDeleteGroup.Size = new System.Drawing.Size(232, 38);
-            this.temDeleteGroup.Text = "Delete";
-            this.temDeleteGroup.Click += new System.EventHandler(this.temDeleteGroup_Click);
-            // 
             // pbImage
             // 
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -425,6 +427,16 @@
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImage.TabIndex = 216;
             this.pbImage.TabStop = false;
+            // 
+            // ShowAllStudentsToolStripMenuItem
+            // 
+            this.ShowAllStudentsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ShowAllStudentsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.ShowAllStudentsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ShowAllStudentsToolStripMenuItem.Name = "ShowAllStudentsToolStripMenuItem";
+            this.ShowAllStudentsToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
+            this.ShowAllStudentsToolStripMenuItem.Text = "Show Students";
+            this.ShowAllStudentsToolStripMenuItem.Click += new System.EventHandler(this.ShowAllStudentsToolStripMenuItem_Click);
             // 
             // frmListGroups
             // 
@@ -484,5 +496,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbSubjectNames;
         private Guna.UI2.WinForms.Guna2ComboBox cbMeetingDays;
         private Guna.UI2.WinForms.Guna2ComboBox cbGroupNames;
+        private System.Windows.Forms.ToolStripMenuItem ShowAllStudentsToolStripMenuItem;
     }
 }

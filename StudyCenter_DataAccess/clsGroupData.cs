@@ -145,6 +145,9 @@ namespace StudyCenter_DataAccess
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
            => clsDataAccessHelper.AllInPages(PageNumber, RowsPerPage, "SP_GetAllGroupsInPages");
 
+        public static DataTable AllStudentsInGroup(int? groupID)
+            => clsDataAccessHelper.All("SP_GetAllStudentsInGroup", "GroupID", groupID);
+
         public static string GetGroupName(int? groupID)
         {
             string groupName = null;
@@ -179,6 +182,42 @@ namespace StudyCenter_DataAccess
             }
 
             return groupName;
+        }
+
+        public static byte GetMaxCapacityOfStudentsInGroup(int? groupID)
+        {
+            byte maxCapacity = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetMaxCapacityOfStudentsInGroup", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@GroupID", groupID);
+
+                        SqlParameter outputIdParam = new SqlParameter("@MaxCapacity", SqlDbType.TinyInt)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(outputIdParam);
+
+                        command.ExecuteNonQuery();
+
+                        maxCapacity = Convert.ToByte(outputIdParam.Value);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessHelper.HandleException(ex);
+            }
+
+            return maxCapacity;
         }
     }
 }

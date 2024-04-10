@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using StudyCenter.Students;
 using StudyCenter_Business;
 using System;
 using System.Configuration;
@@ -160,6 +161,11 @@ namespace StudyCenter.Groups
         private int? _GetGroupIDFromDGV()
         {
             return (int?)dgvGroupsList.CurrentRow.Cells["GroupID"].Value;
+        }
+
+        private string _GetGroupNameFromDGV()
+        {
+            return (string)dgvGroupsList.CurrentRow.Cells["GroupName"].Value;
         }
 
         private void _FilterComboBox(Guna2ComboBox comboBox, string entityName)
@@ -351,6 +357,14 @@ namespace StudyCenter.Groups
         {
             frmAddEditGroup addGroup = new frmAddEditGroup();
             addGroup.ShowDialog();
+
+            _RefreshGroupsList();
+        }
+
+        private void ShowAllStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGetAllStudentsInGroup getAllStudentsInGroup = new frmGetAllStudentsInGroup(_GetGroupIDFromDGV(), _GetGroupNameFromDGV());
+            getAllStudentsInGroup.ShowDialog();
 
             _RefreshGroupsList();
         }

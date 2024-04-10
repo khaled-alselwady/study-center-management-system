@@ -150,8 +150,14 @@ namespace StudyCenter_Business
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
             => clsGroupData.AllInPages(PageNumber, RowsPerPage);
 
+        public static DataTable AllStudentsInGroup(int? groupID)
+            => clsGroupData.AllStudentsInGroup(groupID);
+
         public static string GetGroupName(int? groupID)
             => clsGroupData.GetGroupName(groupID);
+
+        public static byte GetMaxCapacityOfStudentsInGroup(int? groupID)
+            => clsGroupData.GetMaxCapacityOfStudentsInGroup(groupID);
 
         public string GetStudentCount()
             => StudentCount.ToString() + "/" + ClassInfo?.Capacity
