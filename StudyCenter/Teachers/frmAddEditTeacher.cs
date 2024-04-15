@@ -108,7 +108,7 @@ namespace StudyCenter.Teachers
             _teacher.EducationLevelID = clsEducationLevel.GetEducationLeveID(cbEducationLevels.Text);
             _teacher.TeachingExperience = (byte?)numaricTeachingExperience.Value;
             _teacher.Certifications = txtCertifications.Text.Trim();
-            _teacher.CreatedByUserID = clsGlobal.CurrentUser?.UserID;
+            _teacher.CreatedByUserID = clsGlobal.CurrentUser?.UserID ?? 1;
         }
 
         private void _SaveTeacher()
