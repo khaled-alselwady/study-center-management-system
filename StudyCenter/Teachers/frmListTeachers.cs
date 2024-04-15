@@ -1,4 +1,5 @@
 ﻿using StudyCenter.GlobalClasses;
+using StudyCenter.Groups;
 using StudyCenter.SubjectsAndGradeLevels;
 using StudyCenter_Business;
 using System;
@@ -293,6 +294,14 @@ namespace StudyCenter.Teachers
         {
             frmGetAllSubjectsTaughtByTeacher allSubjectsTaughtByTeacher = new frmGetAllSubjectsTaughtByTeacher(_GetTeacherIDFromDGV());
             allSubjectsTaughtByTeacher.ShowDialog();
+
+            _RefreshTeachersList();
+        }
+
+        private void GroupsHeTeachesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGroupsAreTaughtByTeacher groupsAreTaughtByTeacher = new frmGroupsAreTaughtByTeacher(_GetTeacherIDFromDGV());
+            groupsAreTaughtByTeacher.ShowDialog();
 
             _RefreshTeachersList();
         }

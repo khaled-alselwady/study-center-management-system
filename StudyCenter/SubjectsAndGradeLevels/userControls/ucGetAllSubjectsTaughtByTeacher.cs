@@ -87,7 +87,13 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
 
             _RefreshAllSubjectsTaughtByTeacherList();
 
-            gbSubjectsTaughtByATeacher.Text = $"Subjects taught by MR. {clsTeacher.GetFullName(_teacherID)}";
+            clsTeacher teacherInfo = clsTeacher.FindByTeacherID(teacherID);
+
+            if (teacherInfo != null)
+            {
+                string prefix = teacherInfo.PersonInfo.Gender == clsPerson.enGender.Male ? "Mr." : "Ms.";
+                gbSubjectsTaughtByATeacher.Text = $"Subjects taught by {prefix} {teacherInfo.PersonInfo.FullName}";
+            }
         }
 
         public void LoadActiveSubjectsInfoTaughtByTeacher(int? teacherID)

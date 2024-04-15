@@ -159,6 +159,9 @@ namespace StudyCenter_Business
         public static byte GetMaxCapacityOfStudentsInGroup(int? groupID)
             => clsGroupData.GetMaxCapacityOfStudentsInGroup(groupID);
 
+        public static DataTable AllGroupsAreTaughtByTeacher(int? teacherID)
+            => clsGroupData.AllGroupsAreTaughtByTeacher(teacherID);
+
         public string GetStudentCount()
             => StudentCount.ToString() + "/" + ClassInfo?.Capacity
             + ((StudentCount <= 1) ? "  Student" : "  Students");

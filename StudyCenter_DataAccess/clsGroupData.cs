@@ -219,5 +219,8 @@ namespace StudyCenter_DataAccess
 
             return maxCapacity;
         }
+
+        public static DataTable AllGroupsAreTaughtByTeacher(int? teacherID)
+            => clsDataAccessHelper.All("SP_GroupsAreTaughtByTeacher", "TeacherID", teacherID);
     }
 }

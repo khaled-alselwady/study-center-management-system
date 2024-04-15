@@ -116,6 +116,12 @@
     <Compile Include="Groups\frmAddEditAssignStudentToGroup.Designer.cs">
       <DependentUpon>frmAddEditAssignStudentToGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Groups\frmGroupsAreTaughtByTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Groups\frmGroupsAreTaughtByTeacher.Designer.cs">
+      <DependentUpon>frmGroupsAreTaughtByTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Groups\frmListGroups.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,12 @@
     </Compile>
     <Compile Include="Groups\UserControls\ucGroupCard.Designer.cs">
       <DependentUpon>ucGroupCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Groups\UserControls\ucGroupsAreTaughtByTeacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Groups\UserControls\ucGroupsAreTaughtByTeacher.Designer.cs">
+      <DependentUpon>ucGroupsAreTaughtByTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu\frmMainMenu.cs">
       <SubType>Form</SubType>
@@ -355,6 +367,9 @@
     <EmbeddedResource Include="Groups\frmAddEditAssignStudentToGroup.resx">
       <DependentUpon>frmAddEditAssignStudentToGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Groups\frmGroupsAreTaughtByTeacher.resx">
+      <DependentUpon>frmGroupsAreTaughtByTeacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Groups\frmListGroups.resx">
       <DependentUpon>frmListGroups.cs</DependentUpon>
     </EmbeddedResource>
@@ -363,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Groups\UserControls\ucGroupCard.resx">
       <DependentUpon>ucGroupCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Groups\UserControls\ucGroupsAreTaughtByTeacher.resx">
+      <DependentUpon>ucGroupsAreTaughtByTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
