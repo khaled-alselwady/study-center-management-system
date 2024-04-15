@@ -138,5 +138,8 @@ namespace StudyCenter_DataAccess
 
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
             => clsDataAccessHelper.AllInPages(PageNumber, RowsPerPage, "SP_GetAllClassesInPages");
+
+        public static DataTable AllTeachersTeachInClass(int? classID)
+            => clsDataAccessHelper.All("SP_TeachersTeachInClass", "ClassID", classID);
     }
 }

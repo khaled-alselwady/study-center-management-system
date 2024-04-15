@@ -304,6 +304,12 @@
     <Compile Include="Teachers\frmFindTeacher.Designer.cs">
       <DependentUpon>frmFindTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teachers\frmGetAllTeachersTeachInClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teachers\frmGetAllTeachersTeachInClass.Designer.cs">
+      <DependentUpon>frmGetAllTeachersTeachInClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teachers\frmGetAllTeachersTeachSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,6 +327,12 @@
     </Compile>
     <Compile Include="Teachers\frmShowTeacherInfo.Designer.cs">
       <DependentUpon>frmShowTeacherInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teachers\UserControls\ucGetAllTeachersTeachInClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teachers\UserControls\ucGetAllTeachersTeachInClass.Designer.cs">
+      <DependentUpon>ucGetAllTeachersTeachInClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Teachers\UserControls\ucGetAllTeachersTeachSubject.cs">
       <SubType>UserControl</SubType>
@@ -470,6 +482,9 @@
     <EmbeddedResource Include="Teachers\frmFindTeacher.resx">
       <DependentUpon>frmFindTeacher.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\frmGetAllTeachersTeachInClass.resx">
+      <DependentUpon>frmGetAllTeachersTeachInClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Teachers\frmGetAllTeachersTeachSubject.resx">
       <DependentUpon>frmGetAllTeachersTeachSubject.cs</DependentUpon>
     </EmbeddedResource>
@@ -478,6 +493,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Teachers\frmShowTeacherInfo.resx">
       <DependentUpon>frmShowTeacherInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\UserControls\ucGetAllTeachersTeachInClass.resx">
+      <DependentUpon>ucGetAllTeachersTeachInClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teachers\UserControls\ucGetAllTeachersTeachSubject.resx">
       <DependentUpon>ucGetAllTeachersTeachSubject.cs</DependentUpon>

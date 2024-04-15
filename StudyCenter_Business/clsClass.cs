@@ -95,6 +95,9 @@ namespace StudyCenter_Business
 
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
             => clsClassData.AllInPages(PageNumber, RowsPerPage);
+
+        public static DataTable AllTeachersTeachInClass(int? classID)
+            => clsClassData.AllTeachersTeachInClass(classID);
     }
 
 }

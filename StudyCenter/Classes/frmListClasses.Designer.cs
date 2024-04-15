@@ -40,7 +40,7 @@
             this.tsmShowClassDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmEditClass = new System.Windows.Forms.ToolStripMenuItem();
-            this.WhoTeachesInItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
@@ -152,10 +152,10 @@
             this.tsmShowClassDetails,
             this.toolStripSeparator6,
             this.tsmEditClass,
-            this.WhoTeachesInItToolStripMenuItem});
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem});
             this.cmsEditProfile.Name = "contextMenuStrip1";
             this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsEditProfile.Size = new System.Drawing.Size(224, 124);
+            this.cmsEditProfile.Size = new System.Drawing.Size(351, 146);
             this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
             // 
             // tsmShowClassDetails
@@ -164,14 +164,14 @@
             this.tsmShowClassDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
             this.tsmShowClassDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmShowClassDetails.Name = "tsmShowClassDetails";
-            this.tsmShowClassDetails.Size = new System.Drawing.Size(223, 38);
+            this.tsmShowClassDetails.Size = new System.Drawing.Size(350, 38);
             this.tsmShowClassDetails.Text = "Show Class Details";
             this.tsmShowClassDetails.Click += new System.EventHandler(this.tsmShowClassDetails_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(347, 6);
             // 
             // tsmEditClass
             // 
@@ -179,19 +179,19 @@
             this.tsmEditClass.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
             this.tsmEditClass.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmEditClass.Name = "tsmEditClass";
-            this.tsmEditClass.Size = new System.Drawing.Size(223, 38);
+            this.tsmEditClass.Size = new System.Drawing.Size(350, 38);
             this.tsmEditClass.Text = "Edit";
             this.tsmEditClass.Click += new System.EventHandler(this.tsmEditClass_Click);
             // 
-            // WhoTeachesInItToolStripMenuItem
+            // ShowGroupsAndWhoTeachesInItToolStripMenuItem
             // 
-            this.WhoTeachesInItToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.WhoTeachesInItToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.Notes_32;
-            this.WhoTeachesInItToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.WhoTeachesInItToolStripMenuItem.Name = "WhoTeachesInItToolStripMenuItem";
-            this.WhoTeachesInItToolStripMenuItem.Size = new System.Drawing.Size(223, 38);
-            this.WhoTeachesInItToolStripMenuItem.Text = "Who Teaches in it?";
-            this.WhoTeachesInItToolStripMenuItem.Click += new System.EventHandler(this.WhoTeachesInItToolStripMenuItem_Click);
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Name = "ShowGroupsAndWhoTeachesInItToolStripMenuItem";
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Size = new System.Drawing.Size(350, 38);
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Text = "Show Groups and Who Teaches in it?";
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Click += new System.EventHandler(this.WhoTeachesInItToolStripMenuItem_Click);
             // 
             // txtSearch
             // 
@@ -349,7 +349,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmShowClassDetails;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem tsmEditClass;
-        private System.Windows.Forms.ToolStripMenuItem WhoTeachesInItToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ShowGroupsAndWhoTeachesInItToolStripMenuItem;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Guna.UI2.WinForms.Guna2ComboBox cbFilter;
         private System.Windows.Forms.Label lblNumberOfRecords;

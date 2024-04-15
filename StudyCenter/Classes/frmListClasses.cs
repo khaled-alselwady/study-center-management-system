@@ -1,4 +1,5 @@
-﻿using StudyCenter_Business;
+﻿using StudyCenter.Teachers;
+using StudyCenter_Business;
 using System;
 using System.Configuration;
 using System.Data;
@@ -191,7 +192,10 @@ namespace StudyCenter.Classes
 
         private void WhoTeachesInItToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            frmGetAllTeachersTeachInClass allTeachersTeachInClass = new frmGetAllTeachersTeachInClass(_GetClassIDFromDGV());
+            allTeachersTeachInClass.ShowDialog();
+
+            _RefreshClassesList();
         }
 
         private void btnAddClass_Click(object sender, EventArgs e)
