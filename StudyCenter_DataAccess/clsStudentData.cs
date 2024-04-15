@@ -218,5 +218,42 @@ namespace StudyCenter_DataAccess
 
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
             => clsDataAccessHelper.AllInPages(PageNumber, RowsPerPage, "SP_GetAllStudentsInPages");
+
+        public static byte? GetGradeLevelIDOfStudent(int? studentID)
+        {
+            // This function will return the new person id if succeeded and null if not
+            byte? gradeLevelID = null;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetGradeLevelIDOfStudent", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@StudentID", studentID);
+
+                        SqlParameter outputIdParam = new SqlParameter("@GradeLevelID", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(outputIdParam);
+
+                        command.ExecuteNonQuery();
+
+                        gradeLevelID = (byte?)(int)outputIdParam.Value;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessHelper.HandleException(ex);
+            }
+
+            return gradeLevelID;
+        }
     }
 }

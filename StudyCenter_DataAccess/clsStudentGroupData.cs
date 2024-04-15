@@ -161,6 +161,10 @@ namespace StudyCenter_DataAccess
         public static bool Exists(int? studentGroupID)
             => clsDataAccessHelper.Exists("SP_DoesStudentGroupExist", "StudentGroupID", studentGroupID);
 
+        public static bool IsStudentAssignedToGroup(int? studentID, int? groupID)
+            => clsDataAccessHelper.Exists("SP_IsStudentAssignedToGroup",
+                "StudentID", studentID, "GroupID", groupID);
+
         public static DataTable All()
             => clsDataAccessHelper.All("SP_GetAllStudentsGroups");
 

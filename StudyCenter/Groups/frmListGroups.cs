@@ -5,6 +5,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
+using static StudyCenter.Groups.frmAddEditAssignStudentToGroup;
 
 namespace StudyCenter.Groups
 {
@@ -168,6 +169,11 @@ namespace StudyCenter.Groups
             return (string)dgvGroupsList.CurrentRow.Cells["GroupName"].Value;
         }
 
+        private byte _GetStudentCountFromDGV()
+        {
+            return (byte)dgvGroupsList.CurrentRow.Cells["StudentCount"].Value;
+        }
+
         private void _FilterComboBox(Guna2ComboBox comboBox, string entityName)
         {
             if (_dtAllGroups == null || _dtAllGroups.Rows.Count == 0 || comboBox == null)
@@ -320,6 +326,9 @@ namespace StudyCenter.Groups
         private void cmsEditProfile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             cmsEditProfile.Enabled = (dgvGroupsList.Rows.Count > 0);
+
+            AddStudentToolStripMenuItem.Enabled =
+                _GetStudentCountFromDGV() < clsGroup.GetMaxCapacityOfStudentsInGroup(_GetGroupIDFromDGV());
         }
 
         private void tsmShowGroupDetails_Click(object sender, EventArgs e)
@@ -371,7 +380,10 @@ namespace StudyCenter.Groups
 
         private void AddStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            frmAddEditAssignStudentToGroup addStudentToGroup = new frmAddEditAssignStudentToGroup(_GetGroupIDFromDGV(), enEntityType.GroupID);
+            addStudentToGroup.ShowDialog();
+
+            _RefreshGroupsList();
         }
     }
 }

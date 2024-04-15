@@ -144,7 +144,7 @@ namespace StudyCenter.Groups
             if (dgvMeetingTimesList.SelectedRows.Count > 0)
                 _group.MeetingTimeID = _GetMeetingTimeIDFromDGV();
 
-            _group.CreatedByUserID = clsGlobal.CurrentUser?.UserID;
+            _group.CreatedByUserID = clsGlobal.CurrentUser?.UserID ?? 1;
         }
 
         private void _SaveGroup()

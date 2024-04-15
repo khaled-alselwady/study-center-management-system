@@ -37,7 +37,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ucStudentCardWithFilter1 = new StudyCenter.Students.UserControls.ucStudentCardWithFilter();
             this.tpGroup = new System.Windows.Forms.TabPage();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.ucGroupCard1 = new StudyCenter.Groups.UserControls.ucGroupCard();
+            this.gbSelectGroup = new Guna.UI2.WinForms.Guna2GroupBox();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbGroupNames = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbMeetingDays = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -45,15 +46,15 @@
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvGroupsList = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShowGroupDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnSave = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmShowGroupDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tpGroup.SuspendLayout();
-            this.guna2GroupBox1.SuspendLayout();
+            this.gbSelectGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupsList)).BeginInit();
             this.cmsEditProfile.SuspendLayout();
             this.SuspendLayout();
@@ -113,7 +114,8 @@
             // tpGroup
             // 
             this.tpGroup.BackColor = System.Drawing.Color.White;
-            this.tpGroup.Controls.Add(this.guna2GroupBox1);
+            this.tpGroup.Controls.Add(this.ucGroupCard1);
+            this.tpGroup.Controls.Add(this.gbSelectGroup);
             this.tpGroup.Location = new System.Drawing.Point(4, 44);
             this.tpGroup.Name = "tpGroup";
             this.tpGroup.Padding = new System.Windows.Forms.Padding(3);
@@ -121,23 +123,33 @@
             this.tpGroup.TabIndex = 1;
             this.tpGroup.Text = "Group Info";
             // 
-            // guna2GroupBox1
+            // ucGroupCard1
             // 
-            this.guna2GroupBox1.BackColor = System.Drawing.Color.White;
-            this.guna2GroupBox1.Controls.Add(this.txtSearch);
-            this.guna2GroupBox1.Controls.Add(this.cbGroupNames);
-            this.guna2GroupBox1.Controls.Add(this.cbMeetingDays);
-            this.guna2GroupBox1.Controls.Add(this.cbSubjectNames);
-            this.guna2GroupBox1.Controls.Add(this.cbFilter);
-            this.guna2GroupBox1.Controls.Add(this.label1);
-            this.guna2GroupBox1.Controls.Add(this.dgvGroupsList);
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(25, 22);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(862, 574);
-            this.guna2GroupBox1.TabIndex = 5;
-            this.guna2GroupBox1.Text = "Group Information";
+            this.ucGroupCard1.BackColor = System.Drawing.Color.White;
+            this.ucGroupCard1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucGroupCard1.Location = new System.Drawing.Point(162, 3);
+            this.ucGroupCard1.Name = "ucGroupCard1";
+            this.ucGroupCard1.Size = new System.Drawing.Size(258, 16);
+            this.ucGroupCard1.TabIndex = 237;
+            this.ucGroupCard1.Visible = false;
+            // 
+            // gbSelectGroup
+            // 
+            this.gbSelectGroup.BackColor = System.Drawing.Color.White;
+            this.gbSelectGroup.Controls.Add(this.txtSearch);
+            this.gbSelectGroup.Controls.Add(this.cbGroupNames);
+            this.gbSelectGroup.Controls.Add(this.cbMeetingDays);
+            this.gbSelectGroup.Controls.Add(this.cbSubjectNames);
+            this.gbSelectGroup.Controls.Add(this.cbFilter);
+            this.gbSelectGroup.Controls.Add(this.label1);
+            this.gbSelectGroup.Controls.Add(this.dgvGroupsList);
+            this.gbSelectGroup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSelectGroup.ForeColor = System.Drawing.Color.Black;
+            this.gbSelectGroup.Location = new System.Drawing.Point(25, 22);
+            this.gbSelectGroup.Name = "gbSelectGroup";
+            this.gbSelectGroup.Size = new System.Drawing.Size(862, 574);
+            this.gbSelectGroup.TabIndex = 5;
+            this.gbSelectGroup.Text = "Group Information";
             // 
             // txtSearch
             // 
@@ -329,6 +341,27 @@
             this.dgvGroupsList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
             this.dgvGroupsList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
+            // cmsEditProfile
+            // 
+            this.cmsEditProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cmsEditProfile.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsEditProfile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmShowGroupDetails});
+            this.cmsEditProfile.Name = "contextMenuStrip1";
+            this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.cmsEditProfile.Size = new System.Drawing.Size(233, 42);
+            this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
+            // 
+            // tsmShowGroupDetails
+            // 
+            this.tsmShowGroupDetails.ForeColor = System.Drawing.Color.White;
+            this.tsmShowGroupDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.tsmShowGroupDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShowGroupDetails.Name = "tsmShowGroupDetails";
+            this.tsmShowGroupDetails.Size = new System.Drawing.Size(232, 38);
+            this.tsmShowGroupDetails.Text = "Show Group Details";
+            this.tsmShowGroupDetails.Click += new System.EventHandler(this.tsmShowGroupDetails_Click);
+            // 
             // lblTitle
             // 
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -391,27 +424,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // cmsEditProfile
-            // 
-            this.cmsEditProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cmsEditProfile.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmsEditProfile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmShowGroupDetails});
-            this.cmsEditProfile.Name = "contextMenuStrip1";
-            this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsEditProfile.Size = new System.Drawing.Size(233, 42);
-            this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
-            // 
-            // tsmShowGroupDetails
-            // 
-            this.tsmShowGroupDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowGroupDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
-            this.tsmShowGroupDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmShowGroupDetails.Name = "tsmShowGroupDetails";
-            this.tsmShowGroupDetails.Size = new System.Drawing.Size(232, 38);
-            this.tsmShowGroupDetails.Text = "Show Group Details";
-            this.tsmShowGroupDetails.Click += new System.EventHandler(this.tsmShowGroupDetails_Click);
-            // 
             // frmAddEditAssignStudentToGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,8 +444,8 @@
             this.guna2TabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tpGroup.ResumeLayout(false);
-            this.guna2GroupBox1.ResumeLayout(false);
-            this.guna2GroupBox1.PerformLayout();
+            this.gbSelectGroup.ResumeLayout(false);
+            this.gbSelectGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupsList)).EndInit();
             this.cmsEditProfile.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -446,7 +458,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private Students.UserControls.ucStudentCardWithFilter ucStudentCardWithFilter1;
         private System.Windows.Forms.TabPage tpGroup;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2GroupBox gbSelectGroup;
         private Guna.UI2.WinForms.Guna2DataGridView dgvGroupsList;
         private System.Windows.Forms.Label lblTitle;
         private Guna.UI2.WinForms.Guna2GradientButton btnClose;
@@ -459,5 +471,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip cmsEditProfile;
         private System.Windows.Forms.ToolStripMenuItem tsmShowGroupDetails;
+        private UserControls.ucGroupCard ucGroupCard1;
     }
 }

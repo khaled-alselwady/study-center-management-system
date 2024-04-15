@@ -99,6 +99,9 @@ namespace StudyCenter_Business
         public static bool Exists(int? studentGroupID)
             => clsStudentGroupData.Exists(studentGroupID);
 
+        public static bool IsStudentAssignedToGroup(int? studentID, int? groupID)
+            => clsStudentGroupData.IsStudentAssignedToGroup(studentID, groupID);
+
         public static DataTable All()
             => clsStudentGroupData.All();
 

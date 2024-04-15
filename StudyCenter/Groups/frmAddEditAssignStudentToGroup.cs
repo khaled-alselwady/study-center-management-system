@@ -14,12 +14,13 @@ namespace StudyCenter.Groups
         private enum _enMode { AddNew, Update };
         private _enMode _mode = _enMode.AddNew;
 
-        public enum enEntityType { StudentID, StudentGroupID }
+        public enum enEntityType { StudentID, GroupID, StudentGroupID }
 
         private int? _studentGroupID = null;
         private clsStudentGroup _studentGroup = null;
 
         private int? _selectedStudentID = null;
+        private int? _groupID = null;
 
         public frmAddEditAssignStudentToGroup()
         {
@@ -32,10 +33,26 @@ namespace StudyCenter.Groups
         {
             InitializeComponent();
 
-            if (entityType == enEntityType.StudentGroupID)
-                _studentGroupID = value;
-            else
-                _selectedStudentID = value;
+            switch (entityType)
+            {
+                case enEntityType.StudentGroupID:
+                    _studentGroupID = value;
+                    break;
+
+                case enEntityType.StudentID:
+                    _selectedStudentID = value;
+                    break;
+
+                case enEntityType.GroupID:
+                    _groupID = value;
+                    _mode = _enMode.AddNew;
+                    return;
+
+                default:
+                    _studentGroupID = value;
+                    break;
+
+            }
 
             _mode = _enMode.Update;
         }
@@ -95,6 +112,9 @@ namespace StudyCenter.Groups
 
         private void _RefreshGroupsList()
         {
+            if (_groupID.HasValue)
+                return;
+
             if (_selectedStudentID != null)
                 _dtAllGroups = clsStudentGroup.AllAvailableGroupsForStudent(_selectedStudentID);
 
@@ -165,13 +185,26 @@ namespace StudyCenter.Groups
 
         private void _ResetDefaultValues()
         {
-            _RefreshGroupsList();
+            if (_groupID.HasValue)
+            {
+                ucGroupCard1.LoadGroupInfo(_groupID);
+                gbSelectGroup.Visible = false;
+                ucGroupCard1.Visible = true;
+                ucGroupCard1.Location = new System.Drawing.Point(25, 22);
+                ucGroupCard1.Size = new System.Drawing.Size(862, 316);
+            }
+            else
+            {
+                _RefreshGroupsList();
+            }
 
             if (_mode == _enMode.AddNew)
             {
                 lblTitle.Text = "Assign Student to Group";
                 _studentGroup = new clsStudentGroup();
-                _DisableTabPageSubject();
+
+                if (!_groupID.HasValue)
+                    _DisableTabPageSubject();
 
                 ucStudentCardWithFilter1.FilterFocus();
 
@@ -237,6 +270,9 @@ namespace StudyCenter.Groups
             if (dgvGroupsList.Rows.Count > 0)
                 _studentGroup.GroupID = _GetGroupIDFromDGV();
 
+            else if (_groupID.HasValue)
+                _studentGroup.GroupID = _groupID;
+
             _studentGroup.IsActive = true;
         }
 
@@ -256,6 +292,10 @@ namespace StudyCenter.Groups
 
                 // Trigger the event to send data back to the caller form
                 StudentGroupIDBack?.Invoke(_studentGroup.StudentGroupID);
+
+                // refresh the group card when the _groupID has a value
+                if (_groupID.HasValue)
+                    ucGroupCard1.LoadGroupInfo(_groupID);
             }
             else
             {
@@ -363,13 +403,19 @@ namespace StudyCenter.Groups
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (dgvGroupsList.SelectedRows.Count <= 0)
+            if (!_groupID.HasValue && dgvGroupsList.SelectedRows.Count <= 0)
             {
                 MessageBox.Show("You have to select a subject!", "Missing Data",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }
+
+            if (MessageBox.Show($"Are you sure you want to assign the student with ID {_selectedStudentID}" +
+                $" to the group with ID {_groupID ?? _GetGroupIDFromDGV()}?", "Confirm",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2) == DialogResult.No)
+                return;
 
             _SaveStudentGroup();
         }
@@ -386,6 +432,28 @@ namespace StudyCenter.Groups
                 btnSave.Enabled = false;
                 _DisableTabPageSubject();
                 _dtAllGroups.Clear();
+                return;
+            }
+
+            if ((_groupID.HasValue) &&
+                (clsStudent.GetGradeLevelIDOfStudent(e.StudentID) !=
+                ucGroupCard1?.groupInfo?.SubjectTeacherInfo?.SubjectGradeLevelInfo?.GradeLevelID))
+            {
+                MessageBox.Show("The grade level of this student is different from the grade level " +
+                                "of the group! Choose another one.", "Not Allowed",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                btnSave.Enabled = false;
+                ucStudentCardWithFilter1.FilterFocus();
+
+                return;
+            }
+
+            if (_groupID.HasValue && clsStudentGroup.IsStudentAssignedToGroup(e.StudentID, _groupID))
+            {
+                MessageBox.Show("This student is currently studying in this group.",
+                   "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return;
             }
 

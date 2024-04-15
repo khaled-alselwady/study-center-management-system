@@ -128,5 +128,8 @@ namespace StudyCenter_Business
 
         public static DataTable AllInPages(short PageNumber, int RowsPerPage)
             => clsStudentData.AllInPages(PageNumber, RowsPerPage);
+
+        public static byte? GetGradeLevelIDOfStudent(int? studentID)
+            => clsStudentData.GetGradeLevelIDOfStudent(studentID);
     }
 }
