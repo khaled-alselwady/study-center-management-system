@@ -93,6 +93,16 @@ namespace StudyCenter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_group_32 {
+            get {
+                object obj = ResourceManager.GetObject("add-group-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_new_person_50 {
             get {
                 object obj = ResourceManager.GetObject("add-new-person-50", resourceCulture);

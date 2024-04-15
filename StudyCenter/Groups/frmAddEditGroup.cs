@@ -14,6 +14,8 @@ namespace StudyCenter.Groups
         private enum _enMode { AddNew, Update };
         private _enMode _mode = _enMode.AddNew;
 
+        public enum enEntityType { GroupID, ClassID }
+
         private int? _groupID = null;
         private clsGroup _group = null;
 
@@ -29,11 +31,26 @@ namespace StudyCenter.Groups
             _mode = _enMode.AddNew;
         }
 
-        public frmAddEditGroup(int? groupID)
+        public frmAddEditGroup(int? value, enEntityType entityType)
         {
             InitializeComponent();
 
-            _groupID = groupID;
+            switch (entityType)
+            {
+                case enEntityType.GroupID:
+                    _groupID = value;
+                    break;
+
+                case enEntityType.ClassID:
+                    _selectedClassID = value;
+                    _mode = _enMode.AddNew;
+                    return;
+
+                default:
+                    _groupID = value;
+                    break;
+            }
+
             _mode = _enMode.Update;
         }
 
@@ -57,6 +74,12 @@ namespace StudyCenter.Groups
 
         private void _ResetDefaultValues()
         {
+            if (_selectedClassID.HasValue)
+            {
+                ucClassCardWithFilter1.LoadClassInfo(_selectedClassID);
+                ucClassCardWithFilter1.FilterEnabled = false;
+            }
+
             if (_mode == _enMode.AddNew)
             {
                 lblTitle.Text = "Add New Group";
@@ -67,7 +90,8 @@ namespace StudyCenter.Groups
                 lblStudentsCount.Text = "0";
                 lblCreatedByUsername.Text = clsGlobal.CurrentUser?.Username;
 
-                _ResetFields();
+                if (!_selectedClassID.HasValue)
+                    _ResetFields();
             }
             else
             {

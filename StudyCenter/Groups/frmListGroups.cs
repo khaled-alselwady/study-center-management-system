@@ -5,7 +5,6 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
-using static StudyCenter.Groups.frmAddEditAssignStudentToGroup;
 
 namespace StudyCenter.Groups
 {
@@ -342,7 +341,7 @@ namespace StudyCenter.Groups
 
         private void tsmEditGroup_Click(object sender, EventArgs e)
         {
-            frmAddEditGroup editGroup = new frmAddEditGroup(_GetGroupIDFromDGV());
+            frmAddEditGroup editGroup = new frmAddEditGroup(_GetGroupIDFromDGV(), frmAddEditGroup.enEntityType.GroupID);
             editGroup.ShowDialog();
 
             _RefreshGroupsList();
@@ -380,7 +379,7 @@ namespace StudyCenter.Groups
 
         private void AddStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddEditAssignStudentToGroup addStudentToGroup = new frmAddEditAssignStudentToGroup(_GetGroupIDFromDGV(), enEntityType.GroupID);
+            frmAddEditAssignStudentToGroup addStudentToGroup = new frmAddEditAssignStudentToGroup(_GetGroupIDFromDGV(), frmAddEditAssignStudentToGroup.enEntityType.GroupID);
             addStudentToGroup.ShowDialog();
 
             _RefreshGroupsList();

@@ -1,4 +1,5 @@
-﻿using StudyCenter.Teachers;
+﻿using StudyCenter.Groups;
+using StudyCenter.Teachers;
 using StudyCenter_Business;
 using System;
 using System.Configuration;
@@ -201,6 +202,14 @@ namespace StudyCenter.Classes
         private void btnAddClass_Click(object sender, EventArgs e)
         {
             _AddClass();
+        }
+
+        private void AddGroupToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmAddEditGroup addGroup = new frmAddEditGroup(_GetClassIDFromDGV(), frmAddEditGroup.enEntityType.ClassID);
+            addGroup.ShowDialog();
+
+            _RefreshClassesList();
         }
     }
 }
