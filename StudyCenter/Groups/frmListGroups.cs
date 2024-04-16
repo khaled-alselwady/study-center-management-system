@@ -28,7 +28,7 @@ namespace StudyCenter.Groups
         {
             cbPages.Items.Clear();
 
-            _allGroupsCount = clsStudent.Count();
+            _allGroupsCount = clsGroup.Count();
             short numberOfPages = (short)Math.Ceiling(_allGroupsCount / (_rowsPerPage == 0 ? 10M : _rowsPerPage));
 
             for (short i = 1; i <= numberOfPages; i++)
@@ -48,9 +48,9 @@ namespace StudyCenter.Groups
 
             DataTable gradeLevels = clsGradeLevel.AllOnlyNames();
 
-            foreach (DataRow drTitle in gradeLevels.Rows)
+            foreach (DataRow drGrade in gradeLevels.Rows)
             {
-                cbGrades.Items.Add(drTitle["GradeName"].ToString());
+                cbGrades.Items.Add(drGrade["GradeName"].ToString());
             }
         }
 
@@ -62,9 +62,9 @@ namespace StudyCenter.Groups
 
             DataTable subjectNames = clsSubject.AllOnlyNames();
 
-            foreach (DataRow drTitle in subjectNames.Rows)
+            foreach (DataRow drName in subjectNames.Rows)
             {
-                cbSubjectNames.Items.Add(drTitle["SubjectName"].ToString());
+                cbSubjectNames.Items.Add(drName["SubjectName"].ToString());
             }
         }
 
@@ -74,9 +74,11 @@ namespace StudyCenter.Groups
 
             cbGroupNames.Items.Add("All");
 
-            for (char letter = 'A'; letter <= 'Z'; letter++)
+            DataTable groupNames = clsGroup.AllGroupNames();
+
+            foreach (DataRow drName in groupNames.Rows)
             {
-                cbGroupNames.Items.Add(letter);
+                cbGroupNames.Items.Add(drName["GroupName"].ToString());
             }
         }
 

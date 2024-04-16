@@ -222,5 +222,11 @@ namespace StudyCenter_DataAccess
 
         public static DataTable AllGroupsAreTaughtByTeacher(int? teacherID)
             => clsDataAccessHelper.All("SP_GroupsAreTaughtByTeacher", "TeacherID", teacherID);
+
+        public static DataTable AllGroupNames()
+            => clsDataAccessHelper.All("SP_GetAllGroupNames");
+
+        public static int Count()
+            => clsDataAccessHelper.Count("SP_GetAllGroupsCount");
     }
 }

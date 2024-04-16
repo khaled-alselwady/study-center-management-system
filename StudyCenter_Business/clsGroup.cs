@@ -162,6 +162,12 @@ namespace StudyCenter_Business
         public static DataTable AllGroupsAreTaughtByTeacher(int? teacherID)
             => clsGroupData.AllGroupsAreTaughtByTeacher(teacherID);
 
+        public static DataTable AllGroupNames()
+            => clsGroupData.AllGroupNames();
+
+        public static int Count()
+            => clsGroupData.Count();
+
         public string GetStudentCount()
             => StudentCount.ToString() + "/" + ClassInfo?.Capacity
             + ((StudentCount <= 1) ? "  Student" : "  Students");
