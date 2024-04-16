@@ -7,81 +7,55 @@ namespace StudyCenter.Students.UserControls
     public partial class ucGetAllStudentsInGroup : UserControl
     {
         private int? _groupID = null;
+        private string _groupName = null;
 
         public ucGetAllStudentsInGroup()
         {
             InitializeComponent();
         }
 
-        private void _RefreshAllStudentsInGroupList()
+        private void _LoadInfo(string title)
         {
-            dgvStudentsList.DataSource =
-                clsGroup.AllStudentsInGroup(_groupID);
+            object dataSource = clsGroup.AllStudentsInGroup(_groupID);
 
-            lblNumberOfRecords.Text = dgvStudentsList.Rows.Count.ToString() + " / " + clsGroup.GetMaxCapacityOfStudentsInGroup(_groupID); ;
+            var columnsInfo = new[] { ("Student ID", 110),
+                                     ("Full Name", 300),
+                                     ("Gender", 120),
+                                     ("Date Of Birth", 120),
+                                     ("Grade", 130),
+                                     ("Age", 60)
+            };
 
-            if (dgvStudentsList.Rows.Count > 0)
-            {
-                dgvStudentsList.Columns[0].HeaderText = "Student ID";
-                dgvStudentsList.Columns[0].Width = 110;
-
-                dgvStudentsList.Columns[1].HeaderText = "Full Name";
-                dgvStudentsList.Columns[1].Width = 300;
-
-                dgvStudentsList.Columns[2].HeaderText = "Gender";
-                dgvStudentsList.Columns[2].Width = 120;
-
-                dgvStudentsList.Columns[3].HeaderText = "Date Of Birth";
-                dgvStudentsList.Columns[3].Width = 120;
-
-                dgvStudentsList.Columns[4].HeaderText = "Grade";
-                dgvStudentsList.Columns[4].Width = 130;
-
-                dgvStudentsList.Columns[5].HeaderText = "Age";
-                dgvStudentsList.Columns[5].Width = 60;
-            }
-        }
-
-        private int? _GetStudentIDFromDGV()
-        {
-            return (int?)dgvStudentsList.CurrentRow.Cells["StudentID"].Value;
+            ucSubList1.LoadInfo(_groupID, dataSource, columnsInfo);
+            ucSubList1.Title = title;
         }
 
         public void LoadAllStudentsInGroup(int? groupID)
         {
             _groupID = groupID;
 
-            _RefreshAllStudentsInGroupList();
+            _LoadInfo("Students are in the group");
         }
 
         public void LoadAllStudentsInGroup(int? groupID, string groupName)
         {
             _groupID = groupID;
+            _groupName = groupName;
 
-            gbStudentsInGroup.Text = $"Students are in group {groupName}";
-
-            _RefreshAllStudentsInGroupList();
+            _LoadInfo($"Students are in the group {_groupName}");
         }
 
         private void ShowDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            frmShowStudentInfo showStudentInfo = new frmShowStudentInfo(_GetStudentIDFromDGV());
+            frmShowStudentInfo showStudentInfo = new frmShowStudentInfo(ucSubList1.GetIDFromDGV("StudentID"));
             showStudentInfo.ShowDialog();
 
-            _RefreshAllStudentsInGroupList();
+            LoadAllStudentsInGroup(_groupID, _groupName);
         }
 
         private void cmsEditProfile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            cmsEditProfile.Enabled = (dgvStudentsList.Rows.Count > 0);
-        }
-
-        private void dgvStudentsList_DoubleClick(object sender, System.EventArgs e)
-        {
-            frmShowStudentInfo showStudentInfo = new frmShowStudentInfo(_GetStudentIDFromDGV());
-            showStudentInfo.ShowDialog();
-
-            _RefreshAllStudentsInGroupList();
+            cmsEditProfile.Enabled = (ucSubList1.RowsCount > 0);
         }
 
         private void RemoveToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -89,14 +63,15 @@ namespace StudyCenter.Students.UserControls
             if (clsStandardMessages.ShowDeleteConfirmation("student from the group") == DialogResult.No)
                 return;
 
-            if (clsStudentGroup.Delete(_GetStudentIDFromDGV(), _groupID))
+            if (clsStudentGroup.Delete(ucSubList1.GetIDFromDGV("StudentID"), _groupID))
             {
                 clsStandardMessages.ShowDeletionSuccess("student");
 
-                _RefreshAllStudentsInGroupList();
+                LoadAllStudentsInGroup(_groupID, _groupName);
             }
             else
-                clsStandardMessages.ShowDeletionFailure("student", "Please check your permissions and try again.");
+                clsStandardMessages.ShowDeletionFailure("student",
+                    "Please check your permissions and try again.");
         }
     }
 }

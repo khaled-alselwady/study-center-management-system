@@ -98,6 +98,12 @@
     <Compile Include="GeneralUserControls\ucFilter.Designer.cs">
       <DependentUpon>ucFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="GeneralUserControls\ucSubList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GeneralUserControls\ucSubList.Designer.cs">
+      <DependentUpon>ucSubList.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalClasses\clsErrorLogger.cs" />
     <Compile Include="GlobalClasses\clsFormat.cs" />
     <Compile Include="GlobalClasses\clsGlobal.cs" />
@@ -372,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralUserControls\ucFilter.resx">
       <DependentUpon>ucFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneralUserControls\ucSubList.resx">
+      <DependentUpon>ucSubList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Groups\frmAddEditGroup.resx">
       <DependentUpon>frmAddEditGroup.cs</DependentUpon>

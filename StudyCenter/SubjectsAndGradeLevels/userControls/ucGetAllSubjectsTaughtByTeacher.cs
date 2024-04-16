@@ -11,98 +11,61 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
 
         public int? SubjectGradeLevelID => _GetSubjectGradeLevelIDFromDGV();
 
-        public byte NumberOfSubjectsTaughtByTeacher => (byte)dgvSubjectsTaughtByTeacherList.Rows.Count;
+        public byte NumberOfSubjectsTaughtByTeacher => (byte)ucSubList1.RowsCount;
 
         public ucGetAllSubjectsTaughtByTeacher()
         {
             InitializeComponent();
         }
 
-        private void _RefreshAllSubjectsTaughtByTeacherList()
-        {
-            dgvSubjectsTaughtByTeacherList.DataSource =
-                clsSubjectTeacher.AllSubjectsTaughtByTeacher(_teacherID);
-
-            lblNumberOfRecords.Text = dgvSubjectsTaughtByTeacherList.Rows.Count.ToString();
-
-            _UpdateNamingOfColumnsInDGV();
-        }
-
-        private void _RefreshActiveSubjectsTaughtByTeacherList()
-        {
-            dgvSubjectsTaughtByTeacherList.DataSource =
-                clsSubjectTeacher.AllActiveSubjectsTaughtByTeacher(_teacherID);
-
-            lblNumberOfRecords.Text = dgvSubjectsTaughtByTeacherList.Rows.Count.ToString();
-
-            _UpdateNamingOfColumnsInDGV();
-        }
-
-        private void _UpdateNamingOfColumnsInDGV()
-        {
-            if (dgvSubjectsTaughtByTeacherList.Rows.Count > 0)
-            {
-                dgvSubjectsTaughtByTeacherList.Columns[0].HeaderText = "Subject Teacher ID";
-                dgvSubjectsTaughtByTeacherList.Columns[0].Width = 180;
-
-                dgvSubjectsTaughtByTeacherList.Columns[1].HeaderText = "Teacher ID";
-                dgvSubjectsTaughtByTeacherList.Columns[1].Width = 120;
-
-                dgvSubjectsTaughtByTeacherList.Columns[2].HeaderText = "Subject Grade-Level ID";
-                dgvSubjectsTaughtByTeacherList.Columns[2].Width = 200;
-
-                dgvSubjectsTaughtByTeacherList.Columns[3].HeaderText = "Subject Name";
-                dgvSubjectsTaughtByTeacherList.Columns[3].Width = 200;
-
-                dgvSubjectsTaughtByTeacherList.Columns[4].HeaderText = "Grade Name";
-                dgvSubjectsTaughtByTeacherList.Columns[4].Width = 120;
-
-                dgvSubjectsTaughtByTeacherList.Columns[5].HeaderText = "Assignment Date";
-                dgvSubjectsTaughtByTeacherList.Columns[5].Width = 160;
-
-                dgvSubjectsTaughtByTeacherList.Columns[6].HeaderText = "Is Active";
-                dgvSubjectsTaughtByTeacherList.Columns[6].Width = 110;
-            }
-        }
-
         private int? _GetSubjectTeacherIDFromDGV()
         {
-            return (int?)dgvSubjectsTaughtByTeacherList.CurrentRow.Cells["SubjectTeacherID"].Value;
+            return ucSubList1.GetIDFromDGV("SubjectTeacherID");
         }
 
         private int? _GetSubjectGradeLevelIDFromDGV()
         {
-            return (int?)dgvSubjectsTaughtByTeacherList.CurrentRow.Cells["SubjectGradeLevelID"].Value;
+            return ucSubList1.GetIDFromDGV("SubjectGradeLevelID");
         }
 
-        public void Clear()
-        {
-            dgvSubjectsTaughtByTeacherList.DataSource = null;
-            gbSubjectsTaughtByATeacher.Text = $"Subjects that taught by a teacher";
-        }
-
-        public void LoadAllSubjectsInfoTaughtByTeacher(int? teacherID)
+        private void _LoadSubjectTeacherInfo(int? teacherID, object dataSource)
         {
             _teacherID = teacherID;
 
-            _RefreshAllSubjectsTaughtByTeacherList();
+            var columnsInfo = new[] { ("Subject Teacher ID", 180),
+                                     ("Teacher ID", 120),
+                                     ("Subject Grade-Level ID", 200),
+                                     ("Subject Name", 200),
+                                     ("Grade Name", 130),
+                                     ("Assignment Date", 160),
+                                     ("Is Active", 110)
+            };
+
+            ucSubList1.LoadInfo(_teacherID, dataSource, columnsInfo);
 
             clsTeacher teacherInfo = clsTeacher.FindByTeacherID(teacherID);
 
             if (teacherInfo != null)
             {
                 string prefix = teacherInfo.PersonInfo.Gender == clsPerson.enGender.Male ? "Mr." : "Ms.";
-                gbSubjectsTaughtByATeacher.Text = $"Subjects taught by {prefix} {teacherInfo.PersonInfo.FullName}";
+                ucSubList1.Title = $"Subjects taught by {prefix} {teacherInfo.PersonInfo.FullName}";
             }
+        }
+
+        public void Clear()
+        {
+            ucSubList1.Clear();
+            ucSubList1.Title = $"Subjects that taught by a teacher";
+        }
+
+        public void LoadAllSubjectsInfoTaughtByTeacher(int? teacherID)
+        {
+            _LoadSubjectTeacherInfo(teacherID, clsSubjectTeacher.AllSubjectsTaughtByTeacher(teacherID));
         }
 
         public void LoadActiveSubjectsInfoTaughtByTeacher(int? teacherID)
         {
-            _teacherID = teacherID;
-
-            _RefreshActiveSubjectsTaughtByTeacherList();
-
-            gbSubjectsTaughtByATeacher.Text = $"Subjects taught by MR. {clsTeacher.GetFullName(_teacherID)}";
+            _LoadSubjectTeacherInfo(teacherID, clsSubjectTeacher.AllActiveSubjectsTaughtByTeacher(teacherID));
         }
 
         private void ShowDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -110,20 +73,12 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
             frmShowSubjectTeacherInfo showSubjectTeacherInfo = new frmShowSubjectTeacherInfo(_GetSubjectTeacherIDFromDGV());
             showSubjectTeacherInfo.ShowDialog();
 
-            _RefreshAllSubjectsTaughtByTeacherList();
+            LoadAllSubjectsInfoTaughtByTeacher(_teacherID);
         }
 
         private void cmsEditProfile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            cmsEditProfile.Enabled = (dgvSubjectsTaughtByTeacherList.Rows.Count > 0);
-        }
-
-        private void dgvSubjectsTaughtByTeacherList_DoubleClick(object sender, System.EventArgs e)
-        {
-            frmShowSubjectTeacherInfo showSubjectTeacherInfo = new frmShowSubjectTeacherInfo(_GetSubjectTeacherIDFromDGV());
-            showSubjectTeacherInfo.ShowDialog();
-
-            _RefreshAllSubjectsTaughtByTeacherList();
+            cmsEditProfile.Enabled = (ucSubList1.RowsCount > 0);
         }
     }
 }

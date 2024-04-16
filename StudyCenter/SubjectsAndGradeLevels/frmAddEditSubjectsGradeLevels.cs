@@ -154,7 +154,7 @@ namespace StudyCenter.SubjectsAndGradeLevels
             // update list to include then new subject
             _FillComboBoxWithSubjectsName();
 
-            cbSubjectNames.SelectedIndex = cbSubjectNames.FindString(clsSubject.GetSubjectName(subjectID));
+            cbSubjectNames.SelectedIndex = cbSubjectNames.FindString(clsSubject.GetSubjectNameBySubjectID(subjectID));
         }
 
         private void frmAddEditSubjectsGradeLevels_Load(object sender, EventArgs e)

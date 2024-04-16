@@ -130,7 +130,7 @@ namespace StudyCenter_DataAccess
         public static DataTable AllOnlyNames()
             => clsDataAccessHelper.All("SP_GetAllSubjectsName");
 
-        public static string GetSubjectName(int? subjectID)
+        public static string GetSubjectNameBySubjectID(int? subjectID)
         {
             string subjectName = null;
 
@@ -140,11 +140,47 @@ namespace StudyCenter_DataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_GetSubjectName", connection))
+                    using (SqlCommand command = new SqlCommand("SP_GetSubjectNameBySubjectID", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
                         command.Parameters.AddWithValue("@SubjectID", subjectID);
+
+                        SqlParameter outputIdParam = new SqlParameter("@SubjectName", SqlDbType.NVarChar, 100)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(outputIdParam);
+
+                        command.ExecuteNonQuery();
+
+                        subjectName = outputIdParam.Value.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessHelper.HandleException(ex);
+            }
+
+            return subjectName;
+        }
+
+        public static string GetSubjectNameBySubjectGradeLevelID(int? subjectGradeLevelID)
+        {
+            string subjectName = null;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetSubjectNameBySubjectGradeLevelID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", subjectGradeLevelID);
 
                         SqlParameter outputIdParam = new SqlParameter("@SubjectName", SqlDbType.NVarChar, 100)
                         {

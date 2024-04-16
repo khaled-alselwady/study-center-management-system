@@ -13,66 +13,36 @@ namespace StudyCenter.Teachers.UserControls
             InitializeComponent();
         }
 
-        private void _RefreshAllTeachersTeachSubjectList()
-        {
-            dgvTeachersList.DataSource =
-                clsSubjectGradeLevel.AllTeachersTeachSubject(_subjectGradeLevelID);
-
-            lblNumberOfRecords.Text = dgvTeachersList.Rows.Count.ToString();
-
-            if (dgvTeachersList.Rows.Count > 0)
-            {
-                dgvTeachersList.Columns[0].HeaderText = "Teacher ID";
-                dgvTeachersList.Columns[0].Width = 110;
-
-                dgvTeachersList.Columns[1].HeaderText = "Full Name";
-                dgvTeachersList.Columns[1].Width = 300;
-
-                dgvTeachersList.Columns[2].HeaderText = "Gender";
-                dgvTeachersList.Columns[2].Width = 120;
-
-                dgvTeachersList.Columns[3].HeaderText = "Date Of Birth";
-                dgvTeachersList.Columns[3].Width = 120;
-
-                dgvTeachersList.Columns[4].HeaderText = "Education Level";
-                dgvTeachersList.Columns[4].Width = 160;
-
-                dgvTeachersList.Columns[5].HeaderText = "Age";
-                dgvTeachersList.Columns[5].Width = 60;
-            }
-        }
-
-        private int? _GetTeacherIDFromDGV()
-        {
-            return (int?)dgvTeachersList.CurrentRow.Cells["TeacherID"].Value;
-        }
-
         public void LoadAllTeachersTeachSubject(int? subjectGradeLevelID)
         {
             _subjectGradeLevelID = subjectGradeLevelID;
 
-            _RefreshAllTeachersTeachSubjectList();
+            object dataSource = clsSubjectGradeLevel.AllTeachersTeachSubject(_subjectGradeLevelID);
+
+            var columnsInfo = new[] { ("Teacher ID", 110),
+                                     ("Full Name", 300),
+                                     ("Gender", 120),
+                                     ("Date Of Birth", 120),
+                                     ("Education Level", 160),
+                                     ("Age", 60)
+                                    };
+
+            ucSubList1.LoadInfo(_subjectGradeLevelID, dataSource, columnsInfo);
+
+            ucSubList1.Title = $"Teachers are teaching {clsSubject.GetSubjectNameBySubjectGradeLevelID(_subjectGradeLevelID)}";
         }
 
         private void ShowDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            frmShowTeacherInfo showTeacherInfo = new frmShowTeacherInfo(_GetTeacherIDFromDGV());
+            frmShowTeacherInfo showTeacherInfo = new frmShowTeacherInfo(ucSubList1.GetIDFromDGV("TeacherID"));
             showTeacherInfo.ShowDialog();
 
-            _RefreshAllTeachersTeachSubjectList();
+            LoadAllTeachersTeachSubject(_subjectGradeLevelID);
         }
 
         private void cmsEditProfile_Opening(object sender, CancelEventArgs e)
         {
-            cmsEditProfile.Enabled = (dgvTeachersList.Rows.Count > 0);
-        }
-
-        private void dgvTeachersList_DoubleClick(object sender, System.EventArgs e)
-        {
-            frmShowTeacherInfo showTeacherInfo = new frmShowTeacherInfo(_GetTeacherIDFromDGV());
-            showTeacherInfo.ShowDialog();
-
-            _RefreshAllTeachersTeachSubjectList();
+            cmsEditProfile.Enabled = (ucSubList1.RowsCount > 0);
         }
     }
 }

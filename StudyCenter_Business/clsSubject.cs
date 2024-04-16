@@ -70,19 +70,29 @@ namespace StudyCenter_Business
             return (isFound) ? (new clsSubject(subjectID, subjectName)) : null;
         }
 
-        public static bool Delete(int? subjectID) => clsSubjectData.Delete(subjectID);
+        public static bool Delete(int? subjectID)
+            => clsSubjectData.Delete(subjectID);
 
-        public static bool Exists(int? subjectID) => clsSubjectData.Exists(subjectID);
+        public static bool Exists(int? subjectID)
+            => clsSubjectData.Exists(subjectID);
 
-        public static bool Exists(string subjectName) => clsSubjectData.Exists(subjectName);
+        public static bool Exists(string subjectName)
+            => clsSubjectData.Exists(subjectName);
 
-        public static DataTable All() => clsSubjectData.All();
+        public static DataTable All()
+            => clsSubjectData.All();
 
-        public static DataTable AllOnlyNames() => clsSubjectData.AllOnlyNames();
+        public static DataTable AllOnlyNames()
+            => clsSubjectData.AllOnlyNames();
 
-        public static string GetSubjectName(int? subjectID) => clsSubjectData.GetSubjectName(subjectID);
+        public static string GetSubjectNameBySubjectID(int? subjectID)
+            => clsSubjectData.GetSubjectNameBySubjectID(subjectID);
 
-        public static byte? GetSubjectID(string subjectName) => clsSubjectData.GetSubjectID(subjectName);
+        public static string GetSubjectNameBySubjectGradeLevelID(int? subjectGradeLevelID)
+            => clsSubjectData.GetSubjectNameBySubjectGradeLevelID(subjectGradeLevelID);
+
+        public static byte? GetSubjectID(string subjectName)
+            => clsSubjectData.GetSubjectID(subjectName);
     }
 
 }
