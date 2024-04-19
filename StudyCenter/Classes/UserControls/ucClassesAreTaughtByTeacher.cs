@@ -65,10 +65,10 @@ namespace StudyCenter.Classes.UserControls
 
         private void ShowGroupsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            //frmGroupsAreTaughtByTeacher groupsAreTaughtByTeacher = new frmGroupsAreTaughtByTeacher(_teacherID);
-            //groupsAreTaughtByTeacher.ShowDialog();
+            frmShowAllActiveGroupsInClass allActiveGroupsInClass = new frmShowAllActiveGroupsInClass((int?)ucSubList1.GetIDFromDGV("ClassID"));
+            allActiveGroupsInClass.ShowDialog();
 
-            //LoadAllGroupsAreTaughtByTeacher(_teacherID);
+            LoadAllGroupsAreTaughtByTeacher(_teacherID);
         }
     }
 }
