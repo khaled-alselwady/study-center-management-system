@@ -1,5 +1,5 @@
-﻿using StudyCenter.GlobalClasses;
-using StudyCenter.Groups;
+﻿using StudyCenter.Classes;
+using StudyCenter.GlobalClasses;
 using StudyCenter.SubjectsAndGradeLevels;
 using StudyCenter_Business;
 using System;
@@ -300,8 +300,8 @@ namespace StudyCenter.Teachers
 
         private void GroupsHeTeachesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGroupsAreTaughtByTeacher groupsAreTaughtByTeacher = new frmGroupsAreTaughtByTeacher(_GetTeacherIDFromDGV());
-            groupsAreTaughtByTeacher.ShowDialog();
+            frmClassesAreTaughtByTeacher classesAreTaughtByTeacher = new frmClassesAreTaughtByTeacher(_GetTeacherIDFromDGV());
+            classesAreTaughtByTeacher.ShowDialog();
 
             _RefreshTeachersList();
         }

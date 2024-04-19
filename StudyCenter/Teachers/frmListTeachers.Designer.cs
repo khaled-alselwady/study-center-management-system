@@ -44,6 +44,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmAssignToSubject = new System.Windows.Forms.ToolStripMenuItem();
             this.SubjectsHeTeachesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClassesHeTeachesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbGender = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -53,7 +54,6 @@
             this.cbEducationLevels = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnAddStudent = new Guna.UI2.WinForms.Guna2Button();
             this.pbImage = new System.Windows.Forms.PictureBox();
-            this.GroupsHeTeachesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachersList)).BeginInit();
             this.cmsEditProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -162,7 +162,7 @@
             this.toolStripMenuItem1,
             this.tsmAssignToSubject,
             this.SubjectsHeTeachesToolStripMenuItem,
-            this.GroupsHeTeachesToolStripMenuItem});
+            this.ClassesHeTeachesToolStripMenuItem});
             this.cmsEditProfile.Name = "contextMenuStrip1";
             this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.cmsEditProfile.Size = new System.Drawing.Size(243, 266);
@@ -227,6 +227,16 @@
             this.SubjectsHeTeachesToolStripMenuItem.Size = new System.Drawing.Size(242, 38);
             this.SubjectsHeTeachesToolStripMenuItem.Text = "Subjects he Teaches";
             this.SubjectsHeTeachesToolStripMenuItem.Click += new System.EventHandler(this.SubjectsHeTeachesToolStripMenuItem_Click);
+            // 
+            // ClassesHeTeachesToolStripMenuItem
+            // 
+            this.ClassesHeTeachesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ClassesHeTeachesToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.ClassesHeTeachesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ClassesHeTeachesToolStripMenuItem.Name = "ClassesHeTeachesToolStripMenuItem";
+            this.ClassesHeTeachesToolStripMenuItem.Size = new System.Drawing.Size(242, 38);
+            this.ClassesHeTeachesToolStripMenuItem.Text = "Classes he Teaches";
+            this.ClassesHeTeachesToolStripMenuItem.Click += new System.EventHandler(this.GroupsHeTeachesToolStripMenuItem_Click);
             // 
             // txtSearch
             // 
@@ -389,16 +399,6 @@
             this.pbImage.TabIndex = 216;
             this.pbImage.TabStop = false;
             // 
-            // GroupsHeTeachesToolStripMenuItem
-            // 
-            this.GroupsHeTeachesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.GroupsHeTeachesToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
-            this.GroupsHeTeachesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.GroupsHeTeachesToolStripMenuItem.Name = "GroupsHeTeachesToolStripMenuItem";
-            this.GroupsHeTeachesToolStripMenuItem.Size = new System.Drawing.Size(242, 38);
-            this.GroupsHeTeachesToolStripMenuItem.Text = "Groups he Teaches";
-            this.GroupsHeTeachesToolStripMenuItem.Click += new System.EventHandler(this.GroupsHeTeachesToolStripMenuItem_Click);
-            // 
             // frmListTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,6 +454,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tsmAssignToSubject;
         private System.Windows.Forms.ToolStripMenuItem SubjectsHeTeachesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem GroupsHeTeachesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClassesHeTeachesToolStripMenuItem;
     }
 }
