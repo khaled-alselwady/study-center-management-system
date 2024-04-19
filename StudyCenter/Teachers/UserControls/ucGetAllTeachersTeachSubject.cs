@@ -34,7 +34,7 @@ namespace StudyCenter.Teachers.UserControls
 
         private void ShowDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            frmShowTeacherInfo showTeacherInfo = new frmShowTeacherInfo(ucSubList1.GetIDFromDGV("TeacherID"));
+            frmShowTeacherInfo showTeacherInfo = new frmShowTeacherInfo((int?)ucSubList1.GetIDFromDGV("TeacherID"));
             showTeacherInfo.ShowDialog();
 
             LoadAllTeachersTeachSubject(_subjectGradeLevelID);

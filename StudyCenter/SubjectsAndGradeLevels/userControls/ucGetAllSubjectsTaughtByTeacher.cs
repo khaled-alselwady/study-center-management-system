@@ -20,12 +20,12 @@ namespace StudyCenter.SubjectsAndGradeLevels.userControls
 
         private int? _GetSubjectTeacherIDFromDGV()
         {
-            return ucSubList1.GetIDFromDGV("SubjectTeacherID");
+            return (int?)ucSubList1.GetIDFromDGV("SubjectTeacherID");
         }
 
         private int? _GetSubjectGradeLevelIDFromDGV()
         {
-            return ucSubList1.GetIDFromDGV("SubjectGradeLevelID");
+            return (int?)ucSubList1.GetIDFromDGV("SubjectGradeLevelID");
         }
 
         private void _LoadSubjectTeacherInfo(int? teacherID, object dataSource)

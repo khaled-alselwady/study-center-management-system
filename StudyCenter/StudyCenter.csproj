@@ -104,6 +104,12 @@
     <Compile Include="Classes\UserControls\ucClassesAreTaughtByTeacher.Designer.cs">
       <DependentUpon>ucClassesAreTaughtByTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\UserControls\ucGetAllActiveGroupsInClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\UserControls\ucGetAllActiveGroupsInClass.Designer.cs">
+      <DependentUpon>ucGetAllActiveGroupsInClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="GeneralUserControls\ucFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -393,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\UserControls\ucClassesAreTaughtByTeacher.resx">
       <DependentUpon>ucClassesAreTaughtByTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\UserControls\ucGetAllActiveGroupsInClass.resx">
+      <DependentUpon>ucGetAllActiveGroupsInClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralUserControls\ucFilter.resx">
       <DependentUpon>ucFilter.cs</DependentUpon>

@@ -36,9 +36,9 @@ namespace StudyCenter.GeneralUserControls
             }
         }
 
-        public int? GetIDFromDGV(string entityName)
+        public object GetIDFromDGV(string entityName)
         {
-            return (int?)dgvList.CurrentRow.Cells[entityName].Value;
+            return dgvList.CurrentRow.Cells[entityName].Value;
         }
 
         public void LoadInfo(int? value, object dataSource)

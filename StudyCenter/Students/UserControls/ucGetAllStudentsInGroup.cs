@@ -47,7 +47,7 @@ namespace StudyCenter.Students.UserControls
 
         private void ShowDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            frmShowStudentInfo showStudentInfo = new frmShowStudentInfo(ucSubList1.GetIDFromDGV("StudentID"));
+            frmShowStudentInfo showStudentInfo = new frmShowStudentInfo((int?)ucSubList1.GetIDFromDGV("StudentID"));
             showStudentInfo.ShowDialog();
 
             LoadAllStudentsInGroup(_groupID, _groupName);
@@ -63,7 +63,7 @@ namespace StudyCenter.Students.UserControls
             if (clsStandardMessages.ShowDeleteConfirmation("student from the group") == DialogResult.No)
                 return;
 
-            if (clsStudentGroup.Delete(ucSubList1.GetIDFromDGV("StudentID"), _groupID))
+            if (clsStudentGroup.Delete((int?)ucSubList1.GetIDFromDGV("StudentID"), _groupID))
             {
                 clsStandardMessages.ShowDeletionSuccess("student");
 

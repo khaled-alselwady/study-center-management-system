@@ -33,6 +33,7 @@
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ShowTeacherDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowClassDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsEditProfile.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,10 +55,11 @@
             this.cmsEditProfile.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsEditProfile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ShowTeacherDetailsToolStripMenuItem,
-            this.ShowClassDetailsToolStripMenuItem});
+            this.ShowClassDetailsToolStripMenuItem,
+            this.ShowGroupsToolStripMenuItem});
             this.cmsEditProfile.Name = "contextMenuStrip1";
             this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsEditProfile.Size = new System.Drawing.Size(243, 102);
+            this.cmsEditProfile.Size = new System.Drawing.Size(243, 140);
             this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
             // 
             // ShowTeacherDetailsToolStripMenuItem
@@ -80,6 +82,16 @@
             this.ShowClassDetailsToolStripMenuItem.Text = "Show Class Details";
             this.ShowClassDetailsToolStripMenuItem.Click += new System.EventHandler(this.ShowClassDetailsToolStripMenuItem_Click);
             // 
+            // ShowGroupsToolStripMenuItem
+            // 
+            this.ShowGroupsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ShowGroupsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.ShowGroupsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ShowGroupsToolStripMenuItem.Name = "ShowGroupsToolStripMenuItem";
+            this.ShowGroupsToolStripMenuItem.Size = new System.Drawing.Size(242, 38);
+            this.ShowGroupsToolStripMenuItem.Text = "Show Groups";
+            this.ShowGroupsToolStripMenuItem.Click += new System.EventHandler(this.ShowGroupsToolStripMenuItem_Click);
+            // 
             // ucClassesAreTaughtByTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,5 +112,6 @@
         private System.Windows.Forms.ContextMenuStrip cmsEditProfile;
         private System.Windows.Forms.ToolStripMenuItem ShowTeacherDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ShowClassDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ShowGroupsToolStripMenuItem;
     }
 }

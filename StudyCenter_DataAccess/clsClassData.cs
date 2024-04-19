@@ -144,5 +144,8 @@ namespace StudyCenter_DataAccess
 
         public static DataTable AllClassesAreTaughtByTeacher(int? teacherID)
             => clsDataAccessHelper.All("SP_ClassesAreTaughtByTeacher", "TeacherID", teacherID);
+
+        public static DataTable AllActiveGroupsInClass(int? classID)
+            => clsDataAccessHelper.All("SP_GetAllActiveGroupsInClass", "ClassID", classID);
     }
 }

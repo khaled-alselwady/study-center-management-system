@@ -49,7 +49,7 @@ namespace StudyCenter.Classes.UserControls
 
         private void ShowTeacherDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            frmShowTeacherInfo teacherInfo = new frmShowTeacherInfo(ucSubList1.GetIDFromDGV("TeacherID"));
+            frmShowTeacherInfo teacherInfo = new frmShowTeacherInfo((int?)ucSubList1.GetIDFromDGV("TeacherID"));
             teacherInfo.ShowDialog();
 
             LoadAllGroupsAreTaughtByTeacher(_teacherID);
@@ -57,10 +57,18 @@ namespace StudyCenter.Classes.UserControls
 
         private void ShowClassDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            frmShowClassInfo classInfo = new frmShowClassInfo(ucSubList1.GetIDFromDGV("ClassID"));
+            frmShowClassInfo classInfo = new frmShowClassInfo((int?)ucSubList1.GetIDFromDGV("ClassID"));
             classInfo.ShowDialog();
 
             LoadAllGroupsAreTaughtByTeacher(_teacherID);
+        }
+
+        private void ShowGroupsToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            //frmGroupsAreTaughtByTeacher groupsAreTaughtByTeacher = new frmGroupsAreTaughtByTeacher(_teacherID);
+            //groupsAreTaughtByTeacher.ShowDialog();
+
+            //LoadAllGroupsAreTaughtByTeacher(_teacherID);
         }
     }
 }
