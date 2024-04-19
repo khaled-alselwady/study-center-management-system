@@ -33,8 +33,8 @@ namespace StudyCenter.Classes.UserControls
             var columnsInfo = new[] { ("Class ID", 110),
                                      ("Teacher ID", 120),
                                      ("Teacher Name", 300),
-                                     ("Subject Name", 150),
-                                     ("Grade Name", 120)
+                                     ("Subject Name", 165),
+                                     ("Grade Name", 137)
                                     };
 
             ucSubList1.LoadInfo(_teacherID, dataSource, columnsInfo);

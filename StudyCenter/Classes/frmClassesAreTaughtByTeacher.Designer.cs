@@ -1,6 +1,6 @@
-﻿namespace StudyCenter.Groups
+﻿namespace StudyCenter.Classes
 {
-    partial class frmGroupsAreTaughtByTeacher
+    partial class frmClassesAreTaughtByTeacher
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.ucGroupsAreTaughtByTeacher1 = new StudyCenter.Groups.UserControls.ucGroupsAreTaughtByTeacher();
+            this.ucClassesAreTaughtByTeacher1 = new StudyCenter.Classes.UserControls.ucClassesAreTaughtByTeacher();
             this.SuspendLayout();
             // 
             // btnClose
@@ -53,7 +53,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnClose.Size = new System.Drawing.Size(155, 45);
-            this.btnClose.TabIndex = 222;
+            this.btnClose.TabIndex = 225;
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -65,41 +65,40 @@
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(883, 66);
-            this.lblTitle.TabIndex = 220;
-            this.lblTitle.Text = "Groups are taught by a teacher";
+            this.lblTitle.TabIndex = 224;
+            this.lblTitle.Text = "Classes are taught by a teacher";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ucGroupsAreTaughtByTeacher1
+            // ucClassesAreTaughtByTeacher1
             // 
-            this.ucGroupsAreTaughtByTeacher1.BackColor = System.Drawing.Color.White;
-            this.ucGroupsAreTaughtByTeacher1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucGroupsAreTaughtByTeacher1.Location = new System.Drawing.Point(8, 108);
-            this.ucGroupsAreTaughtByTeacher1.Name = "ucGroupsAreTaughtByTeacher1";
-            this.ucGroupsAreTaughtByTeacher1.Size = new System.Drawing.Size(865, 283);
-            this.ucGroupsAreTaughtByTeacher1.TabIndex = 223;
+            this.ucClassesAreTaughtByTeacher1.BackColor = System.Drawing.Color.White;
+            this.ucClassesAreTaughtByTeacher1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucClassesAreTaughtByTeacher1.Location = new System.Drawing.Point(8, 108);
+            this.ucClassesAreTaughtByTeacher1.Name = "ucClassesAreTaughtByTeacher1";
+            this.ucClassesAreTaughtByTeacher1.Size = new System.Drawing.Size(865, 283);
+            this.ucClassesAreTaughtByTeacher1.TabIndex = 226;
             // 
-            // frmGroupsAreTaughtByTeacher
+            // frmClassesAreTaughtByTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(884, 454);
-            this.Controls.Add(this.ucGroupsAreTaughtByTeacher1);
+            this.Controls.Add(this.ucClassesAreTaughtByTeacher1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmGroupsAreTaughtByTeacher";
+            this.Name = "frmClassesAreTaughtByTeacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Groups Are Taught By a Teacher";
+            this.Text = "Classes Are Taught By a Teacher";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
         private Guna.UI2.WinForms.Guna2GradientButton btnClose;
         private System.Windows.Forms.Label lblTitle;
-        private UserControls.ucGroupsAreTaughtByTeacher ucGroupsAreTaughtByTeacher1;
+        private UserControls.ucClassesAreTaughtByTeacher ucClassesAreTaughtByTeacher1;
     }
 }
