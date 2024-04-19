@@ -1,15 +1,14 @@
-﻿using StudyCenter.Classes;
-using StudyCenter.Teachers;
+﻿using StudyCenter.Teachers;
 using StudyCenter_Business;
 using System.Windows.Forms;
 
-namespace StudyCenter.Groups.UserControls
+namespace StudyCenter.Classes.UserControls
 {
-    public partial class ucGroupsAreTaughtByTeacher : UserControl
+    public partial class ucClassesAreTaughtByTeacher : UserControl
     {
         private int? _teacherID = null;
 
-        public ucGroupsAreTaughtByTeacher()
+        public ucClassesAreTaughtByTeacher()
         {
             InitializeComponent();
         }
@@ -29,13 +28,11 @@ namespace StudyCenter.Groups.UserControls
         {
             _teacherID = teacherID;
 
-            object dataSource = clsGroup.AllGroupsAreTaughtByTeacher(_teacherID);
+            object dataSource = clsClass.AllClassesAreTaughtByTeacher(_teacherID);
 
-            var columnsInfo = new[] { ("Teacher ID", 110),
-                                     ("Full Name", 300),
-                                     ("Class ID", 120),
-                                     ("Group ID", 120),
-                                     ("Group Name", 160),
+            var columnsInfo = new[] { ("Class ID", 110),
+                                     ("Teacher ID", 120),
+                                     ("Teacher Name", 300),
                                      ("Subject Name", 150),
                                      ("Grade Name", 120)
                                     };
@@ -62,14 +59,6 @@ namespace StudyCenter.Groups.UserControls
         {
             frmShowClassInfo classInfo = new frmShowClassInfo(ucSubList1.GetIDFromDGV("ClassID"));
             classInfo.ShowDialog();
-
-            LoadAllGroupsAreTaughtByTeacher(_teacherID);
-        }
-
-        private void ShowGroupDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
-            frmShowGroupInfo groupInfo = new frmShowGroupInfo(ucSubList1.GetIDFromDGV("GroupID"));
-            groupInfo.ShowDialog();
 
             LoadAllGroupsAreTaughtByTeacher(_teacherID);
         }

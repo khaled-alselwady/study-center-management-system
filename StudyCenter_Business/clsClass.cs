@@ -98,6 +98,9 @@ namespace StudyCenter_Business
 
         public static DataTable AllTeachersTeachInClass(int? classID)
             => clsClassData.AllTeachersTeachInClass(classID);
+
+        public static DataTable AllClassesAreTaughtByTeacher(int? teacherID)
+            => clsClassData.AllClassesAreTaughtByTeacher(teacherID);
     }
 
 }

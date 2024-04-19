@@ -92,6 +92,12 @@
     <Compile Include="Classes\UserControls\ucClassCardWithFilter.Designer.cs">
       <DependentUpon>ucClassCardWithFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\UserControls\ucClassesAreTaughtByTeacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\UserControls\ucClassesAreTaughtByTeacher.Designer.cs">
+      <DependentUpon>ucClassesAreTaughtByTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="GeneralUserControls\ucFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -375,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\UserControls\ucClassCardWithFilter.resx">
       <DependentUpon>ucClassCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\UserControls\ucClassesAreTaughtByTeacher.resx">
+      <DependentUpon>ucClassesAreTaughtByTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralUserControls\ucFilter.resx">
       <DependentUpon>ucFilter.cs</DependentUpon>
