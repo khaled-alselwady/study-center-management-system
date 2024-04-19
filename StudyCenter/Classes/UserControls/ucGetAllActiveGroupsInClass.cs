@@ -32,16 +32,16 @@ namespace StudyCenter.Classes.UserControls
             object dataSource = clsClass.AllActiveGroupsInClass(_classID);
 
             var columnsInfo = new[] { ("Group ID", 110),
-                                     ("Group Name", 300),
-                                     ("Class Name", 300),
-                                     ("Teacher Name", 300),
-                                     ("Subject Name", 300),
-                                     ("Grade Name", 300),
-                                     ("Start Time", 120),
-                                     ("End Time", 120),
-                                     ("Meeting Days", 120),
-                                     ("Students Count", 130),
-                                     ("Is Active", 60)
+                                     ("Group Name", 160),
+                                     ("Class Name", 160),
+                                     ("Teacher Name", 200),
+                                     ("Subject Name", 200),
+                                     ("Grade Name", 200),
+                                     ("Start Time", 150),
+                                     ("End Time", 150),
+                                     ("Meeting Days", 150),
+                                     ("Students Count", 150),
+                                     ("Is Active", 100)
                                     };
 
             ucSubList1.LoadInfo(_classID, dataSource, columnsInfo);
