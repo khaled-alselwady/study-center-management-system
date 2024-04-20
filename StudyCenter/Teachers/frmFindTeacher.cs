@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace StudyCenter.Teachers
+namespace StudyCenterUI.Teachers
 {
     public partial class frmFindTeacher : Form
     {

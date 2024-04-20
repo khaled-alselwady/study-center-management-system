@@ -1,8 +1,8 @@
-﻿using StudyCenter.MainMenu;
+﻿using StudyCenterUI.MainMenu;
 using System;
 using System.Windows.Forms;
 
-namespace StudyCenter
+namespace StudyCenterUI
 {
     internal static class Program
     {

@@ -1,15 +1,15 @@
 ﻿using Guna.UI2.WinForms;
-using StudyCenter.Classes;
-using StudyCenter.Groups;
-using StudyCenter.Students;
-using StudyCenter.SubjectsAndGradeLevels;
-using StudyCenter.Teachers;
+using StudyCenterUI.Classes;
+using StudyCenterUI.Groups;
+using StudyCenterUI.Students;
+using StudyCenterUI.SubjectsAndGradeLevels;
+using StudyCenterUI.Teachers;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StudyCenter.MainMenu
+namespace StudyCenterUI.MainMenu
 {
     public partial class frmMainMenu : Form
     {

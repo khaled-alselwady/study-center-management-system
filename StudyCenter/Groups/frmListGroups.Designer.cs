@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Groups
+﻿namespace StudyCenterUI.Groups
 {
     partial class frmListGroups
     {
@@ -171,7 +171,7 @@
             // tsmShowGroupDetails
             // 
             this.tsmShowGroupDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowGroupDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.tsmShowGroupDetails.Image = global::StudyCenterUI.Properties.Resources.show_reservation_32;
             this.tsmShowGroupDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmShowGroupDetails.Name = "tsmShowGroupDetails";
             this.tsmShowGroupDetails.Size = new System.Drawing.Size(232, 38);
@@ -186,7 +186,7 @@
             // tsmEditGroup
             // 
             this.tsmEditGroup.ForeColor = System.Drawing.Color.White;
-            this.tsmEditGroup.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
+            this.tsmEditGroup.Image = global::StudyCenterUI.Properties.Resources.edit_reservation32;
             this.tsmEditGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmEditGroup.Name = "tsmEditGroup";
             this.tsmEditGroup.Size = new System.Drawing.Size(232, 38);
@@ -196,7 +196,7 @@
             // temDeleteGroup
             // 
             this.temDeleteGroup.ForeColor = System.Drawing.Color.White;
-            this.temDeleteGroup.Image = global::StudyCenter.Properties.Resources.delete_reservation_40;
+            this.temDeleteGroup.Image = global::StudyCenterUI.Properties.Resources.delete_reservation_40;
             this.temDeleteGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.temDeleteGroup.Name = "temDeleteGroup";
             this.temDeleteGroup.Size = new System.Drawing.Size(232, 38);
@@ -206,7 +206,7 @@
             // ShowAllStudentsToolStripMenuItem
             // 
             this.ShowAllStudentsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ShowAllStudentsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.subjects_32;
+            this.ShowAllStudentsToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.subjects_32;
             this.ShowAllStudentsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ShowAllStudentsToolStripMenuItem.Name = "ShowAllStudentsToolStripMenuItem";
             this.ShowAllStudentsToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
@@ -216,7 +216,7 @@
             // AddStudentToolStripMenuItem
             // 
             this.AddStudentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.AddStudentToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.AddStudentToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.assign_to_subject_32;
             this.AddStudentToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AddStudentToolStripMenuItem.Name = "AddStudentToolStripMenuItem";
             this.AddStudentToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
@@ -427,7 +427,7 @@
             this.btnAddGroup.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAddGroup.ForeColor = System.Drawing.Color.White;
             this.btnAddGroup.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddGroup.Image = global::StudyCenter.Properties.Resources.add_group;
+            this.btnAddGroup.Image = global::StudyCenterUI.Properties.Resources.add_group;
             this.btnAddGroup.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnAddGroup.ImageSize = new System.Drawing.Size(45, 45);
             this.btnAddGroup.Location = new System.Drawing.Point(1281, 247);
@@ -439,7 +439,7 @@
             // pbImage
             // 
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImage.Image = global::StudyCenter.Properties.Resources.manage_groups;
+            this.pbImage.Image = global::StudyCenterUI.Properties.Resources.manage_groups;
             this.pbImage.InitialImage = null;
             this.pbImage.Location = new System.Drawing.Point(499, 57);
             this.pbImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

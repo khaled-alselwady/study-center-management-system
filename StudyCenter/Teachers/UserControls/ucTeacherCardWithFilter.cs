@@ -1,8 +1,8 @@
-﻿using StudyCenter_Business;
+﻿using StudyCenterBusiness;
 using System;
 using System.Windows.Forms;
 
-namespace StudyCenter.Teachers.UserControls
+namespace StudyCenterUI.Teachers.UserControls
 {
     public partial class ucTeacherCardWithFilter : UserControl
     {

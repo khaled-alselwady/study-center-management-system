@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Students
+﻿namespace StudyCenterUI.Students
 {
     partial class frmListStudents
     {
@@ -139,7 +139,7 @@
             // tsmShowStudentDetails
             // 
             this.tsmShowStudentDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowStudentDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.tsmShowStudentDetails.Image = global::StudyCenterUI.Properties.Resources.show_reservation_32;
             this.tsmShowStudentDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmShowStudentDetails.Name = "tsmShowStudentDetails";
             this.tsmShowStudentDetails.Size = new System.Drawing.Size(243, 38);
@@ -154,7 +154,7 @@
             // tsmEditStudent
             // 
             this.tsmEditStudent.ForeColor = System.Drawing.Color.White;
-            this.tsmEditStudent.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
+            this.tsmEditStudent.Image = global::StudyCenterUI.Properties.Resources.edit_reservation32;
             this.tsmEditStudent.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmEditStudent.Name = "tsmEditStudent";
             this.tsmEditStudent.Size = new System.Drawing.Size(243, 38);
@@ -164,7 +164,7 @@
             // tsmDeleteStudent
             // 
             this.tsmDeleteStudent.ForeColor = System.Drawing.Color.White;
-            this.tsmDeleteStudent.Image = global::StudyCenter.Properties.Resources.delete_reservation_40;
+            this.tsmDeleteStudent.Image = global::StudyCenterUI.Properties.Resources.delete_reservation_40;
             this.tsmDeleteStudent.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmDeleteStudent.Name = "tsmDeleteStudent";
             this.tsmDeleteStudent.Size = new System.Drawing.Size(243, 38);
@@ -179,7 +179,7 @@
             // tsmAssignToGroupToolStripMenuItem
             // 
             this.tsmAssignToGroupToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.tsmAssignToGroupToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.tsmAssignToGroupToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.assign_to_subject_32;
             this.tsmAssignToGroupToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmAssignToGroupToolStripMenuItem.Name = "tsmAssignToGroupToolStripMenuItem";
             this.tsmAssignToGroupToolStripMenuItem.Size = new System.Drawing.Size(243, 38);
@@ -353,7 +353,7 @@
             this.btnAddStudent.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAddStudent.ForeColor = System.Drawing.Color.White;
             this.btnAddStudent.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddStudent.Image = global::StudyCenter.Properties.Resources.add_student;
+            this.btnAddStudent.Image = global::StudyCenterUI.Properties.Resources.add_student;
             this.btnAddStudent.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnAddStudent.ImageSize = new System.Drawing.Size(45, 45);
             this.btnAddStudent.Location = new System.Drawing.Point(1281, 221);
@@ -365,7 +365,7 @@
             // pbImage
             // 
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImage.Image = global::StudyCenter.Properties.Resources.students_list;
+            this.pbImage.Image = global::StudyCenterUI.Properties.Resources.students_list;
             this.pbImage.InitialImage = null;
             this.pbImage.Location = new System.Drawing.Point(499, 31);
             this.pbImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

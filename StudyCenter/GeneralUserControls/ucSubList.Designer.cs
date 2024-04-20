@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.GeneralUserControls
+﻿namespace StudyCenterUI.GeneralUserControls
 {
     partial class ucSubList
     {

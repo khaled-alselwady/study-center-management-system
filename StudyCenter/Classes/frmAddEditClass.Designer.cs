@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Classes
+﻿namespace StudyCenterUI.Classes
 {
     partial class frmAddEditClass
     {
@@ -68,7 +68,7 @@
             this.btnSave.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = global::StudyCenter.Properties.Resources.save;
+            this.btnSave.Image = global::StudyCenterUI.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSave.ImageOffset = new System.Drawing.Point(0, -1);
             this.btnSave.ImageSize = new System.Drawing.Size(30, 30);
@@ -108,7 +108,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::StudyCenter.Properties.Resources.Notes_32;
+            this.pictureBox5.Image = global::StudyCenterUI.Properties.Resources.Notes_32;
             this.pictureBox5.Location = new System.Drawing.Point(124, 156);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(31, 26);
@@ -130,7 +130,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::StudyCenter.Properties.Resources.users_list;
+            this.pictureBox3.Image = global::StudyCenterUI.Properties.Resources.users_list;
             this.pictureBox3.Location = new System.Drawing.Point(124, 106);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(31, 26);
@@ -141,7 +141,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox1.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox1.Location = new System.Drawing.Point(131, 111);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 26);
@@ -193,7 +193,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.room_type;
+            this.pictureBox2.Image = global::StudyCenterUI.Properties.Resources.room_type;
             this.pictureBox2.Location = new System.Drawing.Point(124, 56);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 26);
@@ -226,7 +226,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::StudyCenter.Properties.Resources.close_48;
+            this.btnClose.Image = global::StudyCenterUI.Properties.Resources.close_48;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
             this.btnClose.Location = new System.Drawing.Point(213, 438);

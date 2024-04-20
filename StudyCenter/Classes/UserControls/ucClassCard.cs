@@ -1,8 +1,8 @@
-﻿using StudyCenter.GlobalClasses;
-using StudyCenter_Business;
+﻿using StudyCenterUI.GlobalClasses;
+using StudyCenterBusiness;
 using System.Windows.Forms;
 
-namespace StudyCenter.Classes.UserControls
+namespace StudyCenterUI.Classes.UserControls
 {
     public partial class ucClassCard : UserControl
     {

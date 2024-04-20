@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.SubjectsAndGradeLevels
+﻿namespace StudyCenterUI.SubjectsAndGradeLevels
 {
     partial class frmGetAllSubjectsTaughtByTeacher
     {
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucTeacherCard1 = new StudyCenter.Teachers.UserControls.ucTeacherCard();
-            this.ucGetAllSubjectsTaughtByTeacher1 = new StudyCenter.SubjectsAndGradeLevels.userControls.ucGetAllSubjectsTaughtByTeacher();
+            this.ucTeacherCard1 = new StudyCenterUI.Teachers.UserControls.ucTeacherCard();
+            this.ucGetAllSubjectsTaughtByTeacher1 = new StudyCenterUI.SubjectsAndGradeLevels.userControls.ucGetAllSubjectsTaughtByTeacher();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SuspendLayout();
@@ -77,7 +77,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::StudyCenter.Properties.Resources.close_48;
+            this.btnClose.Image = global::StudyCenterUI.Properties.Resources.close_48;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
             this.btnClose.Location = new System.Drawing.Point(722, 918);

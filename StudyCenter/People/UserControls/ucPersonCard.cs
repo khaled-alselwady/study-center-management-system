@@ -1,10 +1,10 @@
-﻿using StudyCenter.GlobalClasses;
-using StudyCenter.Properties;
-using StudyCenter_Business;
+﻿using StudyCenterUI.GlobalClasses;
+using StudyCenterUI.Properties;
+using StudyCenterBusiness;
 using System;
 using System.Windows.Forms;
 
-namespace StudyCenter.People.UserControls
+namespace StudyCenterUI.People.UserControls
 {
     public partial class ucPersonCard : UserControl
     {

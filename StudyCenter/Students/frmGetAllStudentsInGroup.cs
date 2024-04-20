@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace StudyCenter.Students
+namespace StudyCenterUI.Students
 {
     public partial class frmGetAllStudentsInGroup : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Groups
+﻿namespace StudyCenterUI.Groups
 {
     partial class frmAddEditGroup
     {
@@ -34,11 +34,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpClassInfo = new System.Windows.Forms.TabPage();
-            this.ucClassCardWithFilter1 = new StudyCenter.Classes.UserControls.ucClassCardWithFilter();
+            this.ucClassCardWithFilter1 = new StudyCenterUI.Classes.UserControls.ucClassCardWithFilter();
             this.tpTeacherInfo = new System.Windows.Forms.TabPage();
-            this.ucTeacherCardWithFilter1 = new StudyCenter.Teachers.UserControls.ucTeacherCardWithFilter();
+            this.ucTeacherCardWithFilter1 = new StudyCenterUI.Teachers.UserControls.ucTeacherCardWithFilter();
             this.tpSubjectInfo = new System.Windows.Forms.TabPage();
-            this.ucGetAllSubjectsTaughtByTeacher1 = new StudyCenter.SubjectsAndGradeLevels.userControls.ucGetAllSubjectsTaughtByTeacher();
+            this.ucGetAllSubjectsTaughtByTeacher1 = new StudyCenterUI.SubjectsAndGradeLevels.userControls.ucGetAllSubjectsTaughtByTeacher();
             this.tpMeetingTimeInfo = new System.Windows.Forms.TabPage();
             this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.cbFilterMeetingTimeBy = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -148,7 +148,7 @@
             this.ucClassCardWithFilter1.Name = "ucClassCardWithFilter1";
             this.ucClassCardWithFilter1.Size = new System.Drawing.Size(862, 336);
             this.ucClassCardWithFilter1.TabIndex = 0;
-            this.ucClassCardWithFilter1.OnClassSelected += new System.EventHandler<StudyCenter.Classes.UserControls.ucClassCardWithFilter.ClassSelectedEventArgs>(this.ucClassCardWithFilter1_OnClassSelected);
+            this.ucClassCardWithFilter1.OnClassSelected += new System.EventHandler<StudyCenterUI.Classes.UserControls.ucClassCardWithFilter.ClassSelectedEventArgs>(this.ucClassCardWithFilter1_OnClassSelected);
             // 
             // tpTeacherInfo
             // 
@@ -171,7 +171,7 @@
             this.ucTeacherCardWithFilter1.Name = "ucTeacherCardWithFilter1";
             this.ucTeacherCardWithFilter1.Size = new System.Drawing.Size(862, 643);
             this.ucTeacherCardWithFilter1.TabIndex = 1;
-            this.ucTeacherCardWithFilter1.OnTeacherSelected += new System.EventHandler<StudyCenter.Teachers.UserControls.ucTeacherCardWithFilter.TeacherSelectedEventArgs>(this.ucTeacherCardWithFilter1_OnTeacherSelected);
+            this.ucTeacherCardWithFilter1.OnTeacherSelected += new System.EventHandler<StudyCenterUI.Teachers.UserControls.ucTeacherCardWithFilter.TeacherSelectedEventArgs>(this.ucTeacherCardWithFilter1_OnTeacherSelected);
             // 
             // tpSubjectInfo
             // 
@@ -396,7 +396,7 @@
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox7.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox7.Location = new System.Drawing.Point(593, 69);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(31, 26);
@@ -431,7 +431,7 @@
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox6.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox6.Location = new System.Drawing.Point(116, 163);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(31, 26);
@@ -466,7 +466,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox5.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox5.Location = new System.Drawing.Point(593, 116);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(31, 26);
@@ -489,7 +489,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::StudyCenter.Properties.Resources.users_list;
+            this.pictureBox4.Image = global::StudyCenterUI.Properties.Resources.users_list;
             this.pictureBox4.Location = new System.Drawing.Point(593, 163);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(31, 26);
@@ -524,7 +524,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox2.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox2.Location = new System.Drawing.Point(116, 69);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 26);
@@ -571,7 +571,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox3.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox3.Location = new System.Drawing.Point(116, 210);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(31, 26);
@@ -594,7 +594,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::StudyCenter.Properties.Resources.name;
+            this.pictureBox1.Image = global::StudyCenterUI.Properties.Resources.name;
             this.pictureBox1.Location = new System.Drawing.Point(593, 210);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 26);
@@ -642,7 +642,7 @@
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = global::StudyCenter.Properties.Resources.classes_list;
+            this.pictureBox8.Image = global::StudyCenterUI.Properties.Resources.classes_list;
             this.pictureBox8.Location = new System.Drawing.Point(116, 116);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(31, 26);
@@ -687,7 +687,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::StudyCenter.Properties.Resources.close_48;
+            this.btnClose.Image = global::StudyCenterUI.Properties.Resources.close_48;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
             this.btnClose.Location = new System.Drawing.Point(616, 845);
@@ -712,7 +712,7 @@
             this.btnSave.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = global::StudyCenter.Properties.Resources.save;
+            this.btnSave.Image = global::StudyCenterUI.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSave.ImageOffset = new System.Drawing.Point(0, -1);
             this.btnSave.ImageSize = new System.Drawing.Size(30, 30);

@@ -1,10 +1,10 @@
-﻿using StudyCenter.GlobalClasses;
-using StudyCenter_Business;
+﻿using StudyCenterUI.GlobalClasses;
+using StudyCenterBusiness;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace StudyCenter.Subjects
+namespace StudyCenterUI.Subjects
 {
     public partial class frmAddEditSubject : Form
     {

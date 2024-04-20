@@ -1,10 +1,10 @@
 ﻿using Microsoft.Win32;
-using StudyCenter_Business;
+using StudyCenterBusiness;
 using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace StudyCenter.GlobalClasses
+namespace StudyCenterUI.GlobalClasses
 {
     public static class clsGlobal
     {

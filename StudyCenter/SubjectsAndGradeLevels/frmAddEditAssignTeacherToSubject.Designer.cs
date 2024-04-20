@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.SubjectsAndGradeLevels
+﻿namespace StudyCenterUI.SubjectsAndGradeLevels
 {
     partial class frmAddEditAssignTeacherToSubject
     {
@@ -35,7 +35,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ucTeacherCardWithFilter1 = new StudyCenter.Teachers.UserControls.ucTeacherCardWithFilter();
+            this.ucTeacherCardWithFilter1 = new StudyCenterUI.Teachers.UserControls.ucTeacherCardWithFilter();
             this.tpSubject = new System.Windows.Forms.TabPage();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -115,7 +115,7 @@
             this.ucTeacherCardWithFilter1.Name = "ucTeacherCardWithFilter1";
             this.ucTeacherCardWithFilter1.Size = new System.Drawing.Size(862, 643);
             this.ucTeacherCardWithFilter1.TabIndex = 0;
-            this.ucTeacherCardWithFilter1.OnTeacherSelected += new System.EventHandler<StudyCenter.Teachers.UserControls.ucTeacherCardWithFilter.TeacherSelectedEventArgs>(this.ucTeacherCardWithFilter1_OnTeacherSelected);
+            this.ucTeacherCardWithFilter1.OnTeacherSelected += new System.EventHandler<StudyCenterUI.Teachers.UserControls.ucTeacherCardWithFilter.TeacherSelectedEventArgs>(this.ucTeacherCardWithFilter1_OnTeacherSelected);
             // 
             // tpSubject
             // 
@@ -291,7 +291,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::StudyCenter.Properties.Resources.close_48;
+            this.btnClose.Image = global::StudyCenterUI.Properties.Resources.close_48;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
             this.btnClose.Location = new System.Drawing.Point(616, 844);
@@ -316,7 +316,7 @@
             this.btnSave.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = global::StudyCenter.Properties.Resources.save;
+            this.btnSave.Image = global::StudyCenterUI.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSave.ImageOffset = new System.Drawing.Point(0, -1);
             this.btnSave.ImageSize = new System.Drawing.Size(30, 30);

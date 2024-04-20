@@ -1,9 +1,9 @@
-﻿using StudyCenter_Business;
+﻿using StudyCenterBusiness;
 using System;
 using System.Windows.Forms;
-using static StudyCenter.GeneralUserControls.ucFilter;
+using static StudyCenterUI.GeneralUserControls.ucFilter;
 
-namespace StudyCenter.Classes.UserControls
+namespace StudyCenterUI.Classes.UserControls
 {
     public partial class ucClassCardWithFilter : UserControl
     {

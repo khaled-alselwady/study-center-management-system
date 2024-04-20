@@ -1,12 +1,12 @@
-﻿using StudyCenter.GlobalClasses;
-using StudyCenter.Subjects;
-using StudyCenter_Business;
+﻿using StudyCenterUI.GlobalClasses;
+using StudyCenterUI.Subjects;
+using StudyCenterBusiness;
 using System;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 
-namespace StudyCenter.SubjectsAndGradeLevels
+namespace StudyCenterUI.SubjectsAndGradeLevels
 {
     public partial class frmAddEditSubjectsGradeLevels : Form
     {

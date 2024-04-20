@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace StudyCenter.GlobalClasses
+namespace StudyCenterUI.GlobalClasses
 {
     public class clsValidation
     {

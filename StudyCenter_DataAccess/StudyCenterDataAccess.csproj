@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FD62AA33-B9A1-48DA-B69B-0A919C828B1F}</ProjectGuid>
+    <ProjectGuid>{9A20BC14-D144-46EA-BB5B-51A50239CF55}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StudyCenter_Business</RootNamespace>
-    <AssemblyName>StudyCenter_Business</AssemblyName>
+    <RootNamespace>StudyCenterDataAccess</RootNamespace>
+    <AssemblyName>StudyCenterDataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,28 +42,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsClass.cs" />
-    <Compile Include="clsEducationLevel.cs" />
-    <Compile Include="clsGradeLevel.cs" />
-    <Compile Include="clsGroup.cs" />
-    <Compile Include="clsMeetingTime.cs" />
-    <Compile Include="clsPerson.cs" />
-    <Compile Include="clsStudent.cs" />
-    <Compile Include="clsStudentDeletedLog.cs" />
-    <Compile Include="clsStudentGroup.cs" />
-    <Compile Include="clsSubject.cs" />
-    <Compile Include="clsSubjectGradeLevel.cs" />
-    <Compile Include="clsSubjectTeacher.cs" />
-    <Compile Include="clsTeacher.cs" />
-    <Compile Include="clsTeacherDeleted.cs" />
-    <Compile Include="clsUser.cs" />
+    <Compile Include="clsClassData.cs" />
+    <Compile Include="clsDataAccessHelper.cs" />
+    <Compile Include="clsDataAccessSettings.cs" />
+    <Compile Include="clsEducationLevelData.cs" />
+    <Compile Include="clsErrorLogger.cs" />
+    <Compile Include="clsGradeLevelData.cs" />
+    <Compile Include="clsGroupData.cs" />
+    <Compile Include="clsLogHandler.cs" />
+    <Compile Include="clsMeetingTimeData.cs" />
+    <Compile Include="clsPersonData.cs" />
+    <Compile Include="clsStudentData.cs" />
+    <Compile Include="clsStudentDeletedLogData.cs" />
+    <Compile Include="clsStudentGroupData.cs" />
+    <Compile Include="clsSubjectData.cs" />
+    <Compile Include="clsSubjectGradeLevelData.cs" />
+    <Compile Include="clsSubjectTeacherData.cs" />
+    <Compile Include="clsTeacherData.cs" />
+    <Compile Include="clsTeacherDeletedData.cs" />
+    <Compile Include="clsUserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\StudyCenter_DataAccess\StudyCenter_DataAccess.csproj">
-      <Project>{9a20bc14-d144-46ea-bb5b-51a50239cf55}</Project>
-      <Name>StudyCenter_DataAccess</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

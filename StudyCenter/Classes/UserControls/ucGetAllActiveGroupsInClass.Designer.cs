@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Classes.UserControls
+﻿namespace StudyCenterUI.Classes.UserControls
 {
     partial class ucGetAllActiveGroupsInClass
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.ucSubList1 = new StudyCenter.GeneralUserControls.ucSubList();
+            this.ucSubList1 = new StudyCenterUI.GeneralUserControls.ucSubList();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmShowGroupDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -71,7 +71,7 @@
             // tsmShowGroupDetails
             // 
             this.tsmShowGroupDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowGroupDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.tsmShowGroupDetails.Image = global::StudyCenterUI.Properties.Resources.show_reservation_32;
             this.tsmShowGroupDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmShowGroupDetails.Name = "tsmShowGroupDetails";
             this.tsmShowGroupDetails.Size = new System.Drawing.Size(232, 38);
@@ -86,7 +86,7 @@
             // tsmEditGroup
             // 
             this.tsmEditGroup.ForeColor = System.Drawing.Color.White;
-            this.tsmEditGroup.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
+            this.tsmEditGroup.Image = global::StudyCenterUI.Properties.Resources.edit_reservation32;
             this.tsmEditGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmEditGroup.Name = "tsmEditGroup";
             this.tsmEditGroup.Size = new System.Drawing.Size(232, 38);
@@ -96,7 +96,7 @@
             // temDeleteGroup
             // 
             this.temDeleteGroup.ForeColor = System.Drawing.Color.White;
-            this.temDeleteGroup.Image = global::StudyCenter.Properties.Resources.delete_reservation_40;
+            this.temDeleteGroup.Image = global::StudyCenterUI.Properties.Resources.delete_reservation_40;
             this.temDeleteGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.temDeleteGroup.Name = "temDeleteGroup";
             this.temDeleteGroup.Size = new System.Drawing.Size(232, 38);
@@ -106,7 +106,7 @@
             // ShowAllStudentsToolStripMenuItem
             // 
             this.ShowAllStudentsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ShowAllStudentsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.subjects_32;
+            this.ShowAllStudentsToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.subjects_32;
             this.ShowAllStudentsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ShowAllStudentsToolStripMenuItem.Name = "ShowAllStudentsToolStripMenuItem";
             this.ShowAllStudentsToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
@@ -116,7 +116,7 @@
             // AddStudentToolStripMenuItem
             // 
             this.AddStudentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.AddStudentToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.AddStudentToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.assign_to_subject_32;
             this.AddStudentToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AddStudentToolStripMenuItem.Name = "AddStudentToolStripMenuItem";
             this.AddStudentToolStripMenuItem.Size = new System.Drawing.Size(232, 38);

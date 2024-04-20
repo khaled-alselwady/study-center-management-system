@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace StudyCenter.Classes
+namespace StudyCenterUI.Classes
 {
     public partial class frmClassesAreTaughtByTeacher : Form
     {

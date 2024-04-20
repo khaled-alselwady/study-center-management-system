@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace StudyCenter.SubjectsAndGradeLevels
+namespace StudyCenterUI.SubjectsAndGradeLevels
 {
     public partial class frmGetAllSubjectsTaughtByTeacher : Form
     {

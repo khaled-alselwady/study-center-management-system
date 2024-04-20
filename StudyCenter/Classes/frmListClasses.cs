@@ -1,12 +1,12 @@
-﻿using StudyCenter.Groups;
-using StudyCenter.Teachers;
-using StudyCenter_Business;
+﻿using StudyCenterUI.Groups;
+using StudyCenterUI.Teachers;
+using StudyCenterBusiness;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
 
-namespace StudyCenter.Classes
+namespace StudyCenterUI.Classes
 {
     public partial class frmListClasses : Form
     {

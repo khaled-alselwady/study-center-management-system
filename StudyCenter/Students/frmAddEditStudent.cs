@@ -1,11 +1,11 @@
-﻿using StudyCenter.GlobalClasses;
-using StudyCenter_Business;
+﻿using StudyCenterUI.GlobalClasses;
+using StudyCenterBusiness;
 using System;
 using System.Data;
 using System.Windows.Forms;
-using static StudyCenter.People.UserControls.ucPersonCardWithFilter;
+using static StudyCenterUI.People.UserControls.ucPersonCardWithFilter;
 
-namespace StudyCenter.Students
+namespace StudyCenterUI.Students
 {
     public partial class frmAddEditStudent : Form
     {

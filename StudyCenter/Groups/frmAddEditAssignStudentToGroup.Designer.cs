@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Groups
+﻿namespace StudyCenterUI.Groups
 {
     partial class frmAddEditAssignStudentToGroup
     {
@@ -35,9 +35,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ucStudentCardWithFilter1 = new StudyCenter.Students.UserControls.ucStudentCardWithFilter();
+            this.ucStudentCardWithFilter1 = new StudyCenterUI.Students.UserControls.ucStudentCardWithFilter();
             this.tpGroup = new System.Windows.Forms.TabPage();
-            this.ucGroupCard1 = new StudyCenter.Groups.UserControls.ucGroupCard();
+            this.ucGroupCard1 = new StudyCenterUI.Groups.UserControls.ucGroupCard();
             this.gbSelectGroup = new Guna.UI2.WinForms.Guna2GroupBox();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbGroupNames = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -109,7 +109,7 @@
             this.ucStudentCardWithFilter1.Name = "ucStudentCardWithFilter1";
             this.ucStudentCardWithFilter1.Size = new System.Drawing.Size(862, 565);
             this.ucStudentCardWithFilter1.TabIndex = 0;
-            this.ucStudentCardWithFilter1.OnStudentSelected += new System.EventHandler<StudyCenter.Students.UserControls.ucStudentCardWithFilter.StudentSelectedEventArgs>(this.ucStudentCardWithFilter1_OnStudentSelected);
+            this.ucStudentCardWithFilter1.OnStudentSelected += new System.EventHandler<StudyCenterUI.Students.UserControls.ucStudentCardWithFilter.StudentSelectedEventArgs>(this.ucStudentCardWithFilter1_OnStudentSelected);
             // 
             // tpGroup
             // 
@@ -355,7 +355,7 @@
             // tsmShowGroupDetails
             // 
             this.tsmShowGroupDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowGroupDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.tsmShowGroupDetails.Image = global::StudyCenterUI.Properties.Resources.show_reservation_32;
             this.tsmShowGroupDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmShowGroupDetails.Name = "tsmShowGroupDetails";
             this.tsmShowGroupDetails.Size = new System.Drawing.Size(232, 38);
@@ -387,7 +387,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::StudyCenter.Properties.Resources.close_48;
+            this.btnClose.Image = global::StudyCenterUI.Properties.Resources.close_48;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
             this.btnClose.Location = new System.Drawing.Point(616, 764);
@@ -412,7 +412,7 @@
             this.btnSave.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = global::StudyCenter.Properties.Resources.save;
+            this.btnSave.Image = global::StudyCenterUI.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSave.ImageOffset = new System.Drawing.Point(0, -1);
             this.btnSave.ImageSize = new System.Drawing.Size(30, 30);

@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Students.UserControls
+﻿namespace StudyCenterUI.Students.UserControls
 {
     partial class ucGetAllStudentsInGroup
     {
@@ -33,7 +33,7 @@
             this.ShowDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.RemoveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ucSubList1 = new StudyCenter.GeneralUserControls.ucSubList();
+            this.ucSubList1 = new StudyCenterUI.GeneralUserControls.ucSubList();
             this.cmsEditProfile.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             // ShowDetailsToolStripMenuItem
             // 
             this.ShowDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ShowDetailsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.ShowDetailsToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.show_reservation_32;
             this.ShowDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ShowDetailsToolStripMenuItem.Name = "ShowDetailsToolStripMenuItem";
             this.ShowDetailsToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
@@ -68,7 +68,7 @@
             // RemoveToolStripMenuItem
             // 
             this.RemoveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.RemoveToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.delete_reservation_40;
+            this.RemoveToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.delete_reservation_40;
             this.RemoveToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.RemoveToolStripMenuItem.Name = "RemoveToolStripMenuItem";
             this.RemoveToolStripMenuItem.Size = new System.Drawing.Size(184, 38);

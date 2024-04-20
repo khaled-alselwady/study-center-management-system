@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StudyCenter.GlobalClasses
+namespace StudyCenterUI.GlobalClasses
 {
     public class clsFormat
     {

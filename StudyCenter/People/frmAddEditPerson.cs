@@ -1,13 +1,13 @@
 ﻿using Guna.UI2.WinForms;
-using StudyCenter.GlobalClasses;
-using StudyCenter.Properties;
-using StudyCenter_Business;
+using StudyCenterUI.GlobalClasses;
+using StudyCenterUI.Properties;
+using StudyCenterBusiness;
 using System;
 using System.ComponentModel;
 using System.Configuration;
 using System.Windows.Forms;
 
-namespace StudyCenter.People
+namespace StudyCenterUI.People
 {
     public partial class frmAddEditPerson : Form
     {

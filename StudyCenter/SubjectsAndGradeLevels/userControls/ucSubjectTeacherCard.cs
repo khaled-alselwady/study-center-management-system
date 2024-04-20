@@ -1,9 +1,9 @@
-﻿using StudyCenter.GlobalClasses;
-using StudyCenter.Teachers;
-using StudyCenter_Business;
+﻿using StudyCenterUI.GlobalClasses;
+using StudyCenterUI.Teachers;
+using StudyCenterBusiness;
 using System.Windows.Forms;
 
-namespace StudyCenter.SubjectsAndGradeLevels.userControls
+namespace StudyCenterUI.SubjectsAndGradeLevels.userControls
 {
     public partial class ucSubjectTeacherCard : UserControl
     {

@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Groups.UserControls
+﻿namespace StudyCenterUI.Groups.UserControls
 {
     partial class ucGroupsAreTaughtByTeacher
     {
@@ -33,7 +33,7 @@
             this.ShowTeacherDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowClassDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowGroupDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ucSubList1 = new StudyCenter.GeneralUserControls.ucSubList();
+            this.ucSubList1 = new StudyCenterUI.GeneralUserControls.ucSubList();
             this.cmsEditProfile.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             // ShowTeacherDetailsToolStripMenuItem
             // 
             this.ShowTeacherDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ShowTeacherDetailsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.ShowTeacherDetailsToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.show_reservation_32;
             this.ShowTeacherDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ShowTeacherDetailsToolStripMenuItem.Name = "ShowTeacherDetailsToolStripMenuItem";
             this.ShowTeacherDetailsToolStripMenuItem.Size = new System.Drawing.Size(242, 38);
@@ -63,7 +63,7 @@
             // ShowClassDetailsToolStripMenuItem
             // 
             this.ShowClassDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ShowClassDetailsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.subjects_32;
+            this.ShowClassDetailsToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.subjects_32;
             this.ShowClassDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ShowClassDetailsToolStripMenuItem.Name = "ShowClassDetailsToolStripMenuItem";
             this.ShowClassDetailsToolStripMenuItem.Size = new System.Drawing.Size(242, 38);
@@ -73,7 +73,7 @@
             // ShowGroupDetailsToolStripMenuItem
             // 
             this.ShowGroupDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ShowGroupDetailsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.ShowGroupDetailsToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.assign_to_subject_32;
             this.ShowGroupDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ShowGroupDetailsToolStripMenuItem.Name = "ShowGroupDetailsToolStripMenuItem";
             this.ShowGroupDetailsToolStripMenuItem.Size = new System.Drawing.Size(242, 38);

@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.SubjectsAndGradeLevels
+﻿namespace StudyCenterUI.SubjectsAndGradeLevels
 {
     partial class frmListSubjectsGradeLevel
     {
@@ -163,7 +163,7 @@
             // tsmShowSubjectDetails
             // 
             this.tsmShowSubjectDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowSubjectDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.tsmShowSubjectDetails.Image = global::StudyCenterUI.Properties.Resources.show_reservation_32;
             this.tsmShowSubjectDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmShowSubjectDetails.Name = "tsmShowSubjectDetails";
             this.tsmShowSubjectDetails.Size = new System.Drawing.Size(239, 38);
@@ -178,7 +178,7 @@
             // tsmEditSubject
             // 
             this.tsmEditSubject.ForeColor = System.Drawing.Color.White;
-            this.tsmEditSubject.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
+            this.tsmEditSubject.Image = global::StudyCenterUI.Properties.Resources.edit_reservation32;
             this.tsmEditSubject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmEditSubject.Name = "tsmEditSubject";
             this.tsmEditSubject.Size = new System.Drawing.Size(239, 38);
@@ -188,7 +188,7 @@
             // WhoTeachesItToolStripMenuItem
             // 
             this.WhoTeachesItToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.WhoTeachesItToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.Notes_32;
+            this.WhoTeachesItToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.Notes_32;
             this.WhoTeachesItToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.WhoTeachesItToolStripMenuItem.Name = "WhoTeachesItToolStripMenuItem";
             this.WhoTeachesItToolStripMenuItem.Size = new System.Drawing.Size(239, 38);
@@ -327,7 +327,7 @@
             this.btnAddSubject.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAddSubject.ForeColor = System.Drawing.Color.White;
             this.btnAddSubject.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddSubject.Image = global::StudyCenter.Properties.Resources.add_subject;
+            this.btnAddSubject.Image = global::StudyCenterUI.Properties.Resources.add_subject;
             this.btnAddSubject.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnAddSubject.ImageSize = new System.Drawing.Size(45, 45);
             this.btnAddSubject.Location = new System.Drawing.Point(1281, 247);
@@ -339,7 +339,7 @@
             // pbImage
             // 
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImage.Image = global::StudyCenter.Properties.Resources.subject;
+            this.pbImage.Image = global::StudyCenterUI.Properties.Resources.subject;
             this.pbImage.InitialImage = null;
             this.pbImage.Location = new System.Drawing.Point(499, 57);
             this.pbImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

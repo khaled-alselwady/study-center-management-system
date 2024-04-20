@@ -1,6 +1,6 @@
 using System.Configuration;
 
-namespace StudyCenter_DataAccess
+namespace StudyCenterDataAccess
 {
     static class clsDataAccessSettings
     {

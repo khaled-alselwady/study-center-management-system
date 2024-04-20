@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.People.UserControls
+﻿namespace StudyCenterUI.People.UserControls
 {
     partial class ucPersonCard
     {
@@ -311,7 +311,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox1.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox1.Location = new System.Drawing.Point(117, 64);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 26);
@@ -322,7 +322,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::StudyCenter.Properties.Resources.calendar;
+            this.pictureBox4.Image = global::StudyCenterUI.Properties.Resources.calendar;
             this.pictureBox4.Location = new System.Drawing.Point(533, 138);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(31, 26);
@@ -333,7 +333,7 @@
             // pbGender
             // 
             this.pbGender.BackColor = System.Drawing.Color.Transparent;
-            this.pbGender.Image = global::StudyCenter.Properties.Resources.gender_male;
+            this.pbGender.Image = global::StudyCenterUI.Properties.Resources.gender_male;
             this.pbGender.Location = new System.Drawing.Point(117, 138);
             this.pbGender.Name = "pbGender";
             this.pbGender.Size = new System.Drawing.Size(31, 26);
@@ -344,7 +344,7 @@
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = global::StudyCenter.Properties.Resources.name;
+            this.pictureBox8.Image = global::StudyCenterUI.Properties.Resources.name;
             this.pictureBox8.Location = new System.Drawing.Point(117, 101);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(31, 26);
@@ -355,7 +355,7 @@
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.Image = global::StudyCenter.Properties.Resources.address;
+            this.pictureBox7.Image = global::StudyCenterUI.Properties.Resources.address;
             this.pictureBox7.Location = new System.Drawing.Point(117, 212);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(31, 26);
@@ -366,7 +366,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = global::StudyCenter.Properties.Resources.email;
+            this.pictureBox5.Image = global::StudyCenterUI.Properties.Resources.email;
             this.pictureBox5.Location = new System.Drawing.Point(117, 175);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(31, 26);
@@ -377,7 +377,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::StudyCenter.Properties.Resources.add_reservation_50;
+            this.pictureBox3.Image = global::StudyCenterUI.Properties.Resources.add_reservation_50;
             this.pictureBox3.Location = new System.Drawing.Point(533, 175);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(31, 26);
@@ -388,7 +388,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.phone;
+            this.pictureBox2.Image = global::StudyCenterUI.Properties.Resources.phone;
             this.pictureBox2.Location = new System.Drawing.Point(533, 212);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 26);

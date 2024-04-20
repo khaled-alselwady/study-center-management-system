@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.People
+﻿namespace StudyCenterUI.People
 {
     partial class frmAddEditPerson
     {
@@ -421,7 +421,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::StudyCenter.Properties.Resources.calendar;
+            this.pictureBox4.Image = global::StudyCenterUI.Properties.Resources.calendar;
             this.pictureBox4.Location = new System.Drawing.Point(597, 140);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(31, 26);
@@ -442,7 +442,7 @@
             // 
             // pbGender
             // 
-            this.pbGender.Image = global::StudyCenter.Properties.Resources.gender_male;
+            this.pbGender.Image = global::StudyCenterUI.Properties.Resources.gender_male;
             this.pbGender.Location = new System.Drawing.Point(105, 140);
             this.pbGender.Name = "pbGender";
             this.pbGender.Size = new System.Drawing.Size(31, 26);
@@ -452,7 +452,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::StudyCenter.Properties.Resources.name;
+            this.pictureBox8.Image = global::StudyCenterUI.Properties.Resources.name;
             this.pictureBox8.Location = new System.Drawing.Point(105, 86);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(31, 26);
@@ -462,7 +462,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::StudyCenter.Properties.Resources.address;
+            this.pictureBox7.Image = global::StudyCenterUI.Properties.Resources.address;
             this.pictureBox7.Location = new System.Drawing.Point(105, 250);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(31, 26);
@@ -472,7 +472,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::StudyCenter.Properties.Resources.email;
+            this.pictureBox5.Image = global::StudyCenterUI.Properties.Resources.email;
             this.pictureBox5.Location = new System.Drawing.Point(105, 194);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(31, 26);
@@ -482,7 +482,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.phone;
+            this.pictureBox2.Image = global::StudyCenterUI.Properties.Resources.phone;
             this.pictureBox2.Location = new System.Drawing.Point(597, 194);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 26);
@@ -581,7 +581,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::StudyCenter.Properties.Resources.close_48;
+            this.btnClose.Image = global::StudyCenterUI.Properties.Resources.close_48;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
             this.btnClose.Location = new System.Drawing.Point(555, 509);
@@ -605,7 +605,7 @@
             this.btnSave.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = global::StudyCenter.Properties.Resources.save;
+            this.btnSave.Image = global::StudyCenterUI.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSave.ImageOffset = new System.Drawing.Point(0, -1);
             this.btnSave.ImageSize = new System.Drawing.Size(30, 30);
@@ -619,7 +619,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox1.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox1.Location = new System.Drawing.Point(105, 96);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 26);

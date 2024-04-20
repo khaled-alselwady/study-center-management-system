@@ -1,13 +1,13 @@
-﻿using StudyCenter.GlobalClasses;
-using StudyCenter.Groups;
-using StudyCenter_Business;
+﻿using StudyCenterUI.GlobalClasses;
+using StudyCenterUI.Groups;
+using StudyCenterBusiness;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
-using static StudyCenter.Groups.frmAddEditAssignStudentToGroup;
+using static StudyCenterUI.Groups.frmAddEditAssignStudentToGroup;
 
-namespace StudyCenter.Students
+namespace StudyCenterUI.Students
 {
     public partial class frmListStudents : Form
     {

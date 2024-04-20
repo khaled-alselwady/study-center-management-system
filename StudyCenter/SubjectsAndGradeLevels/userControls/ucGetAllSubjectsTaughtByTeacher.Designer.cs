@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.SubjectsAndGradeLevels.userControls
+﻿namespace StudyCenterUI.SubjectsAndGradeLevels.userControls
 {
     partial class ucGetAllSubjectsTaughtByTeacher
     {
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ShowDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ucSubList1 = new StudyCenter.GeneralUserControls.ucSubList();
+            this.ucSubList1 = new StudyCenterUI.GeneralUserControls.ucSubList();
             this.cmsEditProfile.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             // ShowDetailsToolStripMenuItem
             // 
             this.ShowDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ShowDetailsToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.ShowDetailsToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.show_reservation_32;
             this.ShowDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ShowDetailsToolStripMenuItem.Name = "ShowDetailsToolStripMenuItem";
             this.ShowDetailsToolStripMenuItem.Size = new System.Drawing.Size(184, 38);

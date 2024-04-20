@@ -1,12 +1,12 @@
-﻿using StudyCenter.Classes;
-using StudyCenter.GlobalClasses;
-using StudyCenter.Properties;
-using StudyCenter.SubjectsAndGradeLevels;
-using StudyCenter.Teachers;
-using StudyCenter_Business;
+﻿using StudyCenterBusiness;
+using StudyCenterUI.Classes;
+using StudyCenterUI.GlobalClasses;
+using StudyCenterUI.Properties;
+using StudyCenterUI.SubjectsAndGradeLevels;
+using StudyCenterUI.Teachers;
 using System.Windows.Forms;
 
-namespace StudyCenter.Groups.UserControls
+namespace StudyCenterUI.Groups.UserControls
 {
     public partial class ucGroupCard : UserControl
     {

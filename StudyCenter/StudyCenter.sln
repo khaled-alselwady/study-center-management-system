@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyCenter", "StudyCenter.csproj", "{82AC2D42-EE57-4929-BB17-4BCBBCE7A242}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyCenterUI", "StudyCenterUI.csproj", "{82AC2D42-EE57-4929-BB17-4BCBBCE7A242}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyCenter_DataAccess", "..\StudyCenter_DataAccess\StudyCenter_DataAccess.csproj", "{9A20BC14-D144-46EA-BB5B-51A50239CF55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyCenterDataAccess", "..\StudyCenter_DataAccess\StudyCenterDataAccess.csproj", "{9A20BC14-D144-46EA-BB5B-51A50239CF55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyCenter_Business", "..\StudyCenter_Business\StudyCenter_Business.csproj", "{FD62AA33-B9A1-48DA-B69B-0A919C828B1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyCenterBusiness", "..\StudyCenter_Business\StudyCenterBusiness.csproj", "{FD62AA33-B9A1-48DA-B69B-0A919C828B1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

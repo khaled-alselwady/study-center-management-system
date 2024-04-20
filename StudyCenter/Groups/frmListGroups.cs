@@ -1,12 +1,12 @@
 ﻿using Guna.UI2.WinForms;
-using StudyCenter.Students;
-using StudyCenter_Business;
+using StudyCenterUI.Students;
+using StudyCenterBusiness;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
 
-namespace StudyCenter.Groups
+namespace StudyCenterUI.Groups
 {
     public partial class frmListGroups : Form
     {

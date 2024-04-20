@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace StudyCenter.People
+namespace StudyCenterUI.People
 {
     public partial class frmFindPerson : Form
     {

@@ -1,8 +1,8 @@
-﻿using StudyCenter.Teachers;
-using StudyCenter_Business;
+﻿using StudyCenterUI.Teachers;
+using StudyCenterBusiness;
 using System.Windows.Forms;
 
-namespace StudyCenter.Classes.UserControls
+namespace StudyCenterUI.Classes.UserControls
 {
     public partial class ucClassesAreTaughtByTeacher : UserControl
     {

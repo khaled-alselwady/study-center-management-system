@@ -1,11 +1,11 @@
-﻿using StudyCenter.GlobalClasses;
-using StudyCenter_Business;
+﻿using StudyCenterUI.GlobalClasses;
+using StudyCenterBusiness;
 using System;
 using System.Data;
 using System.Windows.Forms;
-using static StudyCenter.Teachers.UserControls.ucTeacherCardWithFilter;
+using static StudyCenterUI.Teachers.UserControls.ucTeacherCardWithFilter;
 
-namespace StudyCenter.SubjectsAndGradeLevels
+namespace StudyCenterUI.SubjectsAndGradeLevels
 {
     public partial class frmAddEditAssignTeacherToSubject : Form
     {

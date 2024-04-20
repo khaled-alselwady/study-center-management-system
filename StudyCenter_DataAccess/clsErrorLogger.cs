@@ -1,6 +1,6 @@
 using System;
 
-namespace StudyCenter_DataAccess
+namespace StudyCenterDataAccess
 {
     public class clsErrorLogger
     {

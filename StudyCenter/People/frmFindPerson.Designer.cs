@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.People
+﻿namespace StudyCenterUI.People
 {
     partial class frmFindPerson
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.ucPersonCardWithFilter1 = new StudyCenter.People.UserControls.ucPersonCardWithFilter();
+            this.ucPersonCardWithFilter1 = new StudyCenterUI.People.UserControls.ucPersonCardWithFilter();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::StudyCenter.Properties.Resources.close_48;
+            this.btnClose.Image = global::StudyCenterUI.Properties.Resources.close_48;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageOffset = new System.Drawing.Point(0, -1);
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);

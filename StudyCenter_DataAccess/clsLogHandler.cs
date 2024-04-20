@@ -2,7 +2,7 @@ using System;
 using System.Configuration;
 using System.Diagnostics;
 
-namespace StudyCenter_DataAccess
+namespace StudyCenterDataAccess
 {
     public class clsLogHandler
     {

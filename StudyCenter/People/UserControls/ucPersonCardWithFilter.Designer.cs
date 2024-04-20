@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.People.UserControls
+﻿namespace StudyCenterUI.People.UserControls
 {
     partial class ucPersonCardWithFilter
     {
@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ucPersonCard1 = new StudyCenter.People.UserControls.ucPersonCard();
-            this.ucFilter1 = new StudyCenter.GeneralUserControls.ucFilter();
+            this.ucPersonCard1 = new StudyCenterUI.People.UserControls.ucPersonCard();
+            this.ucFilter1 = new StudyCenterUI.GeneralUserControls.ucFilter();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             this.ucFilter1.Size = new System.Drawing.Size(862, 121);
             this.ucFilter1.TabIndex = 148;
             this.ucFilter1.TextSearch = "";
-            this.ucFilter1.OnFindNumericClick += new System.EventHandler<StudyCenter.GeneralUserControls.ucFilter.FindNumericClickEventArgs>(this.ucFilter1_OnFindNumericClick);
+            this.ucFilter1.OnFindNumericClick += new System.EventHandler<StudyCenterUI.GeneralUserControls.ucFilter.FindNumericClickEventArgs>(this.ucFilter1_OnFindNumericClick);
             this.ucFilter1.OnAddClick += new System.EventHandler(this.ucFilter1_OnAddClick);
             // 
             // ucPersonCardWithFilter

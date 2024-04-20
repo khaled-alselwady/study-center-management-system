@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Classes.UserControls
+﻿namespace StudyCenterUI.Classes.UserControls
 {
     partial class ucClassCardWithFilter
     {
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucFilter1 = new StudyCenter.GeneralUserControls.ucFilter();
-            this.ucClassCard1 = new StudyCenter.Classes.UserControls.ucClassCard();
+            this.ucFilter1 = new StudyCenterUI.GeneralUserControls.ucFilter();
+            this.ucClassCard1 = new StudyCenterUI.Classes.UserControls.ucClassCard();
             this.SuspendLayout();
             // 
             // ucFilter1
@@ -45,7 +45,7 @@
             this.ucFilter1.Size = new System.Drawing.Size(862, 121);
             this.ucFilter1.TabIndex = 2;
             this.ucFilter1.TextSearch = "";
-            this.ucFilter1.OnFindNumericClick += new System.EventHandler<StudyCenter.GeneralUserControls.ucFilter.FindNumericClickEventArgs>(this.ucFilter1_OnFindNumericClick);
+            this.ucFilter1.OnFindNumericClick += new System.EventHandler<StudyCenterUI.GeneralUserControls.ucFilter.FindNumericClickEventArgs>(this.ucFilter1_OnFindNumericClick);
             this.ucFilter1.OnAddClick += new System.EventHandler(this.ucFilter1_OnAddClick);
             // 
             // ucClassCard1

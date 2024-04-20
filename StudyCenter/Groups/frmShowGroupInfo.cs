@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace StudyCenter.Groups
+namespace StudyCenterUI.Groups
 {
     public partial class frmShowGroupInfo : Form
     {

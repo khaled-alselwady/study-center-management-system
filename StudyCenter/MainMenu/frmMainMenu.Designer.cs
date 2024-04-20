@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.MainMenu
+﻿namespace StudyCenterUI.MainMenu
 {
     partial class frmMainMenu
     {
@@ -184,7 +184,7 @@
             this.bntSubjects.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.bntSubjects.CheckedState.FillColor = System.Drawing.Color.White;
             this.bntSubjects.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.bntSubjects.CheckedState.Image = global::StudyCenter.Properties.Resources.subjects_blue_64;
+            this.bntSubjects.CheckedState.Image = global::StudyCenterUI.Properties.Resources.subjects_blue_64;
             this.bntSubjects.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.bntSubjects.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.bntSubjects.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -192,7 +192,7 @@
             this.bntSubjects.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.bntSubjects.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntSubjects.ForeColor = System.Drawing.Color.White;
-            this.bntSubjects.Image = global::StudyCenter.Properties.Resources.subjects_white_64;
+            this.bntSubjects.Image = global::StudyCenterUI.Properties.Resources.subjects_white_64;
             this.bntSubjects.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.bntSubjects.ImageOffset = new System.Drawing.Point(-5, 0);
             this.bntSubjects.ImageSize = new System.Drawing.Size(40, 40);
@@ -213,7 +213,7 @@
             this.btnStudents.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnStudents.CheckedState.FillColor = System.Drawing.Color.White;
             this.btnStudents.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.btnStudents.CheckedState.Image = global::StudyCenter.Properties.Resources.students_blue_64;
+            this.btnStudents.CheckedState.Image = global::StudyCenterUI.Properties.Resources.students_blue_64;
             this.btnStudents.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnStudents.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnStudents.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -221,7 +221,7 @@
             this.btnStudents.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnStudents.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStudents.ForeColor = System.Drawing.Color.White;
-            this.btnStudents.Image = global::StudyCenter.Properties.Resources.students_white_64;
+            this.btnStudents.Image = global::StudyCenterUI.Properties.Resources.students_white_64;
             this.btnStudents.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnStudents.ImageSize = new System.Drawing.Size(35, 35);
             this.btnStudents.Location = new System.Drawing.Point(0, 220);
@@ -241,7 +241,7 @@
             this.btnSettings.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnSettings.CheckedState.FillColor = System.Drawing.Color.White;
             this.btnSettings.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.btnSettings.CheckedState.Image = global::StudyCenter.Properties.Resources.settings_blue_64;
+            this.btnSettings.CheckedState.Image = global::StudyCenterUI.Properties.Resources.settings_blue_64;
             this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -249,7 +249,7 @@
             this.btnSettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Image = global::StudyCenter.Properties.Resources.settings_white_64;
+            this.btnSettings.Image = global::StudyCenterUI.Properties.Resources.settings_white_64;
             this.btnSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSettings.ImageOffset = new System.Drawing.Point(-1, 0);
             this.btnSettings.ImageSize = new System.Drawing.Size(35, 35);
@@ -270,7 +270,7 @@
             this.btnClasses.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnClasses.CheckedState.FillColor = System.Drawing.Color.White;
             this.btnClasses.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.btnClasses.CheckedState.Image = global::StudyCenter.Properties.Resources.classes_blue_64;
+            this.btnClasses.CheckedState.Image = global::StudyCenterUI.Properties.Resources.classes_blue_64;
             this.btnClasses.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnClasses.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnClasses.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -278,7 +278,7 @@
             this.btnClasses.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnClasses.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClasses.ForeColor = System.Drawing.Color.White;
-            this.btnClasses.Image = global::StudyCenter.Properties.Resources.classes_white_64;
+            this.btnClasses.Image = global::StudyCenterUI.Properties.Resources.classes_white_64;
             this.btnClasses.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClasses.ImageOffset = new System.Drawing.Point(-5, 0);
             this.btnClasses.ImageSize = new System.Drawing.Size(50, 50);
@@ -299,7 +299,7 @@
             this.btnGroups.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnGroups.CheckedState.FillColor = System.Drawing.Color.White;
             this.btnGroups.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.btnGroups.CheckedState.Image = global::StudyCenter.Properties.Resources.groups_blue_64;
+            this.btnGroups.CheckedState.Image = global::StudyCenterUI.Properties.Resources.groups_blue_64;
             this.btnGroups.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGroups.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGroups.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -307,7 +307,7 @@
             this.btnGroups.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnGroups.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGroups.ForeColor = System.Drawing.Color.White;
-            this.btnGroups.Image = global::StudyCenter.Properties.Resources.groups_white_64;
+            this.btnGroups.Image = global::StudyCenterUI.Properties.Resources.groups_white_64;
             this.btnGroups.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGroups.ImageOffset = new System.Drawing.Point(-1, 0);
             this.btnGroups.ImageSize = new System.Drawing.Size(35, 35);
@@ -328,7 +328,7 @@
             this.btnTeachers.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnTeachers.CheckedState.FillColor = System.Drawing.Color.White;
             this.btnTeachers.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.btnTeachers.CheckedState.Image = global::StudyCenter.Properties.Resources.teachers_blue_64;
+            this.btnTeachers.CheckedState.Image = global::StudyCenterUI.Properties.Resources.teachers_blue_64;
             this.btnTeachers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnTeachers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnTeachers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -336,7 +336,7 @@
             this.btnTeachers.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnTeachers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTeachers.ForeColor = System.Drawing.Color.White;
-            this.btnTeachers.Image = global::StudyCenter.Properties.Resources.teachers_white_64;
+            this.btnTeachers.Image = global::StudyCenterUI.Properties.Resources.teachers_white_64;
             this.btnTeachers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTeachers.ImageSize = new System.Drawing.Size(35, 35);
             this.btnTeachers.Location = new System.Drawing.Point(0, 290);
@@ -357,7 +357,7 @@
             this.btnDashboard.Checked = true;
             this.btnDashboard.CheckedState.FillColor = System.Drawing.Color.White;
             this.btnDashboard.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.btnDashboard.CheckedState.Image = global::StudyCenter.Properties.Resources.dashboard_blue_64;
+            this.btnDashboard.CheckedState.Image = global::StudyCenterUI.Properties.Resources.dashboard_blue_64;
             this.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -365,7 +365,7 @@
             this.btnDashboard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold);
             this.btnDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnDashboard.Image = global::StudyCenter.Properties.Resources.dashboard_white_64;
+            this.btnDashboard.Image = global::StudyCenterUI.Properties.Resources.dashboard_white_64;
             this.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDashboard.ImageSize = new System.Drawing.Size(30, 30);
             this.btnDashboard.Location = new System.Drawing.Point(0, 150);
@@ -382,7 +382,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.study_center_white_125;
+            this.pictureBox2.Image = global::StudyCenterUI.Properties.Resources.study_center_white_125;
             this.pictureBox2.Location = new System.Drawing.Point(5, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(57, 118);
@@ -394,7 +394,7 @@
             // 
             this.pbImgaeSlide.BackColor = System.Drawing.Color.Transparent;
             this.pbImgaeSlide.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pbImgaeSlide.Image = global::StudyCenter.Properties.Resources.ImageSlide;
+            this.pbImgaeSlide.Image = global::StudyCenterUI.Properties.Resources.ImageSlide;
             this.pbImgaeSlide.Location = new System.Drawing.Point(183, 130);
             this.pbImgaeSlide.Name = "pbImgaeSlide";
             this.pbImgaeSlide.Size = new System.Drawing.Size(38, 84);
@@ -409,7 +409,7 @@
             this.btnLogOut.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnLogOut.CheckedState.FillColor = System.Drawing.Color.White;
             this.btnLogOut.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
-            this.btnLogOut.CheckedState.Image = global::StudyCenter.Properties.Resources.logout_blue_64;
+            this.btnLogOut.CheckedState.Image = global::StudyCenterUI.Properties.Resources.logout_blue_64;
             this.btnLogOut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLogOut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLogOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -417,7 +417,7 @@
             this.btnLogOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Image = global::StudyCenter.Properties.Resources.logout_white_64;
+            this.btnLogOut.Image = global::StudyCenterUI.Properties.Resources.logout_white_64;
             this.btnLogOut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLogOut.ImageOffset = new System.Drawing.Point(-1, 0);
             this.btnLogOut.ImageSize = new System.Drawing.Size(30, 30);

@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Classes.UserControls
+﻿namespace StudyCenterUI.Classes.UserControls
 {
     partial class ucClassCard
     {
@@ -187,7 +187,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = global::StudyCenter.Properties.Resources.users_list;
+            this.pictureBox5.Image = global::StudyCenterUI.Properties.Resources.users_list;
             this.pictureBox5.Location = new System.Drawing.Point(584, 125);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(31, 26);
@@ -198,7 +198,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::StudyCenter.Properties.Resources.Notes_32;
+            this.pictureBox3.Image = global::StudyCenterUI.Properties.Resources.Notes_32;
             this.pictureBox3.Location = new System.Drawing.Point(120, 125);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(31, 26);
@@ -209,7 +209,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox1.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox1.Location = new System.Drawing.Point(120, 62);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 26);
@@ -220,7 +220,7 @@
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = global::StudyCenter.Properties.Resources.room_type;
+            this.pictureBox8.Image = global::StudyCenterUI.Properties.Resources.room_type;
             this.pictureBox8.Location = new System.Drawing.Point(584, 62);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(31, 26);

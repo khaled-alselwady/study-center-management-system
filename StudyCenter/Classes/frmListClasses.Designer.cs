@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Classes
+﻿namespace StudyCenterUI.Classes
 {
     partial class frmListClasses
     {
@@ -258,7 +258,7 @@
             this.btnAddClass.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAddClass.ForeColor = System.Drawing.Color.White;
             this.btnAddClass.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddClass.Image = global::StudyCenter.Properties.Resources.add_class;
+            this.btnAddClass.Image = global::StudyCenterUI.Properties.Resources.add_class;
             this.btnAddClass.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnAddClass.ImageSize = new System.Drawing.Size(45, 45);
             this.btnAddClass.Location = new System.Drawing.Point(1281, 247);
@@ -270,7 +270,7 @@
             // tsmShowClassDetails
             // 
             this.tsmShowClassDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowClassDetails.Image = global::StudyCenter.Properties.Resources.show_reservation_32;
+            this.tsmShowClassDetails.Image = global::StudyCenterUI.Properties.Resources.show_reservation_32;
             this.tsmShowClassDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmShowClassDetails.Name = "tsmShowClassDetails";
             this.tsmShowClassDetails.Size = new System.Drawing.Size(350, 38);
@@ -280,7 +280,7 @@
             // tsmEditClass
             // 
             this.tsmEditClass.ForeColor = System.Drawing.Color.White;
-            this.tsmEditClass.Image = global::StudyCenter.Properties.Resources.edit_reservation32;
+            this.tsmEditClass.Image = global::StudyCenterUI.Properties.Resources.edit_reservation32;
             this.tsmEditClass.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmEditClass.Name = "tsmEditClass";
             this.tsmEditClass.Size = new System.Drawing.Size(350, 38);
@@ -290,7 +290,7 @@
             // AddGroupToolStripMenuItem1
             // 
             this.AddGroupToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.AddGroupToolStripMenuItem1.Image = global::StudyCenter.Properties.Resources.add_group_32;
+            this.AddGroupToolStripMenuItem1.Image = global::StudyCenterUI.Properties.Resources.add_group_32;
             this.AddGroupToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AddGroupToolStripMenuItem1.Name = "AddGroupToolStripMenuItem1";
             this.AddGroupToolStripMenuItem1.Size = new System.Drawing.Size(350, 38);
@@ -300,7 +300,7 @@
             // ShowGroupsAndWhoTeachesInItToolStripMenuItem
             // 
             this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Image = global::StudyCenter.Properties.Resources.assign_to_subject_32;
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Image = global::StudyCenterUI.Properties.Resources.assign_to_subject_32;
             this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Name = "ShowGroupsAndWhoTeachesInItToolStripMenuItem";
             this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Size = new System.Drawing.Size(350, 38);
@@ -310,7 +310,7 @@
             // pbImage
             // 
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImage.Image = global::StudyCenter.Properties.Resources.classes_list;
+            this.pbImage.Image = global::StudyCenterUI.Properties.Resources.classes_list;
             this.pbImage.InitialImage = null;
             this.pbImage.Location = new System.Drawing.Point(499, 57);
             this.pbImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

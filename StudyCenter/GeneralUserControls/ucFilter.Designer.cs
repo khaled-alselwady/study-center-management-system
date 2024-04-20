@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.GeneralUserControls
+﻿namespace StudyCenterUI.GeneralUserControls
 {
     partial class ucFilter
     {
@@ -69,7 +69,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btnAdd.Image = global::StudyCenter.Properties.Resources.add_new_person_50;
+            this.btnAdd.Image = global::StudyCenterUI.Properties.Resources.add_new_person_50;
             this.btnAdd.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnAdd.ImageSize = new System.Drawing.Size(45, 45);
             this.btnAdd.Location = new System.Drawing.Point(656, 58);
@@ -91,7 +91,7 @@
             this.btnFind.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnFind.ForeColor = System.Drawing.Color.White;
             this.btnFind.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btnFind.Image = global::StudyCenter.Properties.Resources.find_person_50;
+            this.btnFind.Image = global::StudyCenterUI.Properties.Resources.find_person_50;
             this.btnFind.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnFind.ImageSize = new System.Drawing.Size(45, 45);
             this.btnFind.Location = new System.Drawing.Point(596, 58);

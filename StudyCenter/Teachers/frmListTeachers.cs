@@ -1,14 +1,14 @@
-﻿using StudyCenter.Classes;
-using StudyCenter.GlobalClasses;
-using StudyCenter.SubjectsAndGradeLevels;
-using StudyCenter_Business;
+﻿using StudyCenterUI.Classes;
+using StudyCenterUI.GlobalClasses;
+using StudyCenterUI.SubjectsAndGradeLevels;
+using StudyCenterBusiness;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
-using static StudyCenter.SubjectsAndGradeLevels.frmAddEditAssignTeacherToSubject;
+using static StudyCenterUI.SubjectsAndGradeLevels.frmAddEditAssignTeacherToSubject;
 
-namespace StudyCenter.Teachers
+namespace StudyCenterUI.Teachers
 {
     public partial class frmListTeachers : Form
     {

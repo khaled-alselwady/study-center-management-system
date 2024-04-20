@@ -1,11 +1,11 @@
-﻿using StudyCenter.Teachers;
-using StudyCenter_Business;
+﻿using StudyCenterUI.Teachers;
+using StudyCenterBusiness;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
 
-namespace StudyCenter.SubjectsAndGradeLevels
+namespace StudyCenterUI.SubjectsAndGradeLevels
 {
     public partial class frmListSubjectsGradeLevel : Form
     {

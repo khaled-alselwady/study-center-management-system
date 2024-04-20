@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace StudyCenter_DataAccess
+namespace StudyCenterDataAccess
 {
     public static class clsDataAccessHelper
     {

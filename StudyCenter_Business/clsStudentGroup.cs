@@ -1,8 +1,8 @@
-using StudyCenter_DataAccess;
+using StudyCenterDataAccess;
 using System;
 using System.Data;
 
-namespace StudyCenter_Business
+namespace StudyCenterBusiness
 {
     public class clsStudentGroup
     {

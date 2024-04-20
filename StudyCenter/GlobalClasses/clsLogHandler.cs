@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Diagnostics;
 
-namespace StudyCenter.GlobalClasses
+namespace StudyCenterUI.GlobalClasses
 {
     public class clsLogHandler
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace StudyCenter.GeneralUserControls
+namespace StudyCenterUI.GeneralUserControls
 {
     public partial class ucSubList : UserControl
     {

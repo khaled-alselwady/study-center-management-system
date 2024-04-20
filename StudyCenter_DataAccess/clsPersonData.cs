@@ -2,7 +2,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace StudyCenter_DataAccess
+namespace StudyCenterDataAccess
 {
     public class clsPersonData
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace StudyCenter.GlobalClasses
+namespace StudyCenterUI.GlobalClasses
 {
     public static class clsStandardMessages
     {

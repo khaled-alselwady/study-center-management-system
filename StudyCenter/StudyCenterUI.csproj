@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{82AC2D42-EE57-4929-BB17-4BCBBCE7A242}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>StudyCenter</RootNamespace>
-    <AssemblyName>StudyCenter</AssemblyName>
+    <RootNamespace>StudyCenterUI</RootNamespace>
+    <AssemblyName>StudyCenterUI</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -567,12 +567,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StudyCenter_Business\StudyCenter_Business.csproj">
-      <Project>{fd62aa33-b9a1-48da-b69b-0a919c828b1f}</Project>
-      <Name>StudyCenter_Business</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\ImageSlide.png" />
   </ItemGroup>
   <ItemGroup>
@@ -754,6 +748,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-group-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudyCenter_Business\StudyCenterBusiness.csproj">
+      <Project>{fd62aa33-b9a1-48da-b69b-0a919c828b1f}</Project>
+      <Name>StudyCenterBusiness</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

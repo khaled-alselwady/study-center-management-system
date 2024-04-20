@@ -1,12 +1,12 @@
-﻿using StudyCenter.GlobalClasses;
-using StudyCenter_Business;
+﻿using StudyCenterUI.GlobalClasses;
+using StudyCenterBusiness;
 using System;
 using System.Data;
 using System.Windows.Forms;
-using static StudyCenter.Classes.UserControls.ucClassCardWithFilter;
-using static StudyCenter.Teachers.UserControls.ucTeacherCardWithFilter;
+using static StudyCenterUI.Classes.UserControls.ucClassCardWithFilter;
+using static StudyCenterUI.Teachers.UserControls.ucTeacherCardWithFilter;
 
-namespace StudyCenter.Groups
+namespace StudyCenterUI.Groups
 {
     public partial class frmAddEditGroup : Form
     {

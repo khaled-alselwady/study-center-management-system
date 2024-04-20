@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Teachers.UserControls
+﻿namespace StudyCenterUI.Teachers.UserControls
 {
     partial class ucTeacherCard
     {
@@ -42,7 +42,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.lblTeacherID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ucPersonCard1 = new StudyCenter.People.UserControls.ucPersonCard();
+            this.ucPersonCard1 = new StudyCenterUI.People.UserControls.ucPersonCard();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -261,7 +261,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::StudyCenter.Properties.Resources.certificate;
+            this.pictureBox4.Image = global::StudyCenterUI.Properties.Resources.certificate;
             this.pictureBox4.Location = new System.Drawing.Point(136, 147);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(31, 26);
@@ -272,7 +272,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.grade_level;
+            this.pictureBox2.Image = global::StudyCenterUI.Properties.Resources.grade_level;
             this.pictureBox2.Location = new System.Drawing.Point(136, 108);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 26);
@@ -283,7 +283,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::StudyCenter.Properties.Resources.add_reservation_50;
+            this.pictureBox3.Image = global::StudyCenterUI.Properties.Resources.add_reservation_50;
             this.pictureBox3.Location = new System.Drawing.Point(562, 147);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(31, 26);
@@ -294,7 +294,7 @@
             // pbIsActive
             // 
             this.pbIsActive.BackColor = System.Drawing.Color.Transparent;
-            this.pbIsActive.Image = global::StudyCenter.Properties.Resources.name;
+            this.pbIsActive.Image = global::StudyCenterUI.Properties.Resources.name;
             this.pbIsActive.Location = new System.Drawing.Point(562, 108);
             this.pbIsActive.Name = "pbIsActive";
             this.pbIsActive.Size = new System.Drawing.Size(31, 26);
@@ -305,7 +305,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox1.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox1.Location = new System.Drawing.Point(136, 64);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 26);
@@ -316,7 +316,7 @@
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = global::StudyCenter.Properties.Resources.experience;
+            this.pictureBox8.Image = global::StudyCenterUI.Properties.Resources.experience;
             this.pictureBox8.Location = new System.Drawing.Point(562, 64);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(31, 26);

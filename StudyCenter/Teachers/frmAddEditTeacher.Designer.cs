@@ -1,4 +1,4 @@
-﻿namespace StudyCenter.Teachers
+﻿namespace StudyCenterUI.Teachers
 {
     partial class frmAddEditTeacher
     {
@@ -46,7 +46,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
             this.lblTeacherID = new System.Windows.Forms.Label();
-            this.ucPersonCardWithFilter1 = new StudyCenter.People.UserControls.ucPersonCardWithFilter();
+            this.ucPersonCardWithFilter1 = new StudyCenterUI.People.UserControls.ucPersonCardWithFilter();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnSave = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -165,7 +165,7 @@
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = global::StudyCenter.Properties.Resources.experience;
+            this.pictureBox8.Image = global::StudyCenterUI.Properties.Resources.experience;
             this.pictureBox8.Location = new System.Drawing.Point(164, 152);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(31, 26);
@@ -214,7 +214,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::StudyCenter.Properties.Resources.certificate;
+            this.pictureBox4.Image = global::StudyCenterUI.Properties.Resources.certificate;
             this.pictureBox4.Location = new System.Drawing.Point(536, 108);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(31, 26);
@@ -237,7 +237,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::StudyCenter.Properties.Resources.grade_level;
+            this.pictureBox2.Image = global::StudyCenterUI.Properties.Resources.grade_level;
             this.pictureBox2.Location = new System.Drawing.Point(536, 64);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 26);
@@ -272,7 +272,7 @@
             // pbIsActive
             // 
             this.pbIsActive.BackColor = System.Drawing.Color.Transparent;
-            this.pbIsActive.Image = global::StudyCenter.Properties.Resources.name;
+            this.pbIsActive.Image = global::StudyCenterUI.Properties.Resources.name;
             this.pbIsActive.Location = new System.Drawing.Point(164, 108);
             this.pbIsActive.Name = "pbIsActive";
             this.pbIsActive.Size = new System.Drawing.Size(31, 26);
@@ -295,7 +295,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::StudyCenter.Properties.Resources.id;
+            this.pictureBox1.Image = global::StudyCenterUI.Properties.Resources.id;
             this.pictureBox1.Location = new System.Drawing.Point(164, 64);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 26);
@@ -335,7 +335,7 @@
             this.ucPersonCardWithFilter1.Name = "ucPersonCardWithFilter1";
             this.ucPersonCardWithFilter1.Size = new System.Drawing.Size(862, 412);
             this.ucPersonCardWithFilter1.TabIndex = 0;
-            this.ucPersonCardWithFilter1.OnPersonSelected += new System.EventHandler<StudyCenter.People.UserControls.ucPersonCardWithFilter.PersonSelectedEventArgs>(this.ucPersonCardWithFilter1_OnPersonSelected);
+            this.ucPersonCardWithFilter1.OnPersonSelected += new System.EventHandler<StudyCenterUI.People.UserControls.ucPersonCardWithFilter.PersonSelectedEventArgs>(this.ucPersonCardWithFilter1_OnPersonSelected);
             // 
             // lblTitle
             // 
@@ -362,7 +362,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::StudyCenter.Properties.Resources.close_48;
+            this.btnClose.Image = global::StudyCenterUI.Properties.Resources.close_48;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
             this.btnClose.Location = new System.Drawing.Point(616, 794);
@@ -387,7 +387,7 @@
             this.btnSave.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(43)))), ((int)(((byte)(71)))));
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = global::StudyCenter.Properties.Resources.save;
+            this.btnSave.Image = global::StudyCenterUI.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSave.ImageOffset = new System.Drawing.Point(0, -1);
             this.btnSave.ImageSize = new System.Drawing.Size(30, 30);

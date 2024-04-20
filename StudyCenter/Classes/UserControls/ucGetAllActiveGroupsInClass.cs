@@ -1,9 +1,9 @@
-﻿using StudyCenter.Groups;
-using StudyCenter.Students;
-using StudyCenter_Business;
+﻿using StudyCenterUI.Groups;
+using StudyCenterUI.Students;
+using StudyCenterBusiness;
 using System.Windows.Forms;
 
-namespace StudyCenter.Classes.UserControls
+namespace StudyCenterUI.Classes.UserControls
 {
     public partial class ucGetAllActiveGroupsInClass : UserControl
     {
