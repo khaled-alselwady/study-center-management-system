@@ -85,15 +85,18 @@ namespace StudyCenterBusiness
         public static bool Exists(int? meetingTimeID)
             => clsMeetingTimeData.Exists(meetingTimeID);
 
+        public static bool Exists(TimeSpan startTime, byte meetingDays)
+            => clsMeetingTimeData.Exists(startTime, meetingDays);
+
         public static DataTable All()
             => clsMeetingTimeData.All();
 
         public static DataTable AllWithoutTeacherOrClass(int? teacherID, int? classID)
             => clsMeetingTimeData.AllWithoutTeacherOrClass(teacherID, classID);
 
-        private string _MeetingDayName()
+        public static string MeetingDayText(byte meetingDayIndex)
         {
-            switch (MeetingDays)
+            switch (meetingDayIndex)
             {
                 case 0:
                     return "Daily";
@@ -106,9 +109,25 @@ namespace StudyCenterBusiness
             }
         }
 
+        public static byte MeetingDayIndex(string meetingDayName)
+        {
+            switch (meetingDayName.ToUpper())
+            {
+                case "DAILY":
+                    return 0;
+                case "STT":
+                    return 1;
+                case "MW":
+                    return 2;
+                default:
+                    return 0;
+            }
+        }
+
         public string MeetingTimeText()
-            => StartTime.Hours.ToString("00") + ":" + StartTime.Minutes.ToString("00") + " - "
-            + EndTime.Hours.ToString("00") + ":" + EndTime.Minutes.ToString("00") + "   " + _MeetingDayName();
+            => $"{StartTime.Hours.ToString("00")}:{StartTime.Minutes.ToString("00")} - " +
+               $"{EndTime.Hours.ToString("00")}:{EndTime.Minutes.ToString("00")}   " +
+               $"{MeetingDayText(MeetingDays)}";
     }
 
 }

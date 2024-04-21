@@ -125,7 +125,10 @@ namespace StudyCenterDataAccess
             => clsDataAccessHelper.Delete("SP_DeleteMeetingTime", "MeetingTimeID", meetingTimeID);
 
         public static bool Exists(int? meetingTimeID)
-            => clsDataAccessHelper.Exists("SP_DoesMeetingTimeExist", "MeetingTimeID", meetingTimeID);
+            => clsDataAccessHelper.Exists("SP_DoesMeetingTimeExistByMeetingTimeID", "MeetingTimeID", meetingTimeID);
+
+        public static bool Exists(TimeSpan startTime, byte meetingDays)
+            => clsDataAccessHelper.Exists("SP_DoesMeetingTimeExistByStartTimeAndMeetingDays", "StartTime", startTime, "MeetingDays", meetingDays);
 
         public static DataTable All()
             => clsDataAccessHelper.All("SP_GetAllMeetingTimes");
