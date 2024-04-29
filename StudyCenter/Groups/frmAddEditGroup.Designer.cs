@@ -34,11 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpClassInfo = new System.Windows.Forms.TabPage();
-            this.ucClassCardWithFilter1 = new StudyCenterUI.Classes.UserControls.ucClassCardWithFilter();
             this.tpTeacherInfo = new System.Windows.Forms.TabPage();
-            this.ucTeacherCardWithFilter1 = new StudyCenterUI.Teachers.UserControls.ucTeacherCardWithFilter();
             this.tpSubjectInfo = new System.Windows.Forms.TabPage();
-            this.ucGetAllSubjectsTaughtByTeacher1 = new StudyCenterUI.SubjectsAndGradeLevels.userControls.ucGetAllSubjectsTaughtByTeacher();
             this.tpMeetingTimeInfo = new System.Windows.Forms.TabPage();
             this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.cbFilterMeetingTimeBy = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -74,6 +71,10 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnSave = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.ucClassCardWithFilter1 = new StudyCenterUI.Classes.UserControls.ucClassCardWithFilter();
+            this.ucTeacherCardWithFilter1 = new StudyCenterUI.Teachers.UserControls.ucTeacherCardWithFilter();
+            this.ucGetAllSubjectsTaughtByTeacher1 = new StudyCenterUI.SubjectsAndGradeLevels.userControls.ucGetAllSubjectsTaughtByTeacher();
+            this.btnAddMeetingTime = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TabControl1.SuspendLayout();
             this.tpClassInfo.SuspendLayout();
             this.tpTeacherInfo.SuspendLayout();
@@ -138,18 +139,6 @@
             this.tpClassInfo.TabIndex = 0;
             this.tpClassInfo.Text = "Class Data";
             // 
-            // ucClassCardWithFilter1
-            // 
-            this.ucClassCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ucClassCardWithFilter1.BackColor = System.Drawing.Color.White;
-            this.ucClassCardWithFilter1.FilterEnabled = true;
-            this.ucClassCardWithFilter1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucClassCardWithFilter1.Location = new System.Drawing.Point(25, 22);
-            this.ucClassCardWithFilter1.Name = "ucClassCardWithFilter1";
-            this.ucClassCardWithFilter1.Size = new System.Drawing.Size(862, 336);
-            this.ucClassCardWithFilter1.TabIndex = 0;
-            this.ucClassCardWithFilter1.OnClassSelected += new System.EventHandler<StudyCenterUI.Classes.UserControls.ucClassCardWithFilter.ClassSelectedEventArgs>(this.ucClassCardWithFilter1_OnClassSelected);
-            // 
             // tpTeacherInfo
             // 
             this.tpTeacherInfo.BackColor = System.Drawing.Color.White;
@@ -161,18 +150,6 @@
             this.tpTeacherInfo.TabIndex = 1;
             this.tpTeacherInfo.Text = "Teacher Info";
             // 
-            // ucTeacherCardWithFilter1
-            // 
-            this.ucTeacherCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ucTeacherCardWithFilter1.BackColor = System.Drawing.Color.White;
-            this.ucTeacherCardWithFilter1.FilterEnabled = true;
-            this.ucTeacherCardWithFilter1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucTeacherCardWithFilter1.Location = new System.Drawing.Point(24, 23);
-            this.ucTeacherCardWithFilter1.Name = "ucTeacherCardWithFilter1";
-            this.ucTeacherCardWithFilter1.Size = new System.Drawing.Size(862, 643);
-            this.ucTeacherCardWithFilter1.TabIndex = 1;
-            this.ucTeacherCardWithFilter1.OnTeacherSelected += new System.EventHandler<StudyCenterUI.Teachers.UserControls.ucTeacherCardWithFilter.TeacherSelectedEventArgs>(this.ucTeacherCardWithFilter1_OnTeacherSelected);
-            // 
             // tpSubjectInfo
             // 
             this.tpSubjectInfo.BackColor = System.Drawing.Color.White;
@@ -183,15 +160,6 @@
             this.tpSubjectInfo.Size = new System.Drawing.Size(918, 699);
             this.tpSubjectInfo.TabIndex = 2;
             this.tpSubjectInfo.Text = "Subject Info";
-            // 
-            // ucGetAllSubjectsTaughtByTeacher1
-            // 
-            this.ucGetAllSubjectsTaughtByTeacher1.BackColor = System.Drawing.Color.White;
-            this.ucGetAllSubjectsTaughtByTeacher1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucGetAllSubjectsTaughtByTeacher1.Location = new System.Drawing.Point(23, 24);
-            this.ucGetAllSubjectsTaughtByTeacher1.Name = "ucGetAllSubjectsTaughtByTeacher1";
-            this.ucGetAllSubjectsTaughtByTeacher1.Size = new System.Drawing.Size(865, 283);
-            this.ucGetAllSubjectsTaughtByTeacher1.TabIndex = 0;
             // 
             // tpMeetingTimeInfo
             // 
@@ -207,6 +175,7 @@
             // guna2GroupBox3
             // 
             this.guna2GroupBox3.BackColor = System.Drawing.Color.White;
+            this.guna2GroupBox3.Controls.Add(this.btnAddMeetingTime);
             this.guna2GroupBox3.Controls.Add(this.cbFilterMeetingTimeBy);
             this.guna2GroupBox3.Controls.Add(this.cbMeetingDays);
             this.guna2GroupBox3.Controls.Add(this.label5);
@@ -217,7 +186,7 @@
             this.guna2GroupBox3.Name = "guna2GroupBox3";
             this.guna2GroupBox3.Size = new System.Drawing.Size(862, 641);
             this.guna2GroupBox3.TabIndex = 6;
-            this.guna2GroupBox3.Text = "Subject Information";
+            this.guna2GroupBox3.Text = "Meeting Time Information";
             // 
             // cbFilterMeetingTimeBy
             // 
@@ -724,6 +693,61 @@
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // ucClassCardWithFilter1
+            // 
+            this.ucClassCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ucClassCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ucClassCardWithFilter1.FilterEnabled = true;
+            this.ucClassCardWithFilter1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucClassCardWithFilter1.Location = new System.Drawing.Point(25, 22);
+            this.ucClassCardWithFilter1.Name = "ucClassCardWithFilter1";
+            this.ucClassCardWithFilter1.Size = new System.Drawing.Size(862, 336);
+            this.ucClassCardWithFilter1.TabIndex = 0;
+            this.ucClassCardWithFilter1.OnClassSelected += new System.EventHandler<StudyCenterUI.Classes.UserControls.ucClassCardWithFilter.ClassSelectedEventArgs>(this.ucClassCardWithFilter1_OnClassSelected);
+            // 
+            // ucTeacherCardWithFilter1
+            // 
+            this.ucTeacherCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ucTeacherCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ucTeacherCardWithFilter1.FilterEnabled = true;
+            this.ucTeacherCardWithFilter1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucTeacherCardWithFilter1.Location = new System.Drawing.Point(24, 23);
+            this.ucTeacherCardWithFilter1.Name = "ucTeacherCardWithFilter1";
+            this.ucTeacherCardWithFilter1.Size = new System.Drawing.Size(862, 643);
+            this.ucTeacherCardWithFilter1.TabIndex = 1;
+            this.ucTeacherCardWithFilter1.OnTeacherSelected += new System.EventHandler<StudyCenterUI.Teachers.UserControls.ucTeacherCardWithFilter.TeacherSelectedEventArgs>(this.ucTeacherCardWithFilter1_OnTeacherSelected);
+            // 
+            // ucGetAllSubjectsTaughtByTeacher1
+            // 
+            this.ucGetAllSubjectsTaughtByTeacher1.BackColor = System.Drawing.Color.White;
+            this.ucGetAllSubjectsTaughtByTeacher1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucGetAllSubjectsTaughtByTeacher1.Location = new System.Drawing.Point(23, 24);
+            this.ucGetAllSubjectsTaughtByTeacher1.Name = "ucGetAllSubjectsTaughtByTeacher1";
+            this.ucGetAllSubjectsTaughtByTeacher1.Size = new System.Drawing.Size(865, 283);
+            this.ucGetAllSubjectsTaughtByTeacher1.TabIndex = 0;
+            // 
+            // btnAddMeetingTime
+            // 
+            this.btnAddMeetingTime.Checked = true;
+            this.btnAddMeetingTime.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddMeetingTime.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddMeetingTime.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddMeetingTime.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddMeetingTime.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddMeetingTime.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddMeetingTime.FillColor = System.Drawing.Color.White;
+            this.btnAddMeetingTime.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddMeetingTime.ForeColor = System.Drawing.Color.White;
+            this.btnAddMeetingTime.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddMeetingTime.Image = global::StudyCenterUI.Properties.Resources.add_reservation_50;
+            this.btnAddMeetingTime.ImageOffset = new System.Drawing.Point(1, 0);
+            this.btnAddMeetingTime.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnAddMeetingTime.Location = new System.Drawing.Point(792, 60);
+            this.btnAddMeetingTime.Name = "btnAddMeetingTime";
+            this.btnAddMeetingTime.Size = new System.Drawing.Size(50, 45);
+            this.btnAddMeetingTime.TabIndex = 219;
+            this.btnAddMeetingTime.Click += new System.EventHandler(this.btnAddMeetingTime_Click);
+            // 
             // frmAddEditGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -809,5 +833,6 @@
         private Classes.UserControls.ucClassCardWithFilter ucClassCardWithFilter1;
         private Teachers.UserControls.ucTeacherCardWithFilter ucTeacherCardWithFilter1;
         private SubjectsAndGradeLevels.userControls.ucGetAllSubjectsTaughtByTeacher ucGetAllSubjectsTaughtByTeacher1;
+        private Guna.UI2.WinForms.Guna2Button btnAddMeetingTime;
     }
 }

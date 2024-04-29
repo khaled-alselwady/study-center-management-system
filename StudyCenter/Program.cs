@@ -1,4 +1,4 @@
-﻿using StudyCenterUI.MeetingTimes;
+﻿using StudyCenterUI.MainMenu;
 using System;
 using System.Windows.Forms;
 
@@ -14,8 +14,7 @@ namespace StudyCenterUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmMainMenu());
-            Application.Run(new frmAddEditMeetingTime());
+            Application.Run(new frmMainMenu());
         }
     }
 }

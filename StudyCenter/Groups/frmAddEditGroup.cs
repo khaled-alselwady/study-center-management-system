@@ -1,5 +1,6 @@
-﻿using StudyCenterUI.GlobalClasses;
-using StudyCenterBusiness;
+﻿using StudyCenterBusiness;
+using StudyCenterUI.GlobalClasses;
+using StudyCenterUI.MeetingTimes;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -332,6 +333,17 @@ namespace StudyCenterUI.Groups
 
             else if (selectedTabPage == tpClassInfo)
                 ucClassCardWithFilter1.FilterFocus();
+        }
+
+        private void btnAddMeetingTime_Click(object sender, EventArgs e)
+        {
+            frmAddEditMeetingTime addMeetingTime = new frmAddEditMeetingTime();
+            addMeetingTime.ShowDialog();
+
+            if (_selectedTeacherID.HasValue && _selectedClassID.HasValue)
+            {
+                _RefreshMeetingTimesList();
+            }
         }
     }
 }
