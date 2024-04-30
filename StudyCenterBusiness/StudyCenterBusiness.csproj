@@ -46,6 +46,7 @@
     <Compile Include="clsGradeLevel.cs" />
     <Compile Include="clsGroup.cs" />
     <Compile Include="clsMeetingTime.cs" />
+    <Compile Include="clsPayment.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsStudent.cs" />
     <Compile Include="clsStudentDeletedLog.cs" />

@@ -51,6 +51,7 @@
     <Compile Include="clsGroupData.cs" />
     <Compile Include="clsLogHandler.cs" />
     <Compile Include="clsMeetingTimeData.cs" />
+    <Compile Include="clsPaymentData.cs" />
     <Compile Include="clsPersonData.cs" />
     <Compile Include="clsStudentData.cs" />
     <Compile Include="clsStudentDeletedLogData.cs" />
