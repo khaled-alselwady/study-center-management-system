@@ -15,6 +15,12 @@ namespace StudyCenterBusiness
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public bool IsActive { get; set; }
+        public int? CreatedByUserID { get; set; }
+
+        public clsStudent StudentInfo { get; private set; }
+        public clsGroup GroupInfo { get; private set; }
+        public clsUser CreatedByUserInfo { get; private set; }
+
 
         public clsStudentGroup()
         {
@@ -29,7 +35,7 @@ namespace StudyCenterBusiness
         }
 
         private clsStudentGroup(int? studentGroupID, int? studentID,
-            int? groupID, DateTime startDate, DateTime? endDate, bool isActive)
+            int? groupID, DateTime startDate, DateTime? endDate, bool isActive, int? createdByUserID)
         {
             StudentGroupID = studentGroupID;
             StudentID = studentID;
@@ -38,12 +44,16 @@ namespace StudyCenterBusiness
             EndDate = endDate;
             IsActive = isActive;
 
+            StudentInfo = clsStudent.FindByStudentID(studentID);
+            GroupInfo = clsGroup.Find(groupID);
+            CreatedByUserInfo = clsUser.Find(createdByUserID);
+
             Mode = enMode.Update;
         }
 
         private bool _Add()
         {
-            StudentGroupID = clsStudentGroupData.Add(StudentID, GroupID);
+            StudentGroupID = clsStudentGroupData.Add(StudentID, GroupID, CreatedByUserID);
 
             return (StudentGroupID.HasValue);
         }
@@ -81,13 +91,14 @@ namespace StudyCenterBusiness
             int? groupID = null;
             DateTime startDate = DateTime.Now;
             DateTime? endDate = null;
-            bool isActive = false;
+            bool isActive = true;
+            int? createdByUserID = null;
 
             bool isFound = clsStudentGroupData.GetInfoByID(studentGroupID, ref studentID,
-                ref groupID, ref startDate, ref endDate, ref isActive);
+                ref groupID, ref startDate, ref endDate, ref isActive, ref createdByUserID);
 
             return (isFound) ? (new clsStudentGroup(studentGroupID, studentID, groupID,
-                startDate, endDate, isActive)) : null;
+                startDate, endDate, isActive, createdByUserID)) : null;
         }
 
         public static bool Delete(int? studentGroupID)

@@ -1,6 +1,6 @@
 ﻿using Guna.UI2.WinForms;
-using StudyCenterDesktopUI.GlobalClasses;
 using StudyCenterBusiness;
+using StudyCenterDesktopUI.GlobalClasses;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -152,14 +152,22 @@ namespace StudyCenterDesktopUI.Groups
                 dgvGroupsList.Columns[9].HeaderText = "Students Count";
                 dgvGroupsList.Columns[9].Width = 160;
 
-                dgvGroupsList.Columns[10].HeaderText = "Is Active";
-                dgvGroupsList.Columns[10].Width = 80;
+                dgvGroupsList.Columns[10].HeaderText = "Fees";
+                dgvGroupsList.Columns[10].Width = 100;
+
+                dgvGroupsList.Columns[11].HeaderText = "Is Active";
+                dgvGroupsList.Columns[11].Width = 80;
             }
         }
 
         private int? _GetGroupIDFromDGV()
         {
-            return (int?)dgvGroupsList.CurrentRow.Cells["GroupID"].Value;
+            return (int?)dgvGroupsList?.CurrentRow?.Cells["GroupID"]?.Value;
+        }
+
+        private decimal? _GetFeesFromDGV()
+        {
+            return (decimal?)dgvGroupsList?.CurrentRow?.Cells["Fees"]?.Value ?? null;
         }
 
         private void _FilterComboBox(Guna2ComboBox comboBox, string entityName)
@@ -274,6 +282,7 @@ namespace StudyCenterDesktopUI.Groups
                 _studentGroup.GroupID = _groupID;
 
             _studentGroup.IsActive = true;
+            _studentGroup.CreatedByUserID = clsGlobal.CurrentUser?.UserID ?? 1;
         }
 
         private void _SaveStudentGroup()
@@ -411,11 +420,19 @@ namespace StudyCenterDesktopUI.Groups
                 return;
             }
 
-            if (MessageBox.Show($"Are you sure you want to assign the student with ID {_selectedStudentID}" +
-                $" to the group with ID {_groupID ?? _GetGroupIDFromDGV()}?", "Confirm",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2) == DialogResult.No)
+
+            decimal? fees = _GetFeesFromDGV();
+            decimal displayFees = (fees) ?? (clsGroup.GetSubjectFeesByGroupID(_groupID));
+
+            string message = $"The student with ID {_selectedStudentID} has to pay {displayFees:C2}. Are you sure " +
+                             $"you want to assign them to the group with ID {_groupID ?? _GetGroupIDFromDGV()}?";
+
+            if (MessageBox.Show(message, "Confirm",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                                MessageBoxDefaultButton.Button2) == DialogResult.No)
+            {
                 return;
+            }
 
             _SaveStudentGroup();
         }

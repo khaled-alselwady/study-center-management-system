@@ -168,6 +168,9 @@ namespace StudyCenterBusiness
         public static int Count()
             => clsGroupData.Count();
 
+        public static decimal GetSubjectFeesByGroupID(int? groupID)
+            => clsGroupData.GetSubjectFeesByGroupID(groupID);
+
         public string GetStudentCount()
             => StudentCount.ToString() + "/" + ClassInfo?.Capacity
             + ((StudentCount <= 1) ? "  Student" : "  Students");

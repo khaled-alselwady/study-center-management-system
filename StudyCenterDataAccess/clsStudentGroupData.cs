@@ -8,7 +8,7 @@ namespace StudyCenterDataAccess
     {
         public static bool GetInfoByID(int? studentGroupID, ref int? studentID,
             ref int? groupID, ref DateTime startDate,
-            ref DateTime? endDate, ref bool isActive)
+            ref DateTime? endDate, ref bool isActive, ref int? CreatedByUserID)
         {
             bool isFound = false;
 
@@ -36,6 +36,7 @@ namespace StudyCenterDataAccess
                                 startDate = (DateTime)reader["StartDate"];
                                 endDate = (reader["EndDate"] != DBNull.Value) ? (DateTime?)reader["EndDate"] : null;
                                 isActive = (bool)reader["IsActive"];
+                                CreatedByUserID = (reader["CreatedByUserID"] != DBNull.Value) ? (int?)reader["CreatedByUserID"] : null;
                             }
                             else
                             {
@@ -55,7 +56,7 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static int? Add(int? studentID, int? groupID)
+        public static int? Add(int? studentID, int? groupID, int? CreatedByUserID)
         {
             // This function will return the new person id if succeeded and null if not
             int? studentGroupID = null;
@@ -72,6 +73,8 @@ namespace StudyCenterDataAccess
 
                         command.Parameters.AddWithValue("@StudentID", (object)studentID ?? DBNull.Value);
                         command.Parameters.AddWithValue("@GroupID", (object)groupID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@CreatedByUserID", (object)CreatedByUserID ?? DBNull.Value);
+
 
                         SqlParameter outputIdParam = new SqlParameter("@NewStudentGroupID", SqlDbType.Int)
                         {

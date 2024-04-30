@@ -228,5 +228,41 @@ namespace StudyCenterDataAccess
 
         public static int Count()
             => clsDataAccessHelper.Count("SP_GetAllGroupsCount");
+
+        public static decimal GetSubjectFeesByGroupID(int? groupID)
+        {
+            decimal fees = 0m;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetSubjectFeesByGroupID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@GroupID", groupID);
+
+                        SqlParameter outputIdParam = new SqlParameter("@Fees", SqlDbType.SmallMoney)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(outputIdParam);
+
+                        command.ExecuteNonQuery();
+
+                        fees = (decimal)outputIdParam.Value;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessHelper.HandleException(ex);
+            }
+
+            return fees;
+        }
     }
 }
