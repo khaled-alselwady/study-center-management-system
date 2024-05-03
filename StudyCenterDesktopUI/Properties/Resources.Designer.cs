@@ -403,6 +403,16 @@ namespace StudyCenterDesktopUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap list_payments {
+            get {
+                object obj = ResourceManager.GetObject("list-payments", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logout_blue_64 {
             get {
                 object obj = ResourceManager.GetObject("logout-blue-64", resourceCulture);
@@ -466,6 +476,26 @@ namespace StudyCenterDesktopUI.Properties {
         internal static System.Drawing.Bitmap Notes_32 {
             get {
                 object obj = ResourceManager.GetObject("Notes 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap payments_blue_64 {
+            get {
+                object obj = ResourceManager.GetObject("payments-blue-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap payments_white_64 {
+            get {
+                object obj = ResourceManager.GetObject("payments-white-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

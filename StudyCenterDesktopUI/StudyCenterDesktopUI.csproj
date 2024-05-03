@@ -194,6 +194,12 @@
     <Compile Include="MeetingTimes\frmAddEditMeetingTime.Designer.cs">
       <DependentUpon>frmAddEditMeetingTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payments\frmListPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\frmListPayments.Designer.cs">
+      <DependentUpon>frmListPayments.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MeetingTimes\frmAddEditMeetingTime.resx">
       <DependentUpon>frmAddEditMeetingTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\frmListPayments.resx">
+      <DependentUpon>frmListPayments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
@@ -775,6 +784,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payments-white-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payments-blue-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list-payments.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

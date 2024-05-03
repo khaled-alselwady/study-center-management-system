@@ -109,5 +109,11 @@ namespace StudyCenterBusiness
 
         public static DataTable All()
         => clsPaymentData.All();
+
+        public static DataTable AllInPages(short PageNumber, int RowsPerPage)
+            => clsPaymentData.AllInPages(PageNumber, RowsPerPage);
+
+        public static int Count()
+            => clsPaymentData.Count();
     }
 }

@@ -2,6 +2,7 @@
 using StudyCenterDesktopUI.Classes;
 using StudyCenterDesktopUI.Dashboard;
 using StudyCenterDesktopUI.Groups;
+using StudyCenterDesktopUI.Payments;
 using StudyCenterDesktopUI.Students;
 using StudyCenterDesktopUI.SubjectsAndGradeLevels;
 using StudyCenterDesktopUI.Teachers;
@@ -119,6 +120,11 @@ namespace StudyCenterDesktopUI.MainMenu
         private void btnGroups_Click(object sender, System.EventArgs e)
         {
             _OpenChildFormAsync(new frmListGroups(), sender);
+        }
+
+        private void btnPayments_Click(object sender, EventArgs e)
+        {
+            _OpenChildFormAsync(new frmListPayments(), sender);
         }
 
         private void btnSettings_Click(object sender, System.EventArgs e)
