@@ -15,7 +15,7 @@ namespace StudyCenterDesktopUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmMainMenu());
-            Application.Run(new frmChangePassword(1));
+            Application.Run(new frmListUsers());
         }
     }
 }

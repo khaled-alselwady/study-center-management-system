@@ -36,9 +36,9 @@ namespace StudyCenterDesktopUI.GeneralUserControls
             }
         }
 
-        public object GetIDFromDGV(string entityName)
+        public object GetIDFromDGV(string columnName)
         {
-            return dgvList.CurrentRow.Cells[entityName].Value;
+            return dgvList.CurrentRow.Cells[columnName].Value;
         }
 
         public void LoadInfo(int? value, object dataSource)
