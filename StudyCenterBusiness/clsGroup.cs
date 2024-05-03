@@ -65,7 +65,7 @@ namespace StudyCenterBusiness
             TeacherInfo = clsTeacher.FindByTeacherID(teacherID);
             SubjectTeacherInfo = clsSubjectTeacher.Find(subjectTeacherID);
             MeetingTimeInfo = clsMeetingTime.Find(meetingTimeID);
-            CreatedByUserInfo = clsUser.Find(createdByUserID);
+            CreatedByUserInfo = clsUser.FindBy(createdByUserID, clsUser.enFindBy.UserID);
 
             Mode = enMode.Update;
         }

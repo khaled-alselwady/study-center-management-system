@@ -6,7 +6,8 @@ namespace StudyCenterDataAccess
 {
     public class clsUserData
     {
-        public static bool GetInfoByID(int? userID, ref int personID, ref string username, ref string password, ref int permissions, ref bool isActive)
+        public static bool GetUserInfoByUserID(int? userID, ref int? personID, ref string username,
+            ref string password, ref int permissions, ref bool isActive)
         {
             bool isFound = false;
 
@@ -29,7 +30,7 @@ namespace StudyCenterDataAccess
                                 // The record was found
                                 isFound = true;
 
-                                personID = (int)reader["PersonID"];
+                                personID = (reader["PersonID"] != DBNull.Value) ? (int?)reader["PersonID"] : null;
                                 username = (string)reader["Username"];
                                 password = (string)reader["Password"];
                                 permissions = (int)reader["Permissions"];
@@ -53,7 +54,8 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static bool GetInfoByUsername(ref int? userID, ref int personID, string username, ref string password, ref int permissions, ref bool isActive)
+        public static bool GetUserInfoByPersonID(int? personID, ref int? userID, ref string username,
+            ref string password, ref int permissions, ref bool isActive)
         {
             bool isFound = false;
 
@@ -63,11 +65,11 @@ namespace StudyCenterDataAccess
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SP_GetUserInfoByUsername", connection))
+                    using (SqlCommand command = new SqlCommand("SP_GetUserInfoByPersonID", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -75,8 +77,9 @@ namespace StudyCenterDataAccess
                             {
                                 // The record was found
                                 isFound = true;
+
                                 userID = (reader["UserID"] != DBNull.Value) ? (int?)reader["UserID"] : null;
-                                personID = (int)reader["PersonID"];
+                                username = (string)reader["Username"];
                                 password = (string)reader["Password"];
                                 permissions = (int)reader["Permissions"];
                                 isActive = (bool)reader["IsActive"];
@@ -99,7 +102,55 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static bool GetInfoByUsernameAndPassword(ref int? userID, ref int personID, string username, string password, ref int permissions, ref bool isActive)
+        public static bool GetUserInfoByUsername(ref int? userID, ref int? personID, string username,
+            ref string password, ref int permissions, ref bool isActive)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetUserInfoByUsername", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@Username", username);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // The record was found
+                                isFound = true;
+                                userID = (reader["UserID"] != DBNull.Value) ? (int?)reader["UserID"] : null;
+                                personID = (reader["PersonID"] != DBNull.Value) ? (int?)reader["PersonID"] : null;
+                                password = (string)reader["Password"];
+                                permissions = (int)reader["Permissions"];
+                                isActive = (bool)reader["IsActive"];
+                            }
+                            else
+                            {
+                                // The record was not found
+                                isFound = false;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                clsDataAccessHelper.HandleException(ex);
+            }
+
+            return isFound;
+        }
+
+        public static bool GetUserInfoByUsernameAndPassword(ref int? userID, ref int? personID,
+            string username, string password, ref int permissions, ref bool isActive)
         {
             bool isFound = false;
 
@@ -123,7 +174,7 @@ namespace StudyCenterDataAccess
                                 // The record was found
                                 isFound = true;
                                 userID = (reader["UserID"] != DBNull.Value) ? (int?)reader["UserID"] : null;
-                                personID = (int)reader["PersonID"];
+                                personID = (reader["PersonID"] != DBNull.Value) ? (int?)reader["PersonID"] : null;
                                 permissions = (int)reader["Permissions"];
                                 isActive = (bool)reader["IsActive"];
                             }
@@ -145,7 +196,8 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static int? Add(int personID, string username, string password, int permissions, bool isActive)
+        public static int? Add(int? personID, string username, string password, int permissions,
+            bool isActive)
         {
             // This function will return the new person id if succeeded and null if not
             int? userID = null;
@@ -160,7 +212,7 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@PersonID", personID);
+                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Username", username);
                         command.Parameters.AddWithValue("@Password", password);
                         command.Parameters.AddWithValue("@Permissions", permissions);
@@ -186,7 +238,8 @@ namespace StudyCenterDataAccess
             return userID;
         }
 
-        public static bool Update(int? userID, int personID, string username, string password, int permissions, bool isActive)
+        public static bool Update(int? userID, int? personID, string username, string password,
+            int permissions, bool isActive)
         {
             int rowAffected = 0;
 
@@ -201,7 +254,7 @@ namespace StudyCenterDataAccess
                         command.CommandType = CommandType.StoredProcedure;
 
                         command.Parameters.AddWithValue("@UserID", (object)userID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@PersonID", personID);
+                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Username", username);
                         command.Parameters.AddWithValue("@Password", password);
                         command.Parameters.AddWithValue("@Permissions", permissions);
@@ -222,13 +275,16 @@ namespace StudyCenterDataAccess
         public static bool Delete(int? userID)
             => clsDataAccessHelper.Delete("SP_DeleteUser", "UserID", userID);
 
-        public static bool Exists(int? userID)
-            => clsDataAccessHelper.Exists("SP_DoesUserExist", "UserID", userID);
+        public static bool ExistsByUserID(int? userID)
+            => clsDataAccessHelper.Exists("SP_DoesUserExistByUserID", "UserID", userID);
 
-        public static bool Exists(string username)
+        public static bool ExistsByPersonID(int? personID)
+            => clsDataAccessHelper.Exists("SP_DoesUserExistByPersonID", "PersonID", personID);
+
+        public static bool ExistsByUsername(string username)
             => clsDataAccessHelper.Exists("SP_DoesUserExistByUsername", "Username", username);
 
-        public static bool Exists(string username, string password)
+        public static bool ExistsByUsernameAndPassword(string username, string password)
             => clsDataAccessHelper.Exists("SP_DoesUserExistByUsernameAndPassword", "Username", username, "Password", password);
 
         public static DataTable All()

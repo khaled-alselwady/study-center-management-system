@@ -46,7 +46,7 @@ namespace StudyCenterBusiness
 
             StudentInfo = clsStudent.FindByStudentID(studentID);
             GroupInfo = clsGroup.Find(groupID);
-            CreatedByUserInfo = clsUser.Find(createdByUserID);
+            CreatedByUserInfo = clsUser.FindBy(createdByUserID, clsUser.enFindBy.UserID);
 
             Mode = enMode.Update;
         }

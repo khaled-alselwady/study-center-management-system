@@ -400,6 +400,18 @@
     <Compile Include="Teachers\UserControls\ucTeacherCardWithFilter.Designer.cs">
       <DependentUpon>ucTeacherCardWithFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\frmShowUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmShowUserInfo.Designer.cs">
+      <DependentUpon>frmShowUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\UserControls\ucUserCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\UserControls\ucUserCard.Designer.cs">
+      <DependentUpon>ucUserCard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Classes\frmAddEditClass.resx">
       <DependentUpon>frmAddEditClass.cs</DependentUpon>
     </EmbeddedResource>
@@ -577,6 +589,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Teachers\UserControls\ucTeacherCardWithFilter.resx">
       <DependentUpon>ucTeacherCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmShowUserInfo.resx">
+      <DependentUpon>frmShowUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\UserControls\ucUserCard.resx">
+      <DependentUpon>ucUserCard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />
