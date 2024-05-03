@@ -1,5 +1,5 @@
-﻿using StudyCenterDesktopUI.GlobalClasses;
-using StudyCenterBusiness;
+﻿using StudyCenterBusiness;
+using StudyCenterDesktopUI.GlobalClasses;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -147,7 +147,7 @@ namespace StudyCenterDesktopUI.Students
                 return;
             }
 
-            if (_mode == _enMode.Add && clsStudent.IsStudent(e.PersonID))
+            if (_mode == _enMode.Add && ucPersonCardWithFilter1.PersonInfo.IsStudent)
             {
                 MessageBox.Show("This person is already registered as a student. Please select another person.",
                                 "Already Registered", MessageBoxButtons.OK, MessageBoxIcon.Error);

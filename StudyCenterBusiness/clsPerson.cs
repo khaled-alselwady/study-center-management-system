@@ -26,6 +26,10 @@ namespace StudyCenterBusiness
                                                       : string.Concat(FirstName, " ", SecondName, " ", LastName);
         public string GenderName => Gender.ToString();
 
+        public bool IsUser => clsUser.Exist(PersonID, clsUser.enFindBy.PersonID);
+        public bool IsStudent => clsStudent.IsStudent(PersonID);
+        public bool IsTeacher => clsTeacher.IsTeacher(PersonID);
+
         public clsPerson()
         {
             PersonID = null;

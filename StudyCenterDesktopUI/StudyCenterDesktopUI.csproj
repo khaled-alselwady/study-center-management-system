@@ -400,6 +400,12 @@
     <Compile Include="Teachers\UserControls\ucTeacherCardWithFilter.Designer.cs">
       <DependentUpon>ucTeacherCardWithFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\frmAddEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmAddEditUser.Designer.cs">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\frmShowUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -589,6 +595,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Teachers\UserControls\ucTeacherCardWithFilter.resx">
       <DependentUpon>ucTeacherCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmAddEditUser.resx">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmShowUserInfo.resx">
       <DependentUpon>frmShowUserInfo.cs</DependentUpon>
@@ -811,6 +820,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\list-payments.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirm-password-user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

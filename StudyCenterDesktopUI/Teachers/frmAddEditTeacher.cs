@@ -1,5 +1,5 @@
-﻿using StudyCenterDesktopUI.GlobalClasses;
-using StudyCenterBusiness;
+﻿using StudyCenterBusiness;
+using StudyCenterDesktopUI.GlobalClasses;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -156,7 +156,7 @@ namespace StudyCenterDesktopUI.Teachers
                 return;
             }
 
-            if (_mode == _enMode.Add && clsTeacher.IsTeacher(e.PersonID))
+            if (_mode == _enMode.Add && ucPersonCardWithFilter1.PersonInfo.IsTeacher)
             {
                 MessageBox.Show("This person is already registered as a teacher. Please select another person.",
                                 "Already Registered", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -165,7 +165,7 @@ namespace StudyCenterDesktopUI.Teachers
             }
 
             if (_mode == _enMode.Add &&
-                clsStudent.IsStudent(e.PersonID) &&
+                ucPersonCardWithFilter1.PersonInfo.IsStudent &&
                 clsStudent.IsStudentActive(e.PersonID))
             {
                 MessageBox.Show("This person is still an active student and " +

@@ -194,7 +194,7 @@ namespace StudyCenterBusiness
         private static bool _ExistByUsernameAndPassword(string Username, string Password)
             => clsUserData.ExistsByUsernameAndPassword(Username, Password);
 
-        public static bool DoesUserExist(object Data, enFindBy ItemToFindBy)
+        public static bool Exist(object Data, enFindBy ItemToFindBy)
         {
             switch (ItemToFindBy)
             {
@@ -212,7 +212,7 @@ namespace StudyCenterBusiness
             }
         }
 
-        public static bool DoesUserExist(object Data1, object Data2, enFindBy ItemToFindBy = enFindBy.UsernameAndPassword)
+        public static bool Exist(object Data1, object Data2, enFindBy ItemToFindBy = enFindBy.UsernameAndPassword)
         {
             switch (ItemToFindBy)
             {
