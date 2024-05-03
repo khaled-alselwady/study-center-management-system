@@ -165,6 +165,9 @@ namespace StudyCenterBusiness
         public static DataTable AllGroupNames()
             => clsGroupData.AllGroupNames();
 
+        public static DataTable AllScheduleForToday()
+            => clsGroupData.AllScheduleForToday();
+
         public static int Count()
             => clsGroupData.Count();
 

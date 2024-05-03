@@ -111,28 +111,21 @@ namespace StudyCenterBusiness
         }
 
         public static bool Delete(int? userID)
-        {
-            return clsUserData.Delete(userID);
-        }
+            => clsUserData.Delete(userID);
 
         public static bool Exists(int? userID)
-        {
-            return clsUserData.Exists(userID);
-        }
+            => clsUserData.Exists(userID);
 
         public static bool Exists(string username)
-        {
-            return clsUserData.Exists(username);
-        }
+            => clsUserData.Exists(username);
 
         public static bool Exists(string username, string password)
-        {
-            return clsUserData.Exists(username, password);
-        }
+            => clsUserData.Exists(username, password);
 
         public static DataTable All()
-        {
-            return clsUserData.All();
-        }
+            => clsUserData.All();
+
+        public static int Count()
+            => clsUserData.Count();
     }
 }

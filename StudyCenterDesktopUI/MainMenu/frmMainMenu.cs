@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using StudyCenterDesktopUI.Classes;
+using StudyCenterDesktopUI.Dashboard;
 using StudyCenterDesktopUI.Groups;
 using StudyCenterDesktopUI.Students;
 using StudyCenterDesktopUI.SubjectsAndGradeLevels;
@@ -92,7 +93,7 @@ namespace StudyCenterDesktopUI.MainMenu
 
         private void btnDashboard_Click(object sender, System.EventArgs e)
         {
-            _OpenChildFormAsync(new Form(), sender);
+            _OpenChildFormAsync(new frmDashboard(), sender);
         }
 
         private void btnStudents_Click(object sender, System.EventArgs e)
@@ -128,6 +129,11 @@ namespace StudyCenterDesktopUI.MainMenu
         private void btnLogOut_Click(object sender, System.EventArgs e)
         {
             _OpenChildFormAsync(new Form(), sender);
+        }
+
+        private void frmMainMenu_Load(object sender, EventArgs e)
+        {
+            btnDashboard.PerformClick();
         }
     }
 }

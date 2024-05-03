@@ -233,5 +233,8 @@ namespace StudyCenterDataAccess
 
         public static DataTable All()
             => clsDataAccessHelper.All("SP_GetAllUsers");
+
+        public static int Count()
+            => clsDataAccessHelper.Count("SP_GetAllUsersCount");
     }
 }

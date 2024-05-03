@@ -116,6 +116,12 @@
     <Compile Include="Classes\UserControls\ucGetAllActiveGroupsInClass.Designer.cs">
       <DependentUpon>ucGetAllActiveGroupsInClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\frmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\frmDashboard.Designer.cs">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="GeneralUserControls\ucFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -417,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\UserControls\ucGetAllActiveGroupsInClass.resx">
       <DependentUpon>ucGetAllActiveGroupsInClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\frmDashboard.resx">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralUserControls\ucFilter.resx">
       <DependentUpon>ucFilter.cs</DependentUpon>
@@ -763,6 +772,9 @@
       <Project>{fd62aa33-b9a1-48da-b69b-0a919c828b1f}</Project>
       <Name>StudyCenterBusiness</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

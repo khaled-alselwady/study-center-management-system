@@ -226,6 +226,9 @@ namespace StudyCenterDataAccess
         public static DataTable AllGroupNames()
             => clsDataAccessHelper.All("SP_GetAllGroupNames");
 
+        public static DataTable AllScheduleForToday()
+            => clsDataAccessHelper.All("SP_GetScheduleForToday");
+
         public static int Count()
             => clsDataAccessHelper.Count("SP_GetAllGroupsCount");
 
