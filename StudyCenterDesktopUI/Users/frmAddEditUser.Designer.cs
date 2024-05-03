@@ -269,6 +269,7 @@
             this.llChangePassword.TabStop = true;
             this.llChangePassword.Text = "Change Password";
             this.llChangePassword.Visible = false;
+            this.llChangePassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llChangePassword_LinkClicked);
             // 
             // pbIsActive
             // 

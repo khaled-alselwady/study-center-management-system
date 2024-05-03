@@ -230,6 +230,12 @@ namespace StudyCenterBusiness
         public static int Count()
             => clsUserData.Count();
 
+        public bool ChangePassword(string NewPassword)
+            => ChangePassword(UserID, NewPassword);
+
+        public static bool ChangePassword(int? UserID, string NewPassword)
+            => clsUserData.ChangePassword(UserID, NewPassword);
+
         public List<string> PermissionsText()
         {
             if (Permissions == -1)

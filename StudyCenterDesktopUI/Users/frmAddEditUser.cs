@@ -385,5 +385,11 @@ namespace StudyCenterDesktopUI.Users
 
             chkAdmin.Checked = _IsAllItemIsChecked();
         }
+
+        private void llChangePassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmChangePassword changePassword = new frmChangePassword(_userID);
+            changePassword.ShowDialog();
+        }
     }
 }

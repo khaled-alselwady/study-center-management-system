@@ -117,5 +117,14 @@ namespace StudyCenterDesktopUI.Users.UserControls
 
             _FillUserData();
         }
+
+        private void llEditUserInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmAddEditUser editUser = new frmAddEditUser(_userID);
+            editUser.ShowDialog();
+
+            // refresh
+            LoadUserInfoByUserID(_userID);
+        }
     }
 }

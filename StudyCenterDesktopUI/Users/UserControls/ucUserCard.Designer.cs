@@ -167,6 +167,7 @@
             this.llEditUserInfo.TabIndex = 167;
             this.llEditUserInfo.TabStop = true;
             this.llEditUserInfo.Text = "Edit User Info";
+            this.llEditUserInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llEditUserInfo_LinkClicked);
             // 
             // lblUsername
             // 
