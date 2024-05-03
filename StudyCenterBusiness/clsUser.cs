@@ -22,7 +22,8 @@ namespace StudyCenterBusiness
             All = -1,
             AddUser = 1,
             UpdateUser = 2,
-            ListUsers = 4
+            DeleteUser = 4,
+            ListUsers = 8
         }
 
         public int? UserID { get; set; }
@@ -251,6 +252,11 @@ namespace StudyCenterBusiness
             if (((int)enPermissions.UpdateUser & Permissions) == (int)enPermissions.UpdateUser)
             {
                 permissions.Add("Update User");
+            }
+
+            if (((int)enPermissions.DeleteUser & Permissions) == (int)enPermissions.DeleteUser)
+            {
+                permissions.Add("Delete User");
             }
 
             if (((int)enPermissions.ListUsers & Permissions) == (int)enPermissions.ListUsers)

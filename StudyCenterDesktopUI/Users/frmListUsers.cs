@@ -30,14 +30,75 @@ namespace StudyCenterDesktopUI.Users
             return (int?)ucSubList1.GetIDFromDGV("UserID");
         }
 
+        private void _CheckPermissions(clsUser.enPermissions entityPermissions)
+        {
+            if (clsGlobal.CurrentUser?.Permissions == -1)
+            {
+                _EnableDependingOnUserPermissions(entityPermissions);
+
+                return;
+            }
+
+            if (((int)entityPermissions & clsGlobal.CurrentUser?.Permissions) == (int)entityPermissions)
+            {
+                _EnableDependingOnUserPermissions(entityPermissions);
+            }
+            else
+            {
+                _DisableDependingOnUserPermissions(entityPermissions);
+            }
+        }
+
+        private void _EnableDependingOnUserPermissions(clsUser.enPermissions entityPermissions)
+        {
+            if (clsGlobal.CurrentUser?.Permissions == -1)
+            {
+                tsmShowUserDetails.Enabled = true;
+                tsmEditUser.Enabled = true;
+                tsmDeleteUser.Enabled = true;
+                return;
+            }
+
+            switch (entityPermissions)
+            {
+                case clsUser.enPermissions.UpdateUser:
+                    tsmEditUser.Enabled = true;
+                    break;
+
+                case clsUser.enPermissions.DeleteUser:
+                    tsmDeleteUser.Enabled = true;
+                    break;
+            }
+        }
+
+        private void _DisableDependingOnUserPermissions(clsUser.enPermissions entityPermissions)
+        {
+            tsmShowUserDetails.Enabled = false;
+
+            switch (entityPermissions)
+            {
+                case clsUser.enPermissions.UpdateUser:
+                    tsmEditUser.Enabled = false;
+                    break;
+
+                case clsUser.enPermissions.DeleteUser:
+                    tsmDeleteUser.Enabled = false;
+                    break;
+            }
+        }
+
         private void cmsEditProfile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             cmsEditProfile.Enabled = (ucSubList1.RowsCount > 0);
+            tsmDeleteUser.Enabled = !(_GetUserIDFromList() == clsGlobal.CurrentUser?.UserID);
         }
 
         private void frmListUsers_Load(object sender, System.EventArgs e)
         {
             _RefreshUsersList();
+
+            _CheckPermissions(clsUser.enPermissions.UpdateUser);
+            _CheckPermissions(clsUser.enPermissions.DeleteUser);
         }
 
         private void btnClose_Click(object sender, System.EventArgs e)
@@ -50,15 +111,17 @@ namespace StudyCenterDesktopUI.Users
             frmShowUserInfo showUserInfo = new frmShowUserInfo(_GetUserIDFromList());
             showUserInfo.ShowDialog();
 
-            _RefreshUsersList();
+            frmListUsers_Load(null, null);
         }
 
         private void tsmEditUser_Click(object sender, System.EventArgs e)
         {
-            frmAddEditUser editUser = new frmAddEditUser(_GetUserIDFromList());
+            bool allowToEditPermissions = clsGlobal.CurrentUser?.Permissions == -1;
+
+            frmAddEditUser editUser = new frmAddEditUser(_GetUserIDFromList(), allowToEditPermissions);
             editUser.ShowDialog();
 
-            _RefreshUsersList();
+            frmListUsers_Load(null, null);
         }
 
         private void tsmDeleteUser_Click(object sender, System.EventArgs e)

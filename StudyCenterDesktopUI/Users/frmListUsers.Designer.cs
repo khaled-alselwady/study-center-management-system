@@ -92,6 +92,7 @@
             // 
             // tsmShowUserDetails
             // 
+            this.tsmShowUserDetails.Enabled = false;
             this.tsmShowUserDetails.ForeColor = System.Drawing.Color.White;
             this.tsmShowUserDetails.Image = global::StudyCenterDesktopUI.Properties.Resources.show_reservation_32;
             this.tsmShowUserDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -107,6 +108,7 @@
             // 
             // tsmEditUser
             // 
+            this.tsmEditUser.Enabled = false;
             this.tsmEditUser.ForeColor = System.Drawing.Color.White;
             this.tsmEditUser.Image = global::StudyCenterDesktopUI.Properties.Resources.edit_reservation32;
             this.tsmEditUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -117,6 +119,7 @@
             // 
             // tsmDeleteUser
             // 
+            this.tsmDeleteUser.Enabled = false;
             this.tsmDeleteUser.ForeColor = System.Drawing.Color.White;
             this.tsmDeleteUser.Image = global::StudyCenterDesktopUI.Properties.Resources.delete_reservation_40;
             this.tsmDeleteUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;

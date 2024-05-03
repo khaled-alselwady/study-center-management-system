@@ -3,6 +3,7 @@ using StudyCenterDesktopUI.Classes;
 using StudyCenterDesktopUI.Dashboard;
 using StudyCenterDesktopUI.Groups;
 using StudyCenterDesktopUI.Payments;
+using StudyCenterDesktopUI.Settings;
 using StudyCenterDesktopUI.Students;
 using StudyCenterDesktopUI.SubjectsAndGradeLevels;
 using StudyCenterDesktopUI.Teachers;
@@ -129,7 +130,7 @@ namespace StudyCenterDesktopUI.MainMenu
 
         private void btnSettings_Click(object sender, System.EventArgs e)
         {
-            _OpenChildFormAsync(new Form(), sender);
+            _OpenChildFormAsync(new frmSettings(), sender);
         }
 
         private void btnLogOut_Click(object sender, System.EventArgs e)

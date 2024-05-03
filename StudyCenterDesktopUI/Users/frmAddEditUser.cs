@@ -28,12 +28,15 @@ namespace StudyCenterDesktopUI.Users
             _mode = _enMode.AddNew;
         }
 
-        public frmAddEditUser(int? userID)
+        public frmAddEditUser(int? userID, bool allowToEditPermissions = true)
         {
             InitializeComponent();
 
             _userID = userID;
             _mode = _enMode.Update;
+
+            gbPermissions.Enabled = allowToEditPermissions;
+            llChangePassword.Enabled = allowToEditPermissions;
         }
 
         private bool _IsAllItemIsChecked()
@@ -99,6 +102,9 @@ namespace StudyCenterDesktopUI.Users
 
             if (chkUpdateUser.Checked)
                 Permissions += (int)clsUser.enPermissions.UpdateUser;
+
+            if (chkDeleteUser.Checked)
+                Permissions += (int)clsUser.enPermissions.DeleteUser;
 
             if (chkListUsers.Checked)
                 Permissions += (int)clsUser.enPermissions.ListUsers;
