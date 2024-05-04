@@ -282,7 +282,7 @@ namespace StudyCenterDesktopUI.Groups
                 _studentGroup.GroupID = _groupID;
 
             _studentGroup.IsActive = true;
-            _studentGroup.CreatedByUserID = clsGlobal.CurrentUser?.UserID ?? 1;
+            _studentGroup.CreatedByUserID = clsGlobal.CurrentUser?.UserID;
         }
 
         private void _SaveStudentGroup()

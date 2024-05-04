@@ -169,7 +169,7 @@ namespace StudyCenterDesktopUI.Groups
             if (dgvMeetingTimesList.SelectedRows.Count > 0)
                 _group.MeetingTimeID = _GetMeetingTimeIDFromDGV();
 
-            _group.CreatedByUserID = clsGlobal.CurrentUser?.UserID ?? 1;
+            _group.CreatedByUserID = clsGlobal.CurrentUser?.UserID;
         }
 
         private void _SaveGroup()
