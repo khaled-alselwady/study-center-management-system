@@ -1,7 +1,9 @@
 ﻿using Guna.UI2.WinForms;
 using StudyCenterDesktopUI.Classes;
 using StudyCenterDesktopUI.Dashboard;
+using StudyCenterDesktopUI.GlobalClasses;
 using StudyCenterDesktopUI.Groups;
+using StudyCenterDesktopUI.Login;
 using StudyCenterDesktopUI.Payments;
 using StudyCenterDesktopUI.Settings;
 using StudyCenterDesktopUI.Students;
@@ -17,12 +19,14 @@ namespace StudyCenterDesktopUI.MainMenu
     public partial class frmMainMenu : Form
     {
         private Guna2Button _currentButton;
-
         private Form _activeForm;
+        private frmLoginScreen _loginScreen;
 
-        public frmMainMenu()
+        public frmMainMenu(frmLoginScreen loginScreen)
         {
             InitializeComponent();
+
+            _loginScreen = loginScreen;
         }
 
         private void _ActivateButton(object btnSender)
@@ -135,7 +139,9 @@ namespace StudyCenterDesktopUI.MainMenu
 
         private void btnLogOut_Click(object sender, System.EventArgs e)
         {
-            _OpenChildFormAsync(new Form(), sender);
+            clsGlobal.CurrentUser = null;
+            _loginScreen.Show();
+            this.Close();
         }
 
         private void frmMainMenu_Load(object sender, EventArgs e)

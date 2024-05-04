@@ -1,4 +1,4 @@
-﻿using StudyCenterDesktopUI.MainMenu;
+﻿using StudyCenterDesktopUI.Login;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +14,7 @@ namespace StudyCenterDesktopUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainMenu());
+            Application.Run(new frmLoginScreen());
         }
     }
 }

@@ -182,6 +182,12 @@
     <Compile Include="Groups\UserControls\ucGroupsAreTaughtByTeacher.Designer.cs">
       <DependentUpon>ucGroupsAreTaughtByTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\frmLoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLoginScreen.Designer.cs">
+      <DependentUpon>frmLoginScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu\frmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Groups\UserControls\ucGroupsAreTaughtByTeacher.resx">
       <DependentUpon>ucGroupsAreTaughtByTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\frmLoginScreen.resx">
+      <DependentUpon>frmLoginScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
@@ -862,6 +871,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sign-out-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\username-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password-64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -58,5 +58,11 @@ namespace StudyCenterDesktopUI.GlobalClasses
             MessageBox.Show($"No {entityType} found with ID: {entityID}", "Missing Data",
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
+        public static void ShowWrongCredentials()
+        {
+            MessageBox.Show("Invalid Username/Password.", "Wrong Credentials",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

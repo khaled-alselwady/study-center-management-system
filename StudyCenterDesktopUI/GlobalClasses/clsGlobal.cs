@@ -12,7 +12,7 @@ namespace StudyCenterDesktopUI.GlobalClasses
 
         public static bool RememberUsernameAndPassword(string Username, string Password)
         {
-            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\Hotel";
+            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\StudyCenter";
 
             string UsernameName = "Username";
             string UsernameData = Username;
@@ -38,7 +38,7 @@ namespace StudyCenterDesktopUI.GlobalClasses
 
         public static bool RemoveStoredCredential()
         {
-            string keyPath = @"SOFTWARE\Hotel";
+            string keyPath = @"SOFTWARE\StudyCenter";
 
             string UsernameName = "Username";
             string PasswordName = "Password";
@@ -81,7 +81,7 @@ namespace StudyCenterDesktopUI.GlobalClasses
 
         public static bool GetStoredCredential(ref string Username, ref string Password)
         {
-            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\Hotel";
+            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\StudyCenter";
 
             string UsernameName = "Username";
             string PasswordName = "Password";
@@ -96,7 +96,8 @@ namespace StudyCenterDesktopUI.GlobalClasses
             }
             catch (Exception ex)
             {
-                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer); loggerToEventViewer.LogError("General Exception", ex);
+                clsErrorLogger loggerToEventViewer = new clsErrorLogger(clsLogHandler.LogToEventViewer);
+                loggerToEventViewer.LogError("General Exception", ex);
                 return false;
             }
         }
@@ -115,7 +116,7 @@ namespace StudyCenterDesktopUI.GlobalClasses
             }
         }
 
-        public static string Encrypt(string plainText, string key = "1234567890123456")
+        public static string Encrypt(string plainText, string key = "02D2E9-830F-4B31-89C6-237F4131BC")
         {
             if (plainText == null)
             {
@@ -149,7 +150,7 @@ namespace StudyCenterDesktopUI.GlobalClasses
             }
         }
 
-        public static string Decrypt(string cipherText, string key = "1234567890123456")
+        public static string Decrypt(string cipherText, string key = "02D2E9-830F-4B31-89C6-237F4131BC")
         {
             if (cipherText == null)
             {
