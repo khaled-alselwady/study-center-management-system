@@ -120,7 +120,9 @@ namespace StudyCenterDesktopUI.Users.UserControls
 
         private void llEditUserInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmAddEditUser editUser = new frmAddEditUser(_userID);
+            bool allowToEditPermissions = clsGlobal.CurrentUser?.Permissions == -1;
+
+            frmAddEditUser editUser = new frmAddEditUser(_userID, allowToEditPermissions);
             editUser.ShowDialog();
 
             // refresh

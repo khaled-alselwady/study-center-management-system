@@ -283,6 +283,16 @@ namespace StudyCenterDesktopUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap down_arrow {
+            get {
+                object obj = ResourceManager.GetObject("down-arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_reservation32 {
             get {
                 object obj = ResourceManager.GetObject("edit-reservation32", resourceCulture);
@@ -596,6 +606,26 @@ namespace StudyCenterDesktopUI.Properties {
         internal static System.Drawing.Bitmap show_reservation_32 {
             get {
                 object obj = ResourceManager.GetObject("show-reservation-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sign_out_30 {
+            get {
+                object obj = ResourceManager.GetObject("sign_out-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sign_out_32 {
+            get {
+                object obj = ResourceManager.GetObject("sign-out-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
