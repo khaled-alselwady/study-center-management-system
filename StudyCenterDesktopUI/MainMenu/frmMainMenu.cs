@@ -99,7 +99,7 @@ namespace StudyCenterDesktopUI.MainMenu
 
         private void btnDashboard_Click(object sender, System.EventArgs e)
         {
-            _OpenChildFormAsync(new frmDashboard(), sender);
+            _OpenChildFormAsync(new frmDashboard(_loginScreen, this), sender);
         }
 
         private void btnStudents_Click(object sender, System.EventArgs e)

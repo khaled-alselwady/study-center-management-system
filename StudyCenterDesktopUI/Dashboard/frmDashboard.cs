@@ -1,5 +1,7 @@
 ﻿using StudyCenterBusiness;
 using StudyCenterDesktopUI.GlobalClasses;
+using StudyCenterDesktopUI.Login;
+using StudyCenterDesktopUI.MainMenu;
 using StudyCenterDesktopUI.Users;
 using System;
 using System.Drawing;
@@ -9,7 +11,10 @@ namespace StudyCenterDesktopUI.Dashboard
 {
     public partial class frmDashboard : Form
     {
-        public frmDashboard()
+        private frmLoginScreen _frmLoginForm;
+        private frmMainMenu _frmMainMenu;
+
+        public frmDashboard(frmLoginScreen loginScreen, frmMainMenu mainMenu)
         {
             InitializeComponent();
 
@@ -18,6 +23,9 @@ namespace StudyCenterDesktopUI.Dashboard
             _RefreshGroupsList();
 
             gbList.Text = $"Schedule of Today ({DateTime.Now.DayOfWeek})";
+
+            _frmLoginForm = loginScreen;
+            _frmMainMenu = mainMenu;
         }
 
         private void _CountElements()
@@ -93,7 +101,10 @@ namespace StudyCenterDesktopUI.Dashboard
 
         private void tsmSignOut_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            clsGlobal.CurrentUser = null;
+            _frmMainMenu.Hide();
+            _frmLoginForm.Show();
+            this.Close();
         }
     }
 }
