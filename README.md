@@ -48,10 +48,11 @@ The Study Center is a comprehensive desktop software solution for managing educa
 - Manage user accounts, including usernames, passwords, and permissions.
 
 ## Technologies Used:
-- **Framework:** .NET Windows Forms (C#)
+- **Framework:** .NET Framework (C#)
 - **Database:** Microsoft SQL Server with ADO.NET
 - **User Interface:** Windows Forms (WinForms)
 - **Authentication:** Custom user authentication system
+- **Architecture:** 3-tier architecture
 - **Deployment:** Standalone desktop application
 
 ## Getting Started:
