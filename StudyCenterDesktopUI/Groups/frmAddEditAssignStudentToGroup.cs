@@ -41,7 +41,8 @@ namespace StudyCenterDesktopUI.Groups
 
                 case enEntityType.StudentID:
                     _selectedStudentID = value;
-                    break;
+                    _mode = _enMode.AddNew;
+                    return;
 
                 case enEntityType.GroupID:
                     _groupID = value;
@@ -320,7 +321,7 @@ namespace StudyCenterDesktopUI.Groups
 
             cbFilter.SelectedIndex = 0;
 
-            if (_mode == _enMode.Update)
+            if (_mode == _enMode.Update || _selectedStudentID.HasValue)
                 _LoadData();
         }
 

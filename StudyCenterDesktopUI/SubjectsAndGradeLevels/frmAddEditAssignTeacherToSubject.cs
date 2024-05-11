@@ -1,5 +1,5 @@
-﻿using StudyCenterDesktopUI.GlobalClasses;
-using StudyCenterBusiness;
+﻿using StudyCenterBusiness;
+using StudyCenterDesktopUI.GlobalClasses;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -33,11 +33,15 @@ namespace StudyCenterDesktopUI.SubjectsAndGradeLevels
             InitializeComponent();
 
             if (entityType == enEntityType.SubjectTeacherID)
+            {
                 _subjectTeacherID = value;
+                _mode = _enMode.Update;
+            }
             else
+            {
                 _selectedTeacherID = value;
-
-            _mode = _enMode.Update;
+                _mode = _enMode.AddNew;
+            }
         }
 
         private void _FillComboBoxWithGradeLevels()
@@ -256,7 +260,7 @@ namespace StudyCenterDesktopUI.SubjectsAndGradeLevels
 
             cbFilter.SelectedIndex = 0;
 
-            if (_mode == _enMode.Update)
+            if (_mode == _enMode.Update || _selectedTeacherID.HasValue)
                 _LoadData();
         }
 
