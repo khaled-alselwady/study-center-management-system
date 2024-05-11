@@ -64,5 +64,10 @@ namespace StudyCenterDesktopUI.GlobalClasses
             MessageBox.Show("Invalid Username/Password.", "Wrong Credentials",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public static void ShowNotImplementedYet()
+        {
+            MessageBox.Show("This feature is not implemented yet!");
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Guna.UI2.WinForms;
-using StudyCenterDesktopUI.Students;
 using StudyCenterBusiness;
+using StudyCenterDesktopUI.GlobalClasses;
+using StudyCenterDesktopUI.Students;
 using System;
 using System.Configuration;
 using System.Data;
@@ -351,7 +352,7 @@ namespace StudyCenterDesktopUI.Groups
 
         private void temDeleteGroup_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            clsStandardMessages.ShowNotImplementedYet();
         }
 
         private void dgvGroupsList_DoubleClick(object sender, EventArgs e)

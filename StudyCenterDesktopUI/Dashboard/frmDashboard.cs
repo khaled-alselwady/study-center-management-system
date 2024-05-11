@@ -43,17 +43,17 @@ namespace StudyCenterDesktopUI.Dashboard
 
             if (dgvGroupsList.Rows.Count > 0)
             {
-                dgvGroupsList.Columns[0].HeaderText = "Teacher Name";
+                dgvGroupsList.Columns[0].HeaderText = "Teacher";
                 dgvGroupsList.Columns[0].Width = 250;
 
-                dgvGroupsList.Columns[1].HeaderText = "Subject Name";
-                dgvGroupsList.Columns[1].Width = 150;
+                dgvGroupsList.Columns[1].HeaderText = "Subject";
+                dgvGroupsList.Columns[1].Width = 130;
 
-                dgvGroupsList.Columns[2].HeaderText = "Class Name";
-                dgvGroupsList.Columns[2].Width = 150;
+                dgvGroupsList.Columns[2].HeaderText = "Class";
+                dgvGroupsList.Columns[2].Width = 170;
 
-                dgvGroupsList.Columns[3].HeaderText = "Group Name";
-                dgvGroupsList.Columns[3].Width = 120;
+                dgvGroupsList.Columns[3].HeaderText = "Group";
+                dgvGroupsList.Columns[3].Width = 100;
 
                 dgvGroupsList.Columns[4].HeaderText = "Meeting Days";
                 dgvGroupsList.Columns[4].Width = 120;

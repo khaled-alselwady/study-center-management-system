@@ -74,6 +74,7 @@
             // 
             this.ucClassCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ucClassCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ucClassCardWithFilter1.FilterEnabled = true;
             this.ucClassCardWithFilter1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucClassCardWithFilter1.Location = new System.Drawing.Point(9, 103);
             this.ucClassCardWithFilter1.Name = "ucClassCardWithFilter1";
@@ -91,7 +92,8 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmFindClass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find Class";

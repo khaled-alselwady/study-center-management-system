@@ -73,6 +73,7 @@
             // ucStudentCardWithFilter1
             // 
             this.ucStudentCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ucStudentCardWithFilter1.FilterEnabled = true;
             this.ucStudentCardWithFilter1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucStudentCardWithFilter1.Location = new System.Drawing.Point(5, 95);
             this.ucStudentCardWithFilter1.Name = "ucStudentCardWithFilter1";
@@ -89,7 +90,8 @@
             this.Controls.Add(this.ucStudentCardWithFilter1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmFindStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find Student";

@@ -48,6 +48,7 @@
             // ucPersonCardWithFilter1
             // 
             this.ucPersonCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ucPersonCardWithFilter1.FilterEnabled = true;
             this.ucPersonCardWithFilter1.Location = new System.Drawing.Point(5, 96);
             this.ucPersonCardWithFilter1.Name = "ucPersonCardWithFilter1";
             this.ucPersonCardWithFilter1.Size = new System.Drawing.Size(862, 406);
@@ -88,7 +89,8 @@
             this.Controls.Add(this.ucPersonCardWithFilter1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmFindPerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find Person";

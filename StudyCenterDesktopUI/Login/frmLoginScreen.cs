@@ -120,12 +120,12 @@ namespace StudyCenterDesktopUI.Login
 
         private void lblSignUp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            clsStandardMessages.ShowNotImplementedYet();
         }
 
         private void lblForgotPassword_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            clsStandardMessages.ShowNotImplementedYet();
         }
 
         private void llOpenMyProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

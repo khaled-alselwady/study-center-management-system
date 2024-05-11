@@ -74,6 +74,7 @@
             // 
             this.ucTeacherCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ucTeacherCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ucTeacherCardWithFilter1.FilterEnabled = true;
             this.ucTeacherCardWithFilter1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucTeacherCardWithFilter1.Location = new System.Drawing.Point(0, 87);
             this.ucTeacherCardWithFilter1.Name = "ucTeacherCardWithFilter1";
@@ -91,7 +92,8 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmFindTeacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find Teacher";

@@ -35,6 +35,7 @@
             this.tpUserData = new System.Windows.Forms.TabPage();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.gbPermissions = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.chkDeleteUser = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chkListUsers = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chkUpdateUser = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chkAddUser = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -59,7 +60,6 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnSave = new Guna.UI2.WinForms.Guna2GradientButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.chkDeleteUser = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tpUserData.SuspendLayout();
@@ -175,6 +175,26 @@
             this.gbPermissions.Size = new System.Drawing.Size(192, 209);
             this.gbPermissions.TabIndex = 226;
             this.gbPermissions.Text = "Permissions";
+            // 
+            // chkDeleteUser
+            // 
+            this.chkDeleteUser.AutoSize = true;
+            this.chkDeleteUser.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkDeleteUser.CheckedState.BorderRadius = 0;
+            this.chkDeleteUser.CheckedState.BorderThickness = 0;
+            this.chkDeleteUser.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkDeleteUser.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDeleteUser.ForeColor = System.Drawing.Color.Black;
+            this.chkDeleteUser.Location = new System.Drawing.Point(16, 136);
+            this.chkDeleteUser.Name = "chkDeleteUser";
+            this.chkDeleteUser.Size = new System.Drawing.Size(114, 25);
+            this.chkDeleteUser.TabIndex = 4;
+            this.chkDeleteUser.Tag = "4";
+            this.chkDeleteUser.Text = "Delete User";
+            this.chkDeleteUser.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkDeleteUser.UncheckedState.BorderRadius = 0;
+            this.chkDeleteUser.UncheckedState.BorderThickness = 0;
+            this.chkDeleteUser.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
             // chkListUsers
             // 
@@ -546,26 +566,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // chkDeleteUser
-            // 
-            this.chkDeleteUser.AutoSize = true;
-            this.chkDeleteUser.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chkDeleteUser.CheckedState.BorderRadius = 0;
-            this.chkDeleteUser.CheckedState.BorderThickness = 0;
-            this.chkDeleteUser.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chkDeleteUser.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkDeleteUser.ForeColor = System.Drawing.Color.Black;
-            this.chkDeleteUser.Location = new System.Drawing.Point(16, 136);
-            this.chkDeleteUser.Name = "chkDeleteUser";
-            this.chkDeleteUser.Size = new System.Drawing.Size(114, 25);
-            this.chkDeleteUser.TabIndex = 4;
-            this.chkDeleteUser.Tag = "4";
-            this.chkDeleteUser.Text = "Delete User";
-            this.chkDeleteUser.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chkDeleteUser.UncheckedState.BorderRadius = 0;
-            this.chkDeleteUser.UncheckedState.BorderThickness = 0;
-            this.chkDeleteUser.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            // 
             // frmAddEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,7 +578,8 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmAddEditUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add/Edit User";

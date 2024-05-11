@@ -1,6 +1,7 @@
-﻿using StudyCenterDesktopUI.Groups;
+﻿using StudyCenterBusiness;
+using StudyCenterDesktopUI.GlobalClasses;
+using StudyCenterDesktopUI.Groups;
 using StudyCenterDesktopUI.Students;
-using StudyCenterBusiness;
 using System.Windows.Forms;
 
 namespace StudyCenterDesktopUI.Classes.UserControls
@@ -72,7 +73,7 @@ namespace StudyCenterDesktopUI.Classes.UserControls
 
         private void temDeleteGroup_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet!");
+            clsStandardMessages.ShowNotImplementedYet();
         }
 
         private void ShowAllStudentsToolStripMenuItem_Click(object sender, System.EventArgs e)
