@@ -87,7 +87,7 @@ namespace StudyCenterBusiness
         private bool _Update()
         {
             return clsGroupData.Update(GroupID, ClassID, TeacherID,
-                SubjectTeacherID, MeetingTimeID, StudentCount, IsActive);
+                SubjectTeacherID, MeetingTimeID, IsActive);
         }
 
         public bool Save()

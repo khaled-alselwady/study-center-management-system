@@ -99,7 +99,7 @@ namespace StudyCenterDataAccess
 
         public static bool Update(int? groupID, int? classID,
             int? teacherID, int? subjectTeacherID, int? meetingTimeID,
-            byte studentCount, bool isActive)
+             bool isActive)
         {
             int rowAffected = 0;
 
@@ -118,7 +118,6 @@ namespace StudyCenterDataAccess
                         command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
                         command.Parameters.AddWithValue("@SubjectTeacherID", (object)subjectTeacherID ?? DBNull.Value);
                         command.Parameters.AddWithValue("@MeetingTimeID", (object)meetingTimeID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@StudentCount", studentCount);
                         command.Parameters.AddWithValue("@IsActive", isActive);
 
                         rowAffected = command.ExecuteNonQuery();

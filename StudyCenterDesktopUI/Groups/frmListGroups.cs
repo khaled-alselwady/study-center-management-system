@@ -118,6 +118,8 @@ namespace StudyCenterDesktopUI.Groups
 
         private void _RefreshGroupsList()
         {
+            cbFilter.SelectedIndex = 0;
+
             _dtAllGroups = clsGroup.AllInPages(short.Parse(cbPages.Text), _rowsPerPage);
 
             dgvGroupsList.DataSource = _dtAllGroups;
@@ -130,19 +132,19 @@ namespace StudyCenterDesktopUI.Groups
                 dgvGroupsList.Columns[0].Width = 110;
 
                 dgvGroupsList.Columns[1].HeaderText = "Group Name";
-                dgvGroupsList.Columns[1].Width = 300;
+                dgvGroupsList.Columns[1].Width = 120;
 
                 dgvGroupsList.Columns[2].HeaderText = "Class Name";
-                dgvGroupsList.Columns[2].Width = 300;
+                dgvGroupsList.Columns[2].Width = 200;
 
                 dgvGroupsList.Columns[3].HeaderText = "Teacher Name";
                 dgvGroupsList.Columns[3].Width = 300;
 
                 dgvGroupsList.Columns[4].HeaderText = "Subject Name";
-                dgvGroupsList.Columns[4].Width = 300;
+                dgvGroupsList.Columns[4].Width = 200;
 
                 dgvGroupsList.Columns[5].HeaderText = "Grade Name";
-                dgvGroupsList.Columns[5].Width = 300;
+                dgvGroupsList.Columns[5].Width = 150;
 
                 dgvGroupsList.Columns[6].HeaderText = "Start Time";
                 dgvGroupsList.Columns[6].Width = 120;
@@ -154,10 +156,13 @@ namespace StudyCenterDesktopUI.Groups
                 dgvGroupsList.Columns[8].Width = 120;
 
                 dgvGroupsList.Columns[9].HeaderText = "Students Count";
-                dgvGroupsList.Columns[9].Width = 130;
+                dgvGroupsList.Columns[9].Width = 150;
 
-                dgvGroupsList.Columns[10].HeaderText = "Is Active";
-                dgvGroupsList.Columns[10].Width = 60;
+                dgvGroupsList.Columns[10].HeaderText = "Fees";
+                dgvGroupsList.Columns[10].Width = 80;
+
+                dgvGroupsList.Columns[11].HeaderText = "Is Active";
+                dgvGroupsList.Columns[11].Width = 80;
             }
         }
 

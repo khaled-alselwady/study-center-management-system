@@ -70,6 +70,8 @@ namespace StudyCenterDesktopUI.Payments
 
         private void _RefreshPaymentsList()
         {
+            cbFilter.SelectedIndex = 0;
+
             _dtAllPayments = clsPayment.AllInPages(short.Parse(cbPages.Text), _rowsPerPage);
 
             dgvPaymentsList.DataSource = _dtAllPayments;

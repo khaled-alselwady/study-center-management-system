@@ -1,6 +1,6 @@
-﻿using StudyCenterDesktopUI.Groups;
+﻿using StudyCenterBusiness;
+using StudyCenterDesktopUI.Groups;
 using StudyCenterDesktopUI.Teachers;
-using StudyCenterBusiness;
 using System;
 using System.Configuration;
 using System.Data;
@@ -57,6 +57,8 @@ namespace StudyCenterDesktopUI.Classes
 
         private void _RefreshClassesList()
         {
+            cbFilter.SelectedIndex = 0;
+
             _dtAllClasses = clsClass.AllInPages(short.Parse(cbPages.Text), _rowsPerPage);
 
             dgvClassesList.DataSource = _dtAllClasses;

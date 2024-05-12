@@ -104,6 +104,9 @@ namespace StudyCenterBusiness
 
         public static DataTable AllActiveGroupsInClass(int? classID)
             => clsClassData.AllActiveGroupsInClass(classID);
+
+        public static bool DoesGroupNameExistInClass(int? classID, string groupName)
+            => clsClassData.DoesGroupNameExistInClass(classID, groupName);
     }
 
 }

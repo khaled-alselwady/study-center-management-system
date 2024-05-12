@@ -240,6 +240,18 @@ namespace StudyCenterDesktopUI.Groups
                 return;
             }
 
+            if (_mode == _enMode.Update && _group.ClassID != _selectedClassID &&
+                clsClass.DoesGroupNameExistInClass(_selectedClassID, _group.GroupName))
+            {
+                MessageBox.Show($"The group name [{_group.GroupName}] already exists in this class. Please choose a different class.",
+                 "Duplicate Group Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                btnSave.Enabled = false;
+                dgvMeetingTimesList.DataSource = null;
+                lblClassID.Text = "[????]";
+                return;
+            }
+
             lblClassID.Text = _selectedClassID.ToString();
 
             if (_selectedTeacherID.HasValue)

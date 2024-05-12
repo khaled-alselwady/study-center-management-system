@@ -1,5 +1,5 @@
-﻿using StudyCenterDesktopUI.Teachers;
-using StudyCenterBusiness;
+﻿using StudyCenterBusiness;
+using StudyCenterDesktopUI.Teachers;
 using System;
 using System.Configuration;
 using System.Data;
@@ -87,6 +87,8 @@ namespace StudyCenterDesktopUI.SubjectsAndGradeLevels
 
         private void _RefreshSubjectGradeLevelsList()
         {
+            cbFilter.SelectedIndex = 0;
+
             _dtAllSubjectGradeLevels = clsSubjectGradeLevel.AllInPages(short.Parse(cbPages.Text), _rowsPerPage);
 
             dgvSubjectsGradeLevelsList.DataSource = _dtAllSubjectGradeLevels;

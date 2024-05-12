@@ -147,5 +147,8 @@ namespace StudyCenterDataAccess
 
         public static DataTable AllActiveGroupsInClass(int? classID)
             => clsDataAccessHelper.All("SP_GetAllActiveGroupsInClass", "ClassID", classID);
+
+        public static bool DoesGroupNameExistInClass(int? classID, string groupName)
+            => clsDataAccessHelper.Exists("SP_DoesGroupNameExistInClass", "ClassID", classID, "GroupName", groupName);
     }
 }

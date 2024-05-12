@@ -1,7 +1,7 @@
-﻿using StudyCenterDesktopUI.Classes;
+﻿using StudyCenterBusiness;
+using StudyCenterDesktopUI.Classes;
 using StudyCenterDesktopUI.GlobalClasses;
 using StudyCenterDesktopUI.SubjectsAndGradeLevels;
-using StudyCenterBusiness;
 using System;
 using System.Configuration;
 using System.Data;
@@ -82,6 +82,8 @@ namespace StudyCenterDesktopUI.Teachers
 
         private void _RefreshTeachersList()
         {
+            cbFilter.SelectedIndex = 0;
+
             _dtAllTeachers = clsTeacher.AllInPages(short.Parse(cbPages.Text), _rowsPerPage);
 
             dgvTeachersList.DataSource = _dtAllTeachers;
