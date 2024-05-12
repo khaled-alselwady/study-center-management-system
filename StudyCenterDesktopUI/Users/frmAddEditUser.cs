@@ -37,6 +37,7 @@ namespace StudyCenterDesktopUI.Users
 
             gbPermissions.Enabled = allowToEditPermissions;
             llChangePassword.Enabled = allowToEditPermissions;
+            chkActiveUser.Enabled = allowToEditPermissions;
         }
 
         private bool _IsAllItemIsChecked()

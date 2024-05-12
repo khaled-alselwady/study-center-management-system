@@ -90,7 +90,11 @@ namespace StudyCenterDesktopUI.Users
         private void cmsEditProfile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             cmsEditProfile.Enabled = (ucSubList1.RowsCount > 0);
-            tsmDeleteUser.Enabled = !(_GetUserIDFromList() == clsGlobal.CurrentUser?.UserID);
+
+            if (_GetUserIDFromList() == clsGlobal.CurrentUser.UserID)
+            {
+                tsmDeleteUser.Enabled = false;
+            }
         }
 
         private void frmListUsers_Load(object sender, System.EventArgs e)
