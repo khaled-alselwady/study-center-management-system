@@ -881,5 +881,8 @@
   <ItemGroup>
     <None Include="Resources\password-64.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-teacher.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

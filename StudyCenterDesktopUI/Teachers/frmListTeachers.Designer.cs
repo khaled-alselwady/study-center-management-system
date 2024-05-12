@@ -37,14 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dgvTeachersList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmShowTeacherDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmEditTeacher = new System.Windows.Forms.ToolStripMenuItem();
-            this.temDeleteTeacher = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmAssignToSubject = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubjectsHeTeachesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ClassesHeTeachesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbGender = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -52,7 +46,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbEducationLevels = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnAddStudent = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddTeacher = new Guna.UI2.WinForms.Guna2Button();
+            this.tsmShowTeacherDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEditTeacher = new System.Windows.Forms.ToolStripMenuItem();
+            this.temDeleteTeacher = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAssignToSubject = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubjectsHeTeachesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClassesHeTeachesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachersList)).BeginInit();
             this.cmsEditProfile.SuspendLayout();
@@ -165,78 +165,18 @@
             this.ClassesHeTeachesToolStripMenuItem});
             this.cmsEditProfile.Name = "contextMenuStrip1";
             this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsEditProfile.Size = new System.Drawing.Size(243, 266);
+            this.cmsEditProfile.Size = new System.Drawing.Size(243, 244);
             this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
-            // 
-            // tsmShowTeacherDetails
-            // 
-            this.tsmShowTeacherDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowTeacherDetails.Image = global::StudyCenterDesktopUI.Properties.Resources.show_reservation_32;
-            this.tsmShowTeacherDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmShowTeacherDetails.Name = "tsmShowTeacherDetails";
-            this.tsmShowTeacherDetails.Size = new System.Drawing.Size(242, 38);
-            this.tsmShowTeacherDetails.Text = "Show Teacher Details";
-            this.tsmShowTeacherDetails.Click += new System.EventHandler(this.tsmShowTeacherDetails_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(239, 6);
             // 
-            // tsmEditTeacher
-            // 
-            this.tsmEditTeacher.ForeColor = System.Drawing.Color.White;
-            this.tsmEditTeacher.Image = global::StudyCenterDesktopUI.Properties.Resources.edit_reservation32;
-            this.tsmEditTeacher.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmEditTeacher.Name = "tsmEditTeacher";
-            this.tsmEditTeacher.Size = new System.Drawing.Size(242, 38);
-            this.tsmEditTeacher.Text = "Edit";
-            this.tsmEditTeacher.Click += new System.EventHandler(this.tsmEditTeacher_Click);
-            // 
-            // temDeleteTeacher
-            // 
-            this.temDeleteTeacher.ForeColor = System.Drawing.Color.White;
-            this.temDeleteTeacher.Image = global::StudyCenterDesktopUI.Properties.Resources.delete_reservation_40;
-            this.temDeleteTeacher.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.temDeleteTeacher.Name = "temDeleteTeacher";
-            this.temDeleteTeacher.Size = new System.Drawing.Size(242, 38);
-            this.temDeleteTeacher.Text = "Delete";
-            this.temDeleteTeacher.Click += new System.EventHandler(this.temDeleteTeacher_Click);
-            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(239, 6);
-            // 
-            // tsmAssignToSubject
-            // 
-            this.tsmAssignToSubject.ForeColor = System.Drawing.Color.White;
-            this.tsmAssignToSubject.Image = global::StudyCenterDesktopUI.Properties.Resources.assign_to_subject_32;
-            this.tsmAssignToSubject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmAssignToSubject.Name = "tsmAssignToSubject";
-            this.tsmAssignToSubject.Size = new System.Drawing.Size(242, 38);
-            this.tsmAssignToSubject.Text = "Assign To Subject";
-            this.tsmAssignToSubject.Click += new System.EventHandler(this.tsmAssignToSubject_Click);
-            // 
-            // SubjectsHeTeachesToolStripMenuItem
-            // 
-            this.SubjectsHeTeachesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.SubjectsHeTeachesToolStripMenuItem.Image = global::StudyCenterDesktopUI.Properties.Resources.subjects_32;
-            this.SubjectsHeTeachesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.SubjectsHeTeachesToolStripMenuItem.Name = "SubjectsHeTeachesToolStripMenuItem";
-            this.SubjectsHeTeachesToolStripMenuItem.Size = new System.Drawing.Size(242, 38);
-            this.SubjectsHeTeachesToolStripMenuItem.Text = "Subjects he Teaches";
-            this.SubjectsHeTeachesToolStripMenuItem.Click += new System.EventHandler(this.SubjectsHeTeachesToolStripMenuItem_Click);
-            // 
-            // ClassesHeTeachesToolStripMenuItem
-            // 
-            this.ClassesHeTeachesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ClassesHeTeachesToolStripMenuItem.Image = global::StudyCenterDesktopUI.Properties.Resources.assign_to_subject_32;
-            this.ClassesHeTeachesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ClassesHeTeachesToolStripMenuItem.Name = "ClassesHeTeachesToolStripMenuItem";
-            this.ClassesHeTeachesToolStripMenuItem.Size = new System.Drawing.Size(242, 38);
-            this.ClassesHeTeachesToolStripMenuItem.Text = "Classes he Teaches";
-            this.ClassesHeTeachesToolStripMenuItem.Click += new System.EventHandler(this.GroupsHeTeachesToolStripMenuItem_Click);
             // 
             // txtSearch
             // 
@@ -364,27 +304,87 @@
             this.cbEducationLevels.Visible = false;
             this.cbEducationLevels.SelectedIndexChanged += new System.EventHandler(this.cbEducationLevels_SelectedIndexChanged);
             // 
-            // btnAddStudent
+            // btnAddTeacher
             // 
-            this.btnAddStudent.Checked = true;
-            this.btnAddStudent.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddStudent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddStudent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddStudent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddStudent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddStudent.FillColor = System.Drawing.Color.White;
-            this.btnAddStudent.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAddStudent.ForeColor = System.Drawing.Color.White;
-            this.btnAddStudent.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddStudent.Image = global::StudyCenterDesktopUI.Properties.Resources.add_student;
-            this.btnAddStudent.ImageOffset = new System.Drawing.Point(1, 0);
-            this.btnAddStudent.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnAddStudent.Location = new System.Drawing.Point(1281, 247);
-            this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(50, 45);
-            this.btnAddStudent.TabIndex = 224;
-            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
+            this.btnAddTeacher.Checked = true;
+            this.btnAddTeacher.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddTeacher.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddTeacher.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddTeacher.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddTeacher.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddTeacher.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddTeacher.FillColor = System.Drawing.Color.White;
+            this.btnAddTeacher.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddTeacher.ForeColor = System.Drawing.Color.White;
+            this.btnAddTeacher.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddTeacher.Image = global::StudyCenterDesktopUI.Properties.Resources.add_teacher;
+            this.btnAddTeacher.ImageOffset = new System.Drawing.Point(1, 0);
+            this.btnAddTeacher.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnAddTeacher.Location = new System.Drawing.Point(1281, 247);
+            this.btnAddTeacher.Name = "btnAddTeacher";
+            this.btnAddTeacher.Size = new System.Drawing.Size(50, 45);
+            this.btnAddTeacher.TabIndex = 224;
+            this.btnAddTeacher.Click += new System.EventHandler(this.btnAddStudent_Click);
+            // 
+            // tsmShowTeacherDetails
+            // 
+            this.tsmShowTeacherDetails.ForeColor = System.Drawing.Color.White;
+            this.tsmShowTeacherDetails.Image = global::StudyCenterDesktopUI.Properties.Resources.show_reservation_32;
+            this.tsmShowTeacherDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShowTeacherDetails.Name = "tsmShowTeacherDetails";
+            this.tsmShowTeacherDetails.Size = new System.Drawing.Size(242, 38);
+            this.tsmShowTeacherDetails.Text = "Show Teacher Details";
+            this.tsmShowTeacherDetails.Click += new System.EventHandler(this.tsmShowTeacherDetails_Click);
+            // 
+            // tsmEditTeacher
+            // 
+            this.tsmEditTeacher.ForeColor = System.Drawing.Color.White;
+            this.tsmEditTeacher.Image = global::StudyCenterDesktopUI.Properties.Resources.edit_reservation32;
+            this.tsmEditTeacher.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmEditTeacher.Name = "tsmEditTeacher";
+            this.tsmEditTeacher.Size = new System.Drawing.Size(242, 38);
+            this.tsmEditTeacher.Text = "Edit";
+            this.tsmEditTeacher.Click += new System.EventHandler(this.tsmEditTeacher_Click);
+            // 
+            // temDeleteTeacher
+            // 
+            this.temDeleteTeacher.ForeColor = System.Drawing.Color.White;
+            this.temDeleteTeacher.Image = global::StudyCenterDesktopUI.Properties.Resources.delete_reservation_40;
+            this.temDeleteTeacher.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.temDeleteTeacher.Name = "temDeleteTeacher";
+            this.temDeleteTeacher.Size = new System.Drawing.Size(242, 38);
+            this.temDeleteTeacher.Text = "Delete";
+            this.temDeleteTeacher.Click += new System.EventHandler(this.temDeleteTeacher_Click);
+            // 
+            // tsmAssignToSubject
+            // 
+            this.tsmAssignToSubject.ForeColor = System.Drawing.Color.White;
+            this.tsmAssignToSubject.Image = global::StudyCenterDesktopUI.Properties.Resources.assign_to_subject_32;
+            this.tsmAssignToSubject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmAssignToSubject.Name = "tsmAssignToSubject";
+            this.tsmAssignToSubject.Size = new System.Drawing.Size(242, 38);
+            this.tsmAssignToSubject.Text = "Assign To Subject";
+            this.tsmAssignToSubject.Click += new System.EventHandler(this.tsmAssignToSubject_Click);
+            // 
+            // SubjectsHeTeachesToolStripMenuItem
+            // 
+            this.SubjectsHeTeachesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.SubjectsHeTeachesToolStripMenuItem.Image = global::StudyCenterDesktopUI.Properties.Resources.subjects_32;
+            this.SubjectsHeTeachesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.SubjectsHeTeachesToolStripMenuItem.Name = "SubjectsHeTeachesToolStripMenuItem";
+            this.SubjectsHeTeachesToolStripMenuItem.Size = new System.Drawing.Size(242, 38);
+            this.SubjectsHeTeachesToolStripMenuItem.Text = "Subjects he Teaches";
+            this.SubjectsHeTeachesToolStripMenuItem.Click += new System.EventHandler(this.SubjectsHeTeachesToolStripMenuItem_Click);
+            // 
+            // ClassesHeTeachesToolStripMenuItem
+            // 
+            this.ClassesHeTeachesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ClassesHeTeachesToolStripMenuItem.Image = global::StudyCenterDesktopUI.Properties.Resources.assign_to_subject_32;
+            this.ClassesHeTeachesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ClassesHeTeachesToolStripMenuItem.Name = "ClassesHeTeachesToolStripMenuItem";
+            this.ClassesHeTeachesToolStripMenuItem.Size = new System.Drawing.Size(242, 38);
+            this.ClassesHeTeachesToolStripMenuItem.Text = "Classes he Teaches";
+            this.ClassesHeTeachesToolStripMenuItem.Click += new System.EventHandler(this.GroupsHeTeachesToolStripMenuItem_Click);
             // 
             // pbImage
             // 
@@ -405,7 +405,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1343, 797);
-            this.Controls.Add(this.btnAddStudent);
+            this.Controls.Add(this.btnAddTeacher);
             this.Controls.Add(this.cbPages);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvTeachersList);
@@ -434,7 +434,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Button btnAddStudent;
+        private Guna.UI2.WinForms.Guna2Button btnAddTeacher;
         private Guna.UI2.WinForms.Guna2ComboBox cbPages;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2DataGridView dgvTeachersList;
