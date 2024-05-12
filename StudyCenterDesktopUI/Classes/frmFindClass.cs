@@ -5,6 +5,8 @@ namespace StudyCenterDesktopUI.Classes
 {
     public partial class frmFindClass : Form
     {
+        public Action<int?> ClassIDBack;
+
         public frmFindClass()
         {
             InitializeComponent();
@@ -12,6 +14,7 @@ namespace StudyCenterDesktopUI.Classes
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ClassIDBack?.Invoke(ucClassCardWithFilter1.ClassID);
             Close();
         }
 

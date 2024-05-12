@@ -5,6 +5,8 @@ namespace StudyCenterDesktopUI.Teachers
 {
     public partial class frmFindTeacher : Form
     {
+        public Action<int?> TeacherIDBack;
+
         public frmFindTeacher()
         {
             InitializeComponent();
@@ -12,6 +14,7 @@ namespace StudyCenterDesktopUI.Teachers
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            TeacherIDBack?.Invoke(ucTeacherCardWithFilter1.TeacherID);
             Close();
         }
 

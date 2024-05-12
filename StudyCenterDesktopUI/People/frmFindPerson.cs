@@ -5,6 +5,8 @@ namespace StudyCenterDesktopUI.People
 {
     public partial class frmFindPerson : Form
     {
+        public Action<int?> PersonIDBack;
+
         public frmFindPerson()
         {
             InitializeComponent();
@@ -12,6 +14,7 @@ namespace StudyCenterDesktopUI.People
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            PersonIDBack?.Invoke(ucPersonCardWithFilter1.PersonID);
             Close();
         }
 

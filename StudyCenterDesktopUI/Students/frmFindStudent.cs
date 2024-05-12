@@ -5,6 +5,8 @@ namespace StudyCenterDesktopUI.Students
 {
     public partial class frmFindStudent : Form
     {
+        public Action<int?> StudentIDBack;
+
         public frmFindStudent()
         {
             InitializeComponent();
@@ -12,6 +14,7 @@ namespace StudyCenterDesktopUI.Students
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            StudentIDBack?.Invoke(ucStudentCardWithFilter1.StudentID);
             Close();
         }
 

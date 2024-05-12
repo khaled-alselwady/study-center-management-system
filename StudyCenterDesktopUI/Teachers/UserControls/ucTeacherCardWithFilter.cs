@@ -30,7 +30,7 @@ namespace StudyCenterDesktopUI.Teachers.UserControls
         }
         #endregion
 
-        public int? Teacher => ucTeacherCard1.TeacherID;
+        public int? TeacherID => ucTeacherCard1.TeacherID;
         public clsTeacher TeacherInfo => ucTeacherCard1.TeacherInfo;
 
         public bool FilterEnabled
