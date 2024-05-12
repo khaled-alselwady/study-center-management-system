@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbPages = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvGroupsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmShowGroupDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -55,9 +54,10 @@
             this.cbGroupNames = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnAddGroup = new Guna.UI2.WinForms.Guna2Button();
             this.pbImage = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGroupsList)).BeginInit();
+            this.dgvGroupsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGroupsList)).BeginInit();
             this.SuspendLayout();
             // 
             // cbPages
@@ -87,70 +87,6 @@
             this.label3.Size = new System.Drawing.Size(55, 20);
             this.label3.TabIndex = 222;
             this.label3.Text = "Page:";
-            // 
-            // dgvGroupsList
-            // 
-            this.dgvGroupsList.AllowUserToAddRows = false;
-            this.dgvGroupsList.AllowUserToDeleteRows = false;
-            this.dgvGroupsList.AllowUserToOrderColumns = true;
-            this.dgvGroupsList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvGroupsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvGroupsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
-            this.dgvGroupsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvGroupsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvGroupsList.ColumnHeadersHeight = 35;
-            this.dgvGroupsList.ContextMenuStrip = this.cmsEditProfile;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGroupsList.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvGroupsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvGroupsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvGroupsList.Location = new System.Drawing.Point(15, 298);
-            this.dgvGroupsList.Name = "dgvGroupsList";
-            this.dgvGroupsList.ReadOnly = true;
-            this.dgvGroupsList.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvGroupsList.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvGroupsList.RowTemplate.Height = 33;
-            this.dgvGroupsList.ShowCellToolTips = false;
-            this.dgvGroupsList.Size = new System.Drawing.Size(1318, 415);
-            this.dgvGroupsList.TabIndex = 221;
-            this.dgvGroupsList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
-            this.dgvGroupsList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.dgvGroupsList.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvGroupsList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvGroupsList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvGroupsList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvGroupsList.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvGroupsList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvGroupsList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dgvGroupsList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvGroupsList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvGroupsList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvGroupsList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvGroupsList.ThemeStyle.HeaderStyle.Height = 35;
-            this.dgvGroupsList.ThemeStyle.ReadOnly = true;
-            this.dgvGroupsList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.dgvGroupsList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvGroupsList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvGroupsList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvGroupsList.ThemeStyle.RowsStyle.Height = 33;
-            this.dgvGroupsList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            this.dgvGroupsList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvGroupsList.DoubleClick += new System.EventHandler(this.dgvGroupsList_DoubleClick);
             // 
             // cmsEditProfile
             // 
@@ -450,12 +386,76 @@
             this.pbImage.TabIndex = 216;
             this.pbImage.TabStop = false;
             // 
+            // dgvGroupsList
+            // 
+            this.dgvGroupsList.AllowUserToAddRows = false;
+            this.dgvGroupsList.AllowUserToDeleteRows = false;
+            this.dgvGroupsList.AllowUserToOrderColumns = true;
+            this.dgvGroupsList.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvGroupsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvGroupsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvGroupsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvGroupsList.ColumnHeadersHeight = 35;
+            this.dgvGroupsList.ContextMenuStrip = this.cmsEditProfile;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGroupsList.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvGroupsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvGroupsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+            this.dgvGroupsList.Location = new System.Drawing.Point(15, 298);
+            this.dgvGroupsList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvGroupsList.Name = "dgvGroupsList";
+            this.dgvGroupsList.ReadOnly = true;
+            this.dgvGroupsList.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvGroupsList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvGroupsList.RowTemplate.Height = 33;
+            this.dgvGroupsList.ShowCellToolTips = false;
+            this.dgvGroupsList.Size = new System.Drawing.Size(1312, 415);
+            this.dgvGroupsList.TabIndex = 238;
+            this.dgvGroupsList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
+            this.dgvGroupsList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.dgvGroupsList.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvGroupsList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvGroupsList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvGroupsList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvGroupsList.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvGroupsList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+            this.dgvGroupsList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dgvGroupsList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvGroupsList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvGroupsList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvGroupsList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvGroupsList.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvGroupsList.ThemeStyle.ReadOnly = true;
+            this.dgvGroupsList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.dgvGroupsList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvGroupsList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvGroupsList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvGroupsList.ThemeStyle.RowsStyle.Height = 33;
+            this.dgvGroupsList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            this.dgvGroupsList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
             // frmListGroups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1343, 797);
+            this.Controls.Add(this.dgvGroupsList);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.cbGroupNames);
             this.Controls.Add(this.cbMeetingDays);
@@ -463,7 +463,6 @@
             this.Controls.Add(this.btnAddGroup);
             this.Controls.Add(this.cbPages);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dgvGroupsList);
             this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.cbIsActive);
             this.Controls.Add(this.lblNumberOfRecords);
@@ -478,9 +477,9 @@
             this.Tag = "Manage Groups";
             this.Text = "frmListGroups";
             this.Load += new System.EventHandler(this.frmListGroups_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGroupsList)).EndInit();
             this.cmsEditProfile.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGroupsList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,7 +490,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAddGroup;
         private Guna.UI2.WinForms.Guna2ComboBox cbPages;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvGroupsList;
         private System.Windows.Forms.ContextMenuStrip cmsEditProfile;
         private System.Windows.Forms.ToolStripMenuItem tsmShowGroupDetails;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
@@ -510,5 +508,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbGroupNames;
         private System.Windows.Forms.ToolStripMenuItem ShowAllStudentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddStudentToolStripMenuItem;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvGroupsList;
     }
 }

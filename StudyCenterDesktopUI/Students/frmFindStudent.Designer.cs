@@ -96,6 +96,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find Student";
             this.Activated += new System.EventHandler(this.frmFindStudent_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmFindStudent_FormClosed);
             this.ResumeLayout(false);
 
         }

@@ -64,12 +64,12 @@
             this.dgvStudentsList.AllowUserToOrderColumns = true;
             this.dgvStudentsList.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvStudentsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStudentsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -86,7 +86,8 @@
             this.dgvStudentsList.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStudentsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvStudentsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvStudentsList.Location = new System.Drawing.Point(15, 272);
+            this.dgvStudentsList.Location = new System.Drawing.Point(16, 300);
+            this.dgvStudentsList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvStudentsList.Name = "dgvStudentsList";
             this.dgvStudentsList.ReadOnly = true;
             this.dgvStudentsList.RowHeadersVisible = false;
@@ -94,11 +95,11 @@
             this.dgvStudentsList.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStudentsList.RowTemplate.Height = 33;
             this.dgvStudentsList.ShowCellToolTips = false;
-            this.dgvStudentsList.Size = new System.Drawing.Size(1318, 415);
+            this.dgvStudentsList.Size = new System.Drawing.Size(1312, 415);
             this.dgvStudentsList.TabIndex = 209;
             this.dgvStudentsList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
             this.dgvStudentsList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.dgvStudentsList.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStudentsList.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvStudentsList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvStudentsList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvStudentsList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
@@ -106,7 +107,7 @@
             this.dgvStudentsList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
             this.dgvStudentsList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.dgvStudentsList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvStudentsList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStudentsList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvStudentsList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvStudentsList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStudentsList.ThemeStyle.HeaderStyle.Height = 35;
@@ -133,7 +134,7 @@
             this.tsmAssignToGroupToolStripMenuItem});
             this.cmsEditProfile.Name = "contextMenuStrip1";
             this.cmsEditProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsEditProfile.Size = new System.Drawing.Size(244, 190);
+            this.cmsEditProfile.Size = new System.Drawing.Size(244, 168);
             this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
             // 
             // tsmShowStudentDetails
@@ -201,13 +202,13 @@
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.txtSearch.ForeColor = System.Drawing.Color.Black;
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
-            this.txtSearch.Location = new System.Drawing.Point(334, 230);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Location = new System.Drawing.Point(388, 258);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(273, 36);
+            this.txtSearch.Size = new System.Drawing.Size(318, 36);
             this.txtSearch.TabIndex = 205;
             this.txtSearch.Visible = false;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -232,9 +233,10 @@
             "Gender",
             "Grade",
             "Age"});
-            this.cbFilter.Location = new System.Drawing.Point(93, 230);
+            this.cbFilter.Location = new System.Drawing.Point(106, 258);
+            this.cbFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(218, 36);
+            this.cbFilter.Size = new System.Drawing.Size(254, 36);
             this.cbFilter.StartIndex = 0;
             this.cbFilter.TabIndex = 208;
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
@@ -255,9 +257,10 @@
             "All",
             "Male",
             "Female"});
-            this.cbGender.Location = new System.Drawing.Point(334, 230);
+            this.cbGender.Location = new System.Drawing.Point(388, 258);
+            this.cbGender.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbGender.Name = "cbGender";
-            this.cbGender.Size = new System.Drawing.Size(118, 36);
+            this.cbGender.Size = new System.Drawing.Size(137, 36);
             this.cbGender.StartIndex = 0;
             this.cbGender.TabIndex = 206;
             this.cbGender.Visible = false;
@@ -267,7 +270,8 @@
             // 
             this.lblNumberOfRecords.AutoSize = true;
             this.lblNumberOfRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberOfRecords.Location = new System.Drawing.Point(113, 694);
+            this.lblNumberOfRecords.Location = new System.Drawing.Point(130, 722);
+            this.lblNumberOfRecords.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumberOfRecords.Name = "lblNumberOfRecords";
             this.lblNumberOfRecords.Size = new System.Drawing.Size(27, 20);
             this.lblNumberOfRecords.TabIndex = 203;
@@ -277,7 +281,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 694);
+            this.label2.Location = new System.Drawing.Point(10, 722);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 20);
             this.label2.TabIndex = 202;
@@ -287,7 +292,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 238);
+            this.label1.Location = new System.Drawing.Point(8, 266);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 20);
             this.label1.TabIndex = 201;
@@ -305,9 +311,10 @@
             this.cbGrades.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.cbGrades.ForeColor = System.Drawing.Color.Black;
             this.cbGrades.ItemHeight = 30;
-            this.cbGrades.Location = new System.Drawing.Point(334, 230);
+            this.cbGrades.Location = new System.Drawing.Point(388, 258);
+            this.cbGrades.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbGrades.Name = "cbGrades";
-            this.cbGrades.Size = new System.Drawing.Size(260, 36);
+            this.cbGrades.Size = new System.Drawing.Size(303, 36);
             this.cbGrades.TabIndex = 207;
             this.cbGrades.Visible = false;
             this.cbGrades.SelectedIndexChanged += new System.EventHandler(this.cbGrades_SelectedIndexChanged);
@@ -324,9 +331,10 @@
             this.cbPages.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.cbPages.ForeColor = System.Drawing.Color.Black;
             this.cbPages.ItemHeight = 30;
-            this.cbPages.Location = new System.Drawing.Point(915, 230);
+            this.cbPages.Location = new System.Drawing.Point(1066, 258);
+            this.cbPages.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbPages.Name = "cbPages";
-            this.cbPages.Size = new System.Drawing.Size(132, 36);
+            this.cbPages.Size = new System.Drawing.Size(153, 36);
             this.cbPages.TabIndex = 211;
             this.cbPages.SelectedIndexChanged += new System.EventHandler(this.cbPages_SelectedIndexChanged);
             // 
@@ -334,7 +342,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(854, 238);
+            this.label3.Location = new System.Drawing.Point(994, 266);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 20);
             this.label3.TabIndex = 210;
@@ -356,9 +365,10 @@
             this.btnAddStudent.Image = global::StudyCenterDesktopUI.Properties.Resources.add_student;
             this.btnAddStudent.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnAddStudent.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnAddStudent.Location = new System.Drawing.Point(1281, 221);
+            this.btnAddStudent.Location = new System.Drawing.Point(1277, 249);
+            this.btnAddStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(50, 45);
+            this.btnAddStudent.Size = new System.Drawing.Size(58, 45);
             this.btnAddStudent.TabIndex = 212;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
@@ -367,17 +377,17 @@
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbImage.Image = global::StudyCenterDesktopUI.Properties.Resources.students_list;
             this.pbImage.InitialImage = null;
-            this.pbImage.Location = new System.Drawing.Point(499, 31);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbImage.Location = new System.Drawing.Point(478, 29);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(5);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(325, 169);
+            this.pbImage.Size = new System.Drawing.Size(379, 169);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImage.TabIndex = 204;
             this.pbImage.TabStop = false;
             // 
             // frmListStudents
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1343, 797);
@@ -393,8 +403,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbGrades);
             this.Controls.Add(this.pbImage);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmListStudents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Manage Students";

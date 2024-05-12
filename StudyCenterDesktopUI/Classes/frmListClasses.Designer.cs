@@ -35,23 +35,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbPages = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvClassesList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShowClassDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmEditClass = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddGroupToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddClass = new Guna.UI2.WinForms.Guna2Button();
-            this.tsmShowClassDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEditClass = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddGroupToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbImage = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClassesList)).BeginInit();
+            this.dgvClassesList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClassesList)).BeginInit();
             this.SuspendLayout();
             // 
             // cbPages
@@ -82,69 +82,6 @@
             this.label3.TabIndex = 234;
             this.label3.Text = "Page:";
             // 
-            // dgvClassesList
-            // 
-            this.dgvClassesList.AllowUserToAddRows = false;
-            this.dgvClassesList.AllowUserToDeleteRows = false;
-            this.dgvClassesList.AllowUserToOrderColumns = true;
-            this.dgvClassesList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvClassesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClassesList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvClassesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvClassesList.ColumnHeadersHeight = 35;
-            this.dgvClassesList.ContextMenuStrip = this.cmsEditProfile;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClassesList.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvClassesList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvClassesList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvClassesList.Location = new System.Drawing.Point(15, 298);
-            this.dgvClassesList.Name = "dgvClassesList";
-            this.dgvClassesList.ReadOnly = true;
-            this.dgvClassesList.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvClassesList.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvClassesList.RowTemplate.Height = 33;
-            this.dgvClassesList.ShowCellToolTips = false;
-            this.dgvClassesList.Size = new System.Drawing.Size(1318, 415);
-            this.dgvClassesList.TabIndex = 233;
-            this.dgvClassesList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
-            this.dgvClassesList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.dgvClassesList.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvClassesList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvClassesList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvClassesList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvClassesList.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvClassesList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvClassesList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dgvClassesList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvClassesList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvClassesList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvClassesList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvClassesList.ThemeStyle.HeaderStyle.Height = 35;
-            this.dgvClassesList.ThemeStyle.ReadOnly = true;
-            this.dgvClassesList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.dgvClassesList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvClassesList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvClassesList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvClassesList.ThemeStyle.RowsStyle.Height = 33;
-            this.dgvClassesList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            this.dgvClassesList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvClassesList.DoubleClick += new System.EventHandler(this.dgvClassesList_DoubleClick);
-            // 
             // cmsEditProfile
             // 
             this.cmsEditProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -160,10 +97,50 @@
             this.cmsEditProfile.Size = new System.Drawing.Size(351, 162);
             this.cmsEditProfile.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEditProfile_Opening);
             // 
+            // tsmShowClassDetails
+            // 
+            this.tsmShowClassDetails.ForeColor = System.Drawing.Color.White;
+            this.tsmShowClassDetails.Image = global::StudyCenterDesktopUI.Properties.Resources.show_reservation_32;
+            this.tsmShowClassDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShowClassDetails.Name = "tsmShowClassDetails";
+            this.tsmShowClassDetails.Size = new System.Drawing.Size(350, 38);
+            this.tsmShowClassDetails.Text = "Show Class Details";
+            this.tsmShowClassDetails.Click += new System.EventHandler(this.tsmShowClassDetails_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(347, 6);
+            // 
+            // tsmEditClass
+            // 
+            this.tsmEditClass.ForeColor = System.Drawing.Color.White;
+            this.tsmEditClass.Image = global::StudyCenterDesktopUI.Properties.Resources.edit_reservation32;
+            this.tsmEditClass.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmEditClass.Name = "tsmEditClass";
+            this.tsmEditClass.Size = new System.Drawing.Size(350, 38);
+            this.tsmEditClass.Text = "Edit";
+            this.tsmEditClass.Click += new System.EventHandler(this.tsmEditClass_Click);
+            // 
+            // AddGroupToolStripMenuItem1
+            // 
+            this.AddGroupToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.AddGroupToolStripMenuItem1.Image = global::StudyCenterDesktopUI.Properties.Resources.add_group_32;
+            this.AddGroupToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.AddGroupToolStripMenuItem1.Name = "AddGroupToolStripMenuItem1";
+            this.AddGroupToolStripMenuItem1.Size = new System.Drawing.Size(350, 38);
+            this.AddGroupToolStripMenuItem1.Text = "Add Group";
+            this.AddGroupToolStripMenuItem1.Click += new System.EventHandler(this.AddGroupToolStripMenuItem1_Click);
+            // 
+            // ShowGroupsAndWhoTeachesInItToolStripMenuItem
+            // 
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Image = global::StudyCenterDesktopUI.Properties.Resources.assign_to_subject_32;
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Name = "ShowGroupsAndWhoTeachesInItToolStripMenuItem";
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Size = new System.Drawing.Size(350, 38);
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Text = "Show Groups and Who Teaches in it?";
+            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Click += new System.EventHandler(this.WhoTeachesInItToolStripMenuItem_Click);
             // 
             // txtSearch
             // 
@@ -267,46 +244,6 @@
             this.btnAddClass.TabIndex = 236;
             this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
             // 
-            // tsmShowClassDetails
-            // 
-            this.tsmShowClassDetails.ForeColor = System.Drawing.Color.White;
-            this.tsmShowClassDetails.Image = global::StudyCenterDesktopUI.Properties.Resources.show_reservation_32;
-            this.tsmShowClassDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmShowClassDetails.Name = "tsmShowClassDetails";
-            this.tsmShowClassDetails.Size = new System.Drawing.Size(350, 38);
-            this.tsmShowClassDetails.Text = "Show Class Details";
-            this.tsmShowClassDetails.Click += new System.EventHandler(this.tsmShowClassDetails_Click);
-            // 
-            // tsmEditClass
-            // 
-            this.tsmEditClass.ForeColor = System.Drawing.Color.White;
-            this.tsmEditClass.Image = global::StudyCenterDesktopUI.Properties.Resources.edit_reservation32;
-            this.tsmEditClass.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmEditClass.Name = "tsmEditClass";
-            this.tsmEditClass.Size = new System.Drawing.Size(350, 38);
-            this.tsmEditClass.Text = "Edit";
-            this.tsmEditClass.Click += new System.EventHandler(this.tsmEditClass_Click);
-            // 
-            // AddGroupToolStripMenuItem1
-            // 
-            this.AddGroupToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.AddGroupToolStripMenuItem1.Image = global::StudyCenterDesktopUI.Properties.Resources.add_group_32;
-            this.AddGroupToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.AddGroupToolStripMenuItem1.Name = "AddGroupToolStripMenuItem1";
-            this.AddGroupToolStripMenuItem1.Size = new System.Drawing.Size(350, 38);
-            this.AddGroupToolStripMenuItem1.Text = "Add Group";
-            this.AddGroupToolStripMenuItem1.Click += new System.EventHandler(this.AddGroupToolStripMenuItem1_Click);
-            // 
-            // ShowGroupsAndWhoTeachesInItToolStripMenuItem
-            // 
-            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Image = global::StudyCenterDesktopUI.Properties.Resources.assign_to_subject_32;
-            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Name = "ShowGroupsAndWhoTeachesInItToolStripMenuItem";
-            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Size = new System.Drawing.Size(350, 38);
-            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Text = "Show Groups and Who Teaches in it?";
-            this.ShowGroupsAndWhoTeachesInItToolStripMenuItem.Click += new System.EventHandler(this.WhoTeachesInItToolStripMenuItem_Click);
-            // 
             // pbImage
             // 
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -320,16 +257,79 @@
             this.pbImage.TabIndex = 228;
             this.pbImage.TabStop = false;
             // 
+            // dgvClassesList
+            // 
+            this.dgvClassesList.AllowUserToAddRows = false;
+            this.dgvClassesList.AllowUserToDeleteRows = false;
+            this.dgvClassesList.AllowUserToOrderColumns = true;
+            this.dgvClassesList.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvClassesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvClassesList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvClassesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvClassesList.ColumnHeadersHeight = 35;
+            this.dgvClassesList.ContextMenuStrip = this.cmsEditProfile;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClassesList.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvClassesList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvClassesList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+            this.dgvClassesList.Location = new System.Drawing.Point(15, 298);
+            this.dgvClassesList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvClassesList.Name = "dgvClassesList";
+            this.dgvClassesList.ReadOnly = true;
+            this.dgvClassesList.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvClassesList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvClassesList.RowTemplate.Height = 33;
+            this.dgvClassesList.ShowCellToolTips = false;
+            this.dgvClassesList.Size = new System.Drawing.Size(1312, 415);
+            this.dgvClassesList.TabIndex = 237;
+            this.dgvClassesList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
+            this.dgvClassesList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.dgvClassesList.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvClassesList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvClassesList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvClassesList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvClassesList.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvClassesList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+            this.dgvClassesList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dgvClassesList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvClassesList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvClassesList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvClassesList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvClassesList.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvClassesList.ThemeStyle.ReadOnly = true;
+            this.dgvClassesList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.dgvClassesList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvClassesList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvClassesList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvClassesList.ThemeStyle.RowsStyle.Height = 33;
+            this.dgvClassesList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            this.dgvClassesList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
             // frmListClasses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1343, 797);
+            this.Controls.Add(this.dgvClassesList);
             this.Controls.Add(this.btnAddClass);
             this.Controls.Add(this.cbPages);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dgvClassesList);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.lblNumberOfRecords);
@@ -343,9 +343,9 @@
             this.Tag = "Manage Classes";
             this.Text = "frmListClasses";
             this.Load += new System.EventHandler(this.frmListClasses_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClassesList)).EndInit();
             this.cmsEditProfile.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClassesList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,7 +356,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAddClass;
         private Guna.UI2.WinForms.Guna2ComboBox cbPages;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvClassesList;
         private System.Windows.Forms.ContextMenuStrip cmsEditProfile;
         private System.Windows.Forms.ToolStripMenuItem tsmShowClassDetails;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
@@ -369,5 +368,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.ToolStripMenuItem AddGroupToolStripMenuItem1;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvClassesList;
     }
 }

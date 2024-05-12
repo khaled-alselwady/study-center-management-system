@@ -98,6 +98,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find Class";
             this.Activated += new System.EventHandler(this.frmFindClass_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmFindClass_FormClosed);
             this.ResumeLayout(false);
 
         }

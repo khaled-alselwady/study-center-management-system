@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbPages = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvSubjectsGradeLevelsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmShowSubjectDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -50,9 +49,10 @@
             this.cbGrades = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnAddSubject = new Guna.UI2.WinForms.Guna2Button();
             this.pbImage = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjectsGradeLevelsList)).BeginInit();
+            this.dgvSubjectsGradeLevelsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsEditProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjectsGradeLevelsList)).BeginInit();
             this.SuspendLayout();
             // 
             // cbPages
@@ -82,69 +82,6 @@
             this.label3.Size = new System.Drawing.Size(55, 20);
             this.label3.TabIndex = 222;
             this.label3.Text = "Page:";
-            // 
-            // dgvSubjectsGradeLevelsList
-            // 
-            this.dgvSubjectsGradeLevelsList.AllowUserToAddRows = false;
-            this.dgvSubjectsGradeLevelsList.AllowUserToDeleteRows = false;
-            this.dgvSubjectsGradeLevelsList.AllowUserToOrderColumns = true;
-            this.dgvSubjectsGradeLevelsList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSubjectsGradeLevelsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSubjectsGradeLevelsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvSubjectsGradeLevelsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvSubjectsGradeLevelsList.ColumnHeadersHeight = 35;
-            this.dgvSubjectsGradeLevelsList.ContextMenuStrip = this.cmsEditProfile;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubjectsGradeLevelsList.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvSubjectsGradeLevelsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvSubjectsGradeLevelsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvSubjectsGradeLevelsList.Location = new System.Drawing.Point(15, 298);
-            this.dgvSubjectsGradeLevelsList.Name = "dgvSubjectsGradeLevelsList";
-            this.dgvSubjectsGradeLevelsList.ReadOnly = true;
-            this.dgvSubjectsGradeLevelsList.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSubjectsGradeLevelsList.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvSubjectsGradeLevelsList.RowTemplate.Height = 33;
-            this.dgvSubjectsGradeLevelsList.ShowCellToolTips = false;
-            this.dgvSubjectsGradeLevelsList.Size = new System.Drawing.Size(1318, 415);
-            this.dgvSubjectsGradeLevelsList.TabIndex = 221;
-            this.dgvSubjectsGradeLevelsList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.Height = 35;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.ReadOnly = true;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.Height = 33;
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvSubjectsGradeLevelsList.DoubleClick += new System.EventHandler(this.dgvStudentsList_DoubleClick);
             // 
             // cmsEditProfile
             // 
@@ -349,16 +286,79 @@
             this.pbImage.TabIndex = 216;
             this.pbImage.TabStop = false;
             // 
+            // dgvSubjectsGradeLevelsList
+            // 
+            this.dgvSubjectsGradeLevelsList.AllowUserToAddRows = false;
+            this.dgvSubjectsGradeLevelsList.AllowUserToDeleteRows = false;
+            this.dgvSubjectsGradeLevelsList.AllowUserToOrderColumns = true;
+            this.dgvSubjectsGradeLevelsList.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubjectsGradeLevelsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvSubjectsGradeLevelsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvSubjectsGradeLevelsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvSubjectsGradeLevelsList.ColumnHeadersHeight = 35;
+            this.dgvSubjectsGradeLevelsList.ContextMenuStrip = this.cmsEditProfile;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubjectsGradeLevelsList.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvSubjectsGradeLevelsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvSubjectsGradeLevelsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+            this.dgvSubjectsGradeLevelsList.Location = new System.Drawing.Point(15, 298);
+            this.dgvSubjectsGradeLevelsList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvSubjectsGradeLevelsList.Name = "dgvSubjectsGradeLevelsList";
+            this.dgvSubjectsGradeLevelsList.ReadOnly = true;
+            this.dgvSubjectsGradeLevelsList.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubjectsGradeLevelsList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvSubjectsGradeLevelsList.RowTemplate.Height = 33;
+            this.dgvSubjectsGradeLevelsList.ShowCellToolTips = false;
+            this.dgvSubjectsGradeLevelsList.Size = new System.Drawing.Size(1312, 415);
+            this.dgvSubjectsGradeLevelsList.TabIndex = 239;
+            this.dgvSubjectsGradeLevelsList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.ReadOnly = true;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.Height = 33;
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            this.dgvSubjectsGradeLevelsList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
             // frmListSubjectsGradeLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1343, 797);
+            this.Controls.Add(this.dgvSubjectsGradeLevelsList);
             this.Controls.Add(this.btnAddSubject);
             this.Controls.Add(this.cbPages);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dgvSubjectsGradeLevelsList);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.cbSubjects);
@@ -374,9 +374,9 @@
             this.Tag = "Manage Subjects";
             this.Text = "List Subjects Grade Level";
             this.Load += new System.EventHandler(this.frmListSubjectsGradeLevel_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjectsGradeLevelsList)).EndInit();
             this.cmsEditProfile.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjectsGradeLevelsList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,7 +387,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAddSubject;
         private Guna.UI2.WinForms.Guna2ComboBox cbPages;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvSubjectsGradeLevelsList;
         private System.Windows.Forms.ContextMenuStrip cmsEditProfile;
         private System.Windows.Forms.ToolStripMenuItem tsmShowSubjectDetails;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
@@ -401,5 +400,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbGrades;
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.ToolStripMenuItem WhoTeachesItToolStripMenuItem;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvSubjectsGradeLevelsList;
     }
 }
