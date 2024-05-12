@@ -31,6 +31,7 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.lblTitle = new System.Windows.Forms.Label();
             this.ucGetAllStudentsInGroup1 = new StudyCenterDesktopUI.Students.UserControls.ucGetAllStudentsInGroup();
+            this.btnAddStudent = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -49,7 +50,7 @@
             this.btnClose.Image = global::StudyCenterDesktopUI.Properties.Resources.close_48;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnClose.Location = new System.Drawing.Point(720, 405);
+            this.btnClose.Location = new System.Drawing.Point(720, 442);
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnClose.Size = new System.Drawing.Size(155, 45);
@@ -73,17 +74,40 @@
             // 
             this.ucGetAllStudentsInGroup1.BackColor = System.Drawing.Color.White;
             this.ucGetAllStudentsInGroup1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucGetAllStudentsInGroup1.Location = new System.Drawing.Point(8, 108);
+            this.ucGetAllStudentsInGroup1.Location = new System.Drawing.Point(8, 149);
             this.ucGetAllStudentsInGroup1.Name = "ucGetAllStudentsInGroup1";
             this.ucGetAllStudentsInGroup1.Size = new System.Drawing.Size(865, 283);
             this.ucGetAllStudentsInGroup1.TabIndex = 223;
+            // 
+            // btnAddStudent
+            // 
+            this.btnAddStudent.Checked = true;
+            this.btnAddStudent.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddStudent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddStudent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddStudent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddStudent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddStudent.FillColor = System.Drawing.Color.White;
+            this.btnAddStudent.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddStudent.ForeColor = System.Drawing.Color.White;
+            this.btnAddStudent.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddStudent.Image = global::StudyCenterDesktopUI.Properties.Resources.add_student;
+            this.btnAddStudent.ImageOffset = new System.Drawing.Point(1, 0);
+            this.btnAddStudent.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnAddStudent.Location = new System.Drawing.Point(822, 98);
+            this.btnAddStudent.Name = "btnAddStudent";
+            this.btnAddStudent.Size = new System.Drawing.Size(50, 45);
+            this.btnAddStudent.TabIndex = 224;
+            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // frmGetAllStudentsInGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(884, 454);
+            this.ClientSize = new System.Drawing.Size(884, 491);
+            this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.ucGetAllStudentsInGroup1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
@@ -102,5 +126,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnClose;
         private System.Windows.Forms.Label lblTitle;
         private UserControls.ucGetAllStudentsInGroup ucGetAllStudentsInGroup1;
+        private Guna.UI2.WinForms.Guna2Button btnAddStudent;
     }
 }
