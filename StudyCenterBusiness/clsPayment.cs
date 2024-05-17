@@ -74,6 +74,33 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsPayment"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure PaymentID is valid if in Update mode
+            idCheck: payment => (payment.Mode != enMode.Update) || clsValidationHelper.HasValue(payment.PaymentID),
+
+            // Value Check: Ensure required properties are not null or empty
+            valueCheck: payment => clsValidationHelper.HasValue(payment.StudentGroupID) &&
+                                   clsValidationHelper.HasValue(payment.SubjectGradeLevelID) &&
+                                   clsValidationHelper.HasValue(payment.CreatedByUserID) &&
+                                   payment.PaymentAmount >= 0,
+
+            // Date Check: Ensure PaymentDate is not in the future if in AddNew mode
+            dateCheck: payment => (payment.Mode != enMode.AddNew) ||
+                                  clsValidationHelper.DateIsNotValid(payment.PaymentDate, DateTime.Now)
+            );
+        }
+
         private bool _Add()
         {
             PaymentID = clsPaymentData.Add(StudentGroupID.Value, SubjectGradeLevelID.Value,
@@ -90,7 +117,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

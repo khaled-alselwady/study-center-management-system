@@ -1,5 +1,5 @@
-﻿using StudyCenterDesktopUI.GlobalClasses;
-using StudyCenterBusiness;
+﻿using StudyCenterBusiness;
+using StudyCenterDesktopUI.GlobalClasses;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;

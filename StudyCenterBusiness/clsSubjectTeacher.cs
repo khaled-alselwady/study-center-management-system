@@ -72,6 +72,40 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsSubjectTeacher"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure SubjectTeacherID is valid if in Update mode
+            idCheck: subjectTeacher => (Mode != enMode.Update || clsValidationHelper.HasValue(subjectTeacher.SubjectTeacherID)),
+
+            // Value Check: Ensure SubjectGradeLevelID and TeacherID are provided
+            valueCheck: subjectTeacher => clsValidationHelper.HasValue(subjectTeacher.SubjectGradeLevelID) &&
+                                          clsValidationHelper.HasValue(subjectTeacher.TeacherID),
+
+            // Date Check: Ensure AssignmentDate is valid if in AddNew mode
+            dateCheck: subjectTeacher => Mode != enMode.AddNew ||
+                       clsValidationHelper.DateIsNotValid(subjectTeacher.AssignmentDate, DateTime.Now),
+
+            // Additional Checks: Check various conditions and provide corresponding error messages
+            additionalChecks: new (Func<clsSubjectTeacher, bool>, string)[]
+            {
+                // Check if AssignmentDate is not after LastModifiedDate in Update mode
+                (subjectTeacher => !(Mode == enMode.Update && subjectTeacher.LastModifiedDate.HasValue &&
+                                !clsValidationHelper.DateIsNotValid(subjectTeacher.AssignmentDate, subjectTeacher.LastModifiedDate.Value)),
+                                "Assignment date cannot be after the last modified date.")
+            }
+            );
+        }
+
         private bool _Add()
         {
             SubjectTeacherID = clsSubjectTeacherData.Add(SubjectGradeLevelID.Value, TeacherID.Value);
@@ -87,7 +121,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

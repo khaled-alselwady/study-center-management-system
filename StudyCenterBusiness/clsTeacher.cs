@@ -98,6 +98,41 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsTeacher"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure TeacherID is valid if in Update mode
+            idCheck: teacher => (Mode != enMode.Update || clsValidationHelper.HasValue(teacher.TeacherID)),
+
+            // Value Check: Ensure PersonID, EducationLevelID, and CreatedByUserID are provided
+            valueCheck: teacher => clsValidationHelper.HasValue(teacher.PersonID) &&
+                       clsValidationHelper.HasValue(teacher.EducationLevelID) &&
+                       clsValidationHelper.HasValue(teacher.CreatedByUserID),
+
+            // Date Check: Ensure CreationDate is valid if in AddNew mode
+            dateCheck: teacher => Mode != enMode.AddNew ||
+                       clsValidationHelper.DateIsNotValid(teacher.CreationDate, DateTime.Now),
+
+            // Additional Checks: Check various conditions and provide corresponding error messages
+            additionalChecks: new (Func<clsTeacher, bool>, string)[]
+            {
+                // Check if PersonID already exists as a teacher, considering mode and previous value
+                (teacher => (Mode != enMode.AddNew && _oldPersonID == teacher.PersonID) ||
+                            !clsValidationHelper.ExistsInDatabase(() => IsTeacher(teacher.PersonID)),
+                            "Teacher already exists."),
+            }
+            );
+        }
+
         private bool _Add()
         {
             TeacherID = clsTeacherData.Add(PersonID.Value, EducationLevelID.Value, TeachingExperience,
@@ -114,7 +149,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

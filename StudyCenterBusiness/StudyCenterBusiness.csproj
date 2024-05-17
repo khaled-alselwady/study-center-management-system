@@ -57,6 +57,7 @@
     <Compile Include="clsTeacher.cs" />
     <Compile Include="clsTeacherDeleted.cs" />
     <Compile Include="clsUser.cs" />
+    <Compile Include="clsValidationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

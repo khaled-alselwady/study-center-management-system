@@ -1,4 +1,5 @@
 using StudyCenterDataAccess;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -142,6 +143,46 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsUser"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure UserID is valid if in Update mode
+            idCheck: user => (Mode != enMode.Update || clsValidationHelper.HasValue(user.UserID)),
+
+            // Value Check: Ensure PersonID is provided
+            valueCheck: user => clsValidationHelper.HasValue(user.PersonID),
+
+            // Additional Checks: Check various conditions and provide corresponding error messages
+            additionalChecks: new (Func<clsUser, bool>, string)[]
+            {
+                // Check if PersonID already exists, considering mode and previous value
+                (user => (Mode != enMode.AddNew && _oldPersonID == user.PersonID) ||
+                         !clsValidationHelper.ExistsInDatabase(() => Exist(user.PersonID, enFindBy.PersonID)),
+                         "Person already exists."),
+
+                // Check if Username is not empty
+                (user => clsValidationHelper.IsNotEmpty(user.Username), "Username is empty."),
+
+                // Check if Username already exists, considering mode and previous value
+                (user => (Mode != enMode.AddNew && _oldUsername.Trim().ToLower() == user.Username.Trim().ToLower()) ||
+                         !clsValidationHelper.ExistsInDatabase(() => Exist(user.Username, enFindBy.Username)),
+                         "Username already exists."),
+
+                // Check if Password is not empty
+                (user => clsValidationHelper.IsNotEmpty(user.Password), "Password is empty.")
+            }
+            );
+        }
+
         private bool _Add()
         {
             UserID = clsUserData.Add(PersonID.Value, Username, Password, Permissions, IsActive);
@@ -156,7 +197,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

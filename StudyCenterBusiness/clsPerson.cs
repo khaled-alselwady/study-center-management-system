@@ -88,6 +88,32 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsPerson"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure PersonID is valid if in Update mode
+            idCheck: person => person.Mode != enMode.Update || clsValidationHelper.HasValue(person.PersonID),
+
+            // Value Check: Ensure required properties are not null or empty
+            valueCheck: person => !string.IsNullOrWhiteSpace(person.FirstName) &&
+                                  !string.IsNullOrWhiteSpace(person.SecondName) &&
+                                  !string.IsNullOrWhiteSpace(person.LastName) &&
+                                  !string.IsNullOrWhiteSpace(person.PhoneNumber),
+
+            // Date Check: Ensure DateOfBirth is not in the future
+            dateCheck: person => clsValidationHelper.DateIsNotValid(person.DateOfBirth, DateTime.Now, isBefore: false)
+            );
+        }
+
         private bool _Add()
         {
             PersonID = clsPersonData.Add(FirstName, SecondName, ThirdName,
@@ -104,7 +130,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

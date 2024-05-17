@@ -91,6 +91,40 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsStudent"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure StudentID is valid if in Update mode
+            idCheck: student => (Mode != enMode.Update || clsValidationHelper.HasValue(student.StudentID)),
+
+            // Value Check: Ensure required properties are not null
+            valueCheck: student => clsValidationHelper.HasValue(student.PersonID) &&
+                                   clsValidationHelper.HasValue(student.GradeLevelID) &&
+                                   clsValidationHelper.HasValue(student.CreatedByUserID),
+
+            // Date Check: Ensure CreationDate is not in the future if in AddNew mode
+            dateCheck: student => Mode != enMode.AddNew ||
+                                 clsValidationHelper.DateIsNotValid(student.CreationDate, DateTime.Now),
+
+            // Additional Checks: Ensure no duplicate student
+            additionalChecks: new (Func<clsStudent, bool>, string)[]
+            {
+                (student => (Mode != enMode.AddNew && _oldPersonID == student.PersonID) ||
+                            !clsValidationHelper.ExistsInDatabase(() => IsStudent(student.PersonID)),
+                            "Student already exists."),
+            }
+            );
+        }
+
         private bool _Add()
         {
             StudentID = clsStudentData.Add(PersonID.Value, GradeLevelID.Value, CreatedByUserID.Value);
@@ -105,7 +139,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

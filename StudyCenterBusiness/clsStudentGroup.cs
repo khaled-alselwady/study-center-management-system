@@ -75,6 +75,32 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsStudentGroup"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure StudentGroupID is valid if in Update mode
+            idCheck: studentGroup => (Mode != enMode.Update || clsValidationHelper.HasValue(studentGroup.StudentGroupID)),
+
+            // Value Check: Ensure required properties are not null
+            valueCheck: studentGroup => clsValidationHelper.HasValue(studentGroup.StudentID) &&
+                            clsValidationHelper.HasValue(studentGroup.GroupID) &&
+                            clsValidationHelper.HasValue(studentGroup.CreatedByUserID),
+
+            // Date Check: Ensure dates are valid
+            dateCheck: studentGroup => (Mode == enMode.AddNew && clsValidationHelper.DateIsNotValid(studentGroup.StartDate, DateTime.Now)) ||
+                                       (Mode == enMode.Update && (!studentGroup.EndDate.HasValue || clsValidationHelper.DateIsNotValid(studentGroup.StartDate, studentGroup.EndDate.Value)))
+            );
+        }
+
         private bool _Add()
         {
             StudentGroupID = clsStudentGroupData.Add(StudentID.Value, GroupID.Value, CreatedByUserID.Value);
@@ -89,7 +115,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

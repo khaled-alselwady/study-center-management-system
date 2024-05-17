@@ -1,4 +1,5 @@
 using StudyCenterDataAccess;
+using System;
 using System.Data;
 
 namespace StudyCenterBusiness
@@ -72,6 +73,34 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsGradeLevel"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure GradeLevelID is valid if in Update mode
+            idCheck: gl => (gl.Mode != enMode.Update) || clsValidationHelper.HasValue(gl.GradeLevelID),
+
+            // Value Check: Ensure GradeName is not empty
+            valueCheck: gl => !string.IsNullOrWhiteSpace(gl.GradeName),
+
+            // Additional Checks: Ensure GradeName does not already exist in the database
+            additionalChecks: new (Func<clsGradeLevel, bool>, string)[]
+            {
+                (gl => (gl.Mode != enMode.AddNew && _oldGradeName.Trim().ToLower() == gl.GradeName.Trim().ToLower()) ||
+                      !clsValidationHelper.ExistsInDatabase(() => Exists(gl.GradeName)),
+                      "Grade name already exists.")
+            }
+            );
+        }
+
         private bool _Add()
         {
             GradeLevelID = clsGradeLevelData.Add(GradeName);
@@ -86,7 +115,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

@@ -1,4 +1,5 @@
 ﻿using StudyCenterDataAccess;
+using System;
 using System.Data;
 
 namespace StudyCenterBusiness
@@ -72,6 +73,34 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsEducationLevel"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure EducationLevelID is valid if in Update mode
+            idCheck: el => (el.Mode != enMode.Update) || clsValidationHelper.HasValue(el.EducationLevelID),
+
+            // Value Check: Ensure LevelName is not empty
+            valueCheck: el => !string.IsNullOrWhiteSpace(el.LevelName),
+
+            // Additional Checks: Ensure LevelName does not already exist in the database
+            additionalChecks: new (Func<clsEducationLevel, bool>, string)[]
+            {
+                (el => (el.Mode != enMode.AddNew && _oldLevelName.Trim().ToLower() == el.LevelName.Trim().ToLower()) ||
+                      !clsValidationHelper.ExistsInDatabase(() => Exists(el.LevelName)),
+                      "Education level name already exists.")
+            }
+            );
+        }
+
         private bool _Add()
         {
             EducationLevelID = clsEducationLevelData.Add(LevelName);
@@ -86,7 +115,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

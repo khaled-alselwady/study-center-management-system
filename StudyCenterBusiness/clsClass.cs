@@ -1,4 +1,5 @@
 using StudyCenterDataAccess;
+using System;
 using System.Data;
 
 namespace StudyCenterBusiness
@@ -84,6 +85,35 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsClass"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure ClassID is valid if in Update mode
+            idCheck: c => (c.Mode != enMode.Update) || clsValidationHelper.HasValue(c.ClassID),
+
+            // Value Check: Ensure ClassName is not empty and Capacity is positive
+            valueCheck: c => !string.IsNullOrWhiteSpace(c.ClassName) &&
+                             c.Capacity > 0,
+
+            // Additional Checks: Ensure ClassName does not already exist in the database
+            additionalChecks: new (Func<clsClass, bool>, string)[]
+            {
+                (c => (c.Mode != enMode.AddNew && _oldClassName.Trim().ToLower() == c.ClassName.Trim().ToLower()) ||
+                      !clsValidationHelper.ExistsInDatabase(() => Exists(c.ClassName)),
+                      "Class name already exists.")
+            }
+            );
+        }
+
         private bool _Add()
         {
             ClassID = clsClassData.Add(ClassName, Capacity, Description);
@@ -98,7 +128,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

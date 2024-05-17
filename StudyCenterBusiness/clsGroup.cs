@@ -107,6 +107,36 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsGroup"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure GroupID is valid if in Update mode
+            idCheck: g => (g.Mode != enMode.Update) || clsValidationHelper.HasValue(g.GroupID),
+
+            // Value Check: Ensure all required properties have values and that GroupName is not empty if in Update mode
+            valueCheck: g => clsValidationHelper.HasValue(g.ClassID) &&
+                             clsValidationHelper.HasValue(g.TeacherID) &&
+                             clsValidationHelper.HasValue(g.SubjectTeacherID) &&
+                             clsValidationHelper.HasValue(g.MeetingTimeID) &&
+                             clsValidationHelper.HasValue(g.CreatedByUserID) &&
+                             (g.Mode != enMode.Update || !string.IsNullOrWhiteSpace(g.GroupName)) &&
+                             g.StudentCount >= 0,
+
+            // Date Check: Ensure CreationDate is valid and LastModifiedDate is valid if it exists
+            dateCheck: g => (g.Mode != enMode.AddNew || clsValidationHelper.DateIsNotValid(g.CreationDate, DateTime.Now)) &&
+                            (g.Mode != enMode.Update || !g.LastModifiedDate.HasValue || clsValidationHelper.DateIsNotValid(g.LastModifiedDate.Value, DateTime.Now))
+            );
+        }
+
         private bool _Add()
         {
             GroupID = clsGroupData.Add(ClassID.Value, TeacherID.Value, SubjectTeacherID.Value,
@@ -129,7 +159,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

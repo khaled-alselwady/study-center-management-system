@@ -1,4 +1,5 @@
 using StudyCenterDataAccess;
+using System;
 using System.Data;
 
 namespace StudyCenterBusiness
@@ -72,6 +73,35 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsSubject"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure SubjectID is valid if in Update mode
+            idCheck: subject => (Mode != enMode.Update || clsValidationHelper.HasValue(subject.SubjectID)),
+
+            // Value Check: Ensure SubjectName is not empty
+            valueCheck: subject => clsValidationHelper.IsNotEmpty(subject.SubjectName),
+
+            // Additional Checks: Check various conditions and provide corresponding error messages
+            additionalChecks: new (Func<clsSubject, bool>, string)[]
+            {
+                // Check if the SubjectName already exists in the database
+                ((subject) => (Mode != enMode.AddNew && _oldSubjectName.Trim().ToLower() != subject.SubjectName.Trim().ToLower()) ||
+                              !clsValidationHelper.ExistsInDatabase(() => Exists(subject.SubjectName)),
+                              "Subject name already exists.")
+            }
+            );
+        }
+
         private bool _Add()
         {
             SubjectID = clsSubjectData.Add(SubjectName);
@@ -86,7 +116,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }

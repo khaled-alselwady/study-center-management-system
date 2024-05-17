@@ -1,4 +1,5 @@
 using StudyCenterDataAccess;
+using System;
 using System.Data;
 
 namespace StudyCenterBusiness
@@ -104,6 +105,38 @@ namespace StudyCenterBusiness
             return true;
         }
 
+        /// <summary>
+        /// Validates the current instance of <see cref="clsSubjectGradeLevel"/> using the <see cref="clsValidationHelper"/>.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the current instance passes all validation checks; otherwise, false.
+        /// </returns>
+        private bool _ValidateUsingHelperClass()
+        {
+            return clsValidationHelper.Validate
+            (
+            this,
+
+            // ID Check: Ensure SubjectGradeLevelID is valid if in Update mode
+            idCheck: sgl => (Mode != enMode.Update || clsValidationHelper.HasValue(sgl.SubjectGradeLevelID)),
+
+            // Value Check: Ensure SubjectID and GradeLevelID are provided, and Fees is non-negative
+            valueCheck: sgl => clsValidationHelper.HasValue(sgl.SubjectID) &&
+                               clsValidationHelper.HasValue(sgl.GradeLevelID) &&
+                               sgl.Fees >= 0,
+
+
+            // Additional Checks: Check various conditions and provide corresponding error messages
+            additionalChecks: new (Func<clsSubjectGradeLevel, bool>, string)[]
+            {
+                // Check if the combination of SubjectID and GradeLevelID already exists in the database
+                ((sgl) => !((Mode == enMode.AddNew || sgl._oldSubjectID != sgl._subjectID || sgl._oldGradeLevelID != sgl._gradeLevelID) &&
+                          clsValidationHelper.ExistsInDatabase(() => Exists(sgl.SubjectID, sgl.GradeLevelID))),
+                          "Subject grade level already exists."),
+            }
+            );
+        }
+
         private bool _Add()
         {
             SubjectGradeLevelID = clsSubjectGradeLevelData.Add(SubjectID.Value, GradeLevelID.Value,
@@ -120,7 +153,7 @@ namespace StudyCenterBusiness
 
         public bool Save()
         {
-            if (!_Validate())
+            if (!_ValidateUsingHelperClass())
             {
                 return false;
             }
