@@ -10,9 +10,42 @@ namespace StudyCenterBusiness
         public enMode Mode = enMode.AddNew;
 
         public int? MeetingTimeID { get; set; }
-        public TimeSpan StartTime { get; set; }
+
+        private TimeSpan _oldStartTime = TimeSpan.Zero;
+        private TimeSpan _startTime = TimeSpan.Zero;
+        public TimeSpan StartTime
+        {
+            get => _startTime;
+
+            set
+            {
+                if (_oldStartTime != TimeSpan.Zero)
+                {
+                    _oldStartTime = _startTime;
+                }
+
+                _startTime = value;
+            }
+        }
+
         public TimeSpan EndTime { get; set; }
-        public byte MeetingDays { get; set; }
+
+        private byte? _oldMeetingDays = null;
+        private byte? _meetingDays = null;
+        public byte MeetingDays
+        {
+            get => _meetingDays ?? 0;
+
+            set
+            {
+                if (!_oldMeetingDays.HasValue)
+                {
+                    _oldMeetingDays = _meetingDays;
+                }
+
+                _meetingDays = value;
+            }
+        }
 
         public clsMeetingTime()
         {
@@ -34,6 +67,34 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !MeetingTimeID.HasValue)
+            {
+                return false;
+            }
+
+            if (StartTime >= EndTime)
+            {
+                return false;
+            }
+
+            if (MeetingDays < 0 || MeetingDays > 2) //  (0 => Daily)    (1 => STT)   (2 => MW)
+            {
+                return false;
+            }
+
+            if ((Mode == enMode.AddNew) || (_oldStartTime != _startTime || _oldMeetingDays != _meetingDays))
+            {
+                if (Exists(_startTime, MeetingDays))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
             MeetingTimeID = clsMeetingTimeData.Add(StartTime, EndTime, MeetingDays);
@@ -43,11 +104,16 @@ namespace StudyCenterBusiness
 
         private bool _Update()
         {
-            return clsMeetingTimeData.Update(MeetingTimeID, StartTime, EndTime, MeetingDays);
+            return clsMeetingTimeData.Update(MeetingTimeID.Value, StartTime, EndTime, MeetingDays);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:

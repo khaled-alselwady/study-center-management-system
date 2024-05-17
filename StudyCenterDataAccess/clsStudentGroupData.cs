@@ -56,7 +56,7 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static int? Add(int? studentID, int? groupID, int? CreatedByUserID)
+        public static int? Add(int studentID, int groupID, int CreatedByUserID)
         {
             // This function will return the new person id if succeeded and null if not
             int? studentGroupID = null;
@@ -71,9 +71,9 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@StudentID", (object)studentID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@GroupID", (object)groupID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@CreatedByUserID", (object)CreatedByUserID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@StudentID", studentID);
+                        command.Parameters.AddWithValue("@GroupID", groupID);
+                        command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
 
                         SqlParameter outputIdParam = new SqlParameter("@NewStudentGroupID", SqlDbType.Int)
@@ -96,7 +96,7 @@ namespace StudyCenterDataAccess
             return studentGroupID;
         }
 
-        public static bool Update(int? studentGroupID, int? studentID, int? groupID,
+        public static bool Update(int studentGroupID, int studentID, int groupID,
             DateTime? endDate, bool isActive)
         {
             int rowAffected = 0;
@@ -111,9 +111,9 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@StudentGroupID", (object)studentGroupID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@StudentID", (object)studentID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@GroupID", (object)groupID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@StudentGroupID", studentGroupID);
+                        command.Parameters.AddWithValue("@StudentID", studentID);
+                        command.Parameters.AddWithValue("@GroupID", groupID);
                         command.Parameters.AddWithValue("@EndDate", (object)endDate ?? DBNull.Value);
                         command.Parameters.AddWithValue("@IsActive", isActive);
 

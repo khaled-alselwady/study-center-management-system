@@ -106,8 +106,8 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static int? Add(int? personID, byte? educationLevelID, byte? teachingExperience,
-            string certifications, int? createdByUserID)
+        public static int? Add(int personID, byte educationLevelID, byte? teachingExperience,
+            string certifications, int createdByUserID)
         {
             // This function will return the new person id if succeeded and null if not
             int? teacherID = null;
@@ -122,11 +122,11 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@EducationLevelID", (object)educationLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@PersonID", personID);
+                        command.Parameters.AddWithValue("@EducationLevelID", educationLevelID);
                         command.Parameters.AddWithValue("@TeachingExperience", (object)teachingExperience ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Certifications", (object)certifications ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewTeacherID", SqlDbType.Int)
                         {
@@ -148,9 +148,9 @@ namespace StudyCenterDataAccess
             return teacherID;
         }
 
-        public static bool Update(int? teacherID, int? personID, byte? educationLevelID,
+        public static bool Update(int teacherID, int personID, byte educationLevelID,
             byte? teachingExperience, string certifications,
-            int? createdByUserID)
+            int createdByUserID)
         {
             int rowAffected = 0;
 
@@ -164,12 +164,12 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@EducationLevelID", (object)educationLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@TeacherID", teacherID);
+                        command.Parameters.AddWithValue("@PersonID", personID);
+                        command.Parameters.AddWithValue("@EducationLevelID", educationLevelID);
                         command.Parameters.AddWithValue("@TeachingExperience", (object)teachingExperience ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Certifications", (object)certifications ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
 
                         rowAffected = command.ExecuteNonQuery();
                     }

@@ -86,7 +86,7 @@ namespace StudyCenterDataAccess
             return educationLevelID;
         }
 
-        public static bool Update(byte? educationLevelID, string levelName)
+        public static bool Update(byte educationLevelID, string levelName)
         {
             int rowAffected = 0;
 
@@ -100,7 +100,7 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@EducationLevelID", (object)educationLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@EducationLevelID", educationLevelID);
                         command.Parameters.AddWithValue("@LevelName", levelName);
 
                         rowAffected = command.ExecuteNonQuery();
@@ -119,7 +119,10 @@ namespace StudyCenterDataAccess
             => clsDataAccessHelper.Delete("SP_DeleteEducationLevel", "EducationLevelID", educationLevelID);
 
         public static bool Exists(byte? educationLevelID)
-            => clsDataAccessHelper.Exists("SP_DoesEducationLevelExist", "EducationLevelID", educationLevelID);
+            => clsDataAccessHelper.Exists("SP_DoesEducationLevelExistByEducationLevelID", "EducationLevelID", educationLevelID);
+
+        public static bool Exists(string levelName)
+            => clsDataAccessHelper.Exists("SP_DoesEducationLevelExistByEducationLevelName", "EducationLevelName", levelName);
 
         public static DataTable All()
             => clsDataAccessHelper.All("SP_GetAllEducationLevels");

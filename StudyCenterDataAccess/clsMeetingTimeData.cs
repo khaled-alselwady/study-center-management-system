@@ -90,7 +90,7 @@ namespace StudyCenterDataAccess
             return meetingTimeID;
         }
 
-        public static bool Update(int? meetingTimeID, TimeSpan startTime, TimeSpan endTime, byte meetingDays)
+        public static bool Update(int meetingTimeID, TimeSpan startTime, TimeSpan endTime, byte meetingDays)
         {
             int rowAffected = 0;
 
@@ -104,7 +104,7 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@MeetingTimeID", (object)meetingTimeID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@MeetingTimeID", meetingTimeID);
                         command.Parameters.AddWithValue("@StartTime", startTime);
                         command.Parameters.AddWithValue("@EndTime", endTime);
                         command.Parameters.AddWithValue("@MeetingDays", meetingDays);

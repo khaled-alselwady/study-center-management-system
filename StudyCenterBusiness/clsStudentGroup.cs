@@ -21,7 +21,6 @@ namespace StudyCenterBusiness
         public clsGroup GroupInfo { get; private set; }
         public clsUser CreatedByUserInfo { get; private set; }
 
-
         public clsStudentGroup()
         {
             StudentGroupID = null;
@@ -51,20 +50,50 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !StudentGroupID.HasValue)
+            {
+                return false;
+            }
+
+            if (!StudentID.HasValue || !GroupID.HasValue || !CreatedByUserID.HasValue)
+            {
+                return false;
+            }
+
+            if (Mode == enMode.AddNew && StartDate.Date < DateTime.Now.Date)
+            {
+                return false;
+            }
+
+            if (Mode == enMode.Update && EndDate.HasValue && StartDate.Date > EndDate.Value.Date)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
-            StudentGroupID = clsStudentGroupData.Add(StudentID, GroupID, CreatedByUserID);
+            StudentGroupID = clsStudentGroupData.Add(StudentID.Value, GroupID.Value, CreatedByUserID.Value);
 
             return (StudentGroupID.HasValue);
         }
 
         private bool _Update()
         {
-            return clsStudentGroupData.Update(StudentGroupID, StudentID, GroupID, EndDate, IsActive);
+            return clsStudentGroupData.Update(StudentGroupID.Value, StudentID.Value, GroupID.Value, EndDate, IsActive);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:

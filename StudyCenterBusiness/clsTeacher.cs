@@ -10,7 +10,24 @@ namespace StudyCenterBusiness
         public enMode Mode = enMode.AddNew;
 
         public int? TeacherID { get; set; }
-        public int? PersonID { get; set; }
+
+        private int? _oldPersonID = null;
+        private int? _personID = null;
+        public int? PersonID
+        {
+            get => _personID;
+
+            set
+            {
+                if (!_oldPersonID.HasValue)
+                {
+                    _oldPersonID = _personID;
+                }
+
+                _personID = value;
+            }
+        }
+
         public byte? EducationLevelID { get; set; }
         public byte? TeachingExperience { get; set; }
         public string Certifications { get; set; }
@@ -53,22 +70,55 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !TeacherID.HasValue)
+            {
+                return false;
+            }
+
+            if (!PersonID.HasValue || !EducationLevelID.HasValue || !CreatedByUserID.HasValue)
+            {
+                return false;
+            }
+
+            if ((Mode == enMode.AddNew) || _oldPersonID != _personID)
+            {
+                if (IsTeacher(_personID))
+                {
+                    return false;
+                }
+            }
+
+            if (Mode == enMode.AddNew && CreationDate.Date < DateTime.Now.Date)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
-            TeacherID = clsTeacherData.Add(PersonID, EducationLevelID, TeachingExperience,
-                Certifications, CreatedByUserID);
+            TeacherID = clsTeacherData.Add(PersonID.Value, EducationLevelID.Value, TeachingExperience,
+                Certifications, CreatedByUserID.Value);
 
             return (TeacherID.HasValue);
         }
 
         private bool _Update()
         {
-            return clsTeacherData.Update(TeacherID, PersonID, EducationLevelID, TeachingExperience,
-                Certifications, CreatedByUserID);
+            return clsTeacherData.Update(TeacherID.Value, PersonID.Value, EducationLevelID.Value, TeachingExperience,
+                Certifications, CreatedByUserID.Value);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:

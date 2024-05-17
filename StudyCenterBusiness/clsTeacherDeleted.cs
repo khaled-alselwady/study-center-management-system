@@ -49,43 +49,6 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
-        private bool _Add()
-        {
-            LogID = clsTeacherDeletedData.Add(TeacherID, TeacherName,
-                EducationLevelID, CreatedByUserID, DeletedByUserID, CreationDate);
-
-            return (LogID.HasValue);
-        }
-
-        private bool _Update()
-        {
-            return clsTeacherDeletedData.Update(LogID, TeacherID,
-                TeacherName, EducationLevelID, CreatedByUserID,
-                DeletedByUserID, CreationDate);
-        }
-
-        public bool Save()
-        {
-            switch (Mode)
-            {
-                case enMode.AddNew:
-                    if (_Add())
-                    {
-                        Mode = enMode.Update;
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
-                case enMode.Update:
-                    return _Update();
-            }
-
-            return false;
-        }
-
         public static clsTeacherDeleted Find(int? logID)
         {
             int teacherID = -1;
@@ -100,10 +63,6 @@ namespace StudyCenterBusiness
 
             return (isFound) ? (new clsTeacherDeleted(logID, teacherID, teacherName, educationLevelID, createdByUserID, deletedByUserID, creationDate, deletionDate)) : null;
         }
-
-        public static bool Delete(int? logID) => clsTeacherDeletedData.Delete(logID);
-
-        public static bool Exists(int? logID) => clsTeacherDeletedData.Exists(logID);
 
         public static DataTable All() => clsTeacherDeletedData.All();
     }

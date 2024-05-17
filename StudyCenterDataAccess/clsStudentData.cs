@@ -100,8 +100,8 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static int? Add(int? personID, byte? gradeLevelID,
-            int? createdByUserID)
+        public static int? Add(int personID, byte gradeLevelID,
+            int createdByUserID)
         {
             // This function will return the new person id if succeeded and null if not
             int? studentID = null;
@@ -116,9 +116,9 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@PersonID", personID);
+                        command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
+                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewStudentID", SqlDbType.Int)
                         {
@@ -140,8 +140,8 @@ namespace StudyCenterDataAccess
             return studentID;
         }
 
-        public static bool Update(int? studentID, int? personID, byte? gradeLevelID,
-            int? createdByUserID)
+        public static bool Update(int studentID, int personID, byte gradeLevelID,
+            int createdByUserID)
         {
             int rowAffected = 0;
 
@@ -155,10 +155,10 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@StudentID", (object)studentID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@StudentID", studentID);
+                        command.Parameters.AddWithValue("@PersonID", personID);
+                        command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
+                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
 
                         rowAffected = command.ExecuteNonQuery();
                     }

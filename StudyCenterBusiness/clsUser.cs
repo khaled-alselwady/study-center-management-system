@@ -27,8 +27,43 @@ namespace StudyCenterBusiness
         }
 
         public int? UserID { get; set; }
-        public int? PersonID { get; set; }
-        public string Username { get; set; }
+
+        private int? _oldPersonID = null;
+        private int? _personID = null;
+        public int? PersonID
+        {
+            get => _personID;
+
+            set
+            {
+                if (!_oldPersonID.HasValue)
+                {
+                    _oldPersonID = _personID;
+                }
+
+                _personID = value;
+            }
+        }
+
+        private string _oldUsername = string.Empty;
+        private string _userName = string.Empty;
+        public string Username
+        {
+            get => _userName;
+
+            set
+            {
+                // If the old username is not set (indicating either a new user or the username is being set for the first time),
+                // initialize it with the current username value to track changes.
+                if (string.IsNullOrWhiteSpace(_oldUsername))
+                {
+                    _oldUsername = _userName;
+                }
+
+                _userName = value;
+            }
+        }
+
         public string Password { get; set; }
         public int Permissions { get; set; }
         public bool IsActive { get; set; }
@@ -62,20 +97,70 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !UserID.HasValue)
+            {
+                return false;
+            }
+
+            if (!PersonID.HasValue)
+            {
+                return false;
+            }
+
+            if ((Mode == enMode.AddNew) || _oldPersonID != _personID)
+            {
+                if (Exist(_personID, enFindBy.PersonID))
+                {
+                    return false;
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(_userName))
+            {
+                return false;
+            }
+
+            // If the old username is different from the new username:
+            // - In AddNew Mode: This indicates the new username, requiring validation.
+            // - In Update Mode: This indicates that the username has been changed, so we need to check if it already exists in the database.
+            // If the new username already exists in the database, return false to indicate validation failure.
+            if ((Mode == enMode.AddNew) || (_oldUsername.Trim().ToLower() != _userName.Trim().ToLower()))
+            {
+                if (Exist(_userName, enFindBy.Username))
+                {
+                    return false;
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(Password))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
-            UserID = clsUserData.Add(PersonID, Username, Password, Permissions, IsActive);
+            UserID = clsUserData.Add(PersonID.Value, Username, Password, Permissions, IsActive);
 
             return (UserID.HasValue);
         }
 
         private bool _Update()
         {
-            return clsUserData.Update(UserID, PersonID, Username, Password, Permissions, IsActive);
+            return clsUserData.Update(UserID.Value, PersonID.Value, Username, Password, Permissions, IsActive);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:

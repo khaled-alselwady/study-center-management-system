@@ -90,7 +90,7 @@ namespace StudyCenterDataAccess
             return classID;
         }
 
-        public static bool Update(int? classID, string className, byte capacity, string description)
+        public static bool Update(int classID, string className, byte capacity, string description)
         {
             int rowAffected = 0;
 
@@ -104,7 +104,7 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@ClassID", (object)classID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@ClassID", classID);
                         command.Parameters.AddWithValue("@ClassName", className);
                         command.Parameters.AddWithValue("@Capacity", capacity);
                         command.Parameters.AddWithValue("@Description", (object)description ?? DBNull.Value);

@@ -55,7 +55,7 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static int? Add(int? subjectGradeLevelID, int? teacherID)
+        public static int? Add(int subjectGradeLevelID, int teacherID)
         {
             // This function will return the new person id if succeeded and null if not
             int? subjectTeacherID = null;
@@ -70,8 +70,8 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", subjectGradeLevelID);
+                        command.Parameters.AddWithValue("@TeacherID", teacherID);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewSubjectTeacherID", SqlDbType.Int)
                         {
@@ -93,8 +93,8 @@ namespace StudyCenterDataAccess
             return subjectTeacherID;
         }
 
-        public static bool Update(int? subjectTeacherID, int? subjectGradeLevelID,
-            int? teacherID, bool isActive)
+        public static bool Update(int subjectTeacherID, int subjectGradeLevelID,
+            int teacherID, bool isActive)
         {
             int rowAffected = 0;
 
@@ -108,9 +108,9 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@SubjectTeacherID", (object)subjectTeacherID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@SubjectTeacherID", subjectTeacherID);
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", subjectGradeLevelID);
+                        command.Parameters.AddWithValue("@TeacherID", teacherID);
                         command.Parameters.AddWithValue("@IsActive", isActive);
 
                         rowAffected = command.ExecuteNonQuery();

@@ -55,8 +55,8 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static int? Add(int? studentGroupID, int? subjectGradeLevelID,
-            decimal paymentAmount, int? createdByUserID)
+        public static int? Add(int studentGroupID, int subjectGradeLevelID,
+            decimal paymentAmount, int createdByUserID)
         {
             // This function will return the new person id if succeeded and null if not
             int? paymentID = null;
@@ -71,10 +71,10 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@StudentGroupID", (object)studentGroupID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@StudentGroupID", studentGroupID);
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", subjectGradeLevelID);
                         command.Parameters.AddWithValue("@PaymentAmount", paymentAmount);
-                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewPaymentID", SqlDbType.Int)
                         {
@@ -96,8 +96,8 @@ namespace StudyCenterDataAccess
             return paymentID;
         }
 
-        public static bool Update(int? paymentID, int? studentGroupID,
-            int? subjectGradeLevelID, decimal paymentAmount, int? createdByUserID)
+        public static bool Update(int paymentID, int studentGroupID,
+            int subjectGradeLevelID, decimal paymentAmount, int createdByUserID)
         {
             int rowAffected = 0;
 
@@ -111,7 +111,7 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@PaymentID", (object)paymentID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@PaymentID", paymentID);
                         command.Parameters.AddWithValue("@StudentGroupID", studentGroupID);
                         command.Parameters.AddWithValue("@SubjectGradeLevelID", subjectGradeLevelID);
                         command.Parameters.AddWithValue("@PaymentAmount", paymentAmount);

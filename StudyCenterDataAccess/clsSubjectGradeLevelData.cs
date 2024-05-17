@@ -53,7 +53,7 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static int? Add(int? subjectID, byte? gradeLevelID, decimal fees, string description)
+        public static int? Add(int subjectID, byte gradeLevelID, decimal fees, string description)
         {
             // This function will return the new person id if succeeded and null if not
             int? subjectGradeLevelID = null;
@@ -68,8 +68,8 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@SubjectID", (object)subjectID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@SubjectID", subjectID);
+                        command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
                         command.Parameters.AddWithValue("@Fees", fees);
                         command.Parameters.AddWithValue("@Description", (object)description ?? DBNull.Value);
 
@@ -93,7 +93,7 @@ namespace StudyCenterDataAccess
             return subjectGradeLevelID;
         }
 
-        public static bool Update(int? subjectGradeLevelID, int? subjectID, byte? gradeLevelID,
+        public static bool Update(int subjectGradeLevelID, int subjectID, byte gradeLevelID,
             decimal fees, string description)
         {
             int rowAffected = 0;
@@ -108,9 +108,9 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@SubjectGradeLevelID", (object)subjectGradeLevelID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@SubjectID", (object)subjectID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@GradeLevelID", (object)gradeLevelID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@SubjectGradeLevelID", subjectGradeLevelID);
+                        command.Parameters.AddWithValue("@SubjectID", subjectID);
+                        command.Parameters.AddWithValue("@GradeLevelID", gradeLevelID);
                         command.Parameters.AddWithValue("@Fees", fees);
                         command.Parameters.AddWithValue("@Description", (object)description ?? DBNull.Value);
 

@@ -196,7 +196,7 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static int? Add(int? personID, string username, string password, int permissions,
+        public static int? Add(int personID, string username, string password, int permissions,
             bool isActive)
         {
             // This function will return the new person id if succeeded and null if not
@@ -212,7 +212,7 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@PersonID", personID);
                         command.Parameters.AddWithValue("@Username", username);
                         command.Parameters.AddWithValue("@Password", password);
                         command.Parameters.AddWithValue("@Permissions", permissions);
@@ -238,7 +238,7 @@ namespace StudyCenterDataAccess
             return userID;
         }
 
-        public static bool Update(int? userID, int? personID, string username, string password,
+        public static bool Update(int userID, int personID, string username, string password,
             int permissions, bool isActive)
         {
             int rowAffected = 0;
@@ -253,8 +253,8 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@UserID", (object)userID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@PersonID", (object)personID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@UserID", userID);
+                        command.Parameters.AddWithValue("@PersonID", personID);
                         command.Parameters.AddWithValue("@Username", username);
                         command.Parameters.AddWithValue("@Password", password);
                         command.Parameters.AddWithValue("@Permissions", permissions);

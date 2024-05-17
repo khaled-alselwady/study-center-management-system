@@ -47,21 +47,51 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !SubjectTeacherID.HasValue)
+            {
+                return false;
+            }
+
+            if (!SubjectGradeLevelID.HasValue || !TeacherID.HasValue)
+            {
+                return false;
+            }
+
+            if ((Mode == enMode.AddNew) && AssignmentDate.Date < DateTime.Now.Date)
+            {
+                return false;
+            }
+
+            if ((Mode == enMode.Update) && LastModifiedDate.HasValue && AssignmentDate.Date > LastModifiedDate.Value.Date)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
-            SubjectTeacherID = clsSubjectTeacherData.Add(SubjectGradeLevelID, TeacherID);
+            SubjectTeacherID = clsSubjectTeacherData.Add(SubjectGradeLevelID.Value, TeacherID.Value);
 
             return (SubjectTeacherID.HasValue);
         }
 
         private bool _Update()
         {
-            return clsSubjectTeacherData.Update(SubjectTeacherID,
-                SubjectGradeLevelID, TeacherID, IsActive);
+            return clsSubjectTeacherData.Update(SubjectTeacherID.Value,
+                SubjectGradeLevelID.Value, TeacherID.Value, IsActive);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:

@@ -9,7 +9,26 @@ namespace StudyCenterBusiness
         public enMode Mode = enMode.AddNew;
 
         public int? ClassID { get; set; }
-        public string ClassName { get; set; }
+
+        private string _className = string.Empty;
+        private string _oldClassName = string.Empty;
+        public string ClassName
+        {
+            get => _className;
+
+            set
+            {
+                // If the old ClassName is not set (indicating either a new user or the ClassName is being set for the first time),
+                // initialize it with the current ClassName value to track changes.
+                if (string.IsNullOrWhiteSpace(_oldClassName))
+                {
+                    _oldClassName = _className;
+                }
+
+                _className = value;
+            }
+        }
+
         public byte Capacity { get; set; }
         public string Description { get; set; }
 
@@ -17,7 +36,7 @@ namespace StudyCenterBusiness
         {
             ClassID = null;
             ClassName = string.Empty;
-            Capacity = 0;
+            Capacity = 1;
             Description = null;
 
             Mode = enMode.AddNew;
@@ -33,6 +52,38 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !ClassID.HasValue)
+            {
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(_className))
+            {
+                return false;
+            }
+
+            // If the old ClassName is different from the new ClassName or in AddNew Mode:
+            // - In AddNew Mode: This indicates the new ClassName, requiring validation.
+            // - In Update Mode: This indicates that the ClassName has been changed, so we need to check if it already exists in the database.
+            // If the new ClassName already exists in the database, return false to indicate validation failure.
+            if ((Mode == enMode.AddNew) || (_oldClassName.Trim().ToLower() != _className.Trim().ToLower()))
+            {
+                if (Exists(_className))
+                {
+                    return false;
+                }
+            }
+
+            if (Capacity <= 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
             ClassID = clsClassData.Add(ClassName, Capacity, Description);
@@ -42,11 +93,16 @@ namespace StudyCenterBusiness
 
         private bool _Update()
         {
-            return clsClassData.Update(ClassID, ClassName, Capacity, Description);
+            return clsClassData.Update(ClassID.Value, ClassName, Capacity, Description);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:

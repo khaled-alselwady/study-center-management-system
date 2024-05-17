@@ -86,7 +86,7 @@ namespace StudyCenterDataAccess
             return subjectID;
         }
 
-        public static bool Update(int? subjectID, string subjectName)
+        public static bool Update(int subjectID, string subjectName)
         {
             int rowAffected = 0;
 
@@ -100,7 +100,7 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@SubjectID", (object)subjectID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@SubjectID", subjectID);
                         command.Parameters.AddWithValue("@SubjectName", subjectName);
 
                         rowAffected = command.ExecuteNonQuery();

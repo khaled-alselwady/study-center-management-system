@@ -22,8 +22,7 @@ namespace StudyCenterBusiness
         public string Email { get; set; }
         public string Address { get; set; }
 
-        public string FullName => (ThirdName != null) ? string.Concat(FirstName, " ", SecondName, " ", ThirdName, " ", LastName)
-                                                      : string.Concat(FirstName, " ", SecondName, " ", LastName);
+        public string FullName => string.Concat(FirstName, " ", SecondName, " ", ThirdName ?? "", " ", LastName);
         public string GenderName => Gender.ToString();
 
         public bool IsUser => clsUser.Exist(PersonID, clsUser.enFindBy.PersonID);
@@ -64,6 +63,31 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !PersonID.HasValue)
+            {
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(FirstName) || string.IsNullOrWhiteSpace(SecondName) || string.IsNullOrWhiteSpace(LastName))
+            {
+                return false;
+            }
+
+            if (DateOfBirth.Date > DateTime.Now.Date)
+            {
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(PhoneNumber))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
             PersonID = clsPersonData.Add(FirstName, SecondName, ThirdName,
@@ -74,12 +98,17 @@ namespace StudyCenterBusiness
 
         private bool _Update()
         {
-            return clsPersonData.Update(PersonID, FirstName, SecondName, ThirdName,
+            return clsPersonData.Update(PersonID.Value, FirstName, SecondName, ThirdName,
                 LastName, (byte)Gender, DateOfBirth, PhoneNumber, Email, Address);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:

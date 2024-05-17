@@ -10,7 +10,24 @@ namespace StudyCenterBusiness
         public enMode Mode = enMode.AddNew;
 
         public int? StudentID { get; set; }
-        public int? PersonID { get; set; }
+
+        private int? _oldPersonID = null;
+        private int? _personID = null;
+        public int? PersonID
+        {
+            get => _personID;
+
+            set
+            {
+                if (!_oldPersonID.HasValue)
+                {
+                    _oldPersonID = _personID;
+                }
+
+                _personID = value;
+            }
+        }
+
         public byte? GradeLevelID { get; set; }
         public int? CreatedByUserID { get; set; }
         public DateTime CreationDate { get; set; }
@@ -46,20 +63,53 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !StudentID.HasValue)
+            {
+                return false;
+            }
+
+            if (!PersonID.HasValue || !GradeLevelID.HasValue || !CreatedByUserID.HasValue)
+            {
+                return false;
+            }
+
+            if ((Mode == enMode.AddNew) || _oldPersonID != _personID)
+            {
+                if (IsStudent(_personID))
+                {
+                    return false;
+                }
+            }
+
+            if (Mode == enMode.AddNew && CreationDate.Date < DateTime.Now.Date)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
-            StudentID = clsStudentData.Add(PersonID, GradeLevelID, CreatedByUserID);
+            StudentID = clsStudentData.Add(PersonID.Value, GradeLevelID.Value, CreatedByUserID.Value);
 
             return (StudentID.HasValue);
         }
 
         private bool _Update()
         {
-            return clsStudentData.Update(StudentID, PersonID, GradeLevelID, CreatedByUserID);
+            return clsStudentData.Update(StudentID.Value, PersonID.Value, GradeLevelID.Value, CreatedByUserID.Value);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:

@@ -1,6 +1,6 @@
-﻿using StudyCenterDesktopUI.GlobalClasses;
+﻿using StudyCenterBusiness;
+using StudyCenterDesktopUI.GlobalClasses;
 using StudyCenterDesktopUI.Subjects;
-using StudyCenterBusiness;
 using System;
 using System.ComponentModel;
 using System.Data;

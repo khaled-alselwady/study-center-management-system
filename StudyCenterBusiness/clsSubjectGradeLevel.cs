@@ -9,8 +9,41 @@ namespace StudyCenterBusiness
         public enMode Mode = enMode.AddNew;
 
         public int? SubjectGradeLevelID { get; set; }
-        public int? SubjectID { get; set; }
-        public byte? GradeLevelID { get; set; }
+
+        private int? _oldSubjectID = null;
+        private int? _subjectID = null;
+        public int? SubjectID
+        {
+            get => _subjectID;
+
+            set
+            {
+                if (!_oldSubjectID.HasValue)
+                {
+                    _oldSubjectID = _subjectID;
+                }
+
+                _subjectID = value;
+            }
+        }
+
+        private byte? _oldGradeLevelID = null;
+        private byte? _gradeLevelID = null;
+        public byte? GradeLevelID
+        {
+            get => _gradeLevelID;
+
+            set
+            {
+                if (!_oldGradeLevelID.HasValue)
+                {
+                    _oldGradeLevelID = _gradeLevelID;
+                }
+
+                _gradeLevelID = value;
+            }
+        }
+
         public decimal Fees { get; set; }
         public string Description { get; set; }
 
@@ -43,9 +76,37 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !SubjectGradeLevelID.HasValue)
+            {
+                return false;
+            }
+
+            if (!SubjectID.HasValue || !GradeLevelID.HasValue)
+            {
+                return false;
+            }
+
+            if ((Mode == enMode.AddNew) || (_oldSubjectID != _subjectID || _oldGradeLevelID != _gradeLevelID))
+            {
+                if (Exists(_subjectID, _gradeLevelID))
+                {
+                    return false;
+                }
+            }
+
+            if (Fees < 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
-            SubjectGradeLevelID = clsSubjectGradeLevelData.Add(SubjectID, GradeLevelID,
+            SubjectGradeLevelID = clsSubjectGradeLevelData.Add(SubjectID.Value, GradeLevelID.Value,
                 Fees, Description);
 
             return (SubjectGradeLevelID.HasValue);
@@ -53,12 +114,17 @@ namespace StudyCenterBusiness
 
         private bool _Update()
         {
-            return clsSubjectGradeLevelData.Update(SubjectGradeLevelID, SubjectID,
-                GradeLevelID, Fees, Description);
+            return clsSubjectGradeLevelData.Update(SubjectGradeLevelID.Value, SubjectID.Value,
+                GradeLevelID.Value, Fees, Description);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:

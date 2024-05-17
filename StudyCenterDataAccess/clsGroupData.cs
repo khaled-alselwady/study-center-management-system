@@ -61,8 +61,8 @@ namespace StudyCenterDataAccess
             return isFound;
         }
 
-        public static int? Add(int? classID, int? teacherID, int? subjectTeacherID,
-             int? meetingTimeID, int? createdByUserID)
+        public static int? Add(int classID, int teacherID, int subjectTeacherID,
+             int meetingTimeID, int createdByUserID)
         {
             // This function will return the new person id if succeeded and null if not
             int? groupID = null;
@@ -77,11 +77,11 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@ClassID", (object)classID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@SubjectTeacherID", (object)subjectTeacherID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@MeetingTimeID", (object)meetingTimeID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@CreatedByUserID", (object)createdByUserID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@ClassID", classID);
+                        command.Parameters.AddWithValue("@TeacherID", teacherID);
+                        command.Parameters.AddWithValue("@SubjectTeacherID", subjectTeacherID);
+                        command.Parameters.AddWithValue("@MeetingTimeID", meetingTimeID);
+                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
 
                         object result = command.ExecuteScalar();
 
@@ -97,8 +97,8 @@ namespace StudyCenterDataAccess
             return groupID;
         }
 
-        public static bool Update(int? groupID, int? classID,
-            int? teacherID, int? subjectTeacherID, int? meetingTimeID,
+        public static bool Update(int groupID, int classID,
+            int teacherID, int subjectTeacherID, int meetingTimeID,
              bool isActive)
         {
             int rowAffected = 0;
@@ -113,11 +113,11 @@ namespace StudyCenterDataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@GroupID", (object)groupID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@ClassID", (object)classID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@TeacherID", (object)teacherID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@SubjectTeacherID", (object)subjectTeacherID ?? DBNull.Value);
-                        command.Parameters.AddWithValue("@MeetingTimeID", (object)meetingTimeID ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@GroupID", groupID);
+                        command.Parameters.AddWithValue("@ClassID", classID);
+                        command.Parameters.AddWithValue("@TeacherID", teacherID);
+                        command.Parameters.AddWithValue("@SubjectTeacherID", subjectTeacherID);
+                        command.Parameters.AddWithValue("@MeetingTimeID", meetingTimeID);
                         command.Parameters.AddWithValue("@IsActive", isActive);
 
                         rowAffected = command.ExecuteNonQuery();

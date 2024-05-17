@@ -9,7 +9,25 @@ namespace StudyCenterBusiness
         public enMode Mode = enMode.AddNew;
 
         public byte? GradeLevelID { get; set; }
-        public string GradeName { get; set; }
+
+        private string _oldGradeName = string.Empty;
+        private string _gradeName = string.Empty;
+        public string GradeName
+        {
+            get => _gradeName;
+
+            set
+            {
+                // If the old GradeName is not set (indicating either a new user or the GradeName is being set for the first time),
+                // initialize it with the current GradeName value to track changes.
+                if (string.IsNullOrWhiteSpace(_oldGradeName))
+                {
+                    _oldGradeName = _gradeName;
+                }
+
+                _gradeName = value;
+            }
+        }
 
         public clsGradeLevel()
         {
@@ -27,6 +45,33 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !GradeLevelID.HasValue)
+            {
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(_gradeName))
+            {
+                return false;
+            }
+
+            // If the old GradeName is different from the new GradeName or in AddNew Mode:
+            // - In AddNew Mode: This indicates the new GradeName, requiring validation.
+            // - In Update Mode: This indicates that the GradeName has been changed, so we need to check if it already exists in the database.
+            // If the new GradeName already exists in the database, return false to indicate validation failure.
+            if ((Mode == enMode.AddNew) || (_oldGradeName.Trim().ToLower() != _gradeName.Trim().ToLower()))
+            {
+                if (Exists(_gradeName))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
             GradeLevelID = clsGradeLevelData.Add(GradeName);
@@ -36,11 +81,16 @@ namespace StudyCenterBusiness
 
         private bool _Update()
         {
-            return clsGradeLevelData.Update(GradeLevelID, GradeName);
+            return clsGradeLevelData.Update(GradeLevelID.Value, GradeName);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:
@@ -70,11 +120,17 @@ namespace StudyCenterBusiness
             return (isFound) ? (new clsGradeLevel(gradeLevelID, gradeName)) : null;
         }
 
-        public static bool Delete(byte? gradeLevelID) => clsGradeLevelData.Delete(gradeLevelID);
+        public static bool Delete(byte? gradeLevelID)
+            => clsGradeLevelData.Delete(gradeLevelID);
 
-        public static bool Exists(byte? gradeLevelID) => clsGradeLevelData.Exists(gradeLevelID);
+        public static bool Exists(byte? gradeLevelID)
+            => clsGradeLevelData.Exists(gradeLevelID);
 
-        public static DataTable All() => clsGradeLevelData.All();
+        public static bool Exists(string gradeName)
+            => clsGradeLevelData.Exists(gradeName);
+
+        public static DataTable All()
+            => clsGradeLevelData.All();
 
         public static DataTable AllOnlyNames() => clsGradeLevelData.AllOnlyNames();
 

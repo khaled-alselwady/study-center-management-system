@@ -70,10 +70,47 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !GroupID.HasValue)
+            {
+                return false;
+            }
+
+            if (!ClassID.HasValue || !TeacherID.HasValue || !SubjectTeacherID.HasValue ||
+                !MeetingTimeID.HasValue || !CreatedByUserID.HasValue)
+            {
+                return false;
+            }
+
+            // in Add New mode, the group name will be named in the data access.
+            if (Mode == enMode.Update && string.IsNullOrWhiteSpace(GroupName))
+            {
+                return false;
+            }
+
+            if (StudentCount < 0)
+            {
+                return false;
+            }
+
+            if (Mode == enMode.AddNew && CreationDate.Date < DateTime.Now.Date)
+            {
+                return false;
+            }
+
+            if (Mode == enMode.Update && LastModifiedDate.HasValue && LastModifiedDate.Value.Date < DateTime.Now.Date)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
-            GroupID = clsGroupData.Add(ClassID, TeacherID, SubjectTeacherID,
-                MeetingTimeID, CreatedByUserID);
+            GroupID = clsGroupData.Add(ClassID.Value, TeacherID.Value, SubjectTeacherID.Value,
+                MeetingTimeID.Value, CreatedByUserID.Value);
 
             if (GroupID.HasValue)
             {
@@ -86,12 +123,17 @@ namespace StudyCenterBusiness
 
         private bool _Update()
         {
-            return clsGroupData.Update(GroupID, ClassID, TeacherID,
-                SubjectTeacherID, MeetingTimeID, IsActive);
+            return clsGroupData.Update(GroupID.Value, ClassID.Value, TeacherID.Value,
+                SubjectTeacherID.Value, MeetingTimeID.Value, IsActive);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:

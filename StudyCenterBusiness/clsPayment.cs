@@ -49,22 +49,52 @@ namespace StudyCenterBusiness
             Mode = enMode.Update;
         }
 
+        private bool _Validate()
+        {
+            if (Mode == enMode.Update && !PaymentID.HasValue)
+            {
+                return false;
+            }
+
+            if (!StudentGroupID.HasValue || !SubjectGradeLevelID.HasValue || !CreatedByUserID.HasValue)
+            {
+                return false;
+            }
+
+            if (PaymentAmount < 0)
+            {
+                return false;
+            }
+
+            if (Mode == enMode.AddNew && PaymentDate.Date < DateTime.Now.Date)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private bool _Add()
         {
-            PaymentID = clsPaymentData.Add(StudentGroupID, SubjectGradeLevelID,
-                PaymentAmount, CreatedByUserID);
+            PaymentID = clsPaymentData.Add(StudentGroupID.Value, SubjectGradeLevelID.Value,
+                PaymentAmount, CreatedByUserID.Value);
 
             return (PaymentID.HasValue);
         }
 
         private bool _Update()
         {
-            return clsPaymentData.Update(PaymentID, StudentGroupID, SubjectGradeLevelID,
-                PaymentAmount, CreatedByUserID);
+            return clsPaymentData.Update(PaymentID.Value, StudentGroupID.Value, SubjectGradeLevelID.Value,
+                PaymentAmount, CreatedByUserID.Value);
         }
 
         public bool Save()
         {
+            if (!_Validate())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:
