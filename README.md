@@ -12,7 +12,7 @@ The Study Center is a comprehensive desktop software solution for managing educa
 - Assign students and teachers to groups as needed.
 
 ### 3. Education Levels
-- Define different education levels (e.g., primary, secondary, higher education).
+- Define different education levels.
 - Organize grade levels within each education level for better management.
 
 ### 4. Grade Levels
