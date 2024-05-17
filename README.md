@@ -60,4 +60,6 @@ The Study Center is a comprehensive desktop software solution for managing educa
 2. Open the project in Visual Studio.
 3. Build and run the application.
 
+Explore our demo [here](https://www.youtube.com/watch?v=x9GjqqBsmzk&t=117s) and experience the power of efficient Study Center management on your desktop!
+
 Feel free to contribute to the project by opening issues or submitting pull requests. For any queries, contact us at `khalidsliman2014@gmail.com`.
