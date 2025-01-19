@@ -1,5 +1,5 @@
-# Study Center
-The Study Center is a comprehensive desktop software solution for managing educational operations in schools and educational institutions. It provides various functionalities for organizing classes, students, teachers, subjects, and other administrative tasks. The system is designed to improve efficiency and streamline the management of educational resources.
+# Shikshya-Sathi
+The Shikshya-Sathi is a comprehensive desktop software solution for managing educational operations in schools and educational institutions. It provides various functionalities for organizing classes, students, teachers, subjects, and other administrative tasks. The system is designed to improve efficiency and streamline the management of educational resources.
 
 ## Key Features
 
@@ -56,10 +56,9 @@ The Study Center is a comprehensive desktop software solution for managing educa
 - **Deployment:** Standalone desktop application
 
 ## Getting Started:
-1. Clone the repository: `https://github.com/dev-khaled-yousef/study-center-management-system`
+1. Clone the repository: `https://github.com/rajeshkarki9/Shikshya-Sathi`
 2. Open the project in Visual Studio.
 3. Build and run the application.
 
-Explore our demo [here](https://www.youtube.com/watch?v=x9GjqqBsmzk&t=117s) and experience the power of efficient Study Center management on your desktop!
 
-Feel free to contribute to the project by opening issues or submitting pull requests. For any queries, contact us at `khalidsliman2014@gmail.com`.
+Feel free to contribute to the project by opening issues or submitting pull requests. For any queries, contact us at `ShikshyaSathi77@gmail.com`.
